@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://synergy-website-alpha.vercel.app/sitemap.xml
