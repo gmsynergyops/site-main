@@ -9,6 +9,8 @@ import { useInView } from "react-intersection-observer";
 const LeadershipPage = (props: LeaderPageProps) => {
     const {
         name,
+        creds1,
+        creds2,
         role,
         description,
         image,
@@ -96,8 +98,11 @@ const LeadershipPage = (props: LeaderPageProps) => {
                                 className="space-y-1 text-center lg:text-left"
                             >
                                 <h2 className="text-xl font-bold text-synergy-pink">{name}</h2>
+
+                                <h3 className="text-[16px] tracking-wide font-bold text-synergy-blue">{creds1}</h3>
+                                <h3 className="text-[16px] tracking-wide font-bold text-synergy-blue">{creds2}</h3>
                                 <h3 className="text-base text-neutral-600 font-medium">{role}</h3>
-                                <p className="text-sm text-neutral-600 leading-relaxed">{description}</p>
+                                <p className="text-sm text-black leading-relaxed">{description}</p>
                             </motion.div>
                             <motion.div
                                 variants={itemVariants}
@@ -106,7 +111,7 @@ const LeadershipPage = (props: LeaderPageProps) => {
                                 {theirStory?.map((story, index) => (
                                     <p
                                         key={index}
-                                        className="text-sm text-neutral-600 leading-relaxed"
+                                        className="text-sm text-black leading-relaxed"
                                     >
                                         {story}
                                     </p>
@@ -159,7 +164,7 @@ const LeadershipPage = (props: LeaderPageProps) => {
                                 <motion.p
                                     key={idx}
                                     variants={itemVariants}
-                                    className="text-sm text-neutral-600 leading-relaxed"
+                                    className="text-sm text-black leading-relaxed"
                                 >
                                     {para}
                                 </motion.p>
@@ -201,7 +206,7 @@ const LeadershipPage = (props: LeaderPageProps) => {
                                 <motion.p
                                     key={idx}
                                     variants={itemVariants}
-                                    className="text-sm text-neutral-600 leading-relaxed"
+                                    className="text-sm text-black leading-relaxed"
                                 >
                                     {para}
                                 </motion.p>
@@ -228,7 +233,7 @@ const LeadershipPage = (props: LeaderPageProps) => {
                                 <motion.p
                                     key={idx}
                                     variants={itemVariants}
-                                    className="text-sm text-neutral-600 leading-relaxed"
+                                    className="text-sm text-black leading-relaxed"
                                 >
                                     {para}
                                 </motion.p>
@@ -260,11 +265,11 @@ const LeadershipPage = (props: LeaderPageProps) => {
                     <div className="space-y-6">
                         <motion.p
                             variants={itemVariants}
-                            className="text-sm text-neutral-600 leading-relaxed text-center"
+                            className="text-sm text-black leading-relaxed text-left"
                         >
                             {fifthSectionDescription}
                         </motion.p>
-                        <motion.div
+                        {/* <motion.div
                             variants={imageVariants}
                             className="w-full relative aspect-video overflow-hidden rounded-xl"
                         >
@@ -272,7 +277,7 @@ const LeadershipPage = (props: LeaderPageProps) => {
                                 image={videoModalForJourney.image}
                                 videoUrl={videoModalForJourney.videoUrl}
                             />
-                        </motion.div>
+                        </motion.div> */}
                     </div>
                 </motion.div>
             </section>

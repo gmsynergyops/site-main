@@ -9,6 +9,8 @@ export default function DrSaurabhMishraPage() {
   const tSaurabh = useTranslations('LeadershipPage.saurabhMishra');
   const props: LeaderPageProps = {
     name: tSaurabh('name'),
+    creds1: tSaurabh('creds1'),
+    creds2: tSaurabh('creds2'),
     role: tSaurabh('role'),
     description: tSaurabh('description'),
     image: "/leaders/doc-saurabh-mishra.jpg",

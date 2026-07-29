@@ -63,6 +63,8 @@ export  interface VideoModalTriggerProps  extends ComponentPropsWithoutRef<"div"
   export interface LeaderCardProps {
     image: string
     name: string
+    creds1?:string
+    creds2?:string
     role: string
     description: string
     onReadMore?: string
