@@ -111,7 +111,7 @@ export function Navbar() {
                     result ? "text-black" : "text-white"
                 )}
             >
-                <div className="flex items-center justify-start w-1/4 px-2">
+                <div className="flex items-center justify-start gap-4 w-1/4 px-2">
                     <NavigationMenuLink
                         href="/"
                         className="h-16 py-2 xl:p-0! rounded-none m-0! hover:bg-transparent"
@@ -125,6 +125,22 @@ export function Navbar() {
                             priority
                         />
                     </NavigationMenuLink>
+                    <Image
+                        src="/nabh-logo.png"
+                        alt={t('logo')}
+                        height={64}
+                        width={64}
+                        className="h-full w-auto object-cover"
+                        priority
+                    />
+                    <Image
+                        src="/qci-logo.png"
+                        alt={t('logo')}
+                        height={48}
+                        width={48}
+                        className="h-full w-auto object-cover"
+                        priority
+                    />
                 </div>
                 <NavigationMenuList className="w-full flex items-center justify-evenly lg:space-x-4 space-x-0">
                     {menuItems.map((item, index) => (
