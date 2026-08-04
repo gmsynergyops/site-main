@@ -347,10 +347,29 @@ export function Navbar() {
             </NavigationMenu>
 
             {/* Mobile Menu */}
-            <div className="w-full md:hidden flex h-full relative">
+            <div className="w-full md:hidden flex h-full relative items-center gap-1">
                 <Link href={"/"} className="w-40 h-[68px] py-2! rounded-none m-0!">
                     <Image src="/LOGO.svg" alt="Logo" height={40} width={50} className="size-full rounded-none" priority />
                 </Link>
+
+                <div className="flex h-10 items-center gap-1.5">
+                    <Image
+                        src="/nabh-logo.png"
+                        alt={t('logo')}
+                        height={24}
+                        width={24}
+                        className="h-full w-auto object-cover"
+                        priority
+                    />
+                    <Image
+                        src="/qci-logo.png"
+                        alt={t('logo')}
+                        height={24}
+                        width={24}
+                        className="h-full w-auto object-cover"
+                        priority
+                    />
+                </div>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2 items-center justify-end">
                     {/* Language Switch */}
                     <LanguageSwitch switchLocale={switchLocale} />
