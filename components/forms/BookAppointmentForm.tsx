@@ -1,6 +1,7 @@
 "use client"
 import {
-  Button
+  Button,
+  buttonVariants
 } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import {
@@ -71,7 +72,7 @@ const formSchema = z.object({
 
 export default function BookAppointmentForm() {
   const [selectedDepartment, setSelectedDepartment] = useState<string>("")
-  const [state, handleSubmit] = useFormspreeForm("xldbldyr");
+  const [state, handleSubmit] = useFormspreeForm("meajjaov");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -92,67 +93,67 @@ export default function BookAppointmentForm() {
     form.setValue("selectedDoctor", "")
   }
 
- async function onSubmit(values: z.infer<typeof formSchema>) {
-  try {
-    /**
-     * 1️⃣ Raw data (DB-friendly)
-     */
-    const dbPayload = {
-      patientName: values.patientName,
-      phoneNumber: values.phoneNumber,
-      email: values.email,
-      message: values.message,
-      department: values.department,
-      selectedDoctor: values.selectedDoctor,
-      appointmentDate: values.appointmentDate,
-      timeSlot: timeSlots.find(slot => slot.id === values.timeSlot)?.time,
-      insurance: values.insurance,
-      emergency: values.emergency ?? false,
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      /**
+       * 1️⃣ Raw data (DB-friendly)
+       */
+      const dbPayload = {
+        patientName: values.patientName,
+        phoneNumber: values.phoneNumber,
+        email: values.email,
+        message: values.message,
+        department: values.department,
+        selectedDoctor: values.selectedDoctor,
+        appointmentDate: values.appointmentDate,
+        timeSlot: timeSlots.find(slot => slot.id === values.timeSlot)?.time,
+        insurance: values.insurance,
+        emergency: values.emergency ?? false,
+      }
+
+      /**
+       * 2️⃣ Save to MongoDB (SOURCE OF TRUTH)
+       */
+      // const dbRes = await fetch("/api/appointments", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(dbPayload),
+      // })
+
+      // if (!dbRes.ok) {
+      //   throw new Error("Failed to save appointment in DB")
+      // }
+
+      /**
+       * 3️⃣ Send Email via Formspree (formatted for humans)
+       */
+      await handleSubmit({
+        patientName: dbPayload.patientName,
+        phoneNumber: dbPayload.phoneNumber,
+        email: dbPayload.email,
+        message: dbPayload.message,
+        department: dbPayload.department,
+        selectedDoctor: dbPayload.selectedDoctor,
+        appointmentDate: values.appointmentDate
+          ? format(values.appointmentDate, "MMMM d, yyyy")
+          : "Not selected",
+        timeSlot: dbPayload.timeSlot ?? "Not selected",
+        insurance: dbPayload.insurance ?? "Not provided",
+        emergency: dbPayload.emergency ? "Yes" : "No",
+      })
+
+      /**
+       * 4️⃣ Success UI
+       */
+      toast.success("Appointment request submitted successfully!")
+      form.reset()
+      setSelectedDepartment("")
+
+    } catch (error) {
+      console.error("Appointment submit error:", error)
+      toast.error("Failed to submit appointment request.")
     }
-
-    /**
-     * 2️⃣ Save to MongoDB (SOURCE OF TRUTH)
-     */
-    const dbRes = await fetch("/api/appointments", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dbPayload),
-    })
-
-    if (!dbRes.ok) {
-      throw new Error("Failed to save appointment in DB")
-    }
-
-    /**
-     * 3️⃣ Send Email via Formspree (formatted for humans)
-     */
-    await handleSubmit({
-      patientName: dbPayload.patientName,
-      phoneNumber: dbPayload.phoneNumber,
-      email: dbPayload.email,
-      message: dbPayload.message,
-      department: dbPayload.department,
-      selectedDoctor: dbPayload.selectedDoctor,
-      appointmentDate: values.appointmentDate
-        ? format(values.appointmentDate, "MMMM d, yyyy")
-        : "Not selected",
-      timeSlot: dbPayload.timeSlot ?? "Not selected",
-      insurance: dbPayload.insurance ?? "Not provided",
-      emergency: dbPayload.emergency ? "Yes" : "No",
-    })
-
-    /**
-     * 4️⃣ Success UI
-     */
-    toast.success("Appointment request submitted successfully!")
-    form.reset()
-    setSelectedDepartment("")
-
-  } catch (error) {
-    console.error("Appointment submit error:", error)
-    toast.error("Failed to submit appointment request.")
   }
-}
 
   const submitEmergencyAppointment = () => {
     form.setValue("emergency", true)
@@ -302,22 +303,19 @@ export default function BookAppointmentForm() {
               <div data-invalid={fieldState.invalid}>
                 <label className="block text-base font-medium mb-2">Appointment Date <span className="text-sm text-neutral-900">(optional)</span></label>
                 <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-full pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                      aria-invalid={fieldState.invalid}
-                    >
-                      {field.value ? (
+                  <PopoverTrigger className={cn(
+                    "w-full pl-3 text-left font-normal",
+                    !field.value && "text-muted-foreground",
+                    buttonVariants({ variant: "outline" })
+                  )}
+                    aria-invalid={fieldState.invalid}
+                  >
+                    {field.value ? (
                         format(field.value, "PPP")
                       ) : (
                         <span>Select date</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
                     <Calendar

@@ -70,7 +70,7 @@ export const GalleryMarquee = () => {
                 ))}
             </Marquee>
 
-            <div className="w-full flex items-center justify-center mt-6">
+            <div className="w-full sr-only flex items-center justify-center mt-6">
                 <Link href={"/media-center#media-gallery"}>
                     <Button
                         className='capitalize flex items-center gap-2 px-8 py-6 rounded-full'

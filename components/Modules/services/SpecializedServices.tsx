@@ -258,7 +258,7 @@ const SpecializedServices = () => {
                             <h3 className="text-sm font-medium text-red-800">Emergency Services Available 24/7</h3>
                             <div className="mt-2 text-sm text-red-700">
                                 <p>
-                                    For emergency cases in any of these specialized units, please call our emergency hotline at <strong>+1 (555) 123-4567</strong> or proceed directly to our emergency department.
+                                    For emergency cases in any of these specialized units, please call our emergency hotline at <strong>+91 (1800)-570-6595</strong> or proceed directly to our emergency department.
                                 </p>
                             </div>
                         </div>

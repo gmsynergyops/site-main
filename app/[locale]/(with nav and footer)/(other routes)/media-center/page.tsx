@@ -65,9 +65,9 @@ const MediaCenter = () => {
         <main className='bg-accent lg:pt-20 lg:-mt-10'>
             <SynergyInTheNewsSection />
             <PressReleasesSection />
-            <EventsAndConferences />
+            {/* <EventsAndConferences /> */}
             <MediaGallery />
-            <MediaContacts />
+            {/* <MediaContacts /> */}
         </main>
     )
 }

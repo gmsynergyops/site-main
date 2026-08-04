@@ -74,7 +74,7 @@ export const RestSections = () => {
             </section>
 
             {/* Achievements and Milestones Section */}
-            <section
+            {/* <section
                 ref={achievementsRef}
                 id="Achievements-and-Milestones"
                 className="w-full px-4 sm:px-6 lg:px-8 py-6 md:py-8"
@@ -134,7 +134,7 @@ export const RestSections = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* A Day at Synergy Section */}
             <section

@@ -251,7 +251,7 @@ export const doctors: Doctor[] = [
 
   {
     id: 16,
-    name: "Dr Vineeta Singh",
+    name: "Dr. Vineeta Singh",
     qualification:
       "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMH GUWAHATI",
     department: "Medical Oncology & Hematology-Oncology",

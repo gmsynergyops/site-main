@@ -96,8 +96,8 @@ const Insurance = () => {
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold mb-8 text-gray-800">Insurance Support</h2>
                     <div className="space-y-4 mb-8">
-                        <p className="text-lg">📞 +91-XXX-XXXX-XXX</p>
-                        <p className="text-lg">✉️ insurance.support@hospital.com</p>
+                        {/* <p className="text-lg">📞 +91-XXX-XXXX-XXX</p>
+                        <p className="text-lg">✉️ insurance.support@hospital.com</p> */}
                         <p className="text-lg">📍 Ground Floor, Main Lobby - Insurance Desk</p>
                     </div>
                     <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">

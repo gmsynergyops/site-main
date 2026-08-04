@@ -2,6 +2,7 @@ import { MenuItemProps, OPD, PressRelease, TestimonialItem } from "@/types";
 import { useTranslations } from 'next-intl';
 
 export const MAIN_URL = "/videos/homepage-main/m1v.webm"
+export const MOBILE_MAIN_URL = "/videos/homepage-main/m2v.mp4"
 
 export const useMenuItems = () => {
     const t = useTranslations('menu');
@@ -45,9 +46,9 @@ export const useMenuItems = () => {
                     links: [
                         { label: t('sections.mediaCenter.links.inTheNews'), href: "/media-center#synergy-in-the-news" },
                         { label: t('sections.mediaCenter.links.pressReleases'), href: "/media-center#press-releases" },
-                        { label: t('sections.mediaCenter.links.events'), href: "/media-center#events" },
+                        // { label: t('sections.mediaCenter.links.events'), href: "/media-center#events" },
                         { label: t('sections.mediaCenter.links.mediaGallery'), href: "/media-center#media-gallery" },
-                        { label: t('sections.mediaCenter.links.mediaContact'), href: "/media-center#media-contacts" },
+                        // { label: t('sections.mediaCenter.links.mediaContact'), href: "/media-center#media-contacts" },
                     ],
                 },
                 {
@@ -57,6 +58,12 @@ export const useMenuItems = () => {
                         { label: t('sections.termsPrivacy.links.termsConditions'), href: "/terms-and-conditions" },
                     ],
                 },
+                {
+                    name: "Contact Us",
+                    links: [
+                        {label: "Synergy Contacts", href: "/contact"}
+                    ]
+                }
             ],
         },
         {
@@ -123,7 +130,7 @@ export const useMenuItems = () => {
                     name: t('sections.administrativeServices.name'),
                     links: [
                         { label: t('sections.administrativeServices.links.admission'), href: "/services/admission-and-discharge" },
-                        { label: t('sections.administrativeServices.links.billing'), href: "/services/billing-and-insurance" },
+                        // { label: t('sections.administrativeServices.links.billing'), href: "/services/billing-and-insurance" },
                         { label: t('sections.administrativeServices.links.medicalRecords'), href: "/services/medical-records" },
                     ]
                 },
@@ -255,6 +262,17 @@ export const useMenuItems = () => {
                 }
             ]
         },
+        {
+            label: "Careers",
+            pages: [
+                {
+                    name: "Careers",
+                    links: [
+                        {label: "Join Synergy", href:"/careers"}
+                    ]
+                }
+            ]
+        }
     ];
 
     return menuItems;
@@ -274,16 +292,16 @@ export const useQuickLinks = () => {
             value: t('contactNumbers.value'),
             bg: "bg-violet-50"
         },
-       /*   {
-            label: t('support.label'),
-            value: t('support.value'),
-            bg: "bg-teal-50"
-        },
-      {
-            label: t('peripheralOpd.label'),
-            value: t('peripheralOpd.value'),
-            bg: "bg-yellow-50"
-        },*/
+        // {
+        //     label: t('support.label'),
+        //     value: t('support.value'),
+        //     bg: "bg-teal-50"
+        // },
+        // {
+        //     label: t('peripheralOpd.label'),
+        //     value: t('peripheralOpd.value'),
+        //     bg: "bg-yellow-50"
+        // },
     ];
 };
 
@@ -669,24 +687,24 @@ export const useOPD_Data = () => {
 
 
 export const pressReleases: PressRelease[] = [
-      {
-    id: 'ai-diagnostic-center',
-    date: '2024-03-15',
-    title: 'items.aiDiagnosticCenter.title',
-    summary: 'items.aiDiagnosticCenter.summary',
-    type: 'innovation',
-    link: '/press-releases/ai-diagnostic-center',
-    content: 'items.aiDiagnosticCenter.content'
-  },
-  {
-    id: 'top-cancer-care',
-    date: '2024-03-12',
-    title: 'items.topCancerCare.title',
-    summary: 'items.topCancerCare.summary',
-    type: 'award',
-    link: '/press-releases/top-cancer-care',
-    content: 'items.topCancerCare.content'
-  }
+    {
+        id: 'ai-diagnostic-center',
+        date: '2024-03-15',
+        title: 'items.aiDiagnosticCenter.title',
+        summary: 'items.aiDiagnosticCenter.summary',
+        type: 'innovation',
+        link: '/press-releases/ai-diagnostic-center',
+        content: 'items.aiDiagnosticCenter.content'
+    },
+    {
+        id: 'top-cancer-care',
+        date: '2024-03-12',
+        title: 'items.topCancerCare.title',
+        summary: 'items.topCancerCare.summary',
+        type: 'award',
+        link: '/press-releases/top-cancer-care',
+        content: 'items.topCancerCare.content'
+    }
 ]
 
 export const ContactUsMessage = encodeURIComponent("Hello, I would like to know more about your services.");

@@ -7,30 +7,23 @@ import NewsSlider from "@/components/homepage/NewsSlider";
 import { PatientTestimonials } from "@/components/homepage/PatientTestimonials";
 import { SpecialitiesSection } from "@/components/homepage/SpecialitiesSection";
 import { TestimonialCards } from "@/components/homepage/TestimonialCards";
-import { MAIN_URL } from "@/data";
+import { MAIN_URL, MOBILE_MAIN_URL } from "@/data";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useGeneralQuestions } from '@/data';
+import HomepageVideo from "./homepage-video";
 
 export const Homepage = () => {
     const t = useTranslations('homepage');
     const generalQuestions = useGeneralQuestions();
 
+
     return (
         <main className="w-full flex flex-col items-center justify-center ">
             {/* Hero Section with Video */}
             <section id="banner" className="relative min-h-screen w-full ">
-                <video
-                    preload="auto"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
-                    aria-label="Promotional video showcasing Synergy Hospital"
-                >
-                    <source src={MAIN_URL} type="video/webm" />
-                </video>
+
+                <HomepageVideo />
                 <div className="absolute lg:bottom-5 bottom-20 w-full flex justify-center px-4">
                     <Link
                         href="#specialties"
@@ -42,15 +35,15 @@ export const Homepage = () => {
                 <FloatingBarWrapper isOnHomePage={true} />
             </section>
 
-           
+
             {/* Specialties Section */}
             <SpecialitiesSection />
             {/*The Leader Card Grid*/}
-            
-            <div className="bg-gradient-to-b from-fuchsia-100 to-white w-full flex items-center justify-center">
+
+            <div className="bg-linear-to-b from-fuchsia-100 to-white w-full flex items-center justify-center">
                 <LeaderCards />
             </div>
-             <div className="max-w-screen w-full text-black lg:p-5 p-2 ">
+            <div className="max-w-screen w-full text-black lg:p-5 p-2 ">
                 {/* Ayushmaan Bharat */}
                 <AyushmaanBharatCard />
             </div>
@@ -72,7 +65,7 @@ export const Homepage = () => {
             <PatientTestimonials />
 
             {/* FAQs */}
-            <section className="w-full bg-gradient-to-t from-white to-slate-100 px-4 sm:px-8 lg:px-20 py-10">
+            <section className="w-full bg-linear-to-t from-white to-slate-100 px-4 sm:px-8 lg:px-20 py-10">
                 <div className="max-w-6xl mx-auto space-y-6">
                     <div className="space-y-4 text-center">
                         <h2 className="text-heading text-2xl sm:text-3xl lg:text-4xl">

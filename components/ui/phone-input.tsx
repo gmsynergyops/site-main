@@ -3,7 +3,7 @@ import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -86,24 +86,20 @@ const CountrySelect = ({
 }: CountrySelectProps) => {
   return (
     <Popover>
-      <PopoverTrigger>
-        <Button
-          type="button"
-          variant="default"
-          className="flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10 bg-white hover:bg-secondary/50 "
-          disabled={disabled}
-        >
-          <FlagComponent
-            country={selectedCountry}
-            countryName={selectedCountry}
-          />
-          <ChevronsUpDown
-            className={cn(
-              "-mr-2 size-4 text-black/40 opacity-50",
-              disabled ? "hidden" : "opacity-100",
-            )}
-          />
-        </Button>
+      <PopoverTrigger
+        className={cn("flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10 bg-white hover:bg-secondary/50 items-center",)}
+        disabled={disabled}
+      >
+        <FlagComponent
+          country={selectedCountry}
+          countryName={selectedCountry}
+        />
+        <ChevronsUpDown
+          className={cn(
+            "-mr-2 size-4 text-black/40 opacity-50",
+            disabled ? "hidden" : "opacity-100",
+          )}
+        />
       </PopoverTrigger>
       <PopoverContent className="w-[300px] p-0">
         <Command>
