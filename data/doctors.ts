@@ -55,23 +55,6 @@ export const doctors: Doctor[] = [
     ],
     isSenior: true,
   },
-  // {
-  //   id: 4,
-  //   name: "Dr. Harshit Mishra",
-  //   qualification: "M.B.B.S MD,PDAF(Neuroanesthesia),Ex Seniorfellow Resident SGPGI LKO",
-  //   department: "Anesthesia",
-  //   experience: "8 Years,( 3Years as a Resident & 5 years As a Consultant)",
-  //   image: "/doctors/dr-harshit-mishra.webp",
-  //   availability: [
-  //     { day: "Mon", time: "9:00 AM - 5:00 PM" },
-  //     { day: "Tue", time: "9:00 AM - 5:00 PM" },
-  //     { day: "Wed", time: "9:00 AM - 5:00 PM" },
-  //     { day: "Thu", time: "9:00 AM - 5:00 PM" },
-  //     { day: "Fri", time: "9:00 AM - 5:00 PM" },
-  //     { day: "Sat", time: "9:00 AM - 5:00 PM" }
-  //   ],
-  //   isSenior: false
-  // },
   {
     id: 5,
     name: "Dr. Vishrut Bharti",
@@ -272,7 +255,7 @@ export const doctors: Doctor[] = [
     qualification:
       "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMH GUWAHATI",
     department: "Medical Oncology & Hematology-Oncology",
-    experience: "15+",
+    experience: "5",
     image: "/doctors/dr-vineeta-singh.webp",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
@@ -282,7 +265,7 @@ export const doctors: Doctor[] = [
       { day: "Fri", time: "9:00 AM - 5:00 PM" },
       { day: "Sat", time: "9:00 AM - 5:00 PM" },
     ],
-    isSenior: true,
+    isSenior: false,
   },
 
   {
