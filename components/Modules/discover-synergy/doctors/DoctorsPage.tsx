@@ -212,7 +212,7 @@ export const DoctorsPage = () => {
                                     <div className="flex flex-col grow p-6">
                                         <h3 className="text-lg font-bold text-gray-800 mb-1">{doctor.name}</h3>
 
-                                        <p className="text-neutral-600 font-light text-xs mb-2 line-clamp-2">
+                                        <p className="text-neutral-600 font-light text-xs mb-2 ">
                                             {doctor.qualification}
                                         </p>
 

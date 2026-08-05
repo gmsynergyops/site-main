@@ -41,7 +41,7 @@ export const doctors: Doctor[] = [
     id: 3,
     name: "Dr. Anjali Jain",
     qualification:
-      "MBBS, DGO, DNB (Obstetrics & Gynecology) FAMS, FMAS, Fellowship in Gynae oncology, FARIS, Specialization: Oncology & Minimally invasive, Gynecological Surgery",
+      "MBBS, DGO, DNG, FMAS, FARIS, Fellowship in Advanced Robotic and Innovative Surgery Royal College of Surgeons of Edinburgh, Fellowship in Gynae Oncology (ESGO Certified Gynae Oncologist), C.O.: Massachusetts General Hospital, Boston, U.S., C.O.: Gemelli Hospital, Rome, Italy",
     department: "Gynecology & Obstetrics",
     experience: "14+",
     image: "/doctors/dr-anjali-jain-1.jpeg",
