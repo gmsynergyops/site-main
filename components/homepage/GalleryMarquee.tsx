@@ -56,7 +56,7 @@ export const GalleryMarquee = () => {
                         </div>
                         
                         {/* Text Overlay - Ise thoda bada kiya hai taaki lamba text ache se dikhe */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                        {/* <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                             <div>
                                 <span className="text-xs font-medium text-white bg-blue-600 px-3 py-1 rounded-full shadow-sm">
                                     {item.category}
@@ -65,7 +65,7 @@ export const GalleryMarquee = () => {
                                     {item.title}
                                 </h3>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 ))}
             </Marquee>

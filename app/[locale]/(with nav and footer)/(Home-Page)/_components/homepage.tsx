@@ -7,10 +7,9 @@ import NewsSlider from "@/components/homepage/NewsSlider";
 import { PatientTestimonials } from "@/components/homepage/PatientTestimonials";
 import { SpecialitiesSection } from "@/components/homepage/SpecialitiesSection";
 import { TestimonialCards } from "@/components/homepage/TestimonialCards";
-import { MAIN_URL, MOBILE_MAIN_URL } from "@/data";
+import { useGeneralQuestions } from '@/data';
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useGeneralQuestions } from '@/data';
 import HomepageVideo from "./homepage-video";
 
 export const Homepage = () => {
@@ -21,7 +20,7 @@ export const Homepage = () => {
     return (
         <main className="w-full flex flex-col items-center justify-center ">
             {/* Hero Section with Video */}
-            <section id="banner" className="relative min-h-screen w-full ">
+            <section id="banner" className="relative aspect-4/3 lg:aspect-4/2 min-w-full ">
 
                 <HomepageVideo />
                 <div className="absolute lg:bottom-5 bottom-20 w-full flex justify-center px-4">

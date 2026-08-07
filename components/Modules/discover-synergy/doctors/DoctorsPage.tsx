@@ -176,7 +176,7 @@ export const DoctorsPage = () => {
                             variants={container}
                             initial="hidden"
                             animate={isInView ? "show" : "hidden"}
-                             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8"
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8"
                         >
                             {filteredDoctors.map((doctor) => (
                                 <motion.div
@@ -212,9 +212,16 @@ export const DoctorsPage = () => {
                                     <div className="flex flex-col grow p-6">
                                         <h3 className="text-lg font-bold text-gray-800 mb-1">{doctor.name}</h3>
 
-                                        <p className="text-neutral-600 font-light text-xs mb-2 ">
-                                            {doctor.qualification}
-                                        </p>
+                                        {doctor.qualification && (
+                                            <p className="text-neutral-600 font-light text-xs mb-2">
+                                                {doctor.qualification.split('\n').map((line, i) => (
+                                                    <span key={i}>
+                                                        {line}
+                                                        {i < doctor.qualification.split('\n').length - 1 && <br />}
+                                                    </span>
+                                                ))}
+                                            </p>
+                                        )}
 
                                         <div className="flex items-center text-gray-600 mb-2">
                                             <FaHospital className="mr-2 text-gray-400" />

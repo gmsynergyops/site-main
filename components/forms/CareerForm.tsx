@@ -48,6 +48,7 @@ const formSchema = z.object({
 });
 
 const departments = [
+    { value: "doctors", label: "Doctors" },
     { value: "operations", label: "Operations" },
     { value: "reception", label: "Reception" },
     { value: "nursing", label: "Nursing" },

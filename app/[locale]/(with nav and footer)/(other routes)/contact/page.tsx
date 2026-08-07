@@ -46,7 +46,7 @@ const whatsappUrl = "https://wa.me/917234006595";
 
 const locations: Location[] = [
   {
-    label: "Main Hospital",
+    label: "Synergy Superspeciality Hospital & Cancer Institute",
     tag: "OPD · IPD · Surgery",
     address: "Chhatrasangh Chauraha, Gorakhpur, 273001",
     mapURL:
@@ -57,7 +57,7 @@ const locations: Location[] = [
     border: "border-l-synergy-blue",
   },
   {
-    label: "Radiation Center",
+    label: "Synergy Cancer Care - Radiation Center & Day Care",
     tag: "GNFT Tower · 1st Floor",
     address: "Khajanchi Chauraha, Gorakhpur, 273001",
     mapURL:
@@ -209,66 +209,84 @@ const ContactPage = () => {
             {
               icon: MdPhone,
               title: "Reception",
-              value: phone1,
-              href: `tel:${phone1}`,
+              values: [phone1],
+              hrefs: [`tel:${phone1}`],
             },
             {
               icon: MdPhone,
               title: "Appointments",
-              value: phone2,
-              href: `tel:${phone2}`,
+              values: [phone1, phone2],
+              hrefs: [`tel:${phone1}`, `tel:${phone2}`],
             },
             {
               icon: MdOutlineAlternateEmail,
               title: "Email",
-              value: email,
-              href: `mailto:${email}`,
+              values: [email],
+              hrefs: [`mailto:${email}`],
             },
-          ].map(({ icon: Icon, title, value, href }, index) => {
+          ].map(({ icon: Icon, title, values, hrefs }, index) => {
             const isOdd = index % 2 !== 0;
 
             return (
-              <a
+              <div
                 key={title}
-                href={href}
-                className={`rounded-2xl bg-white border border-[#E2E1E8] border-l-4 flex gap-4 p-5 transition hover:shadow-md ${
+                className={`rounded-2xl bg-white border border-[#E2E1E8] border-l-4 flex flex-col gap-4 p-5 transition hover:shadow-md ${
                   isOdd ? "border-l-synergy-blue" : "border-l-synergy-pink"
                 }`}
               >
-                <span
-                  className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 ${
-                    isOdd ? "bg-synergy-blue/15" : "bg-synergy-pink/15"
-                  }`}
-                >
-                  <Icon
-                    size={20}
-                    className={
-                      isOdd ? "text-synergy-blue" : "text-synergy-pink"
-                    }
-                  />
-                </span>
-
-                <div>
-                  <p
-                    className={`text-xs uppercase tracking-wide mb-1 ${
-                      isOdd ? "text-synergy-blue/70" : "text-synergy-pink/70"
-                    }`}
-                    style={{
-                      fontFamily: "'IBM Plex Mono', monospace",
-                    }}
-                  >
-                    {title}
-                  </p>
-
-                  <p
-                    className={`font-semibold break-all ${
-                      isOdd ? "text-synergy-blue" : "text-synergy-pink"
+                <div className="flex gap-4">
+                  <span
+                    className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 ${
+                      isOdd ? "bg-synergy-blue/15" : "bg-synergy-pink/15"
                     }`}
                   >
-                    {value}
-                  </p>
+                    <Icon
+                      size={20}
+                      className={
+                        isOdd ? "text-synergy-blue" : "text-synergy-pink"
+                      }
+                    />
+                  </span>
+
+                  <div>
+                    <p
+                      className={`text-xs uppercase tracking-wide mb-1 ${
+                        isOdd ? "text-synergy-blue/70" : "text-synergy-pink/70"
+                      }`}
+                      style={{
+                        fontFamily: "'IBM Plex Mono', monospace",
+                      }}
+                    >
+                      {title}
+                    </p>
+
+                    {values.length > 1 ? (
+                      <div className="space-y-2">
+                        {values.map((value, valueIndex) => (
+                          <a
+                            key={value}
+                            href={hrefs[valueIndex]}
+                            className={`block font-semibold break-all ${
+                              isOdd ? "text-synergy-blue" : "text-synergy-pink"
+                            } hover:underline`}
+                          >
+                            {value}
+                          </a>
+                        ))}
+                      </div>
+                    ) : (
+                      <a
+                        href={hrefs[0]}
+                        className={`font-semibold break-all ${
+                          isOdd ? "text-synergy-blue" : "text-synergy-pink"
+                        } hover:underline`}
+                      >
+                        {values[0]}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>

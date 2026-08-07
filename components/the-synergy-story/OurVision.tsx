@@ -50,21 +50,29 @@ export const OurVision = () => {
                     </h1>
 
                     <div className="space-y-4 text-sm md:text-base text-gray-700">
-                        <p>
-                            {t('description.normal1')} <strong className='text-primary'>{t('description.strong1')}</strong> {t('description.normal2')}
-                        </p>
 
-                        <p>
-                            {t('vision.normal1')} <strong className='text-primary'>{t('vision.strong1')}</strong> {t('vision.normal2')} <strong className='text-primary'>{t('vision.strong2')}</strong> {t('vision.normal3')} <strong className='text-primary'>{t('vision.strong3')}</strong>{t('vision.normal4')}
-                        </p>
 
-                        <p>{t('location.normal1')}</p>
+                        <p>At Synergy Super Speciality Hospital & Cancer Institute, our vision is to build a future where cancer is no longer feared, no life is lost due to lack of timely treatment, and no patient&apos;s journey to healing is interrupted because of financial constraints.</p>
+
+                        <p>We envision becoming one of India&apos;s most trusted and respected centers of excellence in comprehensive cancer care and super speciality healthcare, delivering world-class, evidence-based, compassionate, and affordable medical services to every individual who needs them.</p>
+
+                        <p>Our vision is to ensure that every patient receives timely access to advanced diagnostics, cutting-edge treatment, multidisciplinary expertise, and personalized care with dignity, empathy, and hope. We are committed to breaking barriers to quality healthcare by making advanced treatment accessible, ethical, and affordable for all.</p>
+
+                        <p>Through continuous innovation, clinical excellence, research, education, advanced technology, and an unwavering commitment to patient safety, we aspire to redefine healthcare standards and improve lives across Eastern Uttar Pradesh, Western Bihar, Southern Nepal, and beyond.</p>
+
+                        <p>We believe that every life is precious, every patient deserves hope, and every family deserves the chance to see their loved ones healed.</p>
+
+                        <p>Our Vision is simple yet profound:</p>
+
                         <ul className="list-disc pl-5 space-y-1">
-                            {t.raw('location.services').map((service: string) => (
-                                <li key={service}>{service}</li>
-                            ))}
+                            <li>No life should be lost to cancer because treatment was delayed.</li>
+                            <li>No patient&apos;s treatment should stop because of financial hardship.</li>
+                            <li>No family should lose hope when quality healthcare can make a difference.</li>
                         </ul>
 
+                        <p> Together, we envision a healthier tomorrow—where healing is driven by compassion, excellence, innovation, and the unwavering belief that every life matters.</p>
+
+                        <p>Saving Lives. Restoring Hope. Caring Beyond Boundaries.</p>
                         <p>{t('conclusion')}</p>
                     </div>
                 </motion.div>

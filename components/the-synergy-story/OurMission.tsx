@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 export const OurMission = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
-    const t =  useTranslations('TheSynergyStory.OurMission')
+    const t = useTranslations('TheSynergyStory.OurMission')
     return (
         <section
             ref={ref}
@@ -32,25 +32,15 @@ export const OurMission = () => {
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                         className="space-y-5 text-gray-700 text-base leading-relaxed"
                     >
-                        <p>
-                            <strong className="text-primary">{t('description.strong1')}</strong> {t('description.normal1')} <strong className="text-primary">{t('description.strong2')}</strong>, {t('description.normal2')}
-                        </p>
+                        <p className="">At Synergy Super Speciality Hospital & Cancer Institute, our mission is to transform healthcare by delivering world-class, evidence-based, and compassionate medical care through clinical excellence, advanced technology, and a patient-first approach.</p>
 
-                        <p>
-                            {t('body.normal1')} <strong className="text-primary">&quot;{t('body.strong1')}&quot;</strong>, {t('body.normal2')}
-                            <span className="block mt-1">
-                                <strong className="text-primary">{t('body.span.strong.0')}</strong>, <strong className="text-primary">{t('body.span.strong.1')}</strong>, <strong className="text-primary">{t('body.span.strong.2')}</strong>,
-                                <strong className="text-primary"> {t('body.span.strong.3')}</strong>, <strong className="text-primary">{t('body.span.strong.4')}</strong>, <strong className="text-primary">{t('body.span.strong.5')}</strong>, {t('body.span.and')} <strong className="text-primary">{t('body.span.strong.6')}</strong>.
-                            </span>
-                        </p>
+                        <p className="">We are committed to providing accessible, affordable, and ethical healthcare across a wide range of super-speciality services, with a strong focus on comprehensive cancer care. Every patient is treated with dignity, empathy, respect, and personalized attention, ensuring the highest standards of safety and quality throughout their healthcare journey.</p>
 
-                        <p>
-                        {t('body2.normal1')} <strong className="text-primary">{t('body2.strong1')}</strong>, {t('body2.normal2')} <strong className="text-primary">{t('body2.strong2')}</strong> {t('body.span.and')}  <strong className="text-primary">{t('body2.strong3')}</strong> {t('body2.normal3')} <strong className="text-primary">{t('body2.strong4')}</strong> {t('body2.normal4')}
-                        </p>
+                        <p className="">Our mission is to continuously advance medical excellence by investing in cutting-edge technology, highly skilled healthcare professionals, continuous research, innovation, and education. We strive to create an environment where healing is driven by compassion, trust, and excellence.</p>
 
-                        <p>
-                        {t('body2.normal5')} <strong className="text-primary">{t('body2.strong5')}</strong>, <strong className="text-primary">{t('body2.strong6')}</strong>, {t('body.span.and')} <strong className="text-primary">{t('body2.strong7')}</strong> {t('body2.normal6')}
-                        </p>
+                        <p>As a leading healthcare institution serving Eastern Uttar Pradesh, Western Bihar, and Southern Nepal, we aspire to become the region&apos;s most trusted destination for advanced medical care by improving patient outcomes, enhancing quality of life, and making healthcare accessible to every individual who needs it.</p>
+
+                        <p>Healing with Compassion. Caring with Excellence. Inspiring Hope.</p>
                     </motion.div>
                 </div>
 

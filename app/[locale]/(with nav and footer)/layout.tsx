@@ -1,13 +1,16 @@
+import { SmoothScrollProvider } from '@/components/global/providers/SmoothScrollProvider'
 import { NavAndFooterWrapper } from '@/components/wrapper/NavAndFooterWrapper'
 import { PropsWithChildren } from 'react'
 
-const WithNavLayout = ({children}:PropsWithChildren) => {
+const WithNavLayout = ({ children }: PropsWithChildren) => {
   return (
-    <NavAndFooterWrapper>
+    <SmoothScrollProvider>
+      <NavAndFooterWrapper>
         <main className='min-h-screen w-full bottom-0 sticky '>
-        {children}
+          {children}
         </main>
-    </NavAndFooterWrapper>
+      </NavAndFooterWrapper>
+    </SmoothScrollProvider>
   )
 }
 

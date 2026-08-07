@@ -9,7 +9,7 @@ export const doctors: Doctor[] = [
       "Chief Surgical Oncologist, MBBS (Gold Medalist), MS (Gen Surgery) KGMU LucknowDNB, Dip MAS daVinciXi Certified Robotic Onco Surgeon, Surgical Oncology, ESSO (Breast Oncoplasty) FMAS, FALS (Colorectal)",
     department: "Surgical Oncology",
     experience: "14+",
-    image: "/doctors/dr-alok-tiwari-1.jpeg",
+    image: "/doctors/dr-alok-tiwari.webp",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
       { day: "Tue", time: "9:00 AM - 5:00 PM" },
@@ -75,11 +75,11 @@ export const doctors: Doctor[] = [
   },
   {
     id: 6,
-    name: "Dr. Tarique Anwer",
+    name: "Dr. Md. Tarique Anwer",
     qualification:
-      "BDS, MDS MAXILLOFACIAL SURGEON, FELLOSHIP IN HEAD & NECK ONCOLOGY",
-    department: "Head & Neck",
-    experience: "1.5 years",
+      "BDS, MDS MAXILLOFACIAL SURGEON, \nEx. Senior Lecturer S.B.B. Dental College, Ghaziabad, \nFELLOWSHIP IN HEAD & NECK SURGICAL ONCOLOGY, \nAssociate Consultant in Head & Neck Oncology in Synergy Super Speciality Hospital & Cancer Institute",
+    department: "Head & Neck Surgical Oncology",
+    experience: "6+ years",
     image: "/doctors/dr-tarik-anwar.png",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
@@ -95,10 +95,10 @@ export const doctors: Doctor[] = [
     id: 7,
     name: "Dr. Vishal Mishra",
     qualification:
-      "BDS, MDS, MDS MAXILLOFACIAL SURGEON, FELLOSHIP IN HEAD & NECK",
+      "MDS, \nEx registrar in HCG Cancer Centre, Ahmedabad, \nEx-fellow Rohilkhand Cancer Institute, Bareilly, \nAssociate Consultant in Head & Neck Oncology in Synergy Super Speciality Hospital & Cancer Institute",
     department: "Head & Neck Oncology",
-    experience: "1 year",
-    image: "/doctors/dr-vishal-mishra.png",
+    experience: "2+ year",
+    image: "/doctors/dr-vishal-mishra.webp",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
       { day: "Tue", time: "9:00 AM - 5:00 PM" },
@@ -165,9 +165,9 @@ export const doctors: Doctor[] = [
   {
     id: 11,
     name: "Dr. Amritansh Pandey",
-    qualification: "M.B.B.S, MD-Anesthesia",
-    department: "Anesthesia ",
-    experience: "10 years",
+    qualification: "M.B.B.S, MD-Anaesthesia & Critical Care",
+    department: "Onco-Anaesthesiologist ",
+    experience: "10+ years",
     image: "/doctors/dr-amritansh-pandey-1.jpeg",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
@@ -253,9 +253,9 @@ export const doctors: Doctor[] = [
     id: 16,
     name: "Dr. Vineeta Singh",
     qualification:
-      "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMH GUWAHATI",
+      "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMC BBCI, GUWAHATI",
     department: "Medical Oncology & Hematology-Oncology",
-    experience: "5",
+    experience: "5+",
     image: "/doctors/dr-vineeta-singh.webp",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
@@ -272,9 +272,9 @@ export const doctors: Doctor[] = [
     id: 17,
     name: "Dr. Shashank Srivastava",
     qualification:
-      "MBBS , MS (Ortho), JIPMER, Orthopedic, Joint and Nerve Specialist and Surgeon",
+      "MBBS , MS ORTHO (JIPMER), \nTrauma , Joint Replacement, Arthroscopy and Orthoonco Surgeon",
     department: "Orthopedics",
-    experience: "5+",
+    experience: "10+",
     image: "/doctors/dr-shashank-srivastava.jpg",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
@@ -294,6 +294,24 @@ export const doctors: Doctor[] = [
     department: "Head & Neck Oncology",
     experience: "2.5+",
     image: "/doctors/dr-arpit-tripathi.webp",
+    availability: [
+      { day: "Mon", time: "9:00 AM - 5:00 PM" },
+      { day: "Tue", time: "9:00 AM - 5:00 PM" },
+      { day: "Wed", time: "9:00 AM - 5:00 PM" },
+      { day: "Thu", time: "9:00 AM - 5:00 PM" },
+      { day: "Fri", time: "9:00 AM - 5:00 PM" },
+      { day: "Sat", time: "9:00 AM - 5:00 PM" },
+    ],
+    isSenior: false,
+  },
+  {
+    id: 19,
+    name: "Dr. Devshree Sathee",
+    qualification:
+      "MBBS DNB Anaesthesiology, \nCritical Care Department ",
+    department: "Critical Care Department",
+    experience: "2.5+",
+    image: "/doctors/dr-devshree-sathee.webp",
     availability: [
       { day: "Mon", time: "9:00 AM - 5:00 PM" },
       { day: "Tue", time: "9:00 AM - 5:00 PM" },

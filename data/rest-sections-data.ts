@@ -35,23 +35,23 @@ export const useMilestones = () => {
     const milestones = [
         {
             year: "2019",
-            title: t('1.title'),
-            description: t('1.description')
+            title: "Expanded to 500 Beds",
+            description: "Doubled our capacity to serve more patients with state-of-the-art facilities."
         },
         {
             year: "2018",
-            title: t('2.title'),
-            description: t('2.description')
+            title: "Launched Nuclear Medicine Department",
+            description: "Introduced advanced PET-CT scanning and radioisotope therapies."
         },
         {
             year: "2017",
-            title: t('3.title'),
-            description: t('3.description')
+            title:"10,000 Successful Cancer Surgeries",
+            description: "Achieved this landmark while maintaining 98% patient satisfaction."
         },
         {
             year: "2016",
-            title: t('4.title'),
-            description: t('4.description')
+            title: "NABH Accreditation",
+            description: "Received highest national accreditation for hospital quality standards."
         }
     ];
 
