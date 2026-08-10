@@ -1,5 +1,4 @@
 "use client"
-import { VideoModalForJourney } from "@/components/global/VideoModalForJourney";
 import { containerVariants, imageVariants, itemVariants } from "@/lib/utils";
 import { LeaderPageProps } from "@/types";
 import { motion } from "framer-motion";
@@ -24,7 +23,6 @@ const LeadershipPage = (props: LeaderPageProps) => {
         fourthSectionDescription,
         fifthSectionDescription,
         journeyHeading,
-        videoModalForJourney,
     } = props;
 
     const [firstSectionRef, firstSectionInView] = useInView({

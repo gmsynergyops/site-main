@@ -119,9 +119,9 @@ export const useMenuItems = () => {
                     name: t('sections.specializedServices.name'),
                     links: [
                         { label: t('sections.specializedServices.links.icu'), href: "/services/specialized-services#icu" },
-                        { label: t('sections.specializedServices.links.nicu'), href: "/services/specialized-services#nicu" },
+                        // { label: t('sections.specializedServices.links.nicu'), href: "/services/specialized-services#nicu" },
                         { label: t('sections.specializedServices.links.ot'), href: "/services/specialized-services#ot" },
-                        { label: t('sections.specializedServices.links.endoscopy'), href: "/services/specialized-services#endoscopy" },
+                        // { label: t('sections.specializedServices.links.endoscopy'), href: "/services/specialized-services#endoscopy" },
                         { label: t('sections.specializedServices.links.physiotherapy'), href: "/services/specialized-services#physiotherapy" },
                         { label: t('sections.specializedServices.links.viewAll'), href: "/services/specialized-services" }
                     ]
