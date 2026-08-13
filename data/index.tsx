@@ -72,15 +72,16 @@ export const useMenuItems = () => {
                 {
                     name: t('sections.specialties.name'),
                     links: [
-                        { label: t('sections.specialties.links.medicalOncology'), href: "/services/medical-oncology" },
                         { label: t('sections.specialties.links.surgicalOncology'), href: "/services/surgical-oncology" },
+                        { label: t('sections.specialties.links.medicalOncology'), href: "/services/medical-oncology" },
+                        { label: t('sections.specialties.links.radiationOncology'), href: "/services/radiation-oncology" },
                         { label: t('sections.specialties.links.gynecology'), href: "/services/gynecology" },
                         { label: t('sections.specialties.links.pediatrics'), href: "/services/pediatrics" },
+                        { label: t('sections.specialties.links.urology'), href: "/services/urology" },
                         { label: t('sections.specialties.links.neurology'), href: "/services/neurology" },
                         { label: t('sections.specialties.links.neurosurgery'), href: "/services/neurosurgery" },
                         { label: t('sections.specialties.links.gastroenterology'), href: "/services/gastroenterology" },
                         { label: t('sections.specialties.links.nephrology'), href: "/services/nephrology" },
-                        { label: t('sections.specialties.links.urology'), href: "/services/urology" },
                         { label: t('sections.specialties.links.orthopedics'), href: "/services/orthopedics" },
                         { label: t('sections.specialties.links.anesthesia'), href: "/services/anesthesia" },
                         { label: t('sections.specialties.links.generalSurgery'), href: "/services/general-surgery" },

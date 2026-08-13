@@ -96,7 +96,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Vishal Mishra",
     qualification:
       "MDS, \nEx registrar in HCG Cancer Centre, Ahmedabad, \nEx-fellow Rohilkhand Cancer Institute, Bareilly, \nAssociate Consultant in Head & Neck Oncology in Synergy Super Speciality Hospital & Cancer Institute",
-    department: "Head & Neck Oncology",
+    department: "Head & Neck Surgical Oncology",
     experience: "2+ year",
     image: "/doctors/dr-vishal-mishra.webp",
     availability: [
@@ -291,7 +291,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Arpit Tripathi",
     qualification:
       "BDS, MDS, Fellowship in Head & Neck Oncology, Attending Consultant in Head & Neck Oncology",
-    department: "Head & Neck Oncology",
+    department: "Head & Neck Surgical Oncology",
     experience: "2.5+",
     image: "/doctors/dr-arpit-tripathi.webp",
     availability: [
@@ -330,6 +330,24 @@ export const doctors: Doctor[] = [
     department: "Burn & Plastic Surgery Department",
     experience: "3+",
     image: "/doctors/dr-varun-shukla.webp",
+    availability: [
+      { day: "Mon", time: "10:00 AM - 5:00 PM" },
+      { day: "Tue", time: "10:00 AM - 5:00 PM" },
+      { day: "Wed", time: "10:00 AM - 5:00 PM" },
+      { day: "Thu", time: "10:00 AM - 5:00 PM" },
+      { day: "Fri", time: "10:00 AM - 5:00 PM" },
+      { day: "Sat", time: "10:00 AM - 5:00 PM" },
+    ],
+    isSenior: false,
+  },
+  {
+    id: 21,
+    name: "Dr. C.P. Awasthi",
+    qualification:
+      "MBBS, MD, KGMU Lucknow, \nEx. Sr. KGMU, Lucknow, \nEx. Sr. AIIMS Raipur, Ex. Ass. Pro. GMC Datiya, \nEx. Sr. Consultant HPPCH & RI Gorakhpur, \nClinical & Radiation Oncologist",
+    department: "Radiation Oncology Department",
+    experience: "10+",
+    image: "/doctors/dr-c-p-awasthi.webp",
     availability: [
       { day: "Mon", time: "10:00 AM - 5:00 PM" },
       { day: "Tue", time: "10:00 AM - 5:00 PM" },

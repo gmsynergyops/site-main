@@ -1,4 +1,4 @@
-import mongoose, { Mongoose } from "mongoose"
+import mongoose, {type Mongoose } from "mongoose"
 
 declare global {
   // eslint-disable-next-line no-var

@@ -134,18 +134,19 @@
             "specialties": {
                 "name": "Our Specialties",
                 "links": {
-                    "medicalOncology": "Medical Oncology",
                     "surgicalOncology": "Surgical Oncology",
-                    "gynecology": "Gynecology & Obstetrics",
+                    "medicalOncology": "Medical Oncology",
+                    "radiationOncology": "Radiation Oncology",
+                    "pediatrics": "Pediatrics Oncology",
+                    "gynecology": "Gynae Oncology",
+                    "urology": "Uro-Oncology",
                     "neurology": "Neurology",
                     "neurosurgery": "Neurosurgery",
                     "gastroenterology": "Gastroenterology",
                     "nephrology": "Nephrology",
-                    "urology": "Urology",
                     "orthopedics": "Orthopedics",
                     "anesthesia": "Anesthesia",
                     "generalSurgery": "General Surgery",
-                    "pediatrics": "Pediatrics Oncology",
                     "headNeck": "Head & Neck Surgery",
                     "emergency": "Emergency & Critical Care",
                     "palliativeCare": "Pain & Palliative Care",
@@ -716,8 +717,8 @@
         },
         "saurabhMishra": {
             "name": "Dr. Saurabh Mishra",
-            "creds1" : "Director & CEO-Synergy Superspeciality Hospital and Cancer Institute",
-            "creds2" : "M.B.B.S. (KGMU), M.D. (Internal Medicine) ECMO D.N.B. Superspeciality (Medical Oncology)",
+            "creds1": "Director & CEO-Synergy Superspeciality Hospital and Cancer Institute",
+            "creds2": "M.B.B.S. (KGMU), M.D. (Internal Medicine) ECMO D.N.B. Superspeciality (Medical Oncology)",
             "role": "Medical Oncologist, Haematoncologist & Bone Marrow Transplant Physician",
             "description": "Dr. Saurabh Mishra is a highly respected Medical Oncologist and Haematoncologist with over 10 years of experience, currently serving as Director & CEO (Cofounder) of Synergy Super Speciality Hospital and Cancer Institute, Gorakhpur. He earned his MBBS from King George Medical College, Lucknow, his M.D. in Internal Medicine from LLRM Medical College, Meerut, and his DNB Superspeciality in Medical Oncology from Medanta Cancer Institute, Gurugram (degree awarded by NBE, New Delhi). He is also an ECMO and European Certified Medical Oncologist. Dr. Saurabh Mishra's expertise spans solid tumour treatment, blood cancer treatment, immunotherapy, targeted therapy, chemotherapy, and bone marrow and stem cell transplant, making him a trusted name in comprehensive cancer care.",
             "customFirstHeading": "Introducing Dr. Saurabh Mishra: Excellence in Medical Oncology & Haematology",
@@ -1036,9 +1037,15 @@
                 "members": {
                     "drSaurabh": {
                         "name": "Dr. Saurabh Mishra",
-                        "role": "Medical Oncologist & Haemat Oncologist",
+                        "role": "Chief Medical Oncologist & Haemat Oncologist",
                         "credentials": "MBBS (KGMU), MD (internal Medicine) ECMO DNB",
                         "specialty": "Director Synergy Super Speciality Hospital & Cancer Institue"
+                    },
+                    "drVineeta": {
+                        "name": "Dr. Vineeta Singh",
+                        "role": "Associate Consultant",
+                        "credentials": "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMC BBCI, GUWAHATI",
+                        "specialty": "Medical Oncology & Hematology-Oncology"
                     }
                 }
             },
@@ -1092,6 +1099,283 @@
                     },
                     "learnMore": {
                         "text": "Learn More"
+                    }
+                }
+            }
+        },
+        "SurgicalOncology": {
+            "name": "Surgical Oncology",
+            "heroTitle": "Expert Surgical Solutions for Cancer Care",
+            "heroSubtitle": "Combining surgical excellence with personalized oncology care in Gorakhpur.",
+            "overview": {
+                "title": "Our Surgical Oncology Approach",
+                "description": [
+                    "At Synergy Super Speciality Hospital & Cancer Institute, our Surgical Oncology team is dedicated to providing precise, effective cancer surgeries tailored to each patient's needs. We combine advanced surgical techniques with a compassionate, patient-first philosophy to ensure the best possible outcomes.",
+                    "Since 2005, we have been a trusted leader in surgical cancer care, offering integrated treatment plans developed in collaboration with medical oncologists, radiation specialists, and support teams. Our commitment to innovation and excellence drives us to deliver superior care every step of the way."
+                ],
+                "whyChooseUs": [
+                    "Experienced and highly skilled cancer surgeons specialized in complex procedures",
+                    "Collaborative tumor board ensures personalized surgical treatment plans",
+                    "Minimally invasive and organ-preserving surgical options available",
+                    "Comprehensive pre- and post-surgical care with emotional and rehabilitative support"
+                ]
+            },
+            "treatments": {
+                "title": "Surgical Expertise & Specialties",
+                "items": {
+                    "complexSurgeries": {
+                        "title": "Complex Cancer Surgeries",
+                        "description": "Expertise in performing intricate oncologic surgeries, including tumor resections in challenging anatomical locations while preserving function and aesthetics."
+                    },
+                    "laparoscopicSurgery": {
+                        "title": "Minimally Invasive & Laparoscopic Surgery",
+                        "description": "Advanced laparoscopic and keyhole procedures for faster recovery, less pain, and minimal scarring in select cancer types."
+                    },
+                    "organPreserving": {
+                        "title": "Organ-Preserving Cancer Surgeries",
+                        "description": "Surgical techniques focused on removing tumors while retaining maximum healthy tissue to maintain organ function and improve quality of life."
+                    }
+                }
+            },
+            "stats": {
+                "title": "Our Impact in Numbers",
+                "items": {
+                    "surgeries": {
+                        "value": "2,500+",
+                        "label": "Successful Cancer Surgeries Performed"
+                    },
+                    "experience": {
+                        "value": "20+",
+                        "label": "Years of Specialized Surgical Experience"
+                    },
+                    "satisfaction": {
+                        "value": "95%",
+                        "label": "Post-Surgical Recovery Satisfaction Rate"
+                    },
+                    "procedures": {
+                        "value": "100+",
+                        "label": "Complex Multispecialty Procedures Annually"
+                    }
+                }
+            },
+            "team": {
+                "title": "Meet Our Specialists",
+                "members": {
+                    "drAlok": {
+                        "name": "Dr. Alok Tiwari",
+                        "role": "Chief Surgical Oncologist (Unit Head)",
+                        "credentials": "MBBS (Gold Medalist), MS (Gen Surgery) KGMU LucknowDNB, Dip MAS daVinciXi Certified Robotic Onco Surgeon",
+                        "specialty": "Surgical Oncology, ESSO (Breast Oncoplasty) FMAS, FALS (Colorectal)"
+                    },
+                    "drAnwer": {
+                        "name": "Dr. Md. Tarique Anwer",
+                        "role": "Consultant",
+                        "credentials": "BDS, MDS MAXILLOFACIAL SURGEON, Ex. Senior Lecturer S.B.B. Dental College, Ghaziabad, FELLOWSHIP IN HEAD & NECK SURGICAL ONCOLOGY, AOMSI- faculty ( Fellow- Mentor) Consultant in Head & Neck Oncology in Synergy Super Speciality Hospital & Cancer Institute",
+                        "specialty": "Head & Neck Surgical Oncology"
+                    },
+                    "drArpit": {
+                        "name": "Dr. Arpit Tripathi",
+                        "role": "Associate Consultant",
+                        "credentials": "BDS, MDS, Fellowship in Head & Neck Oncology, Attending Consultant in Head & Neck Oncology",
+                        "specialty": "Head & Neck Surgical Oncology"
+                    },
+                    "drVishal": {
+                        "name": "Dr. Vishal Mishra",
+                        "role": "Associate Consultant",
+                        "credentials": "MDS, Ex registrar in HCG Cancer Centre, Ahmedabad, Ex-fellow Rohilkhand Cancer Institute, Bareilly, Associate Consultant in Head & Neck Oncology in Synergy Super Speciality Hospital & Cancer Institute",
+                        "specialty": "Head & Neck Surgical Oncology"
+                    }
+                }
+            },
+            "facilities": {
+                "title": "State-of-the-Art Facilities",
+                "description": "Our center is equipped with the latest in medical technology to support both standard care and advanced research.",
+                "features": [
+                    "Dedicated infusion suites with comfort-focused design",
+                    "On-site genomic and pathology labs",
+                    "Real-time treatment monitoring systems",
+                    "Private consultation rooms for family discussions",
+                    "Fully integrated electronic health records"
+                ]
+            },
+            "research": {
+                "title": "Research & Innovation",
+                "items": {
+                    "precisionOncology": {
+                        "title": "Precision Oncology Trials",
+                        "content": "We lead Phase I-III clinical trials aimed at targeting the molecular basis of cancer."
+                    },
+                    "biobankGenomics": {
+                        "title": "Biobank & Genomics",
+                        "content": "Our biobank supports large-scale genomic studies and data-driven treatment personalization."
+                    },
+                    "aiDetection": {
+                        "title": "AI in Cancer Detection",
+                        "content": "Collaborating with tech partners to utilize artificial intelligence in early diagnosis."
+                    }
+                }
+            },
+            "testimonials": {
+                "title": "What Our Patients Say",
+                "items": {
+                    "sophia": {
+                        "quote": "The care I received at Synergy Oncology was beyond exceptional. Every doctor and nurse treated me like family.",
+                        "author": "Sophia M."
+                    },
+                    "james": {
+                        "quote": "They gave me hope when I had none. I'm now two years cancer-free and forever grateful.",
+                        "author": "James R."
+                    }
+                }
+            },
+            "cta": {
+                "title": "Ready to Begin Your Treatment Journey?",
+                "subtitle": "Schedule a consultation today with one of our medical oncology specialists.",
+                "buttons": {
+                    "appointment": {
+                        "text": "Book an Appointment"
+                    },
+                    "contact": {
+                        "text": "Contact Our Team"
+                    }
+                }
+            }
+        },
+        "RadiationOncology": {
+            "name": "Radiation Oncology",
+            "heroTitle": "Advanced Precision Radiation Therapy",
+            "heroSubtitle": "World-class radiation oncology services with precision, safety, and compassionate cancer care in Gorakhpur.",
+            "overview": {
+                "title": "Our Radiation Oncology Approach",
+                "description": [
+                    "At Synergy Super Speciality Hospital & Cancer Institute, our Radiation Oncology Department offers advanced, evidence-based radiation treatments using state-of-the-art technology for the management of various cancers. Our goal is to deliver highly precise radiation doses to tumors while protecting surrounding healthy tissues, ensuring maximum treatment effectiveness with minimal side effects.",
+                    "Our multidisciplinary cancer team works closely with Surgical Oncologists, Medical Oncologists, Radiologists, Pathologists, and supportive care specialists to develop individualized treatment plans for every patient. From consultation and treatment planning to follow-up care, we provide comprehensive cancer management under one roof."
+                ],
+                "whyChooseUs": [
+                    "Expert Radiation Oncologists with extensive clinical experience",
+                    "Personalized treatment planning using advanced imaging techniques",
+                    "Precision radiation therapy with maximum tumor control and minimal toxicity",
+                    "Multidisciplinary Tumor Board approach for every complex cancer case",
+                    "Comprehensive supportive care throughout the treatment journey",
+                    "Patient-centered care with advanced safety protocols"
+                ]
+            },
+            "treatments": {
+                "title": "Radiation Therapy Services",
+                "items": {
+                    "externalBeamRadiotherapy": {
+                        "title": "External Beam Radiation Therapy (EBRT)",
+                        "description": "Highly precise external radiation treatment for a wide range of cancers using advanced treatment planning."
+                    },
+                    "imageGuidedRadiotherapy": {
+                        "title": "Image Guided Radiation Therapy (IGRT)",
+                        "description": "Real-time imaging technology ensures exceptional treatment accuracy by verifying tumor position before every session."
+                    },
+                    "intensityModulatedRadiotherapy": {
+                        "title": "Intensity Modulated Radiation Therapy (IMRT)",
+                        "description": "Advanced radiation delivery that precisely conforms to the tumor while protecting nearby healthy organs."
+                    },
+                    "threeDCRT": {
+                        "title": "3D Conformal Radiation Therapy (3D-CRT)",
+                        "description": "Three-dimensional treatment planning for accurate radiation delivery based on individual patient anatomy."
+                    },
+                    "palliativeRadiotherapy": {
+                        "title": "Palliative Radiation Therapy",
+                        "description": "Effective symptom relief for advanced cancers, helping improve comfort and quality of life."
+                    },
+                    "combinedModalityTreatment": {
+                        "title": "Combined Modality Treatment",
+                        "description": "Coordinated radiation therapy with chemotherapy, surgery, and targeted therapy for optimal cancer outcomes."
+                    }
+                }
+            },
+            "stats": {
+                "title": "Our Radiation Oncology Excellence",
+                "items": {
+                    "patients": {
+                        "value": "3,000+",
+                        "label": "Radiation Patients Treated"
+                    },
+                    "precision": {
+                        "value": "99%",
+                        "label": "Treatment Planning Accuracy"
+                    },
+                    "team": {
+                        "value": "MDT",
+                        "label": "Cancer Care Team"
+                    },
+                    "support": {
+                        "value": "24/7",
+                        "label": "Patient Support"
+                    }
+                }
+            },
+            "team": {
+                "title": "Meet Our Radiation Oncology Experts",
+                "members": {
+                    "radiationTeam": {
+                        "name": "Dr. C.P. Awasthi",
+                        "role": "Clinical & Radiation Oncology Specialist",
+                        "credentials": "Experienced Radiation Oncologists, Medical Physicists & Radiation Therapists",
+                        "specialty": "Advanced Precision Radiation Therapy & Comprehensive Cancer Care"
+                    }
+                }
+            },
+            "facilities": {
+                "title": "Advanced Radiation Therapy Facilities",
+                "description": "Our Radiation Oncology Department is equipped with modern technology to provide safe, accurate, and effective cancer treatment.",
+                "features": [
+                    "Advanced Linear Accelerator (LINAC) Technology",
+                    "High-precision Treatment Planning System",
+                    "CT Simulation for Accurate Planning",
+                    "Image-Guided Radiation Therapy (IGRT)",
+                    "Intensity Modulated Radiation Therapy (IMRT)",
+                    "3D Conformal Radiation Therapy (3D-CRT)",
+                    "Dedicated Radiation Physics & Dosimetry Team",
+                    "Comprehensive Radiation Safety Protocols",
+                    "Comfortable Patient Waiting & Recovery Areas",
+                    "Integrated Cancer Care with Medical & Surgical Oncology"
+                ]
+            },
+            "research": {
+                "title": "Innovation & Evidence-Based Care",
+                "items": {
+                    "advancedPlanning": {
+                        "title": "Advanced Treatment Planning",
+                        "content": "Utilizing the latest planning software to achieve maximum precision while protecting healthy organs."
+                    },
+                    "multidisciplinaryCare": {
+                        "title": "Collaborative Cancer Care",
+                        "content": "Every patient's treatment plan is discussed through multidisciplinary tumor board meetings for optimal outcomes."
+                    },
+                    "qualityAssurance": {
+                        "title": "Quality Assurance",
+                        "content": "Rigorous quality control protocols ensure every radiation treatment is delivered with exceptional safety and accuracy."
+                    }
+                }
+            },
+            "testimonials": {
+                "title": "Patient Experiences",
+                "items": {
+                    "patientOne": {
+                        "quote": "The radiation oncology team explained every step of my treatment and made me feel confident throughout my journey.",
+                        "author": "Cancer Survivor"
+                    },
+                    "patientTwo": {
+                        "quote": "The advanced technology and compassionate care helped me complete my treatment comfortably and with confidence.",
+                        "author": "Patient Family"
+                    }
+                }
+            },
+            "cta": {
+                "title": "Start Your Radiation Therapy Journey",
+                "subtitle": "Consult our Radiation Oncology specialists for personalized, evidence-based cancer treatment.",
+                "buttons": {
+                    "appointment": {
+                        "text": "Book Appointment"
+                    },
+                    "learnMore": {
+                        "text": "Know More"
                     }
                 }
             }
@@ -1342,128 +1626,8 @@
                 }
             }
         },
-        "SurgicalOncology": {
-            "name": "Surgical Oncology",
-            "heroTitle": "Expert Surgical Solutions for Cancer Care",
-            "heroSubtitle": "Combining surgical excellence with personalized oncology care in Gorakhpur.",
-            "overview": {
-                "title": "Our Surgical Oncology Approach",
-                "description": [
-                    "At Synergy Super Speciality Hospital & Cancer Institute, our Surgical Oncology team is dedicated to providing precise, effective cancer surgeries tailored to each patient's needs. We combine advanced surgical techniques with a compassionate, patient-first philosophy to ensure the best possible outcomes.",
-                    "Since 2005, we have been a trusted leader in surgical cancer care, offering integrated treatment plans developed in collaboration with medical oncologists, radiation specialists, and support teams. Our commitment to innovation and excellence drives us to deliver superior care every step of the way."
-                ],
-                "whyChooseUs": [
-                    "Experienced and highly skilled cancer surgeons specialized in complex procedures",
-                    "Collaborative tumor board ensures personalized surgical treatment plans",
-                    "Minimally invasive and organ-preserving surgical options available",
-                    "Comprehensive pre- and post-surgical care with emotional and rehabilitative support"
-                ]
-            },
-            "treatments": {
-                "title": "Surgical Expertise & Specialties",
-                "items": {
-                    "complexSurgeries": {
-                        "title": "Complex Cancer Surgeries",
-                        "description": "Expertise in performing intricate oncologic surgeries, including tumor resections in challenging anatomical locations while preserving function and aesthetics."
-                    },
-                    "laparoscopicSurgery": {
-                        "title": "Minimally Invasive & Laparoscopic Surgery",
-                        "description": "Advanced laparoscopic and keyhole procedures for faster recovery, less pain, and minimal scarring in select cancer types."
-                    },
-                    "organPreserving": {
-                        "title": "Organ-Preserving Cancer Surgeries",
-                        "description": "Surgical techniques focused on removing tumors while retaining maximum healthy tissue to maintain organ function and improve quality of life."
-                    }
-                }
-            },
-            "stats": {
-                "title": "Our Impact in Numbers",
-                "items": {
-                    "surgeries": {
-                        "value": "2,500+",
-                        "label": "Successful Cancer Surgeries Performed"
-                    },
-                    "experience": {
-                        "value": "20+",
-                        "label": "Years of Specialized Surgical Experience"
-                    },
-                    "satisfaction": {
-                        "value": "95%",
-                        "label": "Post-Surgical Recovery Satisfaction Rate"
-                    },
-                    "procedures": {
-                        "value": "100+",
-                        "label": "Complex Multispecialty Procedures Annually"
-                    }
-                }
-            },
-            "team": {
-                "title": "Meet Our Specialists",
-                "members": {
-                    "drAlok": {
-                        "name": "Dr. Alok Tiwari",
-                        "role": "Chief Surgical Oncologist",
-                        "credentials": "MBBS (Gold Medalist), MS (Gen Surgery) KGMU LucknowDNB, Dip MAS daVinciXi Certified Robotic Onco Surgeon",
-                        "specialty": "Surgical Oncology, ESSO (Breast Oncoplasty) FMAS, FALS (Colorectal)"
-                    }
-                }
-            },
-            "facilities": {
-                "title": "State-of-the-Art Facilities",
-                "description": "Our center is equipped with the latest in medical technology to support both standard care and advanced research.",
-                "features": [
-                    "Dedicated infusion suites with comfort-focused design",
-                    "On-site genomic and pathology labs",
-                    "Real-time treatment monitoring systems",
-                    "Private consultation rooms for family discussions",
-                    "Fully integrated electronic health records"
-                ]
-            },
-            "research": {
-                "title": "Research & Innovation",
-                "items": {
-                    "precisionOncology": {
-                        "title": "Precision Oncology Trials",
-                        "content": "We lead Phase I-III clinical trials aimed at targeting the molecular basis of cancer."
-                    },
-                    "biobankGenomics": {
-                        "title": "Biobank & Genomics",
-                        "content": "Our biobank supports large-scale genomic studies and data-driven treatment personalization."
-                    },
-                    "aiDetection": {
-                        "title": "AI in Cancer Detection",
-                        "content": "Collaborating with tech partners to utilize artificial intelligence in early diagnosis."
-                    }
-                }
-            },
-            "testimonials": {
-                "title": "What Our Patients Say",
-                "items": {
-                    "sophia": {
-                        "quote": "The care I received at Synergy Oncology was beyond exceptional. Every doctor and nurse treated me like family.",
-                        "author": "Sophia M."
-                    },
-                    "james": {
-                        "quote": "They gave me hope when I had none. I'm now two years cancer-free and forever grateful.",
-                        "author": "James R."
-                    }
-                }
-            },
-            "cta": {
-                "title": "Ready to Begin Your Treatment Journey?",
-                "subtitle": "Schedule a consultation today with one of our medical oncology specialists.",
-                "buttons": {
-                    "appointment": {
-                        "text": "Book an Appointment"
-                    },
-                    "contact": {
-                        "text": "Contact Our Team"
-                    }
-                }
-            }
-        },
         "Gynecology": {
-            "name": "Gynecology & Obstetrics",
+            "name": "Gynae Oncology | Gynecology & Obstetrics",
             "heroTitle": "Comprehensive Women's Health Services",
             "heroSubtitle": "Expert care for all stages of a woman's life in Gorakhpur.",
             "overview": {
@@ -1522,9 +1686,15 @@
                 "members": {
                     "drAnjali": {
                         "name": "Dr. Anjali Jain",
-                        "role": "Gynecologist",
-                        "credentials": "MBBS, MD (General Physician), GENERAL MEDICINE",
-                        "specialty": "General Gynecology, Obstetrics"
+                        "role": "Sr. Gynecologist | Chief of Department",
+                        "credentials": "MBBS, DGO, DNG, FMAS, FARIS, Fellowship in Advanced Robotic and Innovative Surgery Royal College of Surgeons of Edinburgh, Fellowship in Gynae Oncology (ESGO Certified Gynae Oncologist), C.O.: Massachusetts General Hospital, Boston, U.S., C.O.: Gemelli Hospital, Rome, Italy",
+                        "specialty": "Gynae Oncology, Gynecology & Obstetrics"
+                    },
+                    "drSahana": {
+                        "name": "Dr. Sahana Punneshetty",
+                        "role": "Gynecologist | Consultant",
+                        "credentials": "MBBS, MS (OBG), Mch Gynecology Oncology",
+                        "specialty": "Gynae Oncology, Gynecology & Obstetrics"
                     }
                 }
             },
