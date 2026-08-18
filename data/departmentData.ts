@@ -137,7 +137,7 @@ export const useDepartmentData = () => {
           t("MedicalOncology.facilities.features.3"),
           t("MedicalOncology.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/medical-oncology.webp",
       },
       research: {
         title: t("MedicalOncology.research.title"),
@@ -303,15 +303,17 @@ export const useDepartmentData = () => {
           {
             name: t("SurgicalOncology.team.members.drVishal.name"),
             role: t("SurgicalOncology.team.members.drVishal.role"),
-            credentials: t("SurgicalOncology.team.members.drVishal.credentials"),
-            image: "/doctors/dr-arpit-tripathi.webp",
+            credentials: t(
+              "SurgicalOncology.team.members.drVishal.credentials"
+            ),
+            image: "/doctors/dr-vishal-mishra.webp",
             specialty: t("SurgicalOncology.team.members.drVishal.specialty"),
           },
           {
             name: t("SurgicalOncology.team.members.drArpit.name"),
             role: t("SurgicalOncology.team.members.drArpit.role"),
             credentials: t("SurgicalOncology.team.members.drArpit.credentials"),
-            image: "/doctors/dr-vishal-mishra.webp",
+            image: "/doctors/dr-arpit-tripathi.webp",
             specialty: t("SurgicalOncology.team.members.drArpit.specialty"),
           },
         ],
@@ -506,7 +508,7 @@ export const useDepartmentData = () => {
             credentials: t(
               "RadiationOncology.team.members.radiationTeam.credentials"
             ),
-            image: "/fallback-image.webp",
+            image: "/doctors/dr-c-p-awasthi.webp",
             specialty: t(
               "RadiationOncology.team.members.radiationTeam.specialty"
             ),
@@ -1615,11 +1617,11 @@ export const useDepartmentData = () => {
         title: t("Orthopedics.team.title"),
         members: [
           {
-            name: t("Orthopedics.team.members.drPrateek.name"),
-            role: t("Orthopedics.team.members.drPrateek.role"),
-            credentials: t("Orthopedics.team.members.drPrateek.credentials"),
-            image: "/doctors/dr-prateek.webp",
-            specialty: t("Orthopedics.team.members.drPrateek.specialty"),
+            name: t("Orthopedics.team.members.drShashank.name"),
+            role: t("Orthopedics.team.members.drShashank.role"),
+            credentials: t("Orthopedics.team.members.drShashank.credentials"),
+            image: "/doctors/dr-shashank-srivastava.jpg",
+            specialty: t("Orthopedics.team.members.drShashank.specialty"),
           },
           {
             name: t("Orthopedics.team.members.drAnil.name"),
@@ -1640,7 +1642,7 @@ export const useDepartmentData = () => {
           t("Orthopedics.facilities.features.3"),
           t("Orthopedics.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/specializations/imaging/x-ray-imaging.webp",
       },
       research: {
         title: t("Orthopedics.research.title"),
@@ -1767,18 +1769,18 @@ export const useDepartmentData = () => {
         title: t("Anesthesia.team.title"),
         members: [
           {
-            name: t("Anesthesia.team.members.drHarshit.name"),
-            role: t("Anesthesia.team.members.drHarshit.role"),
-            credentials: t("Anesthesia.team.members.drHarshit.credentials"),
-            image: "/doctors/dr-harshit-mishra.webp",
-            specialty: t("Anesthesia.team.members.drHarshit.specialty"),
-          },
-          {
             name: t("Anesthesia.team.members.drAmritansh.name"),
             role: t("Anesthesia.team.members.drAmritansh.role"),
             credentials: t("Anesthesia.team.members.drAmritansh.credentials"),
-            image: "/doctors/dr-amritansh-pandey.webp",
+            image: "/doctors/dr-amritansh-pandey-1.jpeg",
             specialty: t("Anesthesia.team.members.drAmritansh.specialty"),
+          },
+          {
+            name: t("Anesthesia.team.members.drDevshree.name"),
+            role: t("Anesthesia.team.members.drDevshree.role"),
+            credentials: t("Anesthesia.team.members.drDevshree.credentials"),
+            image: "/doctors/dr-devshree-sathee.webp",
+            specialty: t("Anesthesia.team.members.drDevshree.specialty"),
           },
         ],
       },
@@ -1933,7 +1935,7 @@ export const useDepartmentData = () => {
           t("GeneralSurgery.facilities.features.3"),
           t("GeneralSurgery.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/specializations/ot/1.jpeg",
       },
       research: {
         title: t("GeneralSurgery.research.title"),
@@ -2200,12 +2202,19 @@ export const useDepartmentData = () => {
         title: "Our Head & Neck Team",
         members: [
           {
-            name: "Dr. Tarik Anwar",
+            name: "Dr. Md. Tarique Anwer",
             role: "Head & Neck Surgeon",
             credentials:
               "BDS, MDS MAXILLOFACIAL SURGEON, FELLOSHIP IN HEAD & NECK ONCOLOGY",
-            image: "/doctors/dr-tarik-anwar.webp",
+            image: "/doctors/dr-tarik-anwar.png",
             specialty: "Head & Neck Oncology",
+          },
+          {
+            name: t("SurgicalOncology.team.members.drArpit.name"),
+            role: t("SurgicalOncology.team.members.drArpit.role"),
+            credentials: t("SurgicalOncology.team.members.drArpit.credentials"),
+            image: "/doctors/dr-arpit-tripathi.webp",
+            specialty: t("SurgicalOncology.team.members.drArpit.specialty"),
           },
           {
             name: "Dr. Vishal Mishra",
@@ -3416,25 +3425,34 @@ export const useDepartmentData = () => {
         title: t("PainAndPalliativeCare.team.title"),
         members: [
           {
-            name: t("PainAndPalliativeCare.team.members.drAnjali.name"),
-            role: t("PainAndPalliativeCare.team.members.drAnjali.role"),
+            name: t("PainAndPalliativeCare.team.members.drAlok.name"),
+            role: t("PainAndPalliativeCare.team.members.drAlok.role"),
             credentials: t(
-              "PainAndPalliativeCare.team.members.drAnjali.credentials"
+              "PainAndPalliativeCare.team.members.drAlok.credentials"
             ),
-            image: "/doctors/dr-anjali-verma.webp",
+            image: "/doctors/dr-alok-tiwari.webp",
+            specialty: t("PainAndPalliativeCare.team.members.drAlok.specialty"),
+          },
+          {
+            name: t("PainAndPalliativeCare.team.members.drArpit.name"),
+            role: t("PainAndPalliativeCare.team.members.drArpit.role"),
+            credentials: t(
+              "PainAndPalliativeCare.team.members.drArpit.credentials"
+            ),
+            image: "/doctors/dr-arpit-tripathi.webp",
             specialty: t(
-              "PainAndPalliativeCare.team.members.drAnjali.specialty"
+              "PainAndPalliativeCare.team.members.drArpit.specialty"
             ),
           },
           {
-            name: t("PainAndPalliativeCare.team.members.drRajiv.name"),
-            role: t("PainAndPalliativeCare.team.members.drRajiv.role"),
+            name: t("PainAndPalliativeCare.team.members.drAmritansh.name"),
+            role: t("PainAndPalliativeCare.team.members.drAmritansh.role"),
             credentials: t(
-              "PainAndPalliativeCare.team.members.drRajiv.credentials"
+              "PainAndPalliativeCare.team.members.drAmritansh.credentials"
             ),
-            image: "/doctors/dr-rajiv-khanna.webp",
+            image: "/doctors/dr-amritansh-pandey-1.jpeg",
             specialty: t(
-              "PainAndPalliativeCare.team.members.drRajiv.specialty"
+              "PainAndPalliativeCare.team.members.drAmritansh.specialty"
             ),
           },
         ],

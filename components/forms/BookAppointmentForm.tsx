@@ -37,12 +37,15 @@ import {
 import { format } from "date-fns"
 import { CalendarIcon, Clock } from "lucide-react"
 import {
-  useState
+  useEffect,
+  useMemo,
 } from "react"
 import {
   Controller,
-  useForm
+  useForm,
+  useWatch,
 } from "react-hook-form"
+import { useSearchParams } from "next/navigation"
 import {
   toast
 } from "sonner"
@@ -71,24 +74,101 @@ const formSchema = z.object({
 });
 
 export default function BookAppointmentForm() {
-  const [selectedDepartment, setSelectedDepartment] = useState<string>("")
   const [state, handleSubmit] = useFormspreeForm("xldbldyr");
+  const searchParams = useSearchParams()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       'emergency': false,
     }
   })
+  const selectedDepartment = useWatch({
+    control: form.control,
+    name: "department",
+    defaultValue: "",
+  }) || ""
   const departmentData = useDepartmentData()
+
+  // Build unified list of departments from departmentData + any doctor departments
+  const allDepartments = useMemo(() => {
+    const list: { id: string; name: string }[] = departmentData.map((dept) => ({
+      id: dept.id || dept.name,
+      name: dept.name,
+    }))
+
+    doctors.forEach((doc) => {
+      const docDept = doc.department?.trim()
+      if (!docDept) return
+
+      const alreadyExists = list.some(
+        (item) =>
+          item.name.toLowerCase() === docDept.toLowerCase() ||
+          item.name.toLowerCase().includes(docDept.toLowerCase()) ||
+          docDept.toLowerCase().includes(item.name.toLowerCase())
+      )
+
+      if (!alreadyExists) {
+        list.push({
+          id: docDept.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+          name: docDept,
+        })
+      }
+    })
+
+    return list
+  }, [departmentData])
+
+  useEffect(() => {
+    const doctorFromQuery = searchParams.get("doctor")
+    const departmentFromQuery = searchParams.get("department")
+
+    if (!doctorFromQuery && !departmentFromQuery) {
+      return
+    }
+
+    const matchingDoctor = doctorFromQuery
+      ? doctors.find((doc) => doc.name.toLowerCase() === doctorFromQuery.toLowerCase())
+      : null
+
+    const targetDept = matchingDoctor?.department ?? departmentFromQuery ?? ""
+    const departmentMatch = targetDept
+      ? allDepartments.find(
+          (dept) =>
+            dept.name.toLowerCase() === targetDept.toLowerCase() ||
+            dept.name.toLowerCase().includes(targetDept.toLowerCase()) ||
+            targetDept.toLowerCase().includes(dept.name.toLowerCase())
+        )
+      : null
+
+    const resolvedDepartment = departmentMatch?.name ?? targetDept
+
+    if (resolvedDepartment) {
+      form.setValue("department", resolvedDepartment)
+    }
+
+    if (matchingDoctor) {
+      form.setValue("selectedDoctor", matchingDoctor.name)
+    } else if (doctorFromQuery) {
+      form.setValue("selectedDoctor", doctorFromQuery)
+    }
+  }, [searchParams, allDepartments, form])
+
   // Get available doctors based on selected department
   const availableDoctors = selectedDepartment
-    ? doctors.filter((doc) => doc.department.toLowerCase() === selectedDepartment.toLowerCase())
+    ? doctors.filter((doc) => {
+        const docDept = doc.department.toLowerCase().trim()
+        const selDept = selectedDepartment.toLowerCase().trim()
+        return (
+          docDept === selDept ||
+          selDept.includes(docDept) ||
+          docDept.includes(selDept)
+        )
+      })
     : [];
 
   // Handle department change to update available doctors
   const handleDepartmentChange = (value: string) => {
     form.setValue('department', value)
-    setSelectedDepartment(value)
     // Reset doctor selection when department changes
     form.setValue("selectedDoctor", "")
   }
@@ -147,7 +227,6 @@ export default function BookAppointmentForm() {
        */
       toast.success("Appointment request submitted successfully!")
       form.reset()
-      setSelectedDepartment("")
 
     } catch (error) {
       console.error("Appointment submit error:", error)
@@ -252,7 +331,7 @@ export default function BookAppointmentForm() {
                     <SelectValue placeholder="Select department" />
                   </SelectTrigger>
                   <SelectContent>
-                    {departmentData.map((dept) => (
+                    {allDepartments.map((dept) => (
                       <SelectItem key={dept.id} value={dept.name}>
                         {dept.name}
                       </SelectItem>
@@ -399,7 +478,7 @@ export default function BookAppointmentForm() {
               <label className="block text-base font-medium mb-2">Additional Information <span className="text-sm text-neutral-900">(optional)</span></label>
               <Textarea
                 placeholder="Please describe your symptoms or reason for visit..."
-                className="resize-none min-h-[120px]"
+                className="resize-none min-h-30"
                 {...field}
                 value={field.value ?? ''}
                 aria-invalid={fieldState.invalid}

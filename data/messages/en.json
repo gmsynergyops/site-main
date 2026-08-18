@@ -1558,17 +1558,23 @@
             "team": {
                 "title": "Our Palliative Care Team",
                 "members": {
-                    "drAnjali": {
-                        "name": "Dr. Anjali Verma",
-                        "role": "Palliative Care Specialist",
-                        "credentials": "M.B.B.S, MD (Pain Medicine), Fellowship in Palliative Care",
-                        "specialty": "Cancer Pain Management"
+                    "drAlok": {
+                        "name": "Dr. Alok Tiwari",
+                        "role": "Unit Head",
+                        "credentials": "MBBS (Gold Medalist), MS (Gen Surgery) KGMU LucknowDNB, Dip MAS daVinciXi Certified Robotic Onco Surgeon",
+                        "specialty": "Pain & Palliative Care"
                     },
-                    "drRajiv": {
-                        "name": "Dr. Rajiv Khanna",
-                        "role": "Pain Management Physician",
-                        "credentials": "M.B.B.S, DA, FIPM",
-                        "specialty": "Interventional Pain Procedures"
+                    "drArpit": {
+                        "name": "Dr. Arpit Tripathi",
+                        "role": "Associate Consultant",
+                        "credentials": "BDS, MDS, Fellowship in Head & Neck Oncology, Attending Consultant in Head & Neck Oncology",
+                        "specialty": "Pain & Palliative Care"
+                    },
+                      "drAmritansh": {
+                        "name": "Dr. Amritansh Pandey",
+                        "role": "Associate Consultant",
+                        "credentials": "M.B.B.S, MD-Anesthesia",
+                        "specialty": "Pain Management & Care"
                     }
                 }
             },
@@ -2302,10 +2308,10 @@
             "team": {
                 "title": "Our Orthopedic Team",
                 "members": {
-                    "drPrateek": {
-                        "name": "Dr. Prateek",
+                    "drShashank": {
+                        "name": "Dr. Shashank Srivastava",
                         "role": "Orthopedic Surgeon",
-                        "credentials": "M.B.B.S. MS ORTHO,FIJR,FAGE orthopedic trauma Joint Replacement,Spine Specialist Surgeon & Sports Injury Surgeon",
+                        "credentials": "MBBS , MS ORTHO (JIPMER), Trauma , Joint Replacement, Arthroscopy and Orthoonco Surgeon",
                         "specialty": "Joint Replacement and Sports Medicine"
                     },
                     "drAnil": {
@@ -2429,17 +2435,17 @@
             "team": {
                 "title": "Meet Our Anesthesiologists",
                 "members": {
-                    "drHarshit": {
-                        "name": "Dr. Harshit Mishra",
-                        "role": "Anesthesiologist",
-                        "credentials": "M.B.B.S MD,PDAF(Neuroanesthesia),Ex Seniorfellow Resident SGPGI LKO",
-                        "specialty": "Neuroanesthesia"
-                    },
                     "drAmritansh": {
                         "name": "Dr. Amritansh Pandey",
                         "role": "Anesthesiologist",
-                        "credentials": "M.B.B.S, MD-Anesthesia",
+                        "credentials": "M.B.B.S, MD-Anaesthesia & Critical Care",
                         "specialty": "General Anesthesia"
+                    },
+                    "drDevshree": {
+                        "name": "Dr. Devshree Sathee",
+                        "role": "Anesthesiologist",
+                        "credentials": "MBBS DNB Anaesthesiology, Critical Care Department ",
+                        "specialty": "Emergency and Critical Care"
                     }
                 }
             },
@@ -4368,112 +4374,115 @@
     "CentersDataMegaArray": [
         {
             "slug": "network",
-            "name": "Centers & Outstation Network",
-            "heroTitle": "Cancer Care That Reaches You",
-            "heroSubtitle": "Cancer treatment should not depend on how far you live from a hospital. At Synergy, we believe quality cancer care must be accessible, timely, and close to people who need it most.",
+            "name": "Our Centres",
+            "heroTitle": "Cancer Care, Close to You",
+            "heroSubtitle": "Synergy currently operates two centres in Gorakhpur, bringing specialised cancer care and treatment closer to the people who need it.",
             "bannerImage": "/fallback-image.webp",
             "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-sky-50",
-            "sections": [
+            "centers": [
                 {
-                    "title": "OUR CANCER CARE CENTERS: Care, Where It Matters",
-                    "description": [
-                        "Synergy operates through a growing network of cancer care centers designed to support patients at different stages of diagnosis and treatment.",
-                        "Types of Centers:"
-                    ],
-                    "items": [
-                        "Owned Cancer Centers: These are fully managed by Synergy and follow the same treatment standards, protocols, and patient care approach.",
-                        "Collaborative Cancer Centers: These centers work in close coordination with Synergy’s main oncology team, allowing patients to receive guidance and care without traveling long distances."
-                    ]
+                    "id": "main-hospital",
+                    "number": "01",
+                    "name": "Synergy Superspeciality Hospital & Cancer Institute",
+                    "shortName": "Main Hospital",
+                    "tag": "OPD · IPD · Surgery",
+                    "address": "Chhatrasangh Chauraha, Gorakhpur, 273001",
+                    "description": "Our main hospital provides comprehensive cancer care with outpatient, inpatient and surgical services under one roof.",
+                    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4606.804128672125!2d83.37676587624873!3d26.745450367257032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b0d013cef1%3A0xc7d8e7bab401f8fe!2sSynergy%20Superspeciality%20Hospital%20and%20Cancer%20Institute!5e1!3m2!1sen!2sin!4v1785839951905!5m2!1sen!2sin",
+                    "accent": "blue"
                 },
                 {
-                    "title": "WHAT YOU CAN EXPECT AT EVERY CENTER",
-                    "description": [
-                        "No matter which Synergy center you visit, you can expect:"
-                    ],
-                    "items": [
-                        "Initial cancer consultation and evaluation",
-                        "Guidance on diagnosis and treatment options",
-                        "Follow-up care and treatment coordination",
-                        "Clear communication and patient support",
-                        "Referral to the main center when required"
-                    ]
+                    "id": "radiation-center",
+                    "number": "02",
+                    "name": "Synergy Cancer Care",
+                    "shortName": "Radiation Center",
+                    "tag": "Radiation Center · Day Care",
+                    "address": "GNFT Tower, 1st Floor, Khajanchi Chauraha, Gorakhpur, 273001",
+                    "description": "Our radiation center and day-care facility extends specialised cancer care closer to patients in Gorakhpur.",
+                    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4604.753588999132!2d83.38487609678955!3d26.796013099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145006280f7e9%3A0xae494a8b47b69ad3!2sSynergy%20Cancer%20Care!5e1!3m2!1sen!2sin!4v1785840069439!5m2!1sen!2sin",
+                    "accent": "pink"
                 }
-            ]
+            ],
+            "sections": []
         },
         {
             "slug": "outstation-support",
-            "name": "Outstation Support & Care Coordination",
-            "heroTitle": "Outstation Support & Care",
-            "heroSubtitle": "Because Travel Should Not Delay Treatment. Our team helps reduce unnecessary travel and ensures continuity of care.",
+            "name": "Outstation Support",
+            "heroTitle": "Cancer Care Without the Travel Confusion",
+            "heroSubtitle": "Coming to Gorakhpur from another city or town? Our team helps coordinate your appointments, treatment planning and follow-up so you can focus on your care.",
             "bannerImage": "/fallback-image.webp",
             "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
-                    "title": "OUTSTATION SUPPORT & CARE COORDINATION",
+                    "title": "BEFORE YOU TRAVEL",
                     "description": [
-                        "For patients coming from other cities or towns, Synergy offers structured outstation support. This includes:"
+                        "Planning your cancer treatment journey from another city can feel overwhelming. Our team helps you prepare before you make the trip to Gorakhpur."
                     ],
                     "items": [
                         "Appointment scheduling support",
                         "Treatment planning before travel",
-                        "Coordination between local centers and the main hospital",
-                        "Guidance for follow-up visits"
+                        "Guidance on the appropriate Synergy centre for your visit"
                     ]
                 },
                 {
-                    "title": "OUTREACH CAMPS & COMMUNITY PROGRAMS",
+                    "title": "WHEN YOU REACH SYNERGY",
                     "description": [
-                        "Taking Cancer Care Beyond Hospital Walls.",
-                        "Synergy regularly organizes outreach camps in different cities and towns to support early detection and awareness. These camps focus on:"
+                        "Our team helps coordinate your visit so that you know where to go and what the next step in your care journey is."
                     ],
                     "items": [
-                        "Cancer screening",
-                        "Early diagnosis",
-                        "Awareness and education",
-                        "Initial consultations and referrals"
+                        "Coordination with the appropriate Synergy care team",
+                        "Consultation and treatment coordination",
+                        "Clear guidance on the next steps"
                     ]
                 },
                 {
-                    "title": "Upcoming Outreach Camps",
+                    "title": "FOLLOW-UP & CONTINUITY OF CARE",
                     "description": [
-                        "(This section will be dynamic and updated regularly)",
-                        "This initiative helps patients access expert advice closer to home."
+                        "Your care journey does not end when you leave the hospital. Our team can help coordinate follow-up visits and communication between the appropriate care points."
                     ],
                     "items": [
-                        "Siddharthnagar – Cancer Awareness & Screening Camp | 15 March",
-                        "Gorakhpur – Cancer Consultation Camp | 22 March"
+                        "Guidance for follow-up visits",
+                        "Coordination between local centres and the main hospital",
+                        "Support with planning future visits"
+                    ]
+                },
+                {
+                    "title": "COMMUNITY OUTREACH",
+                    "description": [
+                        "Synergy also takes cancer awareness and early-detection initiatives beyond the hospital through community outreach programmes and screening activities."
+                    ],
+                    "items": [
+                        "Cancer awareness",
+                        "Screening",
+                        "Early detection",
+                        "Initial consultation and referral"
                     ]
                 }
             ]
         },
         {
             "slug": "find-center",
-            "name": "Find a Center",
-            "heroTitle": "Find a Center Near You",
-            "heroSubtitle": "Simple. Clear. Accessible. Cancer care should be within reach, not out of reach.",
+            "name": "Find a Centre",
+            "heroTitle": "Which Synergy Centre Is Right For You?",
+            "heroSubtitle": "Two centres. Different roles. Our team can help you understand where to begin your cancer care journey.",
             "bannerImage": "/fallback-image.webp",
             "themeBgClass": "bg-gradient-to-br from-indigo-50 via-white to-violet-50",
             "sections": [
                 {
-                    "title": "FIND A CENTER NEAR YOU",
+                    "title": "OUR TWO CENTRES",
                     "description": [
-                        "Patients can easily:"
-                    ],
-                    "items": [
-                        "Find the nearest Synergy center",
-                        "Check services available at each location",
-                        "Contact the center directly for appointments"
+                        "Synergy currently operates two centres in Gorakhpur. The right centre for you depends on the type of care or treatment you need."
                     ]
                 },
                 {
-                    "title": "Center Details",
+                    "title": "NOT SURE WHERE TO START?",
                     "description": [
-                        "This section will include:"
+                        "You do not have to figure it out alone. Contact our care team and we will help guide you towards the appropriate centre and next step."
                     ],
                     "items": [
-                        "Location-wise listing",
-                        "Services offered",
-                        "Contact details"
+                        "Call our care team",
+                        "Contact us on WhatsApp",
+                        "View all Synergy centres"
                     ]
                 }
             ]

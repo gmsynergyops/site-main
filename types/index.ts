@@ -68,8 +68,8 @@ export  interface VideoModalTriggerProps  extends ComponentPropsWithoutRef<"div"
     role: string
     description: string
     onReadMore?: string
-    className?: string
-    onDownload?: string
+    // className?: string
+    // onDownload?: string
   }
 
   export interface LeaderPageProps extends LeaderCardProps {

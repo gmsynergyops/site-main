@@ -64,7 +64,7 @@ export default function SliderWithTriggers() {
                         <Button
                             key={slide.id}
                             className={cn(
-                                "px-3 py-1 rounded-md border-1 min-w-max cursor-pointer text-xs sm:text-sm",
+                                "px-3 py-1 rounded-md border min-w-max cursor-pointer text-xs sm:text-sm",
                                 currentIndex === index
                                     ? "bg-primary text-white border-primary"
                                     : "bg-transparent text-synergy-blue border-synergy-blue/80 hover:bg-primary/50 hover:text-white"
@@ -198,7 +198,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                     </CardDescription>
                 </CardHeader>
 
-                <CardContent className="w-full !p-0">
+                <CardContent className="w-full p-0!">
                     <p className="font-medium text-xs sm:text-sm mb-2">Top Specialities & Procedures</p>
                     <div className="flex flex-wrap gap-1 sm:gap-2 py-1">
                         {props.treatments.items
@@ -230,7 +230,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                     </div>
                 </CardContent>
 
-                <CardFooter className="flex flex-col sm:flex-row gap-2 px-0! pb-0! mt-3 sm:mt-4">
+                <CardFooter className="flex flex-col sm:flex-row gap-2 px-0 bg-transparent">
                     <Link href={"#"} className="w-full">
                         <Button
                             variant={"outline"}

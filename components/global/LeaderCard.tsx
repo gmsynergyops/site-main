@@ -23,7 +23,6 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
     role,
     description,
     onReadMore,
-    className
     // onDownload,
 }) => {
     const router = useRouter()
@@ -35,14 +34,14 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
     const isImageInView = useInView(imageRef, { once: true, margin: "-100px" })
 
     return (
-<Card className="h-full w-full flex flex-col justify-between bg-gradient-to-t from-slate-100 to-transparent rounded-xl shadow-md overflow-hidden py-2! max-w-[640px] border-border/10 hover:border-border transition-colors duration-200 ease-in-out">
+<Card className="h-full w-full flex flex-col justify-between bg-linear-to-t from-slate-100 to-transparent rounded-xl shadow-md overflow-hidden max-w-[640px] border-border/10 hover:border-border transition-colors duration-200 ease-in-out">
     <CardContent className="flex justify-center py-1 px-3">
         <motion.div
             ref={imageRef}
             variants={imageVariants}
             initial="hidden"
             animate={isImageInView ? "visible" : "hidden"}
-            className="relative w-full h-[22rem]"
+            className="relative w-full h-88"
         >
 {
     name === "Dr. Saurabh Mishra" ?
@@ -89,13 +88,13 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
         >
-            <CardDescription className="text-sm text-gray-700 w-full line-clamp-5 min-h-[6rem]">
+            <CardDescription className="text-sm text-gray-700 w-full line-clamp-5 min-h-24">
                 {description}
             </CardDescription>
         </motion.div>
     </CardHeader>
 
-    <CardFooter className="flex justify-between items-center gap-2 px-4 pb-3 pt-1 min-h-[3rem]">
+    <CardFooter className="flex justify-between items-center gap-2 px-4 py-2.5  bg-transparent min-h-12">
         <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}

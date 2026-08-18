@@ -166,7 +166,7 @@ export const doctors: Doctor[] = [
     id: 11,
     name: "Dr. Amritansh Pandey",
     qualification: "M.B.B.S, MD-Anaesthesia & Critical Care",
-    department: "Onco-Anaesthesiologist ",
+    department: "Onco-Anaesthesiologist",
     experience: "10+ years",
     image: "/doctors/dr-amritansh-pandey-1.jpeg",
     availability: [
@@ -309,7 +309,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Devshree Sathee",
     qualification:
       "MBBS DNB Anaesthesiology, \nCritical Care Department ",
-    department: "Critical Care Department",
+    department: "Emergency & Critical Care",
     experience: "2.5+",
     image: "/doctors/dr-devshree-sathee.webp",
     availability: [
@@ -327,7 +327,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Varun Shukla",
     qualification:
       "MBBS, MCH, Plastic Surgeon \nDepartment of Plastic Craniofacial & Microvascular & Reconstructive Surgery",
-    department: "Burn & Plastic Surgery Department",
+    department: "Burn & Plastic Surgery",
     experience: "3+",
     image: "/doctors/dr-varun-shukla.webp",
     availability: [
@@ -345,7 +345,7 @@ export const doctors: Doctor[] = [
     name: "Dr. C.P. Awasthi",
     qualification:
       "MBBS, MD, KGMU Lucknow, \nEx. Sr. KGMU, Lucknow, \nEx. Sr. AIIMS Raipur, Ex. Ass. Pro. GMC Datiya, \nEx. Sr. Consultant HPPCH & RI Gorakhpur, \nClinical & Radiation Oncologist",
-    department: "Radiation Oncology Department",
+    department: "Radiation Oncology",
     experience: "10+",
     image: "/doctors/dr-c-p-awasthi.webp",
     availability: [

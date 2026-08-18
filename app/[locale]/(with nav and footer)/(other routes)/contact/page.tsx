@@ -50,7 +50,7 @@ const locations: Location[] = [
     tag: "OPD · IPD · Surgery",
     address: "Chhatrasangh Chauraha, Gorakhpur, 273001",
     mapURL:
-      "s",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4606.804128672125!2d83.37676587624873!3d26.745450367257032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b0d013cef1%3A0xc7d8e7bab401f8fe!2sSynergy%20Superspeciality%20Hospital%20and%20Cancer%20Institute!5e1!3m2!1sen!2sin!4v1785839951905!5m2!1sen!2sin",
     accent: "synergy-blue",
     bg: "bg-synergy-blue/15",
     text: "text-synergy-blue",

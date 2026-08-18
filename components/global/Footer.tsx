@@ -28,12 +28,23 @@ export const Footer = () => {
         >
             {/* Top Section - Form and Map */}
             <div className="flex flex-col lg:flex-row mb-12 gap-6 w-full">
+
+                <div className="w-full lg:w-1/2 h-75 lg:h-119.75 rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4606.804128672125!2d83.37676587624873!3d26.745450367257032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b0d013cef1%3A0xc7d8e7bab401f8fe!2sSynergy%20Superspeciality%20Hospital%20and%20Cancer%20Institute!5e1!3m2!1sen!2sin!4v1785839951905!5m2!1sen!2sin"
+                        className="w-full h-full"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+                </div>
                 <div className="w-full lg:w-1/2">
                     <FooterFormContainer />
                 </div>
-                <div className="w-full lg:w-1/2 h-[300px] lg:h-[479px] rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
+                <div className="w-full lg:w-1/2 h-75 lg:h-119.75 rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3562.9788065293574!2d83.3793673!3d26.7450524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b0d013cef1%3A0xc7d8e7bab401f8fe!2sSynergy%20Superspeciality%20Hospital%20and%20Cancer%20Institute!5e0!3m2!1sen!2sin!4v1746087373998!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4604.753588999132!2d83.38487609678955!3d26.796013099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145006280f7e9%3A0xae494a8b47b69ad3!2sSynergy%20Cancer%20Care!5e1!3m2!1sen!2sin!4v1785840069439!5m2!1sen!2sin"
                         className="w-full h-full"
                         style={{ border: 0 }}
                         allowFullScreen
@@ -122,7 +133,7 @@ export const Footer = () => {
                                 Icon: FaInstagram,
                                 link: "https://www.instagram.com/synergycancergkp/",
                             },
-                             {
+                            {
                                 name: "YouTube",
                                 Icon: FaYoutube,
                                 link: "https://www.youtube.com/@SynergyCancerHospital",

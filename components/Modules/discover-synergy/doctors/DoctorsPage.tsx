@@ -4,12 +4,21 @@ import { useInView, motion, AnimatePresence } from 'framer-motion'
 import { FaSearch, FaUserMd, FaFilter, FaCalendarAlt, FaClock, FaHospital, FaArrowRight } from 'react-icons/fa'
 import { doctors } from '@/data/doctors'
 import { ImageWithFallback } from '@/components/global/ImageWithFallback'
+import { useRouter } from 'next/navigation'
 
 export const DoctorsPage = () => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: "-100px" })
+    const router = useRouter()
 
+    const handleBookAppointment = (doctor: typeof doctors[number]) => {
+        const params = new URLSearchParams({
+            doctor: doctor.name,
+            department: doctor.department,
+        })
 
+        router.push(`/book-appointment?${params.toString()}`)
+    }
 
     // Unique departments and specialties
     const departments = [...new Set(doctors.map(doctor => doctor.department))]
@@ -252,7 +261,11 @@ export const DoctorsPage = () => {
 
                                         {/* CTA Button - Pushed to Bottom */}
                                         <div className="mt-auto">
-                                            <button className="w-full flex items-center justify-center px-4 py-2 bg-linear-to-tl from-synergy-pink to-fuchsia-300 from-40% shadow-blob text-white rounded-lg transition-colors">
+                                            <button
+                                                type="button"
+                                                onClick={() => handleBookAppointment(doctor)}
+                                                className="w-full flex items-center justify-center px-4 py-2 bg-linear-to-tl from-synergy-pink to-fuchsia-300 from-40% shadow-blob text-white rounded-lg transition-colors"
+                                            >
                                                 Book Appointment
                                                 <FaArrowRight className="ml-2" />
                                             </button>
