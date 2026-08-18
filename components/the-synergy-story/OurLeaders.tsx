@@ -72,7 +72,6 @@ export const OurLeaders = () => {
                                     role={leader.role || "Senior Doctor"}
                                     description={leader.description || "No description provided"}
                                     onReadMore={leader.onReadMore}
-                                    onDownload={leader.onDownload}
                                 />
                             </motion.div>
                         ))}
