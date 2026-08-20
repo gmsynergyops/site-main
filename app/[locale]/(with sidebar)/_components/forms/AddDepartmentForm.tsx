@@ -93,7 +93,6 @@ export default function AddDepartmentForm() {
         handleSubmit,
         formState: { errors },
         setValue,
-        watch
     } = useForm<DepartmentFormData>({
         resolver: zodResolver(departmentSchema),
         defaultValues: {
@@ -221,7 +220,7 @@ export default function AddDepartmentForm() {
         alert('Form submitted! Check console for data.');
     };
 
-    const isFeatured = watch('isFeatured');
+    
 
     return (
         <div className="max-w-4xl mx-auto p-6 space-y-8">
@@ -274,7 +273,7 @@ export default function AddDepartmentForm() {
                         <div className="flex items-center space-x-2">
                             <Checkbox
                                 id="isFeatured"
-                                checked={isFeatured}
+                                // checked={isFeatured}
                                 onCheckedChange={(checked) => setValue('isFeatured', !!checked)}
                                 className='border-black'
                             />
@@ -634,7 +633,7 @@ export default function AddDepartmentForm() {
                                     <Input {...register(`cta.buttons.${index}.text`)} placeholder="Button text" className='border-black' />
                                     <div className="flex items-center space-x-2">
                                         <Checkbox
-                                            checked={watch(`cta.buttons.${index}.isPrimary`)}
+                                            // checked={watch(`cta.buttons.${index}.isPrimary`)}
                                             onCheckedChange={(checked) => setValue(`cta.buttons.${index}.isPrimary`, !!checked)}
                                         />
                                         <Label>Primary</Label>

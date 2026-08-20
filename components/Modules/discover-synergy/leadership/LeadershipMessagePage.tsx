@@ -103,9 +103,9 @@ export default function LeadershipMessagePage(
 
                 {/* Decorative background */}
                 <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                    <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-white/[0.035]" />
+                    <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-white/[0.035]" />
 
-                    <div className="absolute -bottom-48 -left-32 h-[500px] w-[500px] rounded-full bg-white/[0.025]" />
+                    <div className="absolute -bottom-48 -left-32 h-125 w-125 rounded-full bg-white/[0.025]" />
 
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.08),transparent_30%)]" />
                 </div>
@@ -147,13 +147,13 @@ export default function LeadershipMessagePage(
                                     />
 
                                     {/* Image overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#071a35]/50 via-transparent to-transparent" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-[#071a35]/50 via-transparent to-transparent" />
                                 </div>
 
                                 {/* Decorative frame */}
                                 <div className="absolute -bottom-4 -right-4 -z-0 h-28 w-28 rounded-br-[28px] border-b-2 border-r-2 border-blue-200/30" />
 
-                                <div className="absolute -left-3 -top-3 h-20 w-20 rounded-tl-[20px] border-l-2 border-t-2 border-blue-200/30" />
+                                <div className="absolute -left-3 -top-3 h-20 w-20 rounded-tl-5 border-l-2 border-t-2 border-blue-200/30" />
 
                             </div>
                         </motion.div>

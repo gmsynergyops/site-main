@@ -149,7 +149,7 @@ export default function CentersPage() {
       >
         <motion.div
           variants={itemVariants}
-          className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl"
+          className="relative h-100 md:h-125 rounded-2xl overflow-hidden shadow-xl"
         >
           <ImageWithFallback
             fallbackSrc="/fallback-image.webp"
@@ -160,22 +160,22 @@ export default function CentersPage() {
             priority
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
-          <div className="absolute bottom-[10px] left-0 right-0 w-full px-4 flex justify-center z-10">
+          <div className="absolute bottom-2.5 left-0 right-0 w-full px-4 flex justify-center z-10">
             <div className="w-full max-w-4xl p-6 md:p-10 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/50 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.2)] text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none" />
 
               <motion.h1
                 variants={itemVariants}
-                className={`${newYorkTypography.h1} text-white mb-3 md:mb-4 relative z-10 [text-shadow:_0_0_20px_rgba(255,255,255,0.8),_0_0_5px_rgba(255,255,255,1)]`}
+                className={`${newYorkTypography.h1} text-white mb-3 md:mb-4 relative z-10 [text-shadow:0_0_20px_rgba(255,255,255,0.8),0_0_5px_rgba(255,255,255,1)]`}
               >
                 {pageData.heroTitle}
               </motion.h1>
 
               <motion.p
                 variants={itemVariants}
-                className="text-lg md:text-xl text-white font-serif max-w-3xl mx-auto font-medium relative z-10 [text-shadow:_0_0_15px_rgba(255,255,255,0.6)]"
+                className="text-lg md:text-xl text-white font-serif max-w-3xl mx-auto font-medium relative z-10 [text-shadow:0_0_15px_rgba(255,255,255,0.6)]"
               >
                 {pageData.heroSubtitle}
               </motion.p>

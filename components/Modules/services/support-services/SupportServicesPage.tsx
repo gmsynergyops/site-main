@@ -52,7 +52,7 @@ const SupportServicesPage = () => {
     });
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-linear-to-br from-blue-50 to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             {/* Header Section */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -70,7 +70,7 @@ const SupportServicesPage = () => {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="mt-8 h-1 bg-gradient-to-r from-blue-400 to-teal-400 w-24 mx-auto"
+                    className="mt-8 h-1 bg-linear-to-r from-blue-400 to-teal-400 w-24 mx-auto"
                 />
             </motion.div>
 
@@ -81,7 +81,7 @@ const SupportServicesPage = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden mb-16 p-8 relative"
             >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-teal-100 opacity-20 rounded-xl" />
+                <div className="absolute inset-0 bg-linear-to-br from-blue-100 to-teal-100 opacity-20 rounded-xl" />
                 <div className="relative z-10">
                     <h2 className="text-2xl font-bold text-primary font-display mb-4">About Synergy Super-Specialty Hospital and Cancer Institute</h2>
                     <p className="text-gray-600 text-lg mb-4">
@@ -121,7 +121,7 @@ const SupportServicesPage = () => {
                                     className="size-full object-cover"
                                 />
                             </motion.div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
                             <h3 className="absolute bottom-4 left-4 text-2xl font-bold text-fuchsia-50 font-display">
                                 {service.title}
                             </h3>
@@ -131,7 +131,7 @@ const SupportServicesPage = () => {
                             <p className="text-gray-600 mb-6 text-lg">{service.description}</p>
                             <Link
                                 href={service.link}
-                                className="inline-flex items-center px-5 py-2.5 rounded-lg font-medium text-white bg-gradient-to-r from-indigo-500 to-fuchsia-500 group-hover:from-indigo-400 group-hover:to-fuchsia-400 transition-all duration-300 shadow-md group-hover:shadow-lg"
+                                className="inline-flex items-center px-5 py-2.5 rounded-lg font-medium text-white bg-linear-to-r from-indigo-500 to-fuchsia-500 group-hover:from-indigo-400 group-hover:to-fuchsia-400 transition-all duration-300 shadow-md group-hover:shadow-lg"
                             >
                                 View All
                                 <svg className="ml-2 -mr-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

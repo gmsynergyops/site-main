@@ -30,7 +30,7 @@ const Insurance = () => {
     return (
         <div className="font-sans text-gray-700">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-blue-50 to-cyan-50 py-20 px-4">
+            <section className="bg-linear-to-r from-blue-50 to-cyan-50 py-20 px-4">
                 <div className="max-w-6xl mx-auto text-center animate-fade-in">
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                         Insurance and TPA Services

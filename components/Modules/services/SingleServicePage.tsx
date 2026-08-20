@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 
 // Simple Checkmark Icon Component for the new lists
 const CheckIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-blue-600 mt-1 mr-2 flex-shrink-0">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-blue-600 mt-1 mr-2 shrink-0">
     <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
   </svg>
 );
@@ -51,7 +51,7 @@ const scaleUp = {
 
 // TYPOGRAPHY FIXED FOR MOBILE
 const newYorkTypography = {
-  h1: "text-2xl sm:text-4xl md:text-4xl font-display font-bold tracking-tight", 
+  h1: "text-2xl sm:text-4xl md:text-4xl font-display font-bold tracking-tight",
   h2: "text-2xl sm:text-3xl font-display font-semibold border-b-2 border-gray-200 pb-2 mb-6",
   h3: "text-xl sm:text-2xl font-display font-medium",
   body: "text-gray-700 leading-relaxed font-sans",
@@ -72,7 +72,7 @@ export default function DepartmentPage() {
   // Extract slug from pathname
   const slug = pathname?.split('/').pop() || '';
   const departmentData = useDepartmentData()
-  
+
   // Find matching department data
   const department = departmentData.find(dept => dept.slug === slug) as any;
 
@@ -86,11 +86,12 @@ export default function DepartmentPage() {
   }
 
   // Get dynamic background class or fallback to default
-  const dynamicBgClass = department.themeBgClass || "bg-gradient-to-br from-blue-50/50 via-white to-blue-50/80";
+  const dynamicBgClass = department.themeBgClass || "bg-linear-to-br from-blue-50/50 via-white to-blue-50/80";
 
+  const framed = department.name === "Surgical Oncology" || department.name === "Medical Oncology" || department.name === "Gynae Oncology | Gynecology & Obstetrics" || department.name === "Urology"|| department.name === "General Surgery"
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      
+
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
@@ -101,42 +102,48 @@ export default function DepartmentPage() {
       >
         <motion.div
           variants={itemVariants}
-          className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl"
+          className="relative h-100 md:h-125 rounded-2xl overflow-hidden shadow-xl"
         >
           <ImageWithFallback
             fallbackSrc="/fallback-image.webp"
             src={department.bannerImage}
             alt={`${department.name} Department`}
             fill
-            className="object-cover"
+            className={cn(
+              framed?
+                "object-cover" : "object-contain"
+            )}
             priority
           />
-          
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-          
-          {/* GLASS BOX ADJUSTED FOR MOBILE */}
-          <motion.div
-            variants={fadeIn}
-            className="absolute bottom-[10px] sm:bottom-[15px] left-0 right-0 w-full px-2 sm:px-4 flex justify-center z-10"
-          >
-            <div className="w-full max-w-4xl p-4 sm:p-6 md:p-10 rounded-2xl bg-white/[0.01] backdrop-blur-sm border-[1.5px] border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_8px_32px_0_rgba(0,0,0,0.2)] text-center relative overflow-hidden mx-2 sm:mx-0">
-              
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
 
-              <motion.h1
-                variants={scaleUp}
-                className={`${newYorkTypography.h1} text-white mb-1.5 sm:mb-3 md:mb-4 [text-shadow:_0_0_5px_rgba(0,0,0,1.0),_0_0_5px_rgba(255,255,255,0.9)] relative z-10 leading-tight`}
+          {/* GLASS BOX ADJUSTED FOR MOBILE */}
+          {framed ?
+            <>
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              <motion.div
+                variants={fadeIn}
+                className="absolute bottom-2.5 sm:bottom-3.75 left-0 right-0 w-full px-2 sm:px-4 flex justify-center z-10"
               >
-                {department.heroTitle}
-              </motion.h1>
-              <motion.p
-                variants={scaleUp}
-                className="text-sm sm:text-base md:text-xl text-white font-serif max-w-3xl mx-auto [text-shadow:_0_0_15px_rgba(255,255,255,0.8)] font-medium relative z-10 leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-none"
-              >
-                {department.heroSubtitle}
-              </motion.p>
-            </div>
-          </motion.div>
+                <div className="w-full max-w-4xl p-4 sm:p-6 md:p-10 rounded-2xl bg-white/1 backdrop-blur-sm border-[1.5px] border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_8px_32px_0_rgba(0,0,0,0.2)] text-center relative overflow-hidden mx-2 sm:mx-0">
+
+                  <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+
+                  <motion.h1
+                    variants={scaleUp}
+                    className={`${newYorkTypography.h1} text-white mb-1.5 sm:mb-3 md:mb-4 [text-shadow:0_0_5px_rgba(0,0,0,1.0),0_0_5px_rgba(255,255,255,0.9)] relative z-10 leading-tight`}
+                  >
+                    {department.heroTitle}
+                  </motion.h1>
+                  <motion.p
+                    variants={scaleUp}
+                    className="text-sm sm:text-base md:text-xl text-white font-serif max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(255,255,255,0.8)] font-medium relative z-10 leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-none"
+                  >
+                    {department.heroSubtitle}
+                  </motion.p>
+                </div>
+              </motion.div>
+            </> : null
+          }
         </motion.div>
       </motion.section>
 
@@ -149,13 +156,13 @@ export default function DepartmentPage() {
         className={cn("mb-20 p-6 md:p-10 rounded-3xl shadow-sm border border-black/5", dynamicBgClass)}
       >
         <div className="grid md:grid-cols-2 gap-12">
-          
+
           {/* Overview Content Side */}
           <motion.div variants={itemVariants}>
             <motion.h2 variants={itemVariants} className={`${newYorkTypography.h2} text-gray-900 border-gray-300`}>
               {department.overview.title}
             </motion.h2>
-            
+
             {/* Main Description */}
             {department.overview.description?.map((paragraph: string, index: number) => (
               <motion.p key={index} variants={itemVariants} className={`${newYorkTypography.body} mb-6`}>
@@ -165,18 +172,18 @@ export default function DepartmentPage() {
 
             {/* Old structure fallback (Why Choose Us) */}
             {department.overview.whyChooseUs && !department.overview.additionalSections && (
-                <>
-                  <motion.h3 variants={itemVariants} className={`${newYorkTypography.h3} mb-4 text-gray-900`}>
-                    Why Choose Us
-                  </motion.h3>
-                  <motion.ul variants={containerVariants} className="list-disc pl-6 space-y-3 text-gray-700">
-                    {department.overview.whyChooseUs.map((item: string, index: number) => (
-                      <motion.li key={index} variants={itemVariants} className={newYorkTypography.body}>
-                        {item}
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </>
+              <>
+                <motion.h3 variants={itemVariants} className={`${newYorkTypography.h3} mb-4 text-gray-900`}>
+                  Why Choose Us
+                </motion.h3>
+                <motion.ul variants={containerVariants} className="list-disc pl-6 space-y-3 text-gray-700">
+                  {department.overview.whyChooseUs.map((item: string, index: number) => (
+                    <motion.li key={index} variants={itemVariants} className={newYorkTypography.body}>
+                      {item}
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </>
             )}
 
             {/* NEW DYNAMIC ADDITIONAL SECTIONS */}
@@ -383,7 +390,7 @@ export default function DepartmentPage() {
               className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100"
             >
               <div className="flex flex-col sm:flex-row items-start mb-6 gap-4">
-                <div className="relative h-16 w-16 flex-shrink-0 rounded-full overflow-hidden border border-gray-200">
+                <div className="relative h-16 w-16 shrink-0 rounded-full overflow-hidden border border-gray-200">
                   <ImageWithFallback
                     fallbackSrc="/fallback-image.webp"
                     src={story.image}
@@ -394,7 +401,7 @@ export default function DepartmentPage() {
                 </div>
                 <div>
                   <blockquote className={`${newYorkTypography.quote} mb-4 text-base md:text-lg`}>
-                  &quot;{story.quote}&quot;
+                    &quot;{story.quote}&quot;
                   </blockquote>
                   <p className="font-serif font-semibold text-gray-900">— {story.author}</p>
                 </div>
@@ -425,11 +432,10 @@ export default function DepartmentPage() {
                 key={index}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className={`px-8 py-3.5 rounded-full font-serif font-semibold shadow-md transition-colors w-full sm:w-auto ${
-                  button.isPrimary
-                    ? 'bg-white text-blue-900 hover:bg-gray-50'
-                    : 'border-2 border-white text-white hover:bg-white/10'
-                }`}
+                className={`px-8 py-3.5 rounded-full font-serif font-semibold shadow-md transition-colors w-full sm:w-auto ${button.isPrimary
+                  ? 'bg-white text-blue-900 hover:bg-gray-50'
+                  : 'border-2 border-white text-white hover:bg-white/10'
+                  }`}
               >
                 {button.text}
               </motion.button>

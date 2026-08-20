@@ -207,7 +207,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                                 <Badge
                                     key={index}
                                     variant="outline"
-                                    className="text-[10px] sm:text-xs text-primary border-primary/50"
+                                    className="text-2.5 sm:text-xs text-primary border-primary/50"
                                 >
                                     {item.title}
                                 </Badge>
@@ -216,7 +216,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                         {props.treatments.items.length > 3 && (
                             <Badge
                                 variant="outline"
-                                className="text-[10px] sm:text-xs cursor-pointer text-primary border-primary/50"
+                                className="text-2.5 sm:text-xs cursor-pointer text-primary border-primary/50"
                                 onClick={() => setShowAll(!showAll)}
                             >
                                 {showAll ? (

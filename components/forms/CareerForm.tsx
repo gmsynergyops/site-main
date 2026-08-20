@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -105,7 +106,7 @@ export default function CareerForm() {
             form.reset();
             if (fileInputRef.current) fileInputRef.current.value = "";
         } catch (error) {
-            toast.error("Failed to submit the form. Please try again.");
+            toast.error(`Failed to submit the form. Please try again. ${error} `);
         }
     };
 

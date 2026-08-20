@@ -105,7 +105,7 @@ const centreOfExcellence = [
     "Comprehensive Cancer Care",
     "Advanced Radiation Oncology",
     "Medical, Surgical & Pediatric Oncology",
-    "24×7 Trauma & Emergency Centre",
+    "24x7 Trauma & Emergency Centre",
     "13-Bedded ICU & Critical Care Services",
     "Advanced Modular Operation Theatres",
     "Peripheral OPD Network Across Six Districts",
@@ -276,7 +276,7 @@ export const RestSections = () => {
                     <div className="relative mt-16">
 
                         {/* Vertical line */}
-                        <div className="absolute bottom-0 left-[17px] top-0 hidden w-px bg-slate-200 md:left-1/2 md:block md:-translate-x-1/2" />
+                        <div className="absolute bottom-0 left-4.25 top-0 hidden w-px bg-slate-200 md:left-1/2 md:block md:-translate-x-1/2" />
 
                         <div className="space-y-10 md:space-y-14">
 

@@ -251,7 +251,7 @@ export function Navbar() {
                                                                     variants={itemVariants}
                                                                     className={cn("px-4 py-2 rounded-lg text-sm border border-neutral-300", qLink.bg)}
                                                                 >
-                                                                    <div className="text-gray-500 text-[10px]">{qLink.label}</div>
+                                                                    <div className="text-gray-500 text-2.5">{qLink.label}</div>
                                                                     <div className="font-normal">{qLink.value}</div>
                                                                 </motion.div>
                                                             );

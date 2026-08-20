@@ -36,7 +36,7 @@ export const SupportServicePage = ({
                     height={500}
                     className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-transparent flex items-center px-8">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-900/80 to-transparent flex items-center px-8">
                     <div className="max-w-2xl">
                         <h1 className="text-4xl font-bold text-white mb-4">{title}</h1>
                         <p className="text-lg text-blue-100 mb-6">{description}</p>
@@ -93,7 +93,7 @@ export const SupportServicePage = ({
                     <ul className="space-y-3">
                         {preparationTips.map((tip, index) => (
                             <li key={index} className="flex items-start">
-                                <span className="flex-shrink-0 mt-1 mr-2">•</span>
+                                <span className="shrink-0 mt-1 mr-2">•</span>
                                 <span className="text-gray-700">{tip}</span>
                             </li>
                         ))}

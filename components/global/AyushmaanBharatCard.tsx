@@ -66,7 +66,7 @@ const AyushmaanBharatCard = () => {
                                 width={600}
                                 height={400}
                                 alt="Ayushmaan Bharat Card"
-                                className="object-cover object-center w-full max-w-[500px] rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
+                                className="object-cover object-center w-full max-w-125 rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
                             />
                         </div>
                     </div>
@@ -82,7 +82,7 @@ const AyushmaanBharatCard = () => {
                             {/* Card 1 */}
                             <div className="bg-white border border-slate-200 hover:border-synergy-blue/40 shadow-sm hover:shadow-md transition-all p-5 md:p-6 rounded-xl group">
                                 <div className="flex items-center gap-3 mb-3">
-                                    <FaCheckCircle className="text-green-500 text-xl flex-shrink-0" />
+                                    <FaCheckCircle className="text-green-500 text-xl shrink-0" />
                                     <h3 className="text-lg md:text-xl font-bold text-slate-800 group-hover:text-synergy-blue transition-colors">
                                         {t('benefits.whatIs.title')}
                                     </h3>
@@ -95,7 +95,7 @@ const AyushmaanBharatCard = () => {
                             {/* Card 2 */}
                             <div className="bg-white border border-slate-200 hover:border-synergy-blue/40 shadow-sm hover:shadow-md transition-all p-5 md:p-6 rounded-xl group">
                                 <div className="flex items-center gap-3 mb-3">
-                                    <FaCheckCircle className="text-green-500 text-xl flex-shrink-0" />
+                                    <FaCheckCircle className="text-green-500 text-xl shrink-0" />
                                     <h3 className="text-lg md:text-xl font-bold text-slate-800 group-hover:text-synergy-blue transition-colors">
                                         {t('benefits.availing.title')}
                                     </h3>
@@ -116,8 +116,8 @@ const AyushmaanBharatCard = () => {
                 </div>
 
                 {/* 4. FULL WIDTH CTA BANNER (No Button) */}
-                <div className="bg-gradient-to-r from-synergy-blue via-blue-800 to-blue-900 text-white p-5 sm:p-10 md:p-12 w-full flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-6 md:gap-8">
-                    <div className="bg-white/10 p-4 md:p-5 rounded-full backdrop-blur-sm shadow-inner flex-shrink-0">
+                <div className="bg-linear-to-r from-synergy-blue via-blue-800 to-blue-900 text-white p-5 sm:p-10 md:p-12 w-full flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-6 md:gap-8">
+                    <div className="bg-white/10 p-4 md:p-5 rounded-full backdrop-blur-sm shadow-inner shrink-0">
                         <FaHospitalUser className="text-4xl md:text-4xl text-white" />
                     </div>
                     <div>

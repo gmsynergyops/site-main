@@ -65,7 +65,7 @@ export const RehabilationPrograms = () => {
   return (
     <main className="font-sans">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-teal-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
+      <section className="bg-linear-to-r from-blue-50 to-teal-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div className="space-y-4 sm:space-y-5">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
@@ -241,7 +241,7 @@ export const RehabilationPrograms = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-tl from-teal-600 via-blue-600 to-blue-700 text-white">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-linear-to-tl from-teal-600 via-blue-600 to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5">Begin Your Recovery Journey Today</h2>
           <p className="text-base sm:text-lg text-teal-100 mb-6 sm:mb-7">

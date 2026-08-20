@@ -28,7 +28,7 @@ export const DynamicCancerTypesPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             {/* Hero Section */}
             <section className="mb-16">
-                <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg">
+                <div className="relative w-full h-auto aspect-10/4 rounded-xl overflow-hidden shadow-lg">
                     <ImageWithFallback
                         src={cancerTypeData?.heroSection.Image}
                         fallbackSrc="/fallback-image.webp"
@@ -36,14 +36,14 @@ export const DynamicCancerTypesPage = () => {
                         className="object-cover"
                         fill
                     />
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    {/* <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                         <div className="text-center px-4">
                             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">{cancerTypeData.heroSection.title}</h1>
                             <p className="text-lg md:text-xl text-white max-w-3xl mx-auto">
                                 {cancerTypeData.heroSection.description}
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

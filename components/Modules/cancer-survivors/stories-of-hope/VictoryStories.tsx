@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { ImageWithFallback } from "@/components/global/ImageWithFallback";
@@ -378,7 +379,7 @@ export const VictoryStories = () => {
                     {visibleStories.map((item, idx) => (
                         <div
                             key={`${item.name}-${idx}`}
-                            className="break-inside-avoid transition-all duration-300 hover:translate-y-[-4px]"
+                            className="break-inside-avoid transition-all duration-300 hover:-translate-y-1"
                             ref={el => {
                                 if (item.type === "video") {
                                     videoRefs.current[idx] = el;
@@ -401,7 +402,7 @@ export const VictoryStories = () => {
                                         <div className="flex flex-col">
                                             <p className="text-sm sm:text-base font-semibold text-gray-900 flex items-center">
                                                 {item.name}
-                                                <span className="ml-1 flex-shrink-0 inline-block text-blue-500">
+                                                <span className="ml-1 shrink-0 inline-block text-blue-500">
                                                     <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                                     </svg>
@@ -419,7 +420,7 @@ export const VictoryStories = () => {
                                     )}
                                 </div>
                             ) : (
-                                <div className="group relative bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden shadow-lg">
+                                <div className="group relative bg-linear-to-br from-gray-900 to-black rounded-2xl overflow-hidden shadow-lg">
                                     <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
                                         {playingIndex === idx ? (
                                             <iframe
@@ -431,7 +432,7 @@ export const VictoryStories = () => {
                                             />
                                         ) : (
                                             <>
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                                                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent z-10"></div>
                                                 <ImageWithFallback
                                                     fallbackSrc="/fallback-image.webp"
                                                     src={item.thumbnail || ""}

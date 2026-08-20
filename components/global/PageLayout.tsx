@@ -20,7 +20,7 @@ const PageLayout = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: inView ? 1 : 0 }}
       transition={{ duration: 0.5 }}
-      className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-fuchsia-50 to-indigo-50 min-h-screen"
+      className="py-12 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-fuchsia-50 to-indigo-50 min-h-screen"
     >
       <div className="max-w-7xl mx-auto">
         <motion.h1

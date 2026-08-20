@@ -1,6 +1,6 @@
 // app/media-center/page.tsx
-import { EventsAndConferences } from '@/components/media-center/EventsAndConferences';
-import { MediaContacts } from '@/components/media-center/MediaContacts';
+// import { EventsAndConferences } from '@/components/media-center/EventsAndConferences';
+// import { MediaContacts } from '@/components/media-center/MediaContacts';
 import { MediaGallery } from '@/components/media-center/MediaGallery';
 import { PressReleasesSection } from '@/components/media-center/PressReleasesSection';
 import { SynergyInTheNewsSection } from '@/components/media-center/SynergyInTheNewsSection';

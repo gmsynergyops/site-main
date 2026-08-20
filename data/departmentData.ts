@@ -15,7 +15,7 @@ export const useDepartmentData = () => {
       heroTitle: t("MedicalOncology.heroTitle"),
       isFeatured: true,
       heroSubtitle: t("MedicalOncology.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-blue-50 via-white to-sky-50", // Unique Light Blue
+      themeBgClass: "bg-linear-to-br from-blue-50 via-white to-sky-50", // Unique Light Blue
       overview: {
         title: "Our Medical Oncology Approach",
         description: [
@@ -201,7 +201,7 @@ export const useDepartmentData = () => {
       heroTitle: t("SurgicalOncology.heroTitle"),
       isFeatured: true,
       heroSubtitle: t("SurgicalOncology.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-slate-100 via-white to-zinc-50", // Unique Slate
+      themeBgClass: "bg-linear-to-br from-slate-100 via-white to-zinc-50", // Unique Slate
       overview: {
         title: "Our Surgical Oncology Approach",
         description: [
@@ -391,13 +391,13 @@ export const useDepartmentData = () => {
       slug: "radiation-oncology",
 
       heroImage: "/department/radiation-oncology.webp",
-      bannerImage: "/department/radiation-oncology-banner.jpeg",
+      bannerImage: "/department/radiation-oncology-banner.png",
 
       heroTitle: t("RadiationOncology.heroTitle"),
       isFeatured: true,
       heroSubtitle: t("RadiationOncology.heroSubtitle"),
 
-      themeBgClass: "bg-gradient-to-br from-indigo-50 via-white to-slate-50",
+      themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-slate-50",
 
       overview: {
         title: t("RadiationOncology.overview.title"),
@@ -611,7 +611,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Gynecology.heroTitle"),
       heroSubtitle: t("Gynecology.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-rose-50 via-white to-pink-50", // Unique Pink
+      themeBgClass: "bg-linear-to-br from-rose-50 via-white to-pink-50", // Unique Pink
       overview: {
         title: "Our Gynecology & Obstetrics Approach",
         description: [
@@ -769,11 +769,11 @@ export const useDepartmentData = () => {
       name: t("Neurology.name"),
       slug: "neurology",
       heroImage: "/department/neurology.jpeg",
-      bannerImage: "/department/neurology-banner.webp",
+      bannerImage: "/department/neurology-banner.png",
       heroTitle: t("Neurology.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Neurology.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-indigo-50 via-white to-violet-50", // Unique Indigo
+      themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-violet-50", // Unique Indigo
       overview: {
         title: "Our Neurology Approach",
         description: ["Neurology deals with brain, nerve, and spine problems."],
@@ -925,11 +925,11 @@ export const useDepartmentData = () => {
       name: t("Neurosurgery.name"),
       slug: "neurosurgery",
       heroImage: "/department/neurosurgery.jpg",
-      bannerImage: "/department/neurology-banner.webp",
+      bannerImage: "/department/neurosurgery-banner.png",
       heroTitle: t("Neurosurgery.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Neurosurgery.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-violet-50 via-white to-fuchsia-50", // Unique Violet
+      themeBgClass: "bg-linear-to-br from-violet-50 via-white to-fuchsia-50", // Unique Violet
       overview: {
         title: "Our Neurosurgery Approach",
         description: [
@@ -1092,7 +1092,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Gastroenterology.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Gastroenterology.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-amber-50 via-white to-orange-50", // Unique Amber
+      themeBgClass: "bg-linear-to-br from-amber-50 via-white to-orange-50", // Unique Amber
       overview: {
         title: "Our Gastroenterology Approach",
         description: [
@@ -1242,11 +1242,11 @@ export const useDepartmentData = () => {
       name: t("Nephrology.name"),
       slug: "nephrology",
       heroImage: "/department/pediatrics.jpeg",
-      bannerImage: "/department/nephrology-banner.jpg",
+      bannerImage: "/department/nephrology-banner.png",
       heroTitle: t("Nephrology.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Nephrology.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-cyan-50 via-white to-teal-50", // Unique Cyan/Teal
+      themeBgClass: "bg-linear-to-br from-cyan-50 via-white to-teal-50", // Unique Cyan/Teal
       overview: {
         title: "Our Nephrology Approach",
         description: [
@@ -1395,7 +1395,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Urology.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Urology.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-sky-50 via-white to-blue-50", // Unique Sky Blue
+      themeBgClass: "bg-linear-to-br from-sky-50 via-white to-blue-50", // Unique Sky Blue
       overview: {
         title: "Our Urology Approach",
         description: [
@@ -1546,11 +1546,11 @@ export const useDepartmentData = () => {
       name: t("Orthopedics.name"),
       slug: "orthopedics",
       heroImage: "/department/pediatrics.jpeg",
-      bannerImage: "/department/orthopaedic-banner.jpg",
+      bannerImage: "/department/orthology-banner.png",
       heroTitle: t("Orthopedics.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Orthopedics.heroSubtitle"),
-      themeBgClass: "bg-gradient-to-br from-emerald-50 via-white to-green-50", // Unique Emerald
+      themeBgClass: "bg-linear-to-br from-emerald-50 via-white to-green-50", // Unique Emerald
       overview: {
         title: "Our Orthopedics Approach",
         description: ["Orthopedics focuses on bones, joints, and movement."],
@@ -1704,7 +1704,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Anesthesia.heroTitle"),
       heroSubtitle: t("Anesthesia.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-teal-50 via-white to-emerald-50", // Unique Teal
+      themeBgClass: "bg-linear-to-br from-teal-50 via-white to-emerald-50", // Unique Teal
       overview: {
         title: "Our Anesthesia Approach",
         description: ["Anesthesia ensures pain-free and safe surgery."],
@@ -1853,7 +1853,7 @@ export const useDepartmentData = () => {
       heroTitle: t("GeneralSurgery.heroTitle"),
       heroSubtitle: t("GeneralSurgery.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-zinc-50 via-white to-slate-50", // Unique Zinc
+      themeBgClass: "bg-linear-to-br from-zinc-50 via-white to-slate-50", // Unique Zinc
       overview: {
         title: "Our General Surgery Approach",
         description: ["General Surgery handles common surgical conditions."],
@@ -2001,7 +2001,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Pediatrics.heroTitle"),
       heroSubtitle: t("Pediatrics.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-yellow-50 via-white to-amber-50", // Unique Yellow/Amber
+      themeBgClass: "bg-linear-to-br from-yellow-50 via-white to-amber-50", // Unique Yellow/Amber
       overview: {
         title: "Our Pediatrics Approach",
         description: ["Pediatrics provides complete healthcare for children."],
@@ -2137,11 +2137,11 @@ export const useDepartmentData = () => {
       name: t("HeadNeck.name"),
       slug: "head-and-neck",
       heroImage: "/department/head-and-neck.jpeg",
-      bannerImage: "/department/head-and-neck-banner.jpeg",
+      bannerImage: "/department/head-and-neck-banner.png",
       heroTitle: t("HeadNeck.heroTitle"),
       heroSubtitle: t("HeadNeck.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-fuchsia-50 via-white to-pink-50", // Unique Fuchsia
+      themeBgClass: "bg-linear-to-br from-fuchsia-50 via-white to-pink-50", // Unique Fuchsia
       overview: {
         title: "Our Head & Neck Approach",
         description: [
@@ -2296,13 +2296,13 @@ export const useDepartmentData = () => {
       id: "emergency-critical-care",
       index: 13,
       name: t("EmergencyCriticalCare.name"),
-      slug: "emergency-critical-care",
+      slug: "emergency-and-critical-care",
       heroImage: "/department/emergency.jpg",
-      bannerImage: "/department/emergency-banner.jpg",
+      bannerImage: "/department/emergency-and-critical-care-banner.png",
       heroTitle: t("EmergencyCriticalCare.heroTitle"),
       heroSubtitle: t("EmergencyCriticalCare.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-red-50 via-white to-orange-50", // Unique Red/Orange
+      themeBgClass: "bg-linear-to-br from-red-50 via-white to-orange-50", // Unique Red/Orange
       overview: {
         title: "Our Emergency & Critical Care Approach",
         description: ["24x7 emergency care for life-threatening conditions."],
@@ -2461,7 +2461,7 @@ export const useDepartmentData = () => {
       heroTitle: t("DiagnosticImaging.heroTitle"),
       heroSubtitle: t("DiagnosticImaging.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-gray-100 via-white to-gray-50", // Unique Gray
+      themeBgClass: "bg-linear-to-br from-gray-100 via-white to-gray-50", // Unique Gray
       overview: {
         title: t("DiagnosticImaging.overview.title"),
         description: [
@@ -2612,7 +2612,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Dialysis.heroTitle"),
       heroSubtitle: t("Dialysis.heroSubtitle"),
       isFeatured: false,
-      themeBgClass: "bg-gradient-to-br from-cyan-50 via-white to-blue-50", // Unique Cyan/Blue
+      themeBgClass: "bg-linear-to-br from-cyan-50 via-white to-blue-50", // Unique Cyan/Blue
       overview: {
         title: t("Dialysis.overview.title"),
         description: [
@@ -2759,7 +2759,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Radiology.heroTitle"),
       heroSubtitle: t("Radiology.heroSubtitle"),
       isFeatured: false,
-      themeBgClass: "bg-gradient-to-br from-slate-100 via-white to-gray-50", // Unique Slate/Gray
+      themeBgClass: "bg-linear-to-br from-slate-100 via-white to-gray-50", // Unique Slate/Gray
       overview: {
         title: t("Radiology.overview.title"),
         description: [
@@ -2905,7 +2905,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Pathology.heroTitle"),
       heroSubtitle: t("Pathology.heroSubtitle"),
       isFeatured: false,
-      themeBgClass: "bg-gradient-to-br from-purple-50 via-white to-fuchsia-50", // Unique Purple
+      themeBgClass: "bg-linear-to-br from-purple-50 via-white to-fuchsia-50", // Unique Purple
       overview: {
         title: t("Pathology.overview.title"),
         description: [
@@ -3053,7 +3053,7 @@ export const useDepartmentData = () => {
       heroSubtitle:
         "Comprehensive infectious disease diagnostics in Gorakhpur.",
       isFeatured: false,
-      themeBgClass: "bg-gradient-to-br from-lime-50 via-white to-green-50", // Unique Lime/Green
+      themeBgClass: "bg-linear-to-br from-lime-50 via-white to-green-50", // Unique Lime/Green
       overview: {
         title: t("Microbiology.overview.title"),
         description: [
@@ -3201,7 +3201,7 @@ export const useDepartmentData = () => {
       heroTitle: t("Biochemistry.heroTitle"),
       heroSubtitle: t("Biochemistry.heroSubtitle"),
       isFeatured: false,
-      themeBgClass: "bg-gradient-to-br from-indigo-50 via-white to-blue-50", // Unique Indigo/Blue
+      themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-blue-50", // Unique Indigo/Blue
       overview: {
         title: t("Biochemistry.overview.title"),
         description: [
@@ -3348,11 +3348,11 @@ export const useDepartmentData = () => {
       name: t("PainAndPalliativeCare.name"),
       slug: "pain-and-palliative-care",
       heroImage: "/department/pain-and-palliative-care.jpeg",
-      bannerImage: "/department/pain-and-palliative-care-banner.jpeg",
+      bannerImage: "/department/pain-and-palliative-care-banner.png",
       heroTitle: t("PainAndPalliativeCare.heroTitle"),
       heroSubtitle: t("PainAndPalliativeCare.heroSubtitle"),
       isFeatured: true,
-      themeBgClass: "bg-gradient-to-br from-purple-50 via-white to-indigo-50", // Unique Purple/Indigo
+      themeBgClass: "bg-linear-to-br from-purple-50 via-white to-indigo-50", // Unique Purple/Indigo
       overview: {
         title: "Our Pain & Palliative Care Approach",
         description: [

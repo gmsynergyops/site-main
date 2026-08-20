@@ -50,7 +50,7 @@ export const DashboardSidebar = () => {
                                     collapsed ? "justify-center" : "justify-start"
                                 )}
                             >
-                                <div className="flex-shrink-0">
+                                <div className="shrink-0">
                                     <Icon className={cn("size-5", collapsed ? "mx-0" : "mr-2")} />
                                 </div>
                                 {!collapsed && <span>{item.title}</span>}

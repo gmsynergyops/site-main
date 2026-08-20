@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/static-components */
 // app/[section]/[slug]/page.tsx
 import {
     CancerSurvivorsMap,
@@ -21,6 +22,26 @@ export async function generateMetadata(props: {
   const { section, slug } = await props.params;
 
   const meta = seoData[section]?.[slug];
+
+  if (!meta && section === "health-library" && HealthLibraryMap[slug]) {
+    const pageTitle = slug
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    return {
+      title: `${pageTitle} | Synergy Hospital`,
+      description: `Learn more about ${pageTitle} from Synergy Super Speciality Hospital and Cancer Institute.`,
+      keywords: [pageTitle, "Health Library", "Synergy Hospital"],
+      robots: {
+        index: true,
+        follow: true,
+      },
+      icons: {
+        icon: "/favicon.ico",
+      },
+    };
+  }
 
   if (!meta) {
     return {

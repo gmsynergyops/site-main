@@ -192,7 +192,7 @@ export const DoctorsPage = () => {
                                     key={doctor.id}
                                     variants={item}
                                     whileHover={{ y: -5 }}
-                                    className="flex flex-col h-full bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden max-w-[400px]"
+                                    className="flex flex-col h-full bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden max-w-100"
                                 >
                                     {/* Image/Header */}
                                     <div className="relative h-60 bg-linear-to-r from-fuchsia-400 to-indigo-700">

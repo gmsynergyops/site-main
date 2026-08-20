@@ -31,7 +31,7 @@ import { useTranslations } from "next-intl";
 
     // Milestones data
 export const useMilestones = () => {
-    const t = useTranslations("TheSynergyStory.RestSections.MilestonesSection.MilestonesData")
+    
     const milestones = [
         {
             year: "2019",

@@ -36,7 +36,7 @@ export default function RequestCallBackForm() {
                 form.reset();
             }
         } catch (error) {
-            toast.error("Failed to submit the form. Please try again.");
+            toast.error(`Failed to submit the form. Please try again. ${error} `);
         }
     };
 

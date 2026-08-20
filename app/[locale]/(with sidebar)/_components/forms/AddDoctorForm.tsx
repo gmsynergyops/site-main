@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 "use client"
 import React, { useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';

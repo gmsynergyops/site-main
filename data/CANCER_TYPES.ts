@@ -7,7 +7,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "adrenal-cancer",
     heroSection: {
-      Image: "/cancer-types/adrenal-cancer-hero.jpg",
+      Image: "/health-library/banner/adrenal-cancer.png",
       title: t('adrenalCancer.heroSection.title'),
       description:
         t('adrenalCancer.heroSection.description'),
@@ -33,7 +33,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "anal-cancer",
     heroSection: {
-      Image: "/cancer-types/anal-cancer-hero.jpg",
+      Image: "/health-library/banner/anal-cancer.png",
       title: t('analCancer.heroSection.title'),
       description:
         t('analCancer.heroSection.description'),
@@ -59,7 +59,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "bile-duct-cancer",
     heroSection: {
-      Image: "/cancer-types/bile-duct-cancer-hero.jpg",
+      Image: "/health-library/banner/bile-duct-cancer.png",
       title: t('bileDuctCancer.heroSection.title'),
       description:
         t('bileDuctCancer.heroSection.description'),
@@ -88,7 +88,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "bile-duct-cancer",
     heroSection: {
-      Image: "/cancer-types/bile-duct-cancer-hero.jpg",
+      Image: "/health-library/banner/bile-duct-cancer.png",
       title: "Understanding Bile Duct Cancer",
       description:
         "Learn about symptoms, diagnosis, and treatment options for bile duct cancer (cholangiocarcinoma).",
@@ -202,7 +202,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "bladder-cancer",
     heroSection: {
-      Image: "/cancer-types/bladder-cancer-hero.jpg",
+      Image: "/health-library/banner/bladder-cancer.png",
       title: "Understanding Bladder Cancer",
       description:
         "Explore causes, symptoms, diagnosis, and treatment options for bladder cancer.",
@@ -323,7 +323,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "blood-cancer",
     heroSection: {
-      Image: "/cancer-types/blood-cancer-hero.jpg",
+      Image: "/health-library/banner/blood-cancer.png",
       title: "Understanding Blood Cancer",
       description:
         "Learn about blood cancers including leukemia, lymphoma, and myeloma, and their symptoms, diagnosis, and treatments.",
@@ -470,7 +470,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "bone-cancer",
     heroSection: {
-      Image: "/cancer-types/bone-cancer-hero.jpg",
+      Image: "/health-library/banner/bone-cancer.png",
       title: "Understanding Bone Cancer",
       description:
         "Explore the causes, symptoms, diagnosis, and treatment of cancers that affect the bones, including osteosarcoma and Ewing's sarcoma.",
@@ -616,7 +616,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "brain-cancer",
     heroSection: {
-      Image: "/cancer-types/brain-cancer-hero.jpg",
+      Image: "/health-library/banner/brain-cancer.png",
       title: "Understanding Brain Cancer",
       description:
         "Learn about symptoms, causes, diagnosis, and treatment options for tumors affecting the brain and central nervous system.",
@@ -740,7 +740,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "breast-cancer",
     heroSection: {
-      Image: "/cancer-types/breast-cancer-hero.jpg",
+      Image: "/health-library/banner/breast-cancer.png",
       title: "Understanding Breast Cancer",
       description:
         "Discover the causes, symptoms, diagnosis, and treatment options for breast cancer, the most common cancer among women worldwide.",
@@ -870,7 +870,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "breast-cancer-in-men",
     heroSection: {
-      Image: "/cancer-types/breast-cancer-men-hero.jpg",
+      Image: "/health-library/banner/breast-cancer-men.png",
       title: "Breast Cancer in Men",
       description:
         "Understand the rare but serious condition of breast cancer in men—its signs, risk factors, diagnosis, and treatment.",
@@ -993,7 +993,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "cervical-cancer",
     heroSection: {
-      Image: "/cancer-types/cervical-cancer-hero.jpg",
+      Image: "/health-library/banner/cervical-cancer.png",
       title: "Understanding Cervical Cancer",
       description:
         "Learn about cervical cancer, its causes, symptoms, screening methods, treatment options, and survival outlook.",
@@ -1123,7 +1123,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "colon-rectal-cancer",
     heroSection: {
-      Image: "/cancer-types/colorectal-cancer-hero.jpg",
+      Image: "/health-library/banner/colorectal-cancer.png",
       title: "Understanding Colon and Rectal Cancer",
       description:
         "Explore causes, signs, screening, treatment, and outlook for cancers of the colon and rectum.",
@@ -1256,7 +1256,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "endometrial-cancer",
     heroSection: {
-      Image: "/cancer-types/endometrial-cancer-hero.jpg",
+      Image: "/health-library/banner/endometrial-cancer.png",
       title: "Understanding Endometrial Cancer",
       description:
         "Learn about the symptoms, diagnosis, treatment, and survival of cancer originating from the lining of the uterus.",
@@ -1384,7 +1384,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "esophageal-cancer",
     heroSection: {
-      Image: "/cancer-types/esophageal-cancer-hero.jpg",
+      Image: "/health-library/banner/esophageal-cancer.png",
       title: "Understanding Esophageal Cancer",
       description:
         "Discover the symptoms, diagnostic tools, treatments, and survival insights for esophageal cancer.",
@@ -1509,7 +1509,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "eye-cancer",
     heroSection: {
-      Image: "/cancer-types/eye-cancer-hero.jpg",
+      Image: "/health-library/banner/eye-cancer.png",
       title: "Understanding Eye Cancer",
       description:
         "Learn about types, symptoms, diagnosis, and treatment of cancers that affect the eye and surrounding tissues.",
@@ -1645,7 +1645,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "gallbladder-cancer",
     heroSection: {
-      Image: "/cancer-types/gallbladder-cancer-hero.jpg",
+      Image: "/health-library/banner/gallbladder-cancer.png",
       title: "Understanding Gallbladder Cancer",
       description:
         "Explore symptoms, risk factors, diagnosis methods, and treatment options for gallbladder cancer.",
@@ -1780,7 +1780,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "gastric-cancer",
     heroSection: {
-      Image: "/cancer-types/gastric-cancer-hero.jpg",
+      Image: "/health-library/banner/gastric-cancer.png",
       title: "Understanding Gastric Cancer",
       description:
         "Learn about the symptoms, risk factors, diagnosis methods, and treatment options for gastric cancer.",
@@ -1913,7 +1913,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "head-and-neck-cancer",
     heroSection: {
-      Image: "/cancer-types/head-and-neck-cancer-hero.jpg",
+      Image: "/health-library/banner/head-and-neck-cancer.png",
       title: "Understanding Head and Neck Cancer",
       description:
         "Explore the symptoms, diagnosis, treatment, and prognosis for cancers that affect the head and neck area.",
@@ -2063,7 +2063,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "kidney-cancer",
     heroSection: {
-      Image: "/cancer-types/kidney-cancer-hero.jpg",
+      Image: "/health-library/banner/kidney-cancer.png",
       title: "Understanding Kidney Cancer",
       description:
         "Explore the causes, symptoms, diagnosis, and treatment options for kidney cancer.",
@@ -2200,7 +2200,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "laryngeal-cancer",
     heroSection: {
-      Image: "/cancer-types/laryngeal-cancer-hero.jpg",
+      Image: "/health-library/banner/laryngeal-cancer.png",
       title: "Understanding Laryngeal Cancer",
       description:
         "Explore the causes, symptoms, diagnosis, and treatment options for laryngeal cancer.",
@@ -2334,7 +2334,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "liver-cancer",
     heroSection: {
-      Image: "/cancer-types/liver-cancer-hero.jpg",
+      Image: "/health-library/banner/liver-cancer.png",
       title: "Understanding Liver Cancer",
       description:
         "Learn about the causes, symptoms, diagnosis, and treatment options for liver cancer.",
@@ -2471,7 +2471,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "lung-cancer",
     heroSection: {
-      Image: "/cancer-types/lung-cancer-hero.jpg",
+      Image: "/health-library/banner/lung-cancer.png",
       title: "Understanding Lung Cancer",
       description:
         "Discover the causes, symptoms, diagnosis, and treatment options for lung cancer, one of the leading causes of cancer-related deaths worldwide.",
@@ -2606,7 +2606,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "multiple-myeloma",
     heroSection: {
-      Image: "/cancer-types/multiple-myeloma-hero.jpg",
+      Image: "/health-library/banner/multiple-myeloma.png",
       title: "Understanding Multiple Myeloma",
       description:
         "Learn about multiple myeloma, a type of cancer that affects plasma cells in the bone marrow and impacts the production of blood cells.",
@@ -2736,7 +2736,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "neuroendocrine-tumors",
     heroSection: {
-      Image: "/cancer-types/neuroendocrine-tumors-hero.jpg",
+      Image: "/health-library/banner/neuroendocrine-tumors.png",
       title: "Understanding Neuroendocrine Tumors",
       description:
         "Explore neuroendocrine tumors, cancers that form in cells of the neuroendocrine system, affecting various organs.",
@@ -2869,7 +2869,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "non-hodgkin-lymphoma",
     heroSection: {
-      Image: "/cancer-types/non-hodgkin-lymphoma-hero.jpg",
+      Image: "/health-library/banner/non-hodgkin-lymphoma.png",
       title: "Understanding Non-Hodgkin Lymphoma",
       description:
         "Explore Non-Hodgkin lymphoma, a type of cancer that starts in the lymphatic system, affecting lymph nodes and other organs.",
@@ -3004,7 +3004,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "oral-cancer",
     heroSection: {
-      Image: "/cancer-types/oral-cancer-hero.jpg",
+      Image: "/health-library/banner/oral-cancer.png",
       title: "Understanding Oral Cancer",
       description:
         "Learn about oral cancer, which affects the mouth, lips, tongue, gums, and other parts of the oral cavity.",
@@ -3124,7 +3124,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "ovarian-cancer",
     heroSection: {
-      Image: "/cancer-types/ovarian-cancer-hero.jpg",
+      Image: "/health-library/banner/ovarian-cancer.png",
       title: "Understanding Ovarian Cancer",
       description:
         "Ovarian cancer affects the ovaries and is one of the most common types of cancer in women. Learn about causes, symptoms, and treatment options.",
@@ -3252,7 +3252,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "pancreatic-cancer",
     heroSection: {
-      Image: "/cancer-types/pancreatic-cancer-hero.jpg",
+      Image: "/health-library/banner/pancreatic-cancer.png",
       title: "Understanding Pancreatic Cancer",
       description:
         "Pancreatic cancer starts in the pancreas and is often diagnosed at an advanced stage. Learn about its causes, symptoms, diagnosis, and treatment options.",
@@ -3383,7 +3383,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "penile-cancer",
     heroSection: {
-      Image: "/cancer-types/penile-cancer-hero.jpg",
+      Image: "/health-library/banner/penile-cancer.png",
       title: "Understanding Penile Cancer",
       description:
         "Penile cancer is a rare cancer that affects the tissues of the penis. Learn about its causes, symptoms, diagnosis, and treatment options.",
@@ -3513,7 +3513,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "pituitary-tumors",
     heroSection: {
-      Image: "/cancer-types/pituitary-tumor-hero.jpg",
+      Image: "/health-library/banner/pituitary-tumor.png",
       title: "Understanding Pituitary Tumors",
       description:
         "Pituitary tumors are abnormal growths in the pituitary gland, which controls critical body functions. Learn about their causes, symptoms, diagnosis, and treatment options.",
@@ -3638,7 +3638,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "prostate-cancer",
     heroSection: {
-      Image: "/cancer-types/prostate-cancer-hero.jpg",
+      Image: "/health-library/banner/prostate-cancer.png",
       title: "Understanding Prostate Cancer",
       description:
         "Prostate cancer is one of the most common types of cancer among men. Learn about its causes, symptoms, diagnosis, and treatment options.",
@@ -3770,7 +3770,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "salivary-gland-cancer",
     heroSection: {
-      Image: "/cancer-types/salivary-gland-cancer-hero.jpg",
+      Image: "/health-library/banner/salivary-gland-cancer.png",
       title: "Understanding Salivary Gland Cancer",
       description:
         "Salivary gland cancer is a rare type of cancer that starts in the glands that produce saliva. Learn about the causes, symptoms, diagnosis, and treatment options.",
@@ -3889,7 +3889,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "skin-cancer",
     heroSection: {
-      Image: "/cancer-types/skin-cancer-hero.jpg",
+      Image: "/health-library/banner/skin-cancer.png",
       title: "Understanding Skin Cancer",
       description:
         "Skin cancer is the most common type of cancer, and it forms in the skin cells. Learn about the causes, symptoms, diagnosis, and treatment options.",
@@ -4012,7 +4012,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "stomach-cancer",
     heroSection: {
-      Image: "/cancer-types/stomach-cancer-hero.jpg",
+      Image: "/health-library/banner/stomach-cancer.png",
       title: "Understanding Stomach Cancer",
       description:
         "Stomach cancer, also known as gastric cancer, occurs when cancer cells form in the lining of the stomach. Explore its causes, symptoms, diagnosis, and treatment options.",
@@ -4134,7 +4134,7 @@ export const useCancerTypesData = () => {
   {
     typeName: "uterine-cancer",
     heroSection: {
-      Image: "/cancer-types/uterine-cancer-hero.jpg",
+      Image: "/health-library/banner/uterine-cancer.png",
       title: "Understanding Uterine Cancer",
       description:
         "Uterine cancer, also known as endometrial cancer, begins in the lining of the uterus. Learn about its causes, symptoms, diagnosis, and treatment options.",

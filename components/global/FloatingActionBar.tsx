@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -300,7 +301,7 @@ const router = useRouter()
                                 // Mobile view (Image 3)
                                 "fixed bottom-0 left-0 right-0 py-4  bg-indigo-50 ": isMobile,
                                 // Desktop banner view (Image 1)
-                                "absolute left-1/2 -translate-x-1/2 bottom-[90px]": !isMobile
+                                "absolute left-1/2 -translate-x-1/2 bottom-22.5": !isMobile
                             },
                             className
                         )}

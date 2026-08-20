@@ -57,7 +57,7 @@ export const Footer = () => {
             {/* Menu Links Section - UPDATED GRID FOR 6 COLUMNS ON MEDIUM SCREENS */}
             <div className="flex justify-center w-full mb-8">
                 {/* Changed to: grid-cols-2 sm:grid-cols-3 md:grid-cols-6 */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-6 gap-y-10 w-full items-start">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-x-6 gap-y-10 w-full items-start">
                     {menuItems.map((menu) => {
                         const hasMultiplePages = menu.pages.length > 1;
 

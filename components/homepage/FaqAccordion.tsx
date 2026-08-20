@@ -53,10 +53,12 @@ export default function FaqAccordion({ className, items: propItems }: FaqAccordi
                                 className="flex items-center justify-between w-full p-4 text-left bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors"
                             >
                                 <span className="font-medium text-gray-900">{item.question}</span>
-                                </AccordionTrigger>
-                            <AccordionContent className="px-4 py-3 text-gray-600 bg-gray-50 rounded-b-lg">
-                                {item.answer}
-                            </AccordionContent>
+                            </AccordionTrigger>
+                            {isOpen &&
+                                <AccordionContent className="px-4 py-3 text-gray-600 bg-gray-50 rounded-b-lg">
+                                    {item.answer}
+                                </AccordionContent>
+                            }
                         </AccordionItem>
                     </motion.div>
                 );

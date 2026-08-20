@@ -11,7 +11,7 @@ const TestimonialCard = ({ imgSrc, description, titleText, titleNumber }: Testim
     <Card
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
-      className="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 w-full rounded-xl bg-[#F0FAFF] shadow-md border-none transition-all max-w-[400px] min-h-max h-full
+      className="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 w-full rounded-xl bg-[#F0FAFF] shadow-md border-none transition-all max-w-100 min-h-max h-full
       "
     >
       {/* Icon */}

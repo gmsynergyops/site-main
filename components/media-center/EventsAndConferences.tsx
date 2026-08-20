@@ -166,7 +166,7 @@ export const EventsAndConferences = () => {
                                         fill
                                         className="object-cover transition-opacity hover:opacity-90"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent flex items-end p-4">
                                         <span className="text-white font-medium">Event {item}</span>
                                     </div>
                                 </motion.div>

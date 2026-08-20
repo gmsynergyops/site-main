@@ -1,7 +1,5 @@
-import { useTranslations } from "next-intl";
 
 export const useGalleryItems = () => {
-  const t = useTranslations('homepage.Gallery.items');
 
   const galleryItems = [
         {

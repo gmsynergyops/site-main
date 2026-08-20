@@ -65,7 +65,7 @@ export const InPatientFacilities = () => {
     return (
         <div className="font-sans text-gray-700">
             {/* Hero Section */}
-            <section className="bg-gradient-to-r from-blue-50 to-cyan-50 py-20 px-4">
+            <section className="bg-linear-to-r from-blue-50 to-cyan-50 py-20 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                         In-Patient Facilities
@@ -152,7 +152,7 @@ export const InPatientFacilities = () => {
                                     <ul className="space-y-2">
                                         {room.features.map((feature, i) => (
                                             <li key={i} className="flex items-start">
-                                                <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                 </svg>
                                                 <span className="text-gray-600">{feature}</span>
@@ -212,7 +212,7 @@ export const InPatientFacilities = () => {
                                     'Daily doctor rounds'
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-start">
-                                        <svg className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="h-6 w-6 text-blue-600 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span className="text-gray-700">{item}</span>
@@ -230,7 +230,7 @@ export const InPatientFacilities = () => {
                                     'Wi-Fi and entertainment'
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-start">
-                                        <svg className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg className="h-6 w-6 text-blue-600 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span className="text-gray-700">{item}</span>

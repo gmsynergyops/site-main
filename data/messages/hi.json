@@ -4110,7 +4110,7 @@
             "heroTitle": "ज्ञान का निर्माण। भविष्य के कैंसर देखभाल विशेषज्ञ तैयार करना।",
             "heroSubtitle": "कैंसर की देखभाल सिर्फ इलाज से नहीं सुधरती। यह तब सुधरती है जब डॉक्टर, स्वास्थ्य देखभाल पेशेवर और समुदाय सूचित, प्रशिक्षित और जागरूक होते हैं।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-indigo-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "सिनर्जी इंस्टीट्यूट फॉर कैंसर एजुकेशन क्या है?",
@@ -4158,7 +4158,7 @@
             "heroTitle": "विजन और भविष्य के लक्ष्य",
             "heroSubtitle": "ज्ञान, कौशल और नैतिक अभ्यास पर ध्यान केंद्रित करके भविष्य की कैंसर देखभाल के लिए एक मजबूत नींव बनाने में मदद करना।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-emerald-50 via-white to-teal-50",
+            "themeBgClass": "bg-linear-to-br from-emerald-50 via-white to-teal-50",
             "sections": [
                 {
                     "title": "संस्थान का दृष्टिकोण (विजन)",
@@ -4200,7 +4200,7 @@
             "heroTitle": "कैंसर देखभाल जो आप तक पहुँचती है",
             "heroSubtitle": "कैंसर का इलाज इस बात पर निर्भर नहीं होना चाहिए कि आप अस्पताल से कितनी दूर रहते हैं। सिनर्जी में, हमारा मानना है कि गुणवत्तापूर्ण कैंसर देखभाल सुलभ, समय पर और उन लोगों के करीब होनी चाहिए जिन्हें इसकी सबसे अधिक आवश्यकता है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-sky-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-sky-50",
             "sections": [
                 {
                     "title": "हमारे कैंसर केयर सेंटर: देखभाल, जहां इसकी जरूरत है",
@@ -4234,7 +4234,7 @@
             "heroTitle": "आउटस्टेशन समर्थन और देखभाल",
             "heroSubtitle": "क्योंकि यात्रा के कारण इलाज में देरी नहीं होनी चाहिए। हमारी टीम अनावश्यक यात्रा को कम करने में मदद करती है और देखभाल की निरंतरता सुनिश्चित करती है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
+            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "आउटस्टेशन समर्थन और देखभाल समन्वय",
@@ -4280,7 +4280,7 @@
             "heroTitle": "अपने आस-पास एक केंद्र खोजें",
             "heroSubtitle": "सरल। स्पष्ट। सुलभ। कैंसर की देखभाल पहुंच के भीतर होनी चाहिए, पहुंच से बाहर नहीं।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-indigo-50 via-white to-violet-50",
+            "themeBgClass": "bg-linear-to-br from-indigo-50 via-white to-violet-50",
             "sections": [
                 {
                     "title": "अपने आस-पास एक केंद्र खोजें",
@@ -4314,7 +4314,7 @@
             "heroTitle": "ताकत, आशा और उपचार की कहानियाँ",
             "heroSubtitle": "कैंसर का हर सफर अलग होता है। हर निदान के पीछे एक व्यक्ति, एक परिवार और साहस की एक कहानी होती है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-rose-50 via-white to-orange-50",
+            "themeBgClass": "bg-linear-to-br from-rose-50 via-white to-orange-50",
             "sections": [
                 {
                     "title": "कैंसर सर्वाइवर' का क्या अर्थ है?",
@@ -4373,7 +4373,7 @@
             "heroTitle": "हमारे सर्वाइवर्स के शब्द",
             "heroSubtitle": "उन रोगियों के वास्तविक अनुभव जिन्होंने साहस और सही देखभाल के साथ कैंसर को हराया।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-indigo-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "हमारे सर्वाइवर्स के शब्द",
@@ -4392,7 +4392,7 @@
             "heroTitle": "देखभाल करने वालों की देखभाल",
             "heroSubtitle": "कैंसर न केवल रोगी को, बल्कि पूरे परिवार को प्रभावित करता है। हम आपका भी समर्थन करने के लिए यहाँ हैं।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
+            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "परिवारों और देखभाल करने वालों के लिए समर्थन",
@@ -4429,7 +4429,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
+            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "क्योंकि शीघ्र पहचान जीवन बचाती है",
@@ -4476,7 +4476,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-indigo-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "सुरक्षित और सटीक कैंसर सर्जरी",
@@ -4515,7 +4515,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-violet-50 via-white to-purple-50",
+            "themeBgClass": "bg-linear-to-br from-violet-50 via-white to-purple-50",
             "sections": [
                 {
                     "title": "दवाओं के माध्यम से कैंसर का इलाज",
@@ -4562,7 +4562,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-orange-50 via-white to-amber-50",
+            "themeBgClass": "bg-linear-to-br from-orange-50 via-white to-amber-50",
             "sections": [
                 {
                     "title": "उन्नत तकनीक के साथ सटीक उपचार",
@@ -4601,7 +4601,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-sky-50 via-white to-blue-50",
+            "themeBgClass": "bg-linear-to-br from-sky-50 via-white to-blue-50",
             "sections": [
                 {
                     "title": "एक मरीज। कई विशेषज्ञ। एक निर्णय।",
@@ -4645,7 +4645,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-slate-50 via-white to-gray-100",
+            "themeBgClass": "bg-linear-to-br from-slate-50 via-white to-gray-100",
             "sections": [
                 {
                     "title": "सुरक्षा, सटीकता और आराम के लिए निर्मित",
@@ -4697,7 +4697,7 @@
             "heroTitle": "उन्नत कैंसर केयर। सब कुछ एक ही छत के नीचे।",
             "heroSubtitle": "सिनर्जी में, कैंसर की देखभाल सिर्फ इलाज के बारे में नहीं है। यह मरीज को समझने, सही दृष्टिकोण की योजना बनाने और निदान से लेकर ठीक होने तक पूरा समर्थन प्रदान करने के बारे में है।",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-rose-50 via-white to-pink-50",
+            "themeBgClass": "bg-linear-to-br from-rose-50 via-white to-pink-50",
             "sections": [
                 {
                     "title": "हम लोगों का इलाज करते हैं, केवल रिपोर्ट का नहीं",

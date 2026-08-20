@@ -83,7 +83,7 @@ export const MediaContacts = () => {
                 transition={{ delay: index * 0.15, duration: 0.6 }}
                 className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 overflow-hidden"
               >
-                <div className="h-48 bg-gradient-to-r from-blue-500 to-blue-700 relative overflow-hidden">
+                <div className="h-48 bg-linear-to-r from-blue-500 to-blue-700 relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center text-white text-6xl">
                     <FaUserTie />
                   </div>
@@ -94,19 +94,19 @@ export const MediaContacts = () => {
 
                   <div className="space-y-3">
                     <div className="flex items-start">
-                      <FaEnvelope className="text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaEnvelope className="text-blue-600 mt-1 mr-3 shrink-0" />
                       <a href={`mailto:${contact.email}`} className="text-gray-700 hover:text-blue-600 break-all">
                         {contact.email}
                       </a>
                     </div>
                     <div className="flex items-center">
-                      <FaPhone className="text-blue-600 mr-3 flex-shrink-0" />
+                      <FaPhone className="text-blue-600 mr-3 shrink-0" />
                       <a href={`tel:${contact.phone.replace(/\D/g, '')}`} className="text-gray-700 hover:text-blue-600">
                         {contact.phone}
                       </a>
                     </div>
                     <div className="flex items-center">
-                      <FaClock className="text-blue-600 mr-3 flex-shrink-0" />
+                      <FaClock className="text-blue-600 mr-3 shrink-0" />
                       <span className="text-gray-700">{contact.hours}</span>
                     </div>
                   </div>

@@ -193,7 +193,7 @@ function DepartmentCard(department: DepartmentData) {
           </div>
 
           {/* Description with fixed height */}
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4 min-h-[60px]">
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4 min-h-15">
             {department.overview.description}
           </p>
 

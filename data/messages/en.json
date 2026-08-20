@@ -4288,7 +4288,7 @@
             "heroTitle": "Building Knowledge. Creating Future Cancer Care Experts.",
             "heroSubtitle": "Cancer care does not improve with treatment alone. It improves when doctors, healthcare professionals, and communities are informed, trained, and aware.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-indigo-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "WHAT IS THE SYNERGY INSTITUTE FOR CANCER EDUCATION?",
@@ -4336,7 +4336,7 @@
             "heroTitle": "Vision & Future Goals",
             "heroSubtitle": "Helping build a strong foundation for future cancer care by focusing on knowledge, skills, and ethical practice.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-emerald-50 via-white to-teal-50",
+            "themeBgClass": "bg-linear-to-br from-emerald-50 via-white to-teal-50",
             "sections": [
                 {
                     "title": "VISION OF THE INSTITUTE",
@@ -4378,7 +4378,7 @@
             "heroTitle": "Cancer Care, Close to You",
             "heroSubtitle": "Synergy currently operates two centres in Gorakhpur, bringing specialised cancer care and treatment closer to the people who need it.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-sky-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-sky-50",
             "centers": [
                 {
                     "id": "main-hospital",
@@ -4411,7 +4411,7 @@
             "heroTitle": "Cancer Care Without the Travel Confusion",
             "heroSubtitle": "Coming to Gorakhpur from another city or town? Our team helps coordinate your appointments, treatment planning and follow-up so you can focus on your care.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
+            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "BEFORE YOU TRAVEL",
@@ -4466,7 +4466,7 @@
             "heroTitle": "Which Synergy Centre Is Right For You?",
             "heroSubtitle": "Two centres. Different roles. Our team can help you understand where to begin your cancer care journey.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-indigo-50 via-white to-violet-50",
+            "themeBgClass": "bg-linear-to-br from-indigo-50 via-white to-violet-50",
             "sections": [
                 {
                     "title": "OUR TWO CENTRES",
@@ -4495,7 +4495,7 @@
             "heroTitle": "Stories of Strength, Hope, and Healing",
             "heroSubtitle": "Every cancer journey is different. Behind every diagnosis, there is a person, a family, and a story of courage.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-rose-50 via-white to-orange-50",
+            "themeBgClass": "bg-linear-to-br from-rose-50 via-white to-orange-50",
             "sections": [
                 {
                     "title": "WHAT DOES “CANCER SURVIVOR” MEAN?",
@@ -4554,7 +4554,7 @@
             "heroTitle": "Words from Our Survivors",
             "heroSubtitle": "Real experiences from patients who defeated cancer with courage and the right care.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-indigo-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "WORDS FROM OUR SURVIVORS",
@@ -4573,7 +4573,7 @@
             "heroTitle": "Caring for the Caregivers",
             "heroSubtitle": "Cancer affects not only the patient, but the entire family. We are here to support you too.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
+            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "SUPPORT FOR FAMILIES AND CAREGIVERS",
@@ -4610,7 +4610,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-teal-50 via-white to-emerald-50",
+            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "Because early detection saves lives",
@@ -4657,7 +4657,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-blue-50 via-white to-indigo-50",
+            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "Safe and precise cancer surgery",
@@ -4696,7 +4696,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-violet-50 via-white to-purple-50",
+            "themeBgClass": "bg-linear-to-br from-violet-50 via-white to-purple-50",
             "sections": [
                 {
                     "title": "Cancer treatment through medicines",
@@ -4743,7 +4743,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-orange-50 via-white to-amber-50",
+            "themeBgClass": "bg-linear-to-br from-orange-50 via-white to-amber-50",
             "sections": [
                 {
                     "title": "Accurate treatment with advanced technology",
@@ -4782,7 +4782,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-sky-50 via-white to-blue-50",
+            "themeBgClass": "bg-linear-to-br from-sky-50 via-white to-blue-50",
             "sections": [
                 {
                     "title": "One patient. Multiple experts. One decision.",
@@ -4826,7 +4826,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-slate-50 via-white to-gray-100",
+            "themeBgClass": "bg-linear-to-br from-slate-50 via-white to-gray-100",
             "sections": [
                 {
                     "title": "Built for safety, precision, and comfort",
@@ -4878,7 +4878,7 @@
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-gradient-to-br from-rose-50 via-white to-pink-50",
+            "themeBgClass": "bg-linear-to-br from-rose-50 via-white to-pink-50",
             "sections": [
                 {
                     "title": "We treat people, not just reports",

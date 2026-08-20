@@ -200,7 +200,7 @@ export const EmergencyCare = () => {
                   'Direct access to ICU and operation theaters'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="h-6 w-6 text-green-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-gray-700 text-lg">{item}</span>

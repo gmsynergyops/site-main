@@ -1,9 +1,8 @@
-import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
+import * as React from "react";
 import * as RPNInput from "react-phone-number-input";
 import flags from "react-phone-number-input/flags";
 
-import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -101,7 +100,7 @@ const CountrySelect = ({
           )}
         />
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
+      <PopoverContent className="w-75 p-0">
         <Command>
           <CommandInput placeholder="Search country..." />
           <CommandList>

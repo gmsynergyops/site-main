@@ -88,7 +88,6 @@ export const useMenuItems = () => {
                         { label: t('sections.specialties.links.headNeck'), href: "/services/head-and-neck" },
                         { label: t('sections.specialties.links.emergency'), href: "/services/emergency-and-critical-care" },
                         { label: t('sections.specialties.links.palliativeCare'), href: "/services/pain-and-palliative-care" },
-                        { label: t('sections.specialties.links.viewAll'), href: "/services/all" },
                     ]
                 },
                 {
@@ -99,7 +98,7 @@ export const useMenuItems = () => {
                         { label: t('sections.supportServices.links.dietary'), href: "/services/dietary" },
                         { label: t('sections.supportServices.links.laundry'), href: "/services/laundry" },
                         { label: t('sections.supportServices.links.houseKeeping'), href: "/services/house-keeping" },
-                        { label: t('sections.supportServices.links.security'), href: "/services/Security" },
+                        { label: t('sections.supportServices.links.security'), href: "/services/security" },
                         { label: t('sections.supportServices.links.ambulance'), href: "/services/ambulance" },
                         { label: t('sections.supportServices.links.viewAll'), href: "/services/support-services" }
                     ]

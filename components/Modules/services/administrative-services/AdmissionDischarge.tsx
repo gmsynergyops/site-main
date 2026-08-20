@@ -57,7 +57,7 @@ const AdmissionDischarge = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: sectionInView ? 1 : 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-16 bg-gradient-to-r from-synergy-pink to-fuchsia-500 p-8 rounded-xl text-white"
+        className="mt-16 bg-linear-to-r from-synergy-pink to-fuchsia-500 p-8 rounded-xl text-white"
       >
         <h2 className="text-2xl font-bold mb-4">24/7 Admission Support</h2>
         <p className="mb-4">Our team is available round the clock to assist with admissions and discharges.</p>

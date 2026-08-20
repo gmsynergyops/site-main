@@ -9,7 +9,7 @@ export function DoctorCard({ doctor }: { doctor: DoctorPeripheralOPD }) {
         <div className="flex flex-col z-20  rounded-lg border p-4 shadow-sm hover:shadow-md transition-shadow flex-1">
             <div className="flex items-start gap-4">
                 {doctor.imageUrl && (
-                    <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-full border">
+                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border">
                         <Image
                             src={doctor.imageUrl}
                             alt={doctor.name}

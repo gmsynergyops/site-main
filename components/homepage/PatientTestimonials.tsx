@@ -9,7 +9,7 @@ export const PatientTestimonials = () => {
     const isInView = useInView(ref, { amount: 0.5, once: true }); // Triggers when 50% is in view
 const t = useTranslations('homepage')
     return (
-        <section className="w-full bg-gradient-to-b from-white to-indigo-100 py-10">
+        <section className="w-full bg-linear-to-b from-white to-indigo-100 py-10">
             <div ref={ref} className="w-full md:space-y-4 space-y-4">
                 {/* Animated Heading */}
                 <motion.h1

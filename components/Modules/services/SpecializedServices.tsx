@@ -541,11 +541,11 @@ export default function SpecializedServices() {
                                         </motion.div>
                                     ))}
 
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F2438]/85 via-[#0F2438]/10 to-transparent" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-[#0F2438]/85 via-[#0F2438]/10 to-transparent" />
 
                                     <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4 sm:bottom-8 sm:left-8 sm:right-8">
                                         <div>
-                                            <p className={`${mono.className} text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70`}>
+                                            <p className={`${mono.className} text-2.5 font-semibold uppercase tracking-[0.22em] text-white/70`}>
                                                 Synergy Super Speciality Hospital
                                             </p>
                                             <p className="mt-1 text-sm font-medium text-white">{service.label}</p>
@@ -569,7 +569,7 @@ export default function SpecializedServices() {
                                 </div>
 
                                 {/* CONTENT PANEL */}
-                                <div className="relative overflow-hidden bg-gradient-to-br from-[#0F2438] to-synergy-blue px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
+                                <div className="relative overflow-hidden bg-linear-to-br from-[#0F2438] to-synergy-blue px-6 py-10 text-white sm:px-10 lg:px-12 lg:py-12">
                                     <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/5" />
                                     <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-white/5" />
 
@@ -668,7 +668,7 @@ export default function SpecializedServices() {
                             )}
 
                             {/* WHY CHOOSE */}
-                            <div className="border-t border-slate-200 bg-gradient-to-br from-[#0F2438] to-synergy-blue px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
+                            <div className="border-t border-slate-200 bg-linear-to-br from-[#0F2438] to-synergy-blue px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
                                 <p className={`${mono.className} text-xs font-semibold uppercase tracking-[0.2em] text-[#7FD1C6]`}>The Synergy Difference</p>
                                 <h4 className={`${display.className} mt-2 mb-7 text-2xl font-bold text-white`}>{service.whyTitle}</h4>
 
@@ -713,7 +713,7 @@ export default function SpecializedServices() {
                     className="mt-10 rounded-r-lg border-l-4 border-red-500 bg-red-50 p-4"
                 >
                     <div className="flex">
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                             <GiSiren
                                 className="size-7 transition-colors duration-200 group-hover:text-white text-red-500" 
                             />

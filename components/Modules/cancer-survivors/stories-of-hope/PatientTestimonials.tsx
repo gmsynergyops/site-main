@@ -224,7 +224,7 @@ export const PatientTestimonials = () => {
 
     return (
         <section
-            className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50"
+            className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-linear-to-b from-white to-gray-50"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             onTouchStart={handleTouchStart}
