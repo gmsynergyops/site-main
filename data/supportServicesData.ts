@@ -2,7 +2,7 @@ import { SupportServiceProps } from "@/types"
 import { FaXRay } from "react-icons/fa6"
 
 export const diagnosticImagingData : SupportServiceProps= {
-    heroImage: "/diagnostic-imaging-hero.jpg",
+    heroImage: "/department/diagnostic-imaging-banner.png",
     title: "Diagnostic Imaging Services",
     description: "Advanced imaging technology for accurate diagnosis and treatment planning",
     services:  [
@@ -196,7 +196,7 @@ export const diagnosticImagingData : SupportServiceProps= {
   }
 
   export const pharmacyData : SupportServiceProps= {
-    heroImage: "/pharmacy-hero.jpg",
+    heroImage: "/department/pharmacy-banner.png",
     title: "Pharmacy Services",
     description: "Quality medications with expert pharmaceutical care",
     services: [
@@ -340,7 +340,7 @@ export const diagnosticImagingData : SupportServiceProps= {
   }
 
   export const bloodBankData : SupportServiceProps= {
-    heroImage: "/bloodbank-hero.jpg",
+    heroImage: "/department/blood-bank-banner.png",
     title: "Blood Bank Services",
     description: "Saving lives through safe blood services",
     services: [
@@ -484,7 +484,7 @@ export const diagnosticImagingData : SupportServiceProps= {
   }
 
   export const ambulanceData : SupportServiceProps= {
-    heroImage: "/ambulance-hero.jpg",
+    heroImage: "/department/ambulance-service-banner.png",
     title: "Ambulance Services",
     description: "24/7 emergency response and medical transport",
     services: [
@@ -561,7 +561,7 @@ export const diagnosticImagingData : SupportServiceProps= {
   }
 
   export const dietaryData: SupportServiceProps = {
-    heroImage: "/dietary-hero.jpg",
+    heroImage: "/department/dietary-banner.png",
     title: "Dietary Services",
     description: "Nutritional care for health and recovery",
     services: [

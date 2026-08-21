@@ -27,16 +27,17 @@ export const SupportServicePage = ({
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             {/* Hero Section */}
-            <section className="relative rounded-xl overflow-hidden mb-16">
+            <section className="relative w-full rounded-xl overflow-hidden mb-16 max-h-120">
                 <ImageWithFallback
                     fallbackSrc="/fallback-image.webp"
                     src={heroImage}
                     alt={title}
                     width={1200}
                     height={500}
-                    className="w-full h-96 object-cover"
+                    
+                    className=" object-cover w-full h-auto aspect-5:3"
                 />
-                <div className="absolute inset-0 bg-linear-to-r from-blue-900/80 to-transparent flex items-center px-8">
+                {/* <div className="absolute inset-0 bg-linear-to-r from-blue-900/80 to-transparent flex items-center px-8">
                     <div className="max-w-2xl">
                         <h1 className="text-4xl font-bold text-white mb-4">{title}</h1>
                         <p className="text-lg text-blue-100 mb-6">{description}</p>
@@ -44,7 +45,7 @@ export const SupportServicePage = ({
                             Get Started
                         </Button>
                     </div>
-                </div>
+                </div> */}
             </section>
 
             {/* Services Grid */}

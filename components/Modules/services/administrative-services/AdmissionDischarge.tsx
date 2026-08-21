@@ -2,7 +2,10 @@
 "use client"
 
 import PageLayout from '@/components/global/PageLayout';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
 
 const AdmissionDischarge = () => {
@@ -61,9 +64,9 @@ const AdmissionDischarge = () => {
       >
         <h2 className="text-2xl font-bold mb-4">24/7 Admission Support</h2>
         <p className="mb-4">Our team is available round the clock to assist with admissions and discharges.</p>
-        <button className="bg-white text-indigo-800 px-6 py-2 rounded-lg font-medium hover:bg-indigo-50 transition-colors">
+        <Link href={"tel:+917234001617"} className={cn("bg-white text-indigo-800 px-6 py-2 rounded-lg font-medium hover:bg-indigo-50 transition-colors", buttonVariants({variant: "default", size:"default"}))}>
           Contact Admission Desk
-        </button>
+        </Link>
       </motion.div>
     </PageLayout>
   );

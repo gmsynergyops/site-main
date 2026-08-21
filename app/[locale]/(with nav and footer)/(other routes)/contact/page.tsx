@@ -39,8 +39,10 @@ interface Location {
 }
 
 const email = "synergycancer1@gmail.com";
+
 const phone1 = "+917234006595";
 const phone2 = "+917234006597";
+// const phone3 = "+917234001617";
 const whatsappUrl = "https://wa.me/917234006595";
 
 const locations: Location[] = [
