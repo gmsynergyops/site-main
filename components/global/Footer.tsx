@@ -32,6 +32,7 @@ export const Footer = () => {
                 <div className="w-full lg:w-1/2 h-75 lg:h-119.75 rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
                     <iframe
                         src={CONTACT_INFO.locations[0].mapURL}
+                        title="Synergy Super Speciality Hospital Main Location"
                         className="w-full h-full"
                         style={{ border: 0 }}
                         allowFullScreen
@@ -45,6 +46,7 @@ export const Footer = () => {
                 <div className="w-full lg:w-1/2 h-75 lg:h-119.75 rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
                     <iframe
                         src={CONTACT_INFO.locations[1].mapURL}
+                        title="Synergy Super Speciality Hospital Peripheral Location"
                         className="w-full h-full"
                         style={{ border: 0 }}
                         allowFullScreen
@@ -159,8 +161,8 @@ export const Footer = () => {
 
                     {/* Developer Credit - Right on desktop, below on mobile */}
                     <div className="text-center md:text-right order-3 w-full md:w-auto">
-                        <p className="text-xs font-medium text-slate-400">
-                            Developed & Designed By <span className="text-slate-600">Viacam Productions</span>
+                        <p className="text-xs font-medium text-slate-600">
+                            Developed & Designed By <span className="text-slate-700">Viacam Productions</span>
                         </p>
                     </div>
                 </div>

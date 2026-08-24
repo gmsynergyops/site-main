@@ -150,6 +150,7 @@ export default function NewsSlider() {
             onClick={() => scroll("left")}
             variant="outline"
             size="xl"
+            aria-label="Previous news slide"
             title="Slide left by one card."
             className="size-12 p-5 z-10 hidden md:flex rounded-full bg-primary shadow-md hover:bg-indigo-100 hover:text-primary text-indigo-100"
           >
@@ -159,6 +160,7 @@ export default function NewsSlider() {
             onClick={() => scroll("right")}
             variant="outline"
             size="xl"
+            aria-label="Next news slide"
             title="Slide right by one card."
             className="size-12 p-5 z-10 hidden md:flex rounded-full bg-primary shadow-md hover:bg-indigo-100 hover:text-primary text-indigo-100"
           >

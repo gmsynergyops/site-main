@@ -309,37 +309,39 @@ export function Navbar() {
                     <LanguageSwitch switchLocale={switchLocale} />
 
                     {/* Emergency Button */}
-                    <Link href="/patient-care/emergency">
-                        <Button
-                            variant="destructive"
-                            size="icon"
-                            className="group relative rounded-full border-2 border-red-500 bg-transparent p-3 transition-colors duration-200"
-                        >
-                            <GiSiren
-                                className={`size-7 transition-colors duration-200 group-hover:text-white ${result ? "text-red-500" : "text-white"
-                                    }`}
-                            />
-                            <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-red-600 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                Emergency
-                            </span>
-                        </Button>
+                    <Link
+                        href="/patient-care/emergency"
+                        aria-label="Emergency Care"
+                        className={cn(
+                            "group relative flex items-center justify-center rounded-full border-2 border-red-500 bg-transparent p-3 min-w-[44px] min-h-[44px] transition-colors duration-200",
+                            "focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                        )}
+                    >
+                        <GiSiren
+                            className={`size-7 transition-colors duration-200 group-hover:text-white ${result ? "text-red-500" : "text-white"
+                                }`}
+                        />
+                        <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-red-600 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            Emergency Care
+                        </span>
                     </Link>
 
                     {/* Search Button */}
-                    <Link href="/search">
-                        <Button
-                            variant="default"
-                            size="icon"
-                            className="group relative rounded-full border-2 border-synergy-blue bg-transparent p-3 transition-colors duration-200"
-                        >
-                            <Search
-                                className={`size-4 transition-colors duration-200 group-hover:text-white ${result ? "text-synergy-blue" : "text-white"
-                                    }`}
-                            />
-                            <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-synergy-blue px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                Search
-                            </span>
-                        </Button>
+                    <Link
+                        href="/search"
+                        aria-label="Search site"
+                        className={cn(
+                            "group relative flex items-center justify-center rounded-full border-2 border-synergy-blue bg-transparent p-3 min-w-[44px] min-h-[44px] transition-colors duration-200",
+                            "focus:outline-none focus:ring-2 focus:ring-synergy-blue focus:ring-offset-2"
+                        )}
+                    >
+                        <Search
+                            className={`size-4 transition-colors duration-200 group-hover:text-white ${result ? "text-synergy-blue" : "text-white"
+                                }`}
+                        />
+                        <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-synergy-blue px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            Search
+                        </span>
                     </Link>
                 </div>
             </NavigationMenu>

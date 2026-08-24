@@ -52,9 +52,11 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     const debouncedResize = () => {
       if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current)
       resizeTimerRef.current = setTimeout(() => {
-        lenis.resize()
-        ScrollTrigger.refresh()
-      }, 200)
+        requestAnimationFrame(() => {
+          lenis.resize()
+          ScrollTrigger.refresh()
+        })
+      }, 350)
     }
 
     const ro = new ResizeObserver(debouncedResize)

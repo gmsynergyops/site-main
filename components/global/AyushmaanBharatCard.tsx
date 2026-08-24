@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { FaIdCardAlt, FaHospitalUser, FaCheckCircle } from 'react-icons/fa';
 import { ImageWithFallback } from './ImageWithFallback';

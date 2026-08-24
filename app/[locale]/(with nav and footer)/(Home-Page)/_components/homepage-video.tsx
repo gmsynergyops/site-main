@@ -1,6 +1,6 @@
 import { MAIN_URL, MOBILE_MAIN_URL } from "@/data";
 
-const DESKTOP_POSTER = "/videos/homepage-main/poster-desktop.jpg";
+const DESKTOP_POSTER = "/videos/homepage-main/poster-desktop.webp";
 
 export default function HomepageVideo() {
     return (

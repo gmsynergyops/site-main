@@ -104,6 +104,7 @@ export default function SliderWithTriggers() {
                 <div className="md:hidden flex justify-between w-full absolute top-1/2 -translate-y-1/2 px-2">
                     <Button
                         size="icon"
+                        aria-label="Previous specialty slide"
                         className="p-2 bg-white/90 text-primary rounded-full shadow-lg hover:bg-white z-20 size-8"
                         onClick={prevSlide}
                     >
@@ -111,6 +112,7 @@ export default function SliderWithTriggers() {
                     </Button>
                     <Button
                         size="icon"
+                        aria-label="Next specialty slide"
                         className="p-2 bg-white/90 text-primary rounded-full shadow-lg hover:bg-white z-20 size-8"
                         onClick={nextSlide}
                     >
@@ -134,6 +136,7 @@ export default function SliderWithTriggers() {
                 <div className="hidden sm:flex space-x-2 sm:space-x-4">
                     <Button
                         size="icon"
+                        aria-label="Previous specialty slide"
                         className="p-2 sm:p-3 bg-indigo-800 text-white rounded-full shadow-lg hover:bg-indigo-700 size-10 sm:size-12"
                         onClick={prevSlide}
                     >
@@ -141,6 +144,7 @@ export default function SliderWithTriggers() {
                     </Button>
                     <Button
                         size="icon"
+                        aria-label="Next specialty slide"
                         className="p-2 sm:p-3 bg-indigo-800 text-white rounded-full shadow-lg hover:bg-indigo-700 size-10 sm:size-12"
                         onClick={nextSlide}
                     >
@@ -195,7 +199,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                     <CardDescription className="text-neutral-600 text-xs sm:text-sm leading-normal mb-2 line-clamp-3">
                         {props.heroTitle + " " + props.heroSubtitle} ...
                         <Link href={`/services/${props.slug}`} className="ml-1 sm:ml-2 underline hover:text-primary text-xs sm:text-sm">
-                            {t('readMore')}
+                            Learn about {props.name}
                         </Link>
                     </CardDescription>
                 </CardHeader>
