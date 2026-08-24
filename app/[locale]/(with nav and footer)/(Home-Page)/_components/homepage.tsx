@@ -1,16 +1,39 @@
-import AyushmaanBharatCard from "@/components/global/AyushmaanBharatCard";
+import dynamic from "next/dynamic";
 import { FloatingBarWrapper } from "@/components/global/FloatingBarWrapper";
-import FaqAccordion from "@/components/homepage/FaqAccordion";
-import { GalleryMarquee } from "@/components/homepage/GalleryMarquee";
-import { LeaderCards } from "@/components/homepage/LeaderCards";
-import NewsSlider from "@/components/homepage/NewsSlider";
-import { PatientTestimonials } from "@/components/homepage/PatientTestimonials";
 import { SpecialitiesSection } from "@/components/homepage/SpecialitiesSection";
-import { TestimonialCards } from "@/components/homepage/TestimonialCards";
 import { useGeneralQuestions } from '@/data';
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import HomepageVideo from "./homepage-video";
+
+// Lazy-load below-the-fold sections to reduce initial JS bundle
+const GalleryMarquee = dynamic(
+    () => import("@/components/homepage/GalleryMarquee").then(mod => mod.GalleryMarquee),
+    { ssr: true }
+);
+const LeaderCards = dynamic(
+    () => import("@/components/homepage/LeaderCards").then(mod => mod.LeaderCards),
+    { ssr: true }
+);
+const AyushmaanBharatCard = dynamic(
+    () => import("@/components/global/AyushmaanBharatCard"),
+    { ssr: true }
+);
+const TestimonialCards = dynamic(
+    () => import("@/components/homepage/TestimonialCards").then(mod => mod.TestimonialCards),
+    { ssr: true }
+);
+const NewsSlider = dynamic(
+    () => import("@/components/homepage/NewsSlider")
+);
+const PatientTestimonials = dynamic(
+    () => import("@/components/homepage/PatientTestimonials").then(mod => mod.PatientTestimonials),
+    { ssr: true }
+);
+const FaqAccordion = dynamic(
+    () => import("@/components/homepage/FaqAccordion"),
+    { ssr: true }
+);
 
 export const Homepage = () => {
     const t = useTranslations('homepage');
@@ -80,3 +103,4 @@ export const Homepage = () => {
         </main>
     )
 }
+

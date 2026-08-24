@@ -4,6 +4,7 @@ import PageLayout from '@/components/global/PageLayout';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useInView } from 'react-intersection-observer';
+import { CONTACT_INFO } from '@/data/contactData';
 
 const MedicalRecords = () => {
   const [ref, inView] = useInView({
@@ -103,7 +104,7 @@ const MedicalRecords = () => {
                 <span>📍</span> Visit MRD Desk / Directions
               </Link>
               <a
-                href="tel:+917234001617"
+                href={`tel:${CONTACT_INFO.phoneNumbers.admissionDesk}`}
                 className="bg-white text-indigo-900 px-6 py-3 rounded-lg font-medium hover:bg-indigo-50 transition-colors text-center shadow-md inline-flex items-center justify-center gap-2"
               >
                 <span>📞</span> Call MRD Helpdesk

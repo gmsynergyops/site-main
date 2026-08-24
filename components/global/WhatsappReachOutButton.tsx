@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import { ImageWithFallback } from './ImageWithFallback'
 import { useTranslations } from 'next-intl';
+import { CONTACT_INFO } from '@/data/contactData';
 
 export const WhatsappReachOutButton = () => {
     const t = useTranslations('global');
     return (
         <Link
-            href="https://wa.me/917234006595"
+            href={CONTACT_INFO.whatsapp.url}
             target='_blank'
             className="rounded-full fixed right-2 z-50 shadow-lg size-12 animate-heartbeat
                       md:bottom-1 md:left-2

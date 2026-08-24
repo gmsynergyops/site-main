@@ -2,6 +2,7 @@
 import React, { useRef } from 'react'
 import { useInView, motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaUserTie, FaClock, FaMapMarkerAlt } from 'react-icons/fa'
+import { CONTACT_INFO } from '@/data/contactData'
 
 export const MediaContacts = () => {
   const ref = useRef(null)
@@ -11,24 +12,24 @@ export const MediaContacts = () => {
     {
       name: "Dr. Priya Sharma",
       title: "Chief Communications Officer",
-      email: "media@synergyhospital.com",
-      phone: "+91 98765 43210",
+      email: CONTACT_INFO.email,
+      phone: CONTACT_INFO.phoneNumbers.primaryFormatted,
       hours: "Mon-Fri, 9:00 AM - 5:00 PM",
       image: "/media/contact-priya.jpg"
     },
     {
       name: "Rahul Kapoor",
       title: "Media Relations Manager",
-      email: "press@synergyhospital.com",
-      phone: "+91 87654 32109",
+      email: CONTACT_INFO.email,
+      phone: CONTACT_INFO.phoneNumbers.secondaryFormatted,
       hours: "Mon-Sat, 8:00 AM - 6:00 PM",
       image: "/media/contact-rahul.jpg"
     },
     {
       name: "Media Relations Desk",
       title: "General Inquiries",
-      email: "info@synergyhospital.com",
-      phone: "+91 11 2345 6789",
+      email: CONTACT_INFO.email,
+      phone: CONTACT_INFO.phoneNumbers.emergencyFormatted,
       hours: "24/7 Helpline",
       image: "/media/contact-desk.jpg"
     }

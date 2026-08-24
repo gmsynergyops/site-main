@@ -35,6 +35,7 @@ const InsurancePartners = () => {
                                     width={300}
                                     height={200}
                                     alt={company.name}
+                                    loading="lazy"
                                     className='object-contain object-center max-h-[3rem]'
                                 />
                             </div>

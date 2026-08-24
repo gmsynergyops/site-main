@@ -61,6 +61,8 @@ export function VideoModal({
                             src={image}
                             alt={t("videoThumbnail")}
                             fill
+                            sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 240px"
+                            loading="lazy"
                             className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                         <ImageWithFallback

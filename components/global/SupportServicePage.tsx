@@ -1,16 +1,17 @@
 "use client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { ImageWithFallback } from "@/components/global/ImageWithFallback"
 import FaqAccordion from "@/components/homepage/FaqAccordion"
-import { SupportServiceProps } from "@/types"
+import { Badge } from "@/components/ui/badge"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useGeneralQuestions } from "@/data"
+import { SupportServiceProps } from "@/types"
+import type { VariantProps } from "class-variance-authority"
+import Link from "next/link"
 
 export const SupportServicePage = ({
     heroImage,
     title,
-    description,
     services,
     preparationTips,
     whyChoose,
@@ -107,16 +108,34 @@ export const SupportServicePage = ({
                     </div>
                 </div>
             </section>
-
+        
             {/* CTA Section */}
             <section className="text-center">
                 <h2 className="text-3xl font-semibold text-gray-800 mb-4">{cta.title}</h2>
                 <p className="text-gray-600 mb-8">{cta.description}</p>
-                    {cta.buttons.map((btn,index)=>(
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white" key={index}>
-                    {btn.text}
-                </Button>
-                    ))}
+                <div className="flex flex-wrap justify-center gap-4">
+                    {cta.buttons.map((btn, index) => {
+                        const isOutline = btn.variant === "outline"
+                        const buttonEl = (
+                            <Button
+                                className={isOutline ? "border-blue-600 text-blue-600 hover:bg-blue-50" : "bg-blue-600 hover:bg-blue-700 text-white"}
+                                key={index}
+                                variant={btn.variant as VariantProps<typeof buttonVariants>["variant"]}
+                                onClick={btn.onClick}
+                            >
+                                {btn.text}
+                            </Button>
+                        )
+                        if (btn.href) {
+                            return (
+                                <Link key={index} href={btn.href}>
+                                    {buttonEl}
+                                </Link>
+                            )
+                        }
+                        return buttonEl
+                    })}
+                </div>
             </section>
         </div>
     );

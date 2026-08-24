@@ -358,4 +358,21 @@ export const doctors: Doctor[] = [
     ],
     isSenior: false,
   },
+  {
+    id: 22,
+    name: "Dr. Ritesh Nayak",
+    qualification: "M.B.B.S, MD Radiology, Neuroimaging Specialist",
+    department: "Diagnostic Imaging & Radiology",
+    experience: "12+ years",
+    image: "/doctors/dr-ritesh-nayak.webp",
+    availability: [
+      { day: "Mon", time: "10:00 AM - 5:00 PM" },
+      { day: "Tue", time: "10:00 AM - 5:00 PM" },
+      { day: "Wed", time: "10:00 AM - 5:00 PM" },
+      { day: "Thu", time: "10:00 AM - 5:00 PM" },
+      { day: "Fri", time: "10:00 AM - 5:00 PM" },
+      { day: "Sat", time: "10:00 AM - 5:00 PM" },
+    ],
+    isSenior: true,
+  },
 ];

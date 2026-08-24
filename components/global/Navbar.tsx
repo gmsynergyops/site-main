@@ -131,7 +131,6 @@ export function Navbar() {
                         height={64}
                         width={64}
                         className="h-full w-auto object-cover"
-                        priority
                     />
                     <Image
                         src="/qci-logo.png"
@@ -139,7 +138,6 @@ export function Navbar() {
                         height={48}
                         width={48}
                         className="h-full w-auto object-cover"
-                        priority
                     />
                 </div>
                 <NavigationMenuList className="w-full flex items-center justify-evenly lg:space-x-4 space-x-0">
@@ -359,7 +357,6 @@ export function Navbar() {
                         height={24}
                         width={24}
                         className="h-full w-auto object-cover"
-                        priority
                     />
                     <Image
                         src="/qci-logo.png"
@@ -367,7 +364,6 @@ export function Navbar() {
                         height={24}
                         width={24}
                         className="h-full w-auto object-cover"
-                        priority
                     />
                 </div>
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2 items-center justify-end">
@@ -533,6 +529,11 @@ export function Navbar() {
                                                 <Button
                                                     variant={"link"}
                                                     className="bg-indigo-400 text-black px-4 py-2 rounded flex items-center justify-between w-full"
+                                                    onClick={() => {
+                                                        router.push("/book-appointment");
+                                                        setOuterOpen(false);
+                                                        setInnerOpen(false);
+                                                    }}
                                                 >
                                                     {t('bookAppointment')} <span>→</span>
                                                 </Button>
@@ -545,6 +546,11 @@ export function Navbar() {
                                                 <Button
                                                     variant={"link"}
                                                     className="bg-indigo-400 text-black px-4 py-2 rounded flex items-center justify-between w-full"
+                                                    onClick={() => {
+                                                        router.push("/doctors/all");
+                                                        setOuterOpen(false);
+                                                        setInnerOpen(false);
+                                                    }}
                                                 >
                                                     {t('findAvailableDoctors')} <span>→</span>
                                                 </Button>
@@ -557,6 +563,11 @@ export function Navbar() {
                                                 <Button
                                                     variant={"link"}
                                                     className="bg-indigo-400 text-black px-4 py-2 rounded flex items-center justify-between w-full"
+                                                    onClick={() => {
+                                                        router.push("/contact");
+                                                        setOuterOpen(false);
+                                                        setInnerOpen(false);
+                                                    }}
                                                 >
                                                     {t('contactUs')} <span>→</span>
                                                 </Button>

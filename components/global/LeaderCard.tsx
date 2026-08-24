@@ -50,6 +50,8 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
     src={image}
     alt={name}
     fill
+    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 320px"
+    loading="lazy"
     className={cn("object-cover rounded-md  object-top")}
     priority={false}
     /> : <ImageWithFallback
@@ -57,6 +59,8 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
     src={image}
     alt={name}
     fill
+    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 320px"
+    loading="lazy"
     className={cn("object-cover rounded-md  object-center")}
     priority={false}
     />

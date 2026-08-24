@@ -27,8 +27,6 @@ import SpecializedServices from "@/components/Modules/services/SpecializedServic
 import Ambulance from "@/components/Modules/services/support-services/Ambulance"
 import BloodBank from "@/components/Modules/services/support-services/BloodBank"
 import { Dietary } from "@/components/Modules/services/support-services/Dietary"
-import { HouseKeeping } from "@/components/Modules/services/support-services/HouseKeeping"
-import { Laundry } from "@/components/Modules/services/support-services/Laundry"
 import { Pharmacy } from "@/components/Modules/services/support-services/Pharmacy"
 import { Security } from "@/components/Modules/services/support-services/Security"
 import SupportServicesPage from "@/components/Modules/services/support-services/SupportServicesPage"
@@ -64,8 +62,6 @@ export const ServicesMap: Record<string, JSX.Element> = {
     "pharmacy": <Pharmacy />,
     "blood-bank": <BloodBank />,
     "dietary": <Dietary />,
-    "laundry": <Laundry />,
-    "house-keeping": <HouseKeeping />,
     "security": <Security />,
     "ambulance": <Ambulance />,
     "diagnostic-imaging": <DepartmentPage />,

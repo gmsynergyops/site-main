@@ -1,4 +1,5 @@
 "use client"
+import { CONTACT_INFO } from "@/data/contactData";
 import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import {
     ArrowBigDownDash,
@@ -35,6 +36,8 @@ export const EmergencyCare = () => {
     { icon: TruckIcon, title: 'Ambulance Services', description: 'Advanced life support ambulances' }
   ];
 
+
+
   const testimonial = {
     quote: "The ER team saved my husband's life when he had a heart attack at midnight. They took him straight to the cath lab without any paperwork delay.",
     name: "Mrs. Priya Sharma",
@@ -42,8 +45,8 @@ export const EmergencyCare = () => {
   };
 
   // Emergency numbers
-  const emergencyNumber = "18005706595";
-  const ambulanceNumber = "+91-7234006597";
+  const emergencyNumber = CONTACT_INFO.phoneNumbers.emergency;
+  const ambulanceNumber = CONTACT_INFO.phoneNumbers.ambulance;
 
   return (
     <div className="font-sans">
@@ -92,7 +95,7 @@ export const EmergencyCare = () => {
           <div className="flex items-center">
             <PhoneIcon className="h-5 w-5 mr-2 animate-pulse" />
             <span className="font-bold">FOR EMERGENCIES: </span>
-            <a href="tel:18005706595" className="ml-2 hover:underline">18005706595</a>
+            <a href={`tel:${emergencyNumber}`} className="ml-2 hover:underline">{emergencyNumber}</a>
           </div>
           <div className="flex items-center">
             <MapPinIcon className="h-5 w-5 mr-2" />
@@ -102,36 +105,39 @@ export const EmergencyCare = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div
-          className="bg-[url('/emergency-room.jpg')] bg-cover bg-center h-96 md:h-screen max-h-[700px] flex items-center"
-          aria-label="Emergency room with medical team"
-        >
-          <div className="relative max-w-6xl mx-auto px-4 text-white z-10">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-              Emergency Care When You Need It Most – <span className="text-red-400">24x7</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl">
-              Immediate treatment with zero waiting time for critical patients. No appointments required.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="tel:18005706595"
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all animate-pulse"
-              >
-                <PhoneIcon className="h-6 w-6 mr-2" />
-                CALL NOW: 18005706595
-              </a>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all"
-              onClick={() => {
-                window.open("https://maps.app.goo.gl/MXM5snovbSDPidJy5", "_blank");
-            }}
-              >
-                <MapPinIcon className="h-6 w-6 mr-2" />
-                LOCATE EMERGENCY ENTRANCE
-              </button>
-            </div>
+      <section className="relative overflow-hidden h-96 md:h-screen max-h-[700px] flex items-center">
+        <ImageWithFallback
+          src="/department/emergency-and-critical-career.png"
+          fallbackSrc="/fallback-image.webp"
+          alt="Emergency room with medical team"
+          fill
+          priority
+          className="object-contain object-center z-0"
+        />
+        <div className="absolute inset-0 bg-black/50 z-1"></div>
+        <div className="relative max-w-6xl mx-auto px-4 text-white z-10 w-full">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+            Emergency Care When You Need It Most – <span className="text-red-400">24x7</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl">
+            Immediate treatment with zero waiting time for critical patients. No appointments required.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href={`tel:${emergencyNumber}`}
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all animate-pulse"
+            >
+              <PhoneIcon className="h-6 w-6 mr-2" />
+              CALL NOW: {emergencyNumber}
+            </a>
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all"
+            onClick={() => {
+              window.open(CONTACT_INFO.locations[0].directMapURL, "_blank");
+          }}
+            >
+              <MapPinIcon className="h-6 w-6 mr-2" />
+              LOCATE EMERGENCY ENTRANCE
+            </button>
           </div>
         </div>
       </section>
@@ -213,7 +219,7 @@ export const EmergencyCare = () => {
                 fallbackSrc='/fallback-image.webp'
                 width={720}
                 height={560}
-                src="/emergency-team.jpg"
+                src="/department/emergency.jpg"
                 alt="Emergency medical team ready for action"
                 className="w-full h-full object-cover"
               />
@@ -246,15 +252,15 @@ export const EmergencyCare = () => {
           <h2 className="text-3xl font-bold mb-6">Need Emergency Care Right Now?</h2>
           <div className="flex flex-col md:flex-row justify-center gap-6 mb-8">
             <a
-              href="tel:18005706595"
+              href={`tel:${emergencyNumber}`}
               className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-xl font-bold flex items-center justify-center transition-all"
             >
               <PhoneIcon className="h-6 w-6 mr-2" />
-              CALL EMERGENCY: 18005706595
+              CALL EMERGENCY: {emergencyNumber}
             </a>
             <button className="bg-transparent border-2 border-white hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-bold flex items-center justify-center transition-all"
             onClick={() => {
-                window.open("https://maps.app.goo.gl/MXM5snovbSDPidJy5", "_blank");
+                window.open(CONTACT_INFO.locations[0].directMapURL, "_blank");
             }}
             >
               <MapPinIcon className="h-6 w-6 mr-2" />

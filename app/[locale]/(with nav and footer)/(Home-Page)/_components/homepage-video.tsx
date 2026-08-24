@@ -1,27 +1,28 @@
-"use client";
-
 import { MAIN_URL, MOBILE_MAIN_URL } from "@/data";
-import { useIsMobile } from "@/hooks/use-mobile"; // apne path ke hisaab se
+
+const DESKTOP_POSTER = "/videos/homepage-main/poster-desktop.jpg";
 
 export default function HomepageVideo() {
-    const isMobile = useIsMobile();
-
-    const videoSrc = isMobile ? MOBILE_MAIN_URL : MAIN_URL;
-
     return (
         <video
-            preload="auto"
+            preload="metadata"
             autoPlay
             loop
             muted
             playsInline
+            poster={DESKTOP_POSTER}
             className="absolute inset-0 h-full w-full object-cover"
             aria-label="Promotional video showcasing Synergy Hospital"
         >
             <source
-                src={videoSrc}
-                type={isMobile ? "video/mp4" : "video/webm"}
+                src={MOBILE_MAIN_URL}
+                media="(max-width: 767px)"
+                type="video/mp4"
+            />
+            <source
+                src={MAIN_URL}
+                type="video/webm"
             />
         </video>
     );
-}
+}

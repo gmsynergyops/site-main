@@ -1,10 +1,10 @@
 "use client"
 import { useMenuItems } from '@/data';
+import { CONTACT_INFO } from '@/data/contactData';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa6';
+import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa6';
 import { SiGooglemaps } from "react-icons/si";
-import { FaYoutube } from 'react-icons/fa6';
 import { FooterFormContainer } from './FooterFormContainer';
 
 export const Footer = () => {
@@ -31,7 +31,7 @@ export const Footer = () => {
 
                 <div className="w-full lg:w-1/2 h-75 lg:h-119.75 rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4606.804128672125!2d83.37676587624873!3d26.745450367257032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b0d013cef1%3A0xc7d8e7bab401f8fe!2sSynergy%20Superspeciality%20Hospital%20and%20Cancer%20Institute!5e1!3m2!1sen!2sin!4v1785839951905!5m2!1sen!2sin"
+                        src={CONTACT_INFO.locations[0].mapURL}
                         className="w-full h-full"
                         style={{ border: 0 }}
                         allowFullScreen
@@ -44,7 +44,7 @@ export const Footer = () => {
                 </div>
                 <div className="w-full lg:w-1/2 h-75 lg:h-119.75 rounded-2xl border-2 border-border/10 hover:border-border transition-colors duration-200 ease-in-out overflow-hidden shadow-sm">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4604.753588999132!2d83.38487609678955!3d26.796013099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145006280f7e9%3A0xae494a8b47b69ad3!2sSynergy%20Cancer%20Care!5e1!3m2!1sen!2sin!4v1785840069439!5m2!1sen!2sin"
+                        src={CONTACT_INFO.locations[1].mapURL}
                         className="w-full h-full"
                         style={{ border: 0 }}
                         allowFullScreen
@@ -126,22 +126,22 @@ export const Footer = () => {
                             {
                                 name: "GoogleMaps",
                                 Icon: SiGooglemaps,
-                                link: "https://www.google.com/maps/place/Synergy+Superspeciality+Hospital+and+Cancer+Institute/@26.7450524,83.3793673,17.1z/data=!4m15!1m8!3m7!1s0x399145b0d013cef1:0xc7d8e7bab401f8fe!2sSynergy+Superspeciality+Hospital+and+Cancer+Institute!8m2!3d26.7452875!4d83.3791698!10e5!16s%2Fg%2F11qg18_33b!3m5!1s0x399145b0d013cef1:0xc7d8e7bab401f8fe!8m2!3d26.7452875!4d83.3791698!16s%2Fg%2F11qg18_33b?entry=ttu&g_ep=EgoyMDI1MDQyOC4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D",
+                                link: CONTACT_INFO.locations[0].directMapURL,
                             },
                             {
                                 name: "Instagram",
                                 Icon: FaInstagram,
-                                link: "https://www.instagram.com/synergycancergkp/",
+                                link: CONTACT_INFO.socialUrls.instagram,
                             },
                             {
                                 name: "YouTube",
                                 Icon: FaYoutube,
-                                link: "https://www.youtube.com/@SynergyCancerHospital",
+                                link: CONTACT_INFO.socialUrls.youtube,
                             },
                             {
                                 name: "Facebook",
                                 Icon: FaFacebook,
-                                link: "https://www.facebook.com/synergysuperspecialityhospital",
+                                link: CONTACT_INFO.socialUrls.facebook,
                             },
                         ].map((button, index) => (
                             <Link key={index} href={button.link} aria-label={button.name} target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-synergy-blue group transition-all">

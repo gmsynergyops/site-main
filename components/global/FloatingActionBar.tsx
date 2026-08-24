@@ -16,6 +16,7 @@ import { useEffect, useState, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import React from "react";
 import { useRouter } from "next/navigation";
+import { CONTACT_INFO } from "@/data/contactData";
 
 
 type Props = {
@@ -52,7 +53,7 @@ const router = useRouter()
             return {
                 ...item,
                 onClick: () => {
-                    window.open("https://maps.app.goo.gl/MXM5snovbSDPidJy5", "_blank");
+                    window.open(CONTACT_INFO.locations[0].directMapURL, "_blank");
                 }
             };
         }
@@ -60,7 +61,7 @@ const router = useRouter()
             return {
                 ...item,
                 onClick: () => {
-                    window.open("tel:7234006597", "_blank");
+                    window.open(`tel:${CONTACT_INFO.phoneNumbers.secondary}`, "_blank");
                 }
             };
         }

@@ -96,8 +96,6 @@ export const useMenuItems = () => {
                         { label: t('sections.supportServices.links.pharmacy'), href: "/services/pharmacy" },
                         { label: t('sections.supportServices.links.bloodBank'), href: "/services/blood-bank" },
                         { label: t('sections.supportServices.links.dietary'), href: "/services/dietary" },
-                        { label: t('sections.supportServices.links.laundry'), href: "/services/laundry" },
-                        { label: t('sections.supportServices.links.houseKeeping'), href: "/services/house-keeping" },
                         { label: t('sections.supportServices.links.security'), href: "/services/security" },
                         { label: t('sections.supportServices.links.ambulance'), href: "/services/ambulance" },
                         { label: t('sections.supportServices.links.viewAll'), href: "/services/support-services" }
@@ -707,8 +705,11 @@ export const pressReleases: PressRelease[] = [
     }
 ]
 
+import { CONTACT_INFO } from './contactData';
+export { CONTACT_INFO } from './contactData';
+
 export const ContactUsMessage = encodeURIComponent("Hello, I would like to know more about your services.");
-export const phoneNumber = "18005706595";
+export const phoneNumber = CONTACT_INFO.phoneNumbers.emergency;
 
 // Support services data with images
 export const supportServices = [
@@ -733,20 +734,7 @@ export const supportServices = [
         link: "/dietary-services",
         image: "/images/dietary-services.webp",
     },
-    {
-        id: 4,
-        title: "Laundry Services",
-        description: "Hospital-grade linen and personal laundry services with hygienic processing and sterilization standards.",
-        link: "/laundry-services",
-        image: "/images/laundry-services.webp",
-    },
-    {
-        id: 5,
-        title: "Housekeeping",
-        description: "Professional cleaning and sanitation services maintaining highest standards of hospital hygiene and infection control.",
-        link: "/housekeeping",
-        image: "/images/housekeeping.webp",
-    },
+
     {
         id: 6,
         title: "Security Services",

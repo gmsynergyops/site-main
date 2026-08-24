@@ -18,7 +18,9 @@ import Image from "next/image";
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { useState, useEffect } from "react";
 import type { LucideIcon } from "lucide-react";
+import Link from "next/link";
 import { GiSiren } from "react-icons/gi";
+import { CONTACT_INFO } from "@/data/contactData";
 
 /* ------------------------------------------------------------------ */
 /*  Type pairing                                                       */
@@ -591,11 +593,13 @@ export default function SpecializedServices() {
                                         <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65">{service.secondaryDescription}</p>
 
                                         <div className="mt-7 flex flex-wrap gap-3">
-                                            <button className="rounded-lg bg-[#D6336C] px-5 py-2.5 text-sm font-medium text-white shadow-md transition-colors hover:bg-[#bb2a5c]">
-                                                Book an Appointment
-                                            </button>
+                                            <Link href={`/book-appointment?department=${encodeURIComponent(service.shortLabel || service.title)}`}>
+                                                <button className="rounded-lg bg-[#D6336C] px-5 py-2.5 text-sm font-medium text-white shadow-md transition-colors hover:bg-[#bb2a5c]">
+                                                    Book an Appointment
+                                                </button>
+                                            </Link>
                                             <a
-                                                href="tel:+911800570-6595"
+                                                href={`tel:${CONTACT_INFO.phoneNumbers.emergency}`}
                                                 className="flex items-center gap-2 rounded-lg border border-white/25 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
                                             >
                                                 <Phone className="h-3.5 w-3.5" />
@@ -723,7 +727,7 @@ export default function SpecializedServices() {
                             <div className="mt-2 text-sm text-red-700">
                                 <p>
                                     For emergency cases in any of these specialized units, please call our emergency hotline at{" "}
-                                    <strong>+91 (1800)-570-6595</strong> or proceed directly to our emergency department.
+                                    <strong>{CONTACT_INFO.phoneNumbers.emergencyFormatted}</strong> or proceed directly to our emergency department.
                                 </p>
                             </div>
                         </div>

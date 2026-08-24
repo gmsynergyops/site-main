@@ -89,7 +89,21 @@ export default function BookAppointmentForm() {
   }) || ""
   const departmentData = useDepartmentData()
 
-  // Build unified list of departments from departmentData + any doctor departments
+  // Medical spelling normalizer
+  const normalize = (str: string) => {
+    if (!str) return ""
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/anaesthes/g, "anesthes")
+      .replace(/gynaec/g, "gynec")
+      .replace(/gynae/g, "gynec")
+      .replace(/paediatr/g, "pediatr")
+      .replace(/orthopaed/g, "orthoped")
+      .replace(/haemat/g, "hemat")
+  }
+
+  // Build unified list of departments from departmentData + doctor departments + current query department
   const allDepartments = useMemo(() => {
     const list: { id: string; name: string }[] = departmentData.map((dept) => ({
       id: dept.id || dept.name,
@@ -101,10 +115,7 @@ export default function BookAppointmentForm() {
       if (!docDept) return
 
       const alreadyExists = list.some(
-        (item) =>
-          item.name.toLowerCase() === docDept.toLowerCase() ||
-          item.name.toLowerCase().includes(docDept.toLowerCase()) ||
-          docDept.toLowerCase().includes(item.name.toLowerCase())
+        (item) => normalize(item.name) === normalize(docDept)
       )
 
       if (!alreadyExists) {
@@ -115,8 +126,25 @@ export default function BookAppointmentForm() {
       }
     })
 
+    // Ensure any department passed via query parameter (e.g. ICU, Emergency, etc.) is in allDepartments
+    const queryDept = searchParams.get("department")
+    if (queryDept) {
+      const exists = list.some(
+        (item) =>
+          normalize(item.name) === normalize(queryDept) ||
+          normalize(item.name).includes(normalize(queryDept)) ||
+          normalize(queryDept).includes(normalize(item.name))
+      )
+      if (!exists) {
+        list.push({
+          id: queryDept.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+          name: queryDept,
+        })
+      }
+    }
+
     return list
-  }, [departmentData])
+  }, [departmentData, searchParams])
 
   useEffect(() => {
     const doctorFromQuery = searchParams.get("doctor")
@@ -126,17 +154,19 @@ export default function BookAppointmentForm() {
       return
     }
 
+    const normDoctorQuery = doctorFromQuery ? normalize(doctorFromQuery) : ""
     const matchingDoctor = doctorFromQuery
-      ? doctors.find((doc) => doc.name.toLowerCase() === doctorFromQuery.toLowerCase())
+      ? doctors.find((doc) => normalize(doc.name) === normDoctorQuery || normalize(doc.name).includes(normDoctorQuery))
       : null
 
     const targetDept = matchingDoctor?.department ?? departmentFromQuery ?? ""
+    const normTargetDept = normalize(targetDept)
     const departmentMatch = targetDept
       ? allDepartments.find(
           (dept) =>
-            dept.name.toLowerCase() === targetDept.toLowerCase() ||
-            dept.name.toLowerCase().includes(targetDept.toLowerCase()) ||
-            targetDept.toLowerCase().includes(dept.name.toLowerCase())
+            normalize(dept.name) === normTargetDept ||
+            normalize(dept.name).includes(normTargetDept) ||
+            normTargetDept.includes(normalize(dept.name))
         )
       : null
 
@@ -153,24 +183,47 @@ export default function BookAppointmentForm() {
     }
   }, [searchParams, allDepartments, form])
 
-  // Get available doctors based on selected department
-  const availableDoctors = selectedDepartment
-    ? doctors.filter((doc) => {
-        const docDept = doc.department.toLowerCase().trim()
-        const selDept = selectedDepartment.toLowerCase().trim()
-        return (
-          docDept === selDept ||
-          selDept.includes(docDept) ||
-          docDept.includes(selDept)
-        )
-      })
-    : [];
+  // Get available doctors based on selected department (fallback to all doctors if none match or none selected)
+  const availableDoctors = useMemo(() => {
+    if (!selectedDepartment) return doctors
 
-  // Handle department change to update available doctors
+    const normSelDept = normalize(selectedDepartment)
+    const filtered = doctors.filter((doc) => {
+      const normDocDept = normalize(doc.department)
+      return (
+        normDocDept === normSelDept ||
+        normSelDept.includes(normDocDept) ||
+        normDocDept.includes(normSelDept)
+      )
+    })
+
+    return filtered.length > 0 ? filtered : doctors
+  }, [selectedDepartment])
+
+  // Handle department change
   const handleDepartmentChange = (value: string) => {
     form.setValue('department', value)
-    // Reset doctor selection when department changes
     form.setValue("selectedDoctor", "")
+  }
+
+  // Handle doctor change & auto-fill department
+  const handleDoctorChange = (doctorName: string) => {
+    form.setValue("selectedDoctor", doctorName)
+    const matchingDoc = doctors.find((d) => d.name === doctorName)
+    if (matchingDoc && matchingDoc.department) {
+      const normDocDept = normalize(matchingDoc.department)
+      const deptMatch = allDepartments.find(
+        (dept) =>
+          normalize(dept.name) === normDocDept ||
+          normalize(dept.name).includes(normDocDept) ||
+          normDocDept.includes(normalize(dept.name))
+      )
+      if (deptMatch) {
+        form.setValue("department", deptMatch.name)
+      } else {
+        form.setValue("department", matchingDoc.department)
+      }
+    }
   }
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -352,9 +405,9 @@ export default function BookAppointmentForm() {
             render={({ field, fieldState }) => (
               <div data-invalid={fieldState.invalid}>
                 <label className="block text-base font-medium mb-2">Select Doctor <span className="text-sm text-neutral-900">(optional)</span></label>
-                <Select onValueChange={field.onChange} value={field.value ?? ''} disabled={!selectedDepartment}>
+                <Select onValueChange={handleDoctorChange} value={field.value ?? ''}>
                   <SelectTrigger aria-invalid={fieldState.invalid}>
-                    <SelectValue placeholder={selectedDepartment ? "Select doctor" : "Select department first"} />
+                    <SelectValue placeholder="Select doctor (optional)" />
                   </SelectTrigger>
                   <SelectContent>
                     {availableDoctors.map((doctor) => (

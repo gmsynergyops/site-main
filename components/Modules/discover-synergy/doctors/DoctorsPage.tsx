@@ -1,15 +1,16 @@
 "use client"
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useMemo, Suspense } from 'react'
 import { useInView, motion, AnimatePresence } from 'framer-motion'
 import { FaSearch, FaUserMd, FaFilter, FaCalendarAlt, FaClock, FaHospital, FaArrowRight } from 'react-icons/fa'
 import { doctors } from '@/data/doctors'
 import { ImageWithFallback } from '@/components/global/ImageWithFallback'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
-export const DoctorsPage = () => {
+function DoctorsPageContent() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: "-100px" })
     const router = useRouter()
+    const searchParams = useSearchParams()
 
     const handleBookAppointment = (doctor: typeof doctors[number]) => {
         const params = new URLSearchParams({
@@ -21,36 +22,97 @@ export const DoctorsPage = () => {
     }
 
     // Unique departments and specialties
-    const departments = [...new Set(doctors.map(doctor => doctor.department))]
-    const specialties = [...new Set(doctors.map(doctor => doctor.qualification))]
+    const departments = useMemo(() => [...new Set(doctors.map(doctor => doctor.department))], [])
+    const specialties = useMemo(() => [...new Set(doctors.map(doctor => doctor.qualification))], [])
     const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
+    // Normalize medical spelling variations (US vs UK, common abbreviations, synonyms)
+    const normalizeTerm = (str: string) => {
+        if (!str) return ""
+        return str
+            .toLowerCase()
+            .replace(/anaesthes/g, "anesthes")
+            .replace(/gynaec/g, "gynec")
+            .replace(/gynae/g, "gynec")
+            .replace(/paediatr/g, "pediatr")
+            .replace(/orthopaed/g, "orthoped")
+            .replace(/ortho\b/g, "orthoped")
+            .replace(/haemat/g, "hemat")
+            .replace(/diagnostic imaging/g, "radiology")
+            .replace(/radiodiagnosis/g, "radiology")
+            .replace(/imaging/g, "radiology")
+    }
+
+    // Helper to calculate state derived from URL search parameters
+    const initialFilters = useMemo(() => {
+        const deptParam = searchParams.get("department")
+        const searchParam = searchParams.get("search")
+        const targetQuery = deptParam || searchParam
+
+        if (!targetQuery) return { dept: "", search: "", show: false }
+
+        const normQuery = normalizeTerm(targetQuery)
+        const matchingDept = departments.find(dept => {
+            const normDept = normalizeTerm(dept)
+            return normDept === normQuery || normDept.includes(normQuery) || normQuery.includes(normDept)
+        })
+
+        if (matchingDept) {
+            return { dept: matchingDept, search: "", show: true }
+        }
+        return { dept: "", search: targetQuery, show: false }
+    }, [searchParams, departments])
+
     // State for filters
-    const [searchTerm, setSearchTerm] = useState("")
-    const [selectedDepartment, setSelectedDepartment] = useState("")
+    const [searchTerm, setSearchTerm] = useState(initialFilters.search)
+    const [selectedDepartment, setSelectedDepartment] = useState(initialFilters.dept)
     const [selectedSpecialty, setSelectedSpecialty] = useState("")
     const [selectedDay, setSelectedDay] = useState("")
     const [timeRange, setTimeRange] = useState("")
-    const [showFilters, setShowFilters] = useState(false)
+    const [showFilters, setShowFilters] = useState(initialFilters.show)
 
-    // Filter doctors
+    // Sync state if searchParams change during client-side navigation
+    const [prevSearchParams, setPrevSearchParams] = useState(searchParams)
+    if (searchParams !== prevSearchParams) {
+        setPrevSearchParams(searchParams)
+        setSelectedDepartment(initialFilters.dept)
+        setSearchTerm(initialFilters.search)
+        if (initialFilters.show) setShowFilters(true)
+    }
+
+    // Filter doctors across name, department, and qualification fields with normalization
     const filteredDoctors = doctors.filter(doctor => {
-        return (
-            doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-            (selectedDepartment === "" || doctor.department === selectedDepartment) &&
-            (selectedSpecialty === "" || doctor.qualification === selectedSpecialty) &&
-            (selectedDay === "" || doctor.availability.some(avail => avail.day === selectedDay)) &&
-            (timeRange === "" ||
-                doctor.availability.some(avail => {
-                    if (timeRange === "morning") {
-                        return avail.time.includes("AM") && !avail.time.includes("12:00 PM")
-                    } else if (timeRange === "afternoon") {
-                        return avail.time.includes("PM") && !avail.time.includes("AM")
-                    }
-                    return true
-                })
-            )
-        )
+        const normSearch = normalizeTerm(searchTerm)
+        const normSelectedDept = normalizeTerm(selectedDepartment)
+
+        const docName = normalizeTerm(doctor.name)
+        const docDept = normalizeTerm(doctor.department)
+        const docQual = normalizeTerm(doctor.qualification || "")
+
+        const matchesSearch = normSearch === "" ||
+            docName.includes(normSearch) ||
+            docDept.includes(normSearch) ||
+            docQual.includes(normSearch)
+
+        const matchesDepartment = normSelectedDept === "" ||
+            docDept === normSelectedDept ||
+            docDept.includes(normSelectedDept) ||
+            normSelectedDept.includes(docDept)
+
+        const matchesSpecialty = selectedSpecialty === "" || doctor.qualification === selectedSpecialty
+
+        const matchesDay = selectedDay === "" || doctor.availability.some(avail => avail.day === selectedDay)
+
+        const matchesTime = timeRange === "" || doctor.availability.some(avail => {
+            if (timeRange === "morning") {
+                return avail.time.includes("AM") && !avail.time.includes("12:00 PM")
+            } else if (timeRange === "afternoon") {
+                return avail.time.includes("PM") && !avail.time.includes("AM")
+            }
+            return true
+        })
+
+        return matchesSearch && matchesDepartment && matchesSpecialty && matchesDay && matchesTime
     })
 
     // Animation variants
@@ -96,7 +158,7 @@ export const DoctorsPage = () => {
                                 </div>
                                 <input
                                     type="text"
-                                    placeholder="Search doctors by name..."
+                                    placeholder="Search doctors by name, department, or qualification..."
                                     className="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-synergy-pink focus:border-synergy-pink"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -290,5 +352,13 @@ export const DoctorsPage = () => {
                 </motion.div>
             </div>
         </section>
+    )
+}
+
+export const DoctorsPage = () => {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading Doctors...</div>}>
+            <DoctorsPageContent />
+        </Suspense>
     )
 }

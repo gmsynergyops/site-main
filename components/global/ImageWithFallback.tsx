@@ -8,10 +8,22 @@ interface ImageWithFallbackProps extends React.ComponentProps<typeof Image> {
   fallbackSrc: string;
 }
 
+function normalizeSrc(src: string | { src: string }) {
+  if (!src) return '';
+  const s = typeof src === 'object' ? src.src : src;
+  if (s.startsWith('/') || s.startsWith('http://') || s.startsWith('https://') || s.startsWith('data:')) {
+    return s;
+  }
+  return `/${s}`;
+}
+
 export function ImageWithFallback({ src, fallbackSrc, alt, ...props }: ImageWithFallbackProps) {
-  const [imgSrc, setImgSrc] = useState(src);
-  if (!imgSrc.toString().startsWith('/')) {
-    setImgSrc(`/${src}`);
+  const [prevSrc, setPrevSrc] = useState(src);
+  const [imgSrc, setImgSrc] = useState(() => normalizeSrc(src as string));
+
+  if (prevSrc !== src) {
+    setPrevSrc(src);
+    setImgSrc(normalizeSrc(src as string));
   }
 
   return (
@@ -19,10 +31,9 @@ export function ImageWithFallback({ src, fallbackSrc, alt, ...props }: ImageWith
       {...props}
       src={imgSrc || fallbackSrc}
       alt={alt}
-      onError={(e) =>{
-        e.preventDefault()
-         setImgSrc(fallbackSrc)
-        }}
+      onError={() => {
+        setImgSrc(fallbackSrc);
+      }}
     />
   );
 }

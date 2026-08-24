@@ -159,8 +159,6 @@
                     "pharmacy": "Pharmacy",
                     "bloodBank": "Blood Bank",
                     "dietary": "Dietary",
-                    "laundry": "Laundry",
-                    "houseKeeping": "House Keeping",
                     "security": "Security",
                     "ambulance": "Ambulance Services",
                     "viewAll": "View All"
@@ -2966,9 +2964,9 @@
             "treatments": {
                 "title": "Our Services",
                 "items": {
-                    "mri": {
-                        "title": "MRI Scans",
-                        "description": "High-resolution magnetic resonance imaging for soft tissue evaluation."
+                    "xray": {
+                        "title": "Digital X-Ray",
+                        "description": "High-resolution digital X-ray imaging for bones and chest examinations."
                     },
                     "ct": {
                         "title": "CT Scans",
@@ -3004,8 +3002,8 @@
             "team": {
                 "title": "Our Imaging Team",
                 "members": {
-                    "drRajesh": {
-                        "name": "Dr. Rajesh Verma",
+                    "drRitesh": {
+                        "name": "Dr. Ritesh Nayak",
                         "role": "Chief Radiologist",
                         "credentials": "M.B.B.S, MD Radiology",
                         "specialty": "Neuroimaging"
@@ -3196,11 +3194,11 @@
             "team": {
                 "title": "Our Radiology Team",
                 "members": {
-                    "drAmit": {
-                        "name": "Dr. Amit Patel",
-                        "role": "Interventional Radiologist",
-                        "credentials": "M.B.B.S, MD, DNB Radiology",
-                        "specialty": "Vascular Interventions"
+                    "drRitesh": {
+                        "name": "Dr. Ritesh Nayak",
+                        "role": "Consultant Radiologist & Interventional Specialist",
+                        "credentials": "M.B.B.S, MD Radiology",
+                        "specialty": "Interventional & Diagnostic Radiology"
                     }
                 }
             },
@@ -3317,11 +3315,11 @@
             "team": {
                 "title": "Our Pathology Team",
                 "members": {
-                    "drSunita": {
-                        "name": "Dr. Sunita Rao",
-                        "role": "Pathologist",
+                    "drGargi": {
+                        "name": "Dr. Gargi Tignath",
+                        "role": "Consultant Pathologist",
                         "credentials": "M.B.B.S, MD Pathology",
-                        "specialty": "Oncopathology"
+                        "specialty": "Oncopathology & Histopathology"
                     }
                 }
             },

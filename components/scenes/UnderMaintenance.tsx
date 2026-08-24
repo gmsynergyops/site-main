@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { CONTACT_INFO } from '@/data/contactData';
 
 const UnderMaintenance = () => {
     return (
@@ -49,8 +50,8 @@ const UnderMaintenance = () => {
                             <div>
                                 <h4 className="font-semibold text-lg">Call Us</h4>
                                 <p className="opacity-70 text-sm mb-3">For appointments, billing, or general queries, please reach out to our patient support line:</p>
-                                <a href="tel:+917234006595" className="text-3xl font-bold text-blue-500 hover:underline block tracking-tight">
-                                    +91 7234006595
+                                <a href={`tel:${CONTACT_INFO.phoneNumbers.primary}`} className="text-3xl font-bold text-blue-500 hover:underline block tracking-tight">
+                                    {CONTACT_INFO.phoneNumbers.primaryFormatted}
                                 </a>
                             </div>
                         </div>

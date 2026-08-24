@@ -3,12 +3,13 @@
 import ReactLenis, { useLenis } from "lenis/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const lenis = useLenis()
+  const resizeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (!lenis) return
@@ -33,38 +34,37 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     const onScroll = () => ScrollTrigger.update()
     lenis.on("scroll", onScroll)
 
-    // ── CRITICAL FIX: jab bhi ScrollTrigger refresh ho, Lenis ka apna
-    // internal scroll-limit bhi resize karo. Bina isके ScrollTrigger
-    // trigger-positions toh update ho jaate hain, lekin Lenis ka wheel-driven
-    // "limit" purana hi rehta hai — isi se wheel scroll last mein atakta hai
-    // jabki keyboard/native scroll poori height tak chala jaata hai.
     const onRefresh = () => lenis.resize()
     ScrollTrigger.addEventListener("refresh", onRefresh)
 
-    // fonts load hone ke baad refresh — text-[10vw] heading jaisi cheezein
-    // font-swap ke baad height badal deti hain
+    // fonts load hone ke baad refresh
     document.fonts.ready.then(() => ScrollTrigger.refresh())
 
-    // window "load" — saari images (RevealImage sections) load hone ke
-    // baad bhi ek final refresh, kyunki fonts.ready image load ka wait nahi karta
+    // window "load" — saari images load hone ke baad final refresh
     const onWindowLoad = () => {
       lenis.resize()
       ScrollTrigger.refresh()
     }
     window.addEventListener("load", onWindowLoad)
 
-    // safety net: agar body ki height kabhi bhi change ho (late image load,
-    // dynamic content, etc.) toh dono ko re-sync kar do
-    const ro = new ResizeObserver(() => {
-      lenis.resize()
-      ScrollTrigger.refresh()
-    })
+    // Debounced ResizeObserver — prevents excessive layout thrashing during
+    // initial page load when DOM elements are settling
+    const debouncedResize = () => {
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current)
+      resizeTimerRef.current = setTimeout(() => {
+        lenis.resize()
+        ScrollTrigger.refresh()
+      }, 200)
+    }
+
+    const ro = new ResizeObserver(debouncedResize)
     ro.observe(document.body)
 
     return () => {
       lenis.off("scroll", onScroll)
       ScrollTrigger.removeEventListener("refresh", onRefresh)
       window.removeEventListener("load", onWindowLoad)
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current)
       ro.disconnect()
       ScrollTrigger.clearScrollMemory()
     }

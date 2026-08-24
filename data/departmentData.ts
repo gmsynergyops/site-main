@@ -2484,9 +2484,9 @@ export const useDepartmentData = () => {
         title: t("DiagnosticImaging.treatments.title"),
         items: [
           {
-            title: t("DiagnosticImaging.treatments.items.mri.title"),
+            title: t("DiagnosticImaging.treatments.items.xray.title"),
             description: t(
-              "DiagnosticImaging.treatments.items.mri.description"
+              "DiagnosticImaging.treatments.items.xray.description"
             ),
           },
           {
@@ -2526,13 +2526,13 @@ export const useDepartmentData = () => {
         title: t("DiagnosticImaging.team.title"),
         members: [
           {
-            name: t("DiagnosticImaging.team.members.drRajesh.name"),
-            role: t("DiagnosticImaging.team.members.drRajesh.role"),
+            name: t("DiagnosticImaging.team.members.drRitesh.name"),
+            role: t("DiagnosticImaging.team.members.drRitesh.role"),
             credentials: t(
-              "DiagnosticImaging.team.members.drRajesh.credentials"
+              "DiagnosticImaging.team.members.drRitesh.credentials"
             ),
-            image: "/doctors/dr-rajesh-verma.webp",
-            specialty: t("DiagnosticImaging.team.members.drRajesh.specialty"),
+            image: "/doctors/dr-ritesh-nayak.webp",
+            specialty: t("DiagnosticImaging.team.members.drRitesh.specialty"),
           },
         ],
       },
@@ -2541,7 +2541,7 @@ export const useDepartmentData = () => {
         description:
           "Our department features state-of-the-art imaging technology for precise diagnostics.",
         features: [
-          "1.5T MRI machine",
+          "Digital X-Ray System",
           "128-slice CT scanner",
           "Digital mammography",
           "Fluoroscopy suite",
@@ -2574,7 +2574,7 @@ export const useDepartmentData = () => {
         items: [
           {
             quote:
-              "The MRI was much quicker and less claustrophobic than I expected. The staff made me feel comfortable throughout.",
+              "The digital X-ray scan was quick and painless. The staff made me feel very comfortable throughout.",
             author: "Anjali S.",
             image: "/fallback-image.webp",
           },
@@ -2822,11 +2822,11 @@ export const useDepartmentData = () => {
         title: t("Radiology.team.title"),
         members: [
           {
-            name: t("Radiology.team.members.drAmit.name"),
-            role: t("Radiology.team.members.drAmit.role"),
-            credentials: t("Radiology.team.members.drAmit.credentials"),
-            image: "/doctors/dr-amit-patel.webp",
-            specialty: t("Radiology.team.members.drAmit.specialty"),
+            name: t("Radiology.team.members.drRitesh.name"),
+            role: t("Radiology.team.members.drRitesh.role"),
+            credentials: t("Radiology.team.members.drRitesh.credentials"),
+            image: "/doctors/dr-ritesh-nayak.webp",
+            specialty: t("Radiology.team.members.drRitesh.specialty"),
           },
         ],
       },
@@ -2970,11 +2970,11 @@ export const useDepartmentData = () => {
         title: "Our Pathology Team",
         members: [
           {
-            name: t("Pathology.team.members.drSunita.name"),
-            role: t("Pathology.team.members.drSunita.role"),
-            credentials: t("Pathology.team.members.drSunita.credentials"),
-            image: "/doctors/dr-sunita-rao.webp",
-            specialty: t("Pathology.team.members.drSunita.specialty"),
+            name: t("Pathology.team.members.drGargi.name"),
+            role: t("Pathology.team.members.drGargi.role"),
+            credentials: t("Pathology.team.members.drGargi.credentials"),
+            image: "/doctors/dr-gargi-tignath.webp",
+            specialty: t("Pathology.team.members.drGargi.specialty"),
           },
         ],
       },

@@ -12,6 +12,7 @@ import {
     PhoneIcon
 } from 'lucide-react';
 import { ImageWithFallback } from '@/components/global/ImageWithFallback';
+import { CONTACT_INFO } from '@/data/contactData';
 
 export const InPatientFacilities = () => {
     const facilities = [
@@ -276,7 +277,9 @@ export const InPatientFacilities = () => {
                     <div className="space-y-4 mb-8">
                         <p className="flex items-center justify-center text-gray-700">
                             <PhoneIcon className="h-5 w-5 mr-2 text-blue-600" />
-                            +91-XXX-XXXX-XXX
+                            <a href={`tel:${CONTACT_INFO.phoneNumbers.admissionDesk}`} className="hover:underline font-semibold">
+                                {CONTACT_INFO.phoneNumbers.admissionDeskFormatted}
+                            </a>
                         </p>
                         <p className="flex items-center justify-center text-gray-700">
                             <MapPinIcon className="h-5 w-5 mr-2 text-blue-600" />
@@ -286,9 +289,12 @@ export const InPatientFacilities = () => {
                             Open Monday-Sunday, 8:00 AM to 8:00 PM
                         </p>
                     </div>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                    <a
+                        href={`tel:${CONTACT_INFO.phoneNumbers.admissionDesk}`}
+                        className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+                    >
                         Need Help With Admission?
-                    </button>
+                    </a>
                 </div>
             </section>
         </div>

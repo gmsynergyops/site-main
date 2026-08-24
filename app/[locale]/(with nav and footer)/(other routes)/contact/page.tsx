@@ -1,10 +1,5 @@
-import { AiFillYoutube } from "react-icons/ai";
-import {
-  FaFacebookSquare,
-  FaInstagram,
-  FaWhatsapp
-} from "react-icons/fa";
-import { IconType } from "react-icons/lib";
+import { CONTACT_INFO, SOCIAL_LINKS, ContactLocation as Location, SocialLink } from "@/data/contactData";
+import { FaWhatsapp } from "react-icons/fa6";
 import { MdLocationOn, MdOutlineAlternateEmail, MdPhone } from "react-icons/md";
 
 /**
@@ -17,96 +12,14 @@ import { MdLocationOn, MdOutlineAlternateEmail, MdPhone } from "react-icons/md";
  * <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
  */
 
-const HOSPITAL_NAME = "Synergy Superspeciality Hospital & Cancer Institute";
-
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: IconType;
-  description: string;
-  color: string;
-}
-
-interface Location {
-  label: string;
-  tag: string;
-  address: string;
-  mapURL: string;
-  accent: string;
-  bg: string;
-  text: string;
-  border: string;
-}
-
-const email = "synergycancer1@gmail.com";
-
-const phone1 = "+917234006595";
-const phone2 = "+917234006597";
-// const phone3 = "+917234001617";
-const whatsappUrl = "https://wa.me/917234006595";
-
-const locations: Location[] = [
-  {
-    label: "Synergy Superspeciality Hospital & Cancer Institute",
-    tag: "OPD · IPD · Surgery",
-    address: "Chhatrasangh Chauraha, Gorakhpur, 273001",
-    mapURL:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4606.804128672125!2d83.37676587624873!3d26.745450367257032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b0d013cef1%3A0xc7d8e7bab401f8fe!2sSynergy%20Superspeciality%20Hospital%20and%20Cancer%20Institute!5e1!3m2!1sen!2sin!4v1785839951905!5m2!1sen!2sin",
-    accent: "synergy-blue",
-    bg: "bg-synergy-blue/15",
-    text: "text-synergy-blue",
-    border: "border-l-synergy-blue",
-  },
-  {
-    label: "Synergy Cancer Care - Radiation Center & Day Care",
-    tag: "GNFT Tower · 1st Floor",
-    address: "Khajanchi Chauraha, Gorakhpur, 273001",
-    mapURL:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4604.753588999132!2d83.38487609678955!3d26.796013099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145006280f7e9%3A0xae494a8b47b69ad3!2sSynergy%20Cancer%20Care!5e1!3m2!1sen!2sin!4v1785840069439!5m2!1sen!2sin",
-    accent: "synergy-pink",
-    bg: "bg-synergy-pink/15",
-    text: "text-synergy-pink",
-    border: "border-l-synergy-pink",
-  },
-];
-
-const socialLinks: SocialLink[] = [
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/synergycancergkp/",
-    icon: FaInstagram,
-    description: "Behind the scenes, projects & creative inspiration.",
-    color: "#E1306C",
-  },
-  {
-    name: "YouTube",
-    url: "https://www.youtube.com/@SynergyCancerHospital",
-    icon: AiFillYoutube,
-    description: "Case studies, tutorials & creative showcases.",
-    color: "#FF0000",
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com/synergysuperspecialityhospital",
-    icon: FaFacebookSquare,
-    description: "Follow our community and latest announcements.",
-    color: "#1877F2",
-  },
-  {
-    name: "WhatsApp",
-    url: whatsappUrl,
-    icon: FaWhatsapp,
-    description: "Chat with our team for a quick consultation.",
-    color: "#25D366",
-  },
-  {
-    name: "Email",
-    url: `mailto:${email}`,
-    icon: MdOutlineAlternateEmail,
-    description: "Reach us for business enquiries and collaborations.",
-    color: "#777777",
-  },
-];
+const HOSPITAL_NAME = CONTACT_INFO.hospitalName;
+const email = CONTACT_INFO.email;
+const phone1 = CONTACT_INFO.phoneNumbers.primary;
+const phone2 = CONTACT_INFO.phoneNumbers.secondary;
+const phone3 = CONTACT_INFO.phoneNumbers.admissionDesk;
+const whatsappUrl = CONTACT_INFO.whatsapp.url;
+const locations: Location[] = CONTACT_INFO.locations;
+const socialLinks: SocialLink[] = SOCIAL_LINKS;
 
 /** Signature element: a quiet EKG pulse line used as a section divider — a hospital's own visual vocabulary, not a generic rule. */
 const PulseDivider = () => (
@@ -210,8 +123,8 @@ const ContactPage = () => {
             {
               icon: MdPhone,
               title: "Reception",
-              values: [phone1],
-              hrefs: [`tel:${phone1}`],
+              values: [phone3],
+              hrefs: [`tel:${phone3}`],
             },
             {
               icon: MdPhone,

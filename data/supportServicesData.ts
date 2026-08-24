@@ -1,5 +1,6 @@
 import { SupportServiceProps } from "@/types"
 import { FaXRay } from "react-icons/fa6"
+import { CONTACT_INFO } from "@/data/contactData"
 
 export const diagnosticImagingData : SupportServiceProps= {
     heroImage: "/department/diagnostic-imaging-banner.png",
@@ -13,14 +14,6 @@ export const diagnosticImagingData : SupportServiceProps= {
             icon: FaXRay,
             details: "Our digital X-ray technology provides immediate high-quality images with significantly lower radiation exposure compared to traditional methods. Ideal for bone fractures, chest examinations, and dental imaging.",
             commonUses: ["Fracture detection", "Pneumonia diagnosis", "Dental examinations"]
-        },
-        {
-            id: "mri",
-            title: "MRI Scan",
-            description: "Detailed imaging of organs and tissues using magnetic fields",
-            icon: FaXRay,
-            details: "Our 3T MRI scanners offer exceptional image quality for neurological, musculoskeletal, and abdominal imaging. The wide-bore design provides a more comfortable experience for patients with claustrophobia.",
-            commonUses: ["Brain and spinal cord imaging", "Joint and soft tissue evaluation", "Tumor detection"]
         },
         {
             id: "ctscan",
@@ -85,7 +78,7 @@ export const diagnosticImagingData : SupportServiceProps= {
     faqs: [
         {
             question: "How long does an imaging test take?",
-            answer: "Most standard X-rays take 15-30 minutes. MRI/CT scans typically take 30-60 minutes depending on the area being scanned."
+            answer: "Most standard X-rays take 15-30 minutes. CT scans typically take 15-30 minutes depending on the area being scanned."
         },
         {
             question: "Is imaging safe during pregnancy?",
@@ -97,14 +90,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Our team is ready to assist you...",
       buttons: [
         {
-          text: "Call Now: (123) 456-7890",
+          text: `Call Now: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Call clicked")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
         },
         {
           text: "Request Callback",
           variant: "outline",
-          onClick: () => {console.log("Callback clicked")}
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
@@ -182,14 +177,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Get accurate diagnostics with quick results",
       buttons: [
         {
-          text: "Book Test: (123) 456-7890",
+          text: `Book Test: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Lab call")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
         },
         {
-          text: "Download Report",
+          text: "Request Callback",
           variant: "outline",
-          onClick: () => {console.log("Download lab")}
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
@@ -259,9 +256,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Get your medications safely and conveniently",
       buttons: [
         {
-          text: "Emergency Meds: 123-456-7890",
+          text: `Emergency Meds: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Pharmacy call")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
+        },
+        {
+          text: "Request Callback",
+          variant: "outline",
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
@@ -331,9 +335,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Book assessment with our physiotherapists",
       buttons: [
         {
-          text: "Book Now",
+          text: `Call Physiotherapy: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Physio booking")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
+        },
+        {
+          text: "Request Callback",
+          variant: "outline",
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
@@ -403,9 +414,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Your donation can save up to 3 lives",
       buttons: [
         {
-          text: "Emergency: 123-789-4560",
+          text: `Blood Bank Emergency: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Blood emergency")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
+        },
+        {
+          text: "Request Callback",
+          variant: "outline",
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
@@ -475,9 +493,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Schedule your treatment session",
       buttons: [
         {
-          text: "Book Dialysis",
+          text: `Call Dialysis Unit: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Dialysis booking")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
+        },
+        {
+          text: "Request Callback",
+          variant: "outline",
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
@@ -547,14 +572,16 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Immediate medical response when you need it most",
       buttons: [
         {
-          text: "Emergency: 108",
+          text: `Emergency: ${CONTACT_INFO.phoneNumbers.emergencyFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Emergency call")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.emergency}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.emergency}` }
         },
         {
-          text: "Non-Emergency",
+          text: `Direct Call: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "outline",
-          onClick: () => {console.log("Non-emergency")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
         }
       ]
     }
@@ -624,160 +651,25 @@ export const diagnosticImagingData : SupportServiceProps= {
       description: "Helping patients heal through proper nutrition",
       buttons: [
         {
-          text: "Dietitian: 123-789-4561",
+          text: `Call Dietitian: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
           variant: "default",
-          onClick: () => {console.log("Dietary consultation")}
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
+        },
+        {
+          text: "Request Callback",
+          variant: "outline",
+          href: "/contact",
+          onClick: () => { if (typeof window !== 'undefined') window.location.href = "/contact" }
         }
       ]
     }
   }
 
-  export const laundryData: SupportServiceProps = {
-    heroImage: "/laundry-hero.jpg",
-    title: "Laundry Services",
-    description: "Professional cleaning for patient comfort",
-    services: [
-      {
-        id: "linen-service",
-        title: "Linen Service",
-        description: "Bedding and gown cleaning",
-        icon: FaXRay,
-        details: "Sanitary processing of all hospital linens",
-        commonUses: ["Bed sheets", "Patient gowns", "Blankets"]
-      },
-      {
-        id: "personal-laundry",
-        title: "Personal Laundry",
-        description: "Patient clothing care",
-        icon: FaXRay,
-        details: "Gentle cleaning of personal items",
-        commonUses: ["Everyday clothing", "Robes", "Special garments"]
-      }
-    ],
-    preparationTips: [
-      "Label personal items",
-      "Separate delicate fabrics",
-      "Note special washing instructions",
-      "Use provided laundry bags",
-      "Request pickup schedule"
-    ],
-    whyChoose: {
-      title: "Why Our Laundry Service?",
-      items: [
-        {
-          badge: "1",
-          title: "Hygienic Processing",
-          description: "Hospital-grade sanitation standards"
-        },
-        {
-          badge: "2",
-          title: "Quick Turnaround",
-          description: "Same-day service available"
-        },
-        {
-          badge: "3",
-          title: "Eco-Friendly",
-          description: "Green cleaning products used"
-        }
-      ]
-    },
-    faqs: [
-      {
-        question: "How are linens sanitized?",
-        answer: "High-temperature washing with medical-grade detergents"
-      },
-      {
-        question: "Can family use the laundry service?",
-        answer: "Yes, for a small fee"
-      }
-    ],
-    cta: {
-      title: "Laundry Assistance",
-      description: "Keeping patients comfortable with clean linens",
-      buttons: [
-        {
-          text: "Laundry: 123-789-4562",
-          variant: "default",
-          onClick: () => {console.log("Laundry service")}
-        }
-      ]
-    }
-  }
 
-  export const housekeepingData: SupportServiceProps = {
-    heroImage: "/housekeeping-hero.jpg",
-    title: "Housekeeping Services",
-    description: "Maintaining a clean and safe environment",
-    services: [
-      {
-        id: "room-cleaning",
-        title: "Room Cleaning",
-        description: "Daily sanitation service",
-        icon: FaXRay,
-        details: "Thorough disinfection of patient areas",
-        commonUses: ["Patient rooms", "Bathrooms", "Common areas"]
-      },
-      {
-        id: "waste-management",
-        title: "Waste Management",
-        description: "Medical waste disposal",
-        icon: FaXRay,
-        details: "Safe handling of biohazard materials",
-        commonUses: ["Sharps containers", "Biohazard bags", "Recycling"]
-      }
-    ],
-    preparationTips: [
-      "Secure personal items",
-      "Report spills immediately",
-      "Use call button for requests",
-      "Keep walkways clear",
-      "Dispose waste properly"
-    ],
-    whyChoose: {
-      title: "Why Our Housekeeping?",
-      items: [
-        {
-          badge: "1",
-          title: "Trained Staff",
-          description: "Infection control certified"
-        },
-        {
-          badge: "2",
-          title: "24/7 Service",
-          description: "Round-the-clock availability"
-        },
-        {
-          badge: "3",
-          title: "Eco-Conscious",
-          description: "Green cleaning practices"
-        }
-      ]
-    },
-    faqs: [
-      {
-        question: "How often are rooms cleaned?",
-        answer: "Daily deep cleaning with spot cleaning as needed"
-      },
-      {
-        question: "What cleaning products are used?",
-        answer: "Hospital-grade, EPA-approved disinfectants"
-      }
-    ],
-    cta: {
-      title: "Clean Environment Matters",
-      description: "Dedicated to your health and safety",
-      buttons: [
-        {
-          text: "Housekeeping: 123-789-4563",
-          variant: "default",
-          onClick: () => {console.log("Housekeeping request")}
-        }
-      ]
-    }
-  }
 
   export const securityData: SupportServiceProps = {
-  heroImage: "/security-hero.jpg",
+  heroImage: "/department/security-banner.png",
   title: "Security Services",
   description: "Ensuring a safe environment for all",
   services: [
@@ -840,14 +732,16 @@ export const diagnosticImagingData : SupportServiceProps= {
     description: "Dedicated to protecting patients, staff and visitors",
     buttons: [
       {
-        text: "Emergency: 911",
+        text: `Emergency: ${CONTACT_INFO.phoneNumbers.emergencyFormatted}`,
         variant: "default",
-        onClick: () => {console.log("Security emergency")}
+        href: `tel:${CONTACT_INFO.phoneNumbers.emergency}`,
+        onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.emergency}` }
       },
       {
-        text: "Security Office: 123-789-4564",
+        text: `Security Desk: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
         variant: "outline",
-        onClick: () => {console.log("Security non-emergency")}
+        href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+        onClick: () => { if (typeof window !== 'undefined') window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}` }
       }
     ]
   }

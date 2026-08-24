@@ -227,7 +227,8 @@ export interface SupportServiceProps {
         buttons: {
             text: string;
             variant: string;
-            onClick: () => void;
+            onClick?: () => void;
+            href?: string;
         }[];
     };
 }

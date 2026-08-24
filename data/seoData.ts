@@ -207,7 +207,7 @@ export const seoData: Record<
     "diagnostic-imaging": {
       title: "Diagnostic Imaging",
       description: "Accurate and advanced imaging for early cancer detection and treatment planning.",
-      keywords: ["Diagnostic Imaging", "CT Scan", "MRI", "Cancer Detection"],
+      keywords: ["Diagnostic Imaging", "CT Scan", "Digital X-Ray", "Cancer Detection"],
       ogImage: "/images/services/diagnostic-imaging.jpg",
     },
     laboratory: {

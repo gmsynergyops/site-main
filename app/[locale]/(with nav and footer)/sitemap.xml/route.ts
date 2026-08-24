@@ -5,7 +5,6 @@ export async function GET() {
 
   const staticRoutes = [
     '/',
-    '/donate',
     '/media-center',
     '/the-synergy-story',
   ]

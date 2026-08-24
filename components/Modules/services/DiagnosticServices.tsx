@@ -9,7 +9,7 @@ const diagnosticServices = [
     {
         id: "diagnostic-imaging",
         title: "Diagnostic Imaging",
-        description: "Advanced imaging technologies including MRI, CT scans, X-rays, and ultrasounds for accurate diagnosis.",
+        description: "Advanced imaging technologies including CT scans, X-rays, digital mammography, and ultrasounds for accurate diagnosis.",
         image: "/images/diagnostics/imaging.jpg",
     },
     {
@@ -41,24 +41,6 @@ const diagnosticServices = [
         title: "Clinical Biochemistry",
         description: "Advanced biochemical analysis supporting early detection and monitoring of metabolic and endocrine disorders.",
         image: "/images/diagnostics/biochemistry.jpg",
-    },
-    {
-        id: "nuclear-medicine",
-        title: "Nuclear Medicine",
-        description: "Innovative diagnostic imaging through radioactive tracers for cardiac, bone, and cancer studies.",
-        image: "/images/diagnostics/nuclear-medicine.jpg",
-    },
-    {
-        id: "cardiology",
-        title: "Cardiology Diagnostics",
-        description: "Echocardiograms, ECGs, stress tests, and Holter monitoring for comprehensive heart evaluations.",
-        image: "/images/diagnostics/cardiology.jpg",
-    },
-    {
-        id: "genetic-testing",
-        title: "Genetic Testing",
-        description: "Cutting-edge genetic screenings for hereditary diseases and personalized treatment planning.",
-        image: "/images/diagnostics/genetic-testing.jpg",
     },
 ];
 
@@ -111,9 +93,11 @@ export default function DiagnosticServices() {
                 <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                     Our care coordinators can guide you to the right diagnostic tests based on your symptoms and medical history.
                 </p>
-                <Button variant="default" size="xl">
-                    Contact Diagnostic Services
-                </Button>
+                <Link href="/contact">
+                    <Button variant="default" size="xl">
+                        Contact Diagnostic Services
+                    </Button>
+                </Link>
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 import AyushmaanBharatCard from '@/components/global/AyushmaanBharatCard';
 import InsurancePartners from '@/components/global/InsurancePartners';
 import React from 'react';
+import { CONTACT_INFO } from '@/data/contactData';
 
 // Yahan se component start hona chahiye tha jo miss ho gaya tha
 const Insurance = () => {
@@ -96,13 +97,20 @@ const Insurance = () => {
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold mb-8 text-gray-800">Insurance Support</h2>
                     <div className="space-y-4 mb-8">
-                        {/* <p className="text-lg">📞 +91-XXX-XXXX-XXX</p>
-                        <p className="text-lg">✉️ insurance.support@hospital.com</p> */}
+                        <p className="text-lg">
+                            📞 <a href={`tel:${CONTACT_INFO.phoneNumbers.primary}`} className="hover:underline font-semibold">{CONTACT_INFO.phoneNumbers.primaryFormatted}</a>
+                        </p>
+                        <p className="text-lg">
+                            ✉️ <a href={`mailto:${CONTACT_INFO.email}`} className="hover:underline">{CONTACT_INFO.email}</a>
+                        </p>
                         <p className="text-lg">📍 Ground Floor, Main Lobby - Insurance Desk</p>
                     </div>
-                    <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    <a
+                        href={`tel:${CONTACT_INFO.phoneNumbers.primary}`}
+                        className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                    >
                         Need Immediate Help?
-                    </button>
+                    </a>
                 </div>
             </section>
         </div>

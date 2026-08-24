@@ -124,9 +124,11 @@ export default function SurvivorPage() {
            <motion.p variants={itemVariants} className="text-lg text-gray-700 max-w-2xl mx-auto mb-8 font-serif">
              If you or your loved one has been treated at Synergy and wishes to share your journey, we would be honored to hear from you. Your story can give hope and strength to someone who is just beginning their journey.
            </motion.p>
-           <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-synergy-blue text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-blue-800 transition-colors">
-              Share Your Story
-           </motion.button>
+           <Link href="/contact">
+             <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="bg-synergy-blue text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-blue-800 transition-colors">
+                Share Your Story
+             </motion.button>
+           </Link>
         </div>
       </motion.section>
 

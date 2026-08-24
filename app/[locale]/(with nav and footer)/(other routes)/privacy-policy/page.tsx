@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTACT_INFO } from '@/data/contactData';
 
 const PrivacyPolicy = () => {
   return (
@@ -8,17 +9,17 @@ const PrivacyPolicy = () => {
 
       <section>
         <p>
-          Apollo Hospitals Enterprise Ltd. (&quot;APOLLO&quot;) is committed to respecting the privacy of every person who shares information with APOLLO. Your privacy is important to us, and we strive to take reasonable care and protection of the information we receive from you, the User. In this regard, we adhere to the applicable governing laws in India.
+          {CONTACT_INFO.hospitalName} (&quot;SYNERGY&quot;) is committed to respecting the privacy of every person who shares information with SYNERGY. Your privacy is important to us, and we strive to take reasonable care and protection of the information we receive from you, the User. In this regard, we adhere to the applicable governing laws in India.
         </p>
         <p>
-          This Privacy Policy (“Privacy Policy”) applies to the collection, storage, processing, disclosure and transfer of your Personal Information (defined below) when you use the website of <a href="https://www.apollohospitals.com" target="_blank" rel="noopener noreferrer">https://www.apollohospitals.com</a> (“Website”) operated by APOLLO.
+          This Privacy Policy (“Privacy Policy”) applies to the collection, storage, processing, disclosure and transfer of your Personal Information (defined below) when you use our website operated by SYNERGY.
         </p>
       </section>
 
       <h2>1. Access</h2>
       <p>
         We collect your Personal Information directly from you, from third parties, and automatically through our Website. This includes device type, login times, IP address, and other details (see Clause 5).
-        You can write to <a href="mailto:info@apollohospitals.com">info@apollohospitals.com</a> to access or update your information.
+        You can write to <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a> to access or update your information.
       </p>
 
       <h2>2. Consent</h2>
@@ -28,7 +29,7 @@ const PrivacyPolicy = () => {
 
       <h2>3. Control Over Your Personal Information</h2>
       <p>
-        You may withdraw your consent at any time by emailing <a href="mailto:info@apollohospitals.com">info@apollohospitals.com</a>. Upon withdrawal, APOLLO may not be able to provide services.
+        You may withdraw your consent at any time by emailing <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>. Upon withdrawal, SYNERGY may not be able to provide services.
       </p>
 
       <h2>4. Changes to the Privacy Policy</h2>
@@ -80,7 +81,7 @@ const PrivacyPolicy = () => {
 
       <h2>12. Rectification/Correction of Personal Information</h2>
       <p>
-        To correct or update your data, email us at <a href="mailto:info@apollohospitals.com">info@apollohospitals.com</a>. We will process your request promptly.
+        To correct or update your data, email us at <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>. We will process your request promptly.
       </p>
 
       <h2>13. Compliance with Laws</h2>
@@ -95,7 +96,7 @@ const PrivacyPolicy = () => {
 
       <h2>15. Grievance Officer</h2>
       <p>
-        If you have any concerns, please contact our Grievance Officer at: <a href="mailto:grievance@apollohospitals.com">grievance@apollohospitals.com</a>.
+        If you have any concerns, please contact our Grievance Officer at: <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>.
       </p>
     </div>
   );

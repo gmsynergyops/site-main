@@ -177,8 +177,10 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                                 cardHovered && "md:scale-105"
                             )}
                             fill
+                            sizes="(max-width: 768px) 90vw, 320px"
                             alt={props.name}
-                            priority={props.index === 1}
+                            priority={props.index === 0}
+                            loading={props.index === 0 ? undefined : "lazy"}
                         />
                     )}
                 </div>
@@ -231,7 +233,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                 </CardContent>
 
                 <CardFooter className="flex flex-col sm:flex-row gap-2 px-0 bg-transparent">
-                    <Link href={"#"} className="w-full">
+                    <Link href={`/doctors/all?department=${encodeURIComponent(props.name)}`} className="w-full">
                         <Button
                             variant={"outline"}
                             className="w-full rounded-lg border-gray-300 py-1 px-3 text-xs sm:text-sm"

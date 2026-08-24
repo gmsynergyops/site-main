@@ -13,6 +13,7 @@ import {
   MdLocationOn,
   MdPhone,
 } from "react-icons/md";
+import { CONTACT_INFO } from "@/data/contactData";
 
 const CheckIcon = () => (
   <svg
@@ -323,7 +324,7 @@ export default function CentersPage() {
                         </a>
 
                         <a
-                          href="tel:+917234006595"
+                          href={`tel:${CONTACT_INFO.phoneNumbers.primary}`}
                           className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-synergy-blue bg-white border border-black/10 hover:border-synergy-blue transition"
                         >
                           <MdPhone size={17} />

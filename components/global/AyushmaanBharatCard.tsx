@@ -25,6 +25,7 @@ const AyushmaanBharatCard = () => {
                             height={120}
                             alt="PMJAY"
                             className="object-cover object-center rounded-full size-24 sm:size-28 md:size-32 bg-white shadow-md ring-4 ring-white"
+                            loading="lazy"
                         />
                         <ImageWithFallback
                             fallbackSrc="/fallback-image.webp"
@@ -33,6 +34,7 @@ const AyushmaanBharatCard = () => {
                             height={120}
                             alt="PM Modi"
                             className="object-cover object-center rounded-full size-24 sm:size-28 md:size-32 bg-white shadow-md ring-4 ring-white"
+                            loading="lazy"
                         />
                     </div>
 
@@ -50,6 +52,7 @@ const AyushmaanBharatCard = () => {
                             height={120}
                             alt="CM Yogi"
                             className="object-cover object-center rounded-full size-24 sm:size-28 md:size-32 bg-white shadow-md ring-4 ring-white"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -67,6 +70,7 @@ const AyushmaanBharatCard = () => {
                                 height={400}
                                 alt="Ayushmaan Bharat Card"
                                 className="object-cover object-center w-full max-w-125 rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
+                                loading="lazy"
                             />
                         </div>
                     </div>

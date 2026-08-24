@@ -1,7 +1,12 @@
 // app/page.tsx
 
 import { Homepage } from "./_components/homepage";
-import InsurancePartners from '@/components/global/InsurancePartners';
+import dynamic from "next/dynamic";
+
+const InsurancePartners = dynamic(
+    () => import('@/components/global/InsurancePartners'),
+    { ssr: true }
+);
 
 
 export const metadata = {

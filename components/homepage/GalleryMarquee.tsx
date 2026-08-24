@@ -44,6 +44,8 @@ export const GalleryMarquee = () => {
                                 src={item.image}
                                 alt={item.title}
                                 fill
+                                sizes="280px"
+                                loading="lazy"
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             {item.type === 'video' && (
