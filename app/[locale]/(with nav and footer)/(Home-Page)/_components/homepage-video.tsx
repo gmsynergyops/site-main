@@ -5,7 +5,7 @@ const DESKTOP_POSTER = "/videos/homepage-main/poster-desktop.webp";
 export default function HomepageVideo() {
     return (
         <video
-            preload="metadata"
+            preload="none"
             autoPlay
             loop
             muted
