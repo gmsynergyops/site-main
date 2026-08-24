@@ -12,7 +12,8 @@ export default function HomepageVideo() {
             playsInline
             poster={DESKTOP_POSTER}
             className="absolute inset-0 h-full w-full object-cover"
-            aria-label="Promotional video showcasing Synergy Hospital"
+            aria-hidden="true"
+            tabIndex={-1}
         >
             <source
                 src={MOBILE_MAIN_URL}
