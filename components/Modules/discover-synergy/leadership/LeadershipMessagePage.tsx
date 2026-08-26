@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
+import { ImageWithFallback } from "@/components/global/ImageWithFallback";
 import {
     ArrowDown,
     HeartHandshake,
@@ -157,7 +157,8 @@ export default function LeadershipMessagePage(
                                 {/* Image frame */}
                                 <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-2xl">
 
-                                    <Image
+                                    <ImageWithFallback
+                                        fallbackSrc="/fallback-image.webp"
                                         src={image}
                                         alt={`${name} - ${designation} at ${organization}`}
                                         fill
