@@ -1,8 +1,10 @@
-import { OurExcellence } from '@/components/the-synergy-story/OurExcellence';
-import { OurLeaders } from '@/components/the-synergy-story/OurLeaders';
+import dynamic from 'next/dynamic';
 import { OurMission } from '@/components/the-synergy-story/OurMission';
-import { OurVision } from '@/components/the-synergy-story/OurVision';
-import { RestSections } from '@/components/the-synergy-story/RestSections';
+
+const OurVision = dynamic(() => import('@/components/the-synergy-story/OurVision').then(mod => mod.OurVision));
+const OurExcellence = dynamic(() => import('@/components/the-synergy-story/OurExcellence').then(mod => mod.OurExcellence));
+const OurLeaders = dynamic(() => import('@/components/the-synergy-story/OurLeaders').then(mod => mod.OurLeaders));
+const RestSections = dynamic(() => import('@/components/the-synergy-story/RestSections').then(mod => mod.RestSections));
 
 
 // app/the-synergy-story/page.tsx

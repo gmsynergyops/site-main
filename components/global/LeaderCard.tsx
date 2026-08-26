@@ -27,20 +27,16 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
 }) => {
     const router = useRouter()
 
-    const HeaderRef = useRef(null)
-    const imageRef = useRef(null)
-
-    const isInView = useInView(HeaderRef, { once: true, margin: "-100px" })
-    const isImageInView = useInView(imageRef, { once: true, margin: "-100px" })
+    const cardRef = useRef(null)
+    const isInView = useInView(cardRef, { once: true, margin: "-50px" })
 
     return (
-<Card className="h-full w-full flex flex-col justify-between bg-linear-to-t from-slate-100 to-transparent rounded-xl shadow-md overflow-hidden max-w-[640px] border-border/10 hover:border-border transition-colors duration-200 ease-in-out">
+<Card ref={cardRef} className="h-full w-full flex flex-col justify-between bg-linear-to-t from-slate-100 to-transparent rounded-xl shadow-md overflow-hidden max-w-[640px] border-border/10 hover:border-border transition-colors duration-200 ease-in-out">
     <CardContent className="flex justify-center py-1 px-3">
         <motion.div
-            ref={imageRef}
             variants={imageVariants}
             initial="hidden"
-            animate={isImageInView ? "visible" : "hidden"}
+            animate={isInView ? "visible" : "hidden"}
             className="relative w-full h-88"
         >
 {
@@ -68,7 +64,7 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
         </motion.div>
     </CardContent>
 
-    <CardHeader ref={HeaderRef} className="px-4 pt-2 pb-1 space-y-1 w-full">
+    <CardHeader className="px-4 pt-2 pb-1 space-y-1 w-full">
         <CardTitle className="text-base sm:text-lg font-semibold w-full overflow-hidden">
             <motion.div
                 initial={{ x: -50, opacity: 0 }}

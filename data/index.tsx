@@ -652,7 +652,7 @@ export const useLeaders = () => {
             name: t('drAlokTiwari.name'),
             role: t('drAlokTiwari.role'),
             description: t('drAlokTiwari.description'),
-            image: "/leaders/doc-alok-tiwari-with-background.jpg",
+            image: "/leaders/doc-alok-tiwari-card.webp",
             onDownload: "/leaders/doc-alok-tiwari.webp",
             onReadMore: "/leadership/Dr-Alok-Tiwari"
         },
@@ -660,7 +660,7 @@ export const useLeaders = () => {
             name: t('drAnjaliJain.name'),
             role: t('drAnjaliJain.role'),
             description: t('drAnjaliJain.description'),
-            image: "/leaders/doc-anjali-jain-with-background.jpg",
+            image: "/leaders/doc-anjali-jain-card.webp",
             onDownload: '/leaders/doc-anjali-jain.webp',
             onReadMore: '/leadership/Dr-Anjali-Jain'
         },
@@ -668,7 +668,7 @@ export const useLeaders = () => {
             name: t('drSaurabhMishra.name'),
             role: t('drSaurabhMishra.role'),
             description: t('drSaurabhMishra.description'),
-            image: "/leaders/doc-saurabh-mishra-with-background.jpg",
+            image: "/leaders/doc-saurabh-mishra-card.webp",
             onDownload: "/leaders/doc-saurabh-mishra.webp",
             onReadMore: "/leadership/Dr-Saurabh-Mishra",
         },

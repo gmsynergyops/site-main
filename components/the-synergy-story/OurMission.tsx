@@ -57,6 +57,7 @@ export const OurMission = () => {
                             src="/mission-horizontal.webp"
                             alt="Doctors treating cancer patients at Synergy Super Specialty Hospital"
                             fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                             priority
                             className="object-cover"
                         />
