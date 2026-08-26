@@ -107,7 +107,7 @@ export const EmergencyCare = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden h-96 md:h-screen max-h-[700px] flex items-center">
         <ImageWithFallback
-          src="/department/emergency-and-critical-career.png"
+          src="/department/emergency-and-critical-career-banner.png"
           fallbackSrc="/fallback-image.webp"
           alt="Emergency room with medical team"
           fill

@@ -25,7 +25,7 @@ export const InPatientFacilities = () => {
 
     const roomTypes = [
         {
-            name: 'Economy Ward',
+            name: 'General Ward',
             description: 'Comfortable shared accommodation with essential amenities',
             features: ['Shared bathroom', 'Centralized AC', 'Nursing call button'],
             image: '/economy-ward.jpg'
@@ -39,13 +39,13 @@ export const InPatientFacilities = () => {
         {
             name: 'Private Room',
             description: 'Individual rooms for personalized care',
-            features: ['Attached bathroom', 'TV', 'Wi-Fi', 'Visitor chair'],
+            features: ['Attached bathroom', 'TV', 'Sofa', 'Wi-Fi', 'Visitor chair'],
             image: '/private-room.jpg'
         },
         {
             name: 'Deluxe Room',
             description: 'Enhanced comfort with additional space',
-            features: ['Sofa cum bed', 'Mini fridge', 'Premium toiletries', 'Daily newspaper'],
+            features: ['Sofa cum bed', 'Premium toiletries', 'Daily newspaper'],
             image: '/deluxe-room.jpg'
         }
     ];

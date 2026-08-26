@@ -23,16 +23,36 @@ export async function generateMetadata(props: {
 
   const meta = seoData[section]?.[slug];
 
-  if (!meta && section === "health-library" && HealthLibraryMap[slug]) {
-    const pageTitle = slug
+  if (!meta) {
+    const sectionMap: Record<string, Record<string, JSX.Element>> = {
+      services: ServicesMap,
+      "patient-care": PatientCareMap,
+      "health-library": HealthLibraryMap,
+      survivors: CancerSurvivorsMap,
+      doctors: DoctorsMap,
+      "cancer-care": CancerCareMap,
+      institute: InstituteMap,
+      centers: CentersMap,
+    };
+
+    const exists = section === "leadership" || !!sectionMap[section]?.[slug];
+
+    if (!exists) {
+      return {
+        title: "Page Not Found",
+        description: "This page does not exist.",
+      };
+    }
+
+    const formattedTitle = slug
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
 
     return {
-      title: `${pageTitle} | Synergy Hospital`,
-      description: `Learn more about ${pageTitle} from Synergy Super Speciality Hospital and Cancer Institute.`,
-      keywords: [pageTitle, "Health Library", "Synergy Hospital"],
+      title: formattedTitle,
+      description: `Learn more about ${formattedTitle} from Synergy Super Speciality Hospital and Cancer Institute.`,
+      keywords: [formattedTitle, section, "Synergy Hospital"],
       robots: {
         index: true,
         follow: true,
@@ -40,13 +60,6 @@ export async function generateMetadata(props: {
       icons: {
         icon: "/favicon.ico",
       },
-    };
-  }
-
-  if (!meta) {
-    return {
-      title: "Page Not Found",
-      description: "This page does not exist.",
     };
   }
 
@@ -59,20 +72,22 @@ export async function generateMetadata(props: {
       description: meta.description,
       type: "website",
       url: `https://synergy-website-alpha.vercel.app/${section}/${slug}`,
-      images: [
-        {
-          url: meta.ogImage,
-          width: 1200,
-          height: 630,
-          alt: meta.title,
-        },
-      ],
+      images: meta.ogImage
+        ? [
+            {
+              url: meta.ogImage,
+              width: 1200,
+              height: 630,
+              alt: meta.title,
+            },
+          ]
+        : [],
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      images: [meta.ogImage],
+      images: meta.ogImage ? [meta.ogImage] : [],
     },
     robots: {
       index: true,
@@ -83,6 +98,7 @@ export async function generateMetadata(props: {
     },
   };
 }
+
 
 export default async function DynamicPage(props: {
   params: Promise<{ section: string; slug: string }>;

@@ -33,7 +33,7 @@ export const LeaderCards = () => {
                         }}
                     >
                         <LeaderCard
-                            image={leader.image || "/Dummy.png"}
+                            image={leader.image || "/fallback-image.webp"}
                             name={leader.name || "Leader Name"}
                             role={leader.role || "Senior Doctor"}
                             description={leader.description || "No description provided"}
