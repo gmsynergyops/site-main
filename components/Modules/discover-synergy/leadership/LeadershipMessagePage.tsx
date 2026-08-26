@@ -93,8 +93,31 @@ export default function LeadershipMessagePage(
         rootMargin: "-50px 0px",
     });
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "name": name,
+        "jobTitle": designation,
+        "description": message[0] || `${name} - ${designation} at ${organization}`,
+        "image": image.startsWith("http") ? image : `https://synergy-website-alpha.vercel.app${image}`,
+        "worksFor": {
+            "@type": "MedicalOrganization",
+            "name": organization,
+            "url": "https://synergy-website-alpha.vercel.app"
+        },
+        "medicalSpecialty": designation.includes("Surgical")
+            ? "SurgicalOncology"
+            : designation.includes("Medical")
+            ? "Oncology"
+            : "GynecologicOncology"
+    };
+
     return (
         <main className="overflow-hidden bg-[#f7f8fa]">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
 
             {/* =========================================================
                 HERO
@@ -102,7 +125,7 @@ export default function LeadershipMessagePage(
             <section className="relative bg-[#173b78] text-white">
 
                 {/* Decorative background */}
-                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
                     <div className="absolute -right-40 -top-40 h-125 w-125 rounded-full bg-white/[0.035]" />
 
                     <div className="absolute -bottom-48 -left-32 h-125 w-125 rounded-full bg-white/[0.025]" />
@@ -139,7 +162,7 @@ export default function LeadershipMessagePage(
 
                                     <Image
                                         src={image}
-                                        alt={name}
+                                        alt={`${name} - ${designation} at ${organization}`}
                                         fill
                                         priority
                                         sizes="(max-width: 1024px) 100vw, 40vw"

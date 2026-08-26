@@ -125,7 +125,7 @@ export const anjaliLeadershipData: LeadershipData = {
     qualification:
         "MBBS, DGO, DNG, FMAS, FARIS, Fellowship in Advanced Robotic and Innovative Surgery Royal College of Surgeons of Edinburgh, Fellowship in Gynae Oncology (ESGO Certified Gynae Oncologist), C.O.: Massachusetts General Hospital, Boston, U.S., C.O.: Gemelli Hospital, Rome, Italy",
 
-    image: "/doctors/dr-anjali-jain-1.jpeg",
+    image: "/doctors/dr-anjali-jain-1.webp",
 
     greeting:
         "Welcome to Synergy Super Speciality Hospital & Cancer Institute.",

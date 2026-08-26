@@ -14,22 +14,22 @@ export const seoData: Record<
 > = {
   leadership: {
     "Dr-Alok-Tiwari": {
-      title: "Dr. Alok Tiwari - Oncology Specialist",
-      description: "Meet Dr. Alok Tiwari, a leading specialist in oncology with years of experience.",
-      keywords: ["Dr. Alok Tiwari", "Oncologist", "Cancer Specialist"],
-      ogImage: "/images/doctors/dr-alok-tiwari.jpg",
-    },
-    "Dr-Anjali-Jain": {
-      title: "Dr. Anjali Jain - Senior Oncologist",
-      description: "Know more about Dr. Anjali Jain’s contribution to cancer treatment and research.",
-      keywords: ["Dr. Anjali Jain", "Cancer Expert", "Senior Doctor"],
-      ogImage: "/images/doctors/dr-anjali-jain.jpg",
+      title: "Dr. Alok Tiwari - Managing Director & Chief Surgical Oncologist | Synergy Hospital",
+      description: "Dr. Alok Tiwari is Managing Director & Chief Surgical Oncologist at Synergy Super Speciality Hospital Gorakhpur. Gold Medalist & Certified Robotic Onco Surgeon.",
+      keywords: ["Dr Alok Tiwari", "Surgical Oncologist Gorakhpur", "Robotic Onco Surgeon", "Cancer Surgeon Purvanchal", "Synergy Hospital Director"],
+      ogImage: "/doctors/dr-alok-tiwari.webp",
     },
     "Dr-Saurabh-Mishra": {
-      title: "Dr. Saurabh Mishra - Radiation Oncology Expert",
-      description: "Expert in radiation oncology, Dr. Saurabh Mishra brings hope to countless patients.",
-      keywords: ["Dr. Saurabh Mishra", "Radiation Oncologist"],
-      ogImage: "/images/doctors/dr-saurabh-mishra.jpg",
+      title: "Dr. Saurabh Mishra - Medical Director & CEO | Senior Medical Oncologist",
+      description: "Dr. Saurabh Mishra is Medical Director & CEO at Synergy Hospital & Cancer Institute Gorakhpur. Senior Medical & Haemat Oncologist (KGMU, ECMO, DNB).",
+      keywords: ["Dr Saurabh Mishra", "Medical Oncologist Gorakhpur", "Haemat Oncologist", "Synergy Hospital CEO", "Chemotherapy Specialist Gorakhpur"],
+      ogImage: "/doctors/dr-saurabh-mishra.webp",
+    },
+    "Dr-Anjali-Jain": {
+      title: "Dr. Anjali Jain - Administrative Director & Senior Gynaecologic Oncologist",
+      description: "Dr. Anjali Jain is Administrative Director & ESGO Certified Gynaecologic Oncologist at Synergy Hospital Gorakhpur. Robotic Surgery Fellow (RCS Edinburgh, MGH Boston).",
+      keywords: ["Dr Anjali Jain", "Gynaecologic Oncologist Gorakhpur", "Women Cancer Specialist", "Robotic Surgery Specialist", "Synergy Hospital Director"],
+      ogImage: "/doctors/dr-anjali-jain-1.webp",
     },
   },
   doctors: {
