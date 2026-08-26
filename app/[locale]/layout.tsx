@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import "../globals.css";
 import { Kantumruy_Pro } from 'next/font/google';
 import UnderMaintenance from "@/components/scenes/UnderMaintenance";
@@ -33,6 +33,7 @@ export default async function RootLayout({
     const { locale } = await params;
     // Setting the locale for Next-Intl
     setRequestLocale(locale);
+    const messages = await getMessages();
     const siteState = process.env.SITE_STATE
     return (
         <html lang={locale}>
@@ -40,7 +41,7 @@ export default async function RootLayout({
                 className={cn(kantumruy.variable, "[--font-nunito-sans:var(--font-nunito)]", "m-0 p-0 box-border")}
                 suppressContentEditableWarning suppressHydrationWarning
             >
-                <NextIntlClientProvider>
+                <NextIntlClientProvider messages={messages}>
                     {
                         siteState === "maintenance" ?
                             <UnderMaintenance />

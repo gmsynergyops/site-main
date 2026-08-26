@@ -1,4 +1,4 @@
-// app/components/ImageWithFallback.tsx
+// components/global/ImageWithFallback.tsx
 'use client';
 
 import Image from 'next/image';
@@ -18,21 +18,23 @@ function normalizeSrc(src: string | { src: string }) {
 }
 
 export function ImageWithFallback({ src, fallbackSrc, alt, ...props }: ImageWithFallbackProps) {
+  const [error, setError] = useState(false);
   const [prevSrc, setPrevSrc] = useState(src);
-  const [imgSrc, setImgSrc] = useState(() => normalizeSrc(src as string));
 
   if (prevSrc !== src) {
     setPrevSrc(src);
-    setImgSrc(normalizeSrc(src as string));
+    setError(false);
   }
+
+  const normalized = normalizeSrc(src as string) || fallbackSrc;
 
   return (
     <Image
       {...props}
-      src={imgSrc || fallbackSrc}
+      src={error ? fallbackSrc : normalized}
       alt={alt}
       onError={() => {
-        setImgSrc(fallbackSrc);
+        setError(true);
       }}
     />
   );

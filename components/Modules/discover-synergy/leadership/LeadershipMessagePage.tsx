@@ -35,16 +35,27 @@ export type LeadershipData = {
 
 type LeadershipMessagePageProps = LeadershipData;
 
+const heroFadeUp = {
+    hidden: {
+        opacity: 1,
+        y: 0,
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+    },
+} satisfies Variants;
+
 const fadeUp = {
     hidden: {
         opacity: 0,
-        y: 30,
+        y: 20,
     },
     visible: {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.6,
+            duration: 0.5,
             ease: [0.22, 1, 0.36, 1],
         },
     },
@@ -140,21 +151,7 @@ export default function LeadershipMessagePage(
                         {/* -------------------------------------------------
                             IMAGE
                         ------------------------------------------------- */}
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                                x: -40,
-                            }}
-                            animate={{
-                                opacity: 1,
-                                x: 0,
-                            }}
-                            transition={{
-                                duration: 0.8,
-                                ease: [0.22, 1, 0.36, 1],
-                            }}
-                            className="mx-auto w-full max-w-md lg:mx-0"
-                        >
+                        <div className="mx-auto w-full max-w-md lg:mx-0">
                             <div className="relative">
 
                                 {/* Image frame */}
@@ -179,7 +176,7 @@ export default function LeadershipMessagePage(
                                 <div className="absolute -left-3 -top-3 h-20 w-20 rounded-tl-5 border-l-2 border-t-2 border-blue-200/30" />
 
                             </div>
-                        </motion.div>
+                        </div>
 
 
                         {/* -------------------------------------------------
@@ -192,7 +189,7 @@ export default function LeadershipMessagePage(
                             className="max-w-3xl"
                         >
 
-                            <motion.div variants={fadeUp}>
+                            <motion.div variants={heroFadeUp}>
                                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-200">
                                     <span className="h-px w-8 bg-blue-200" />
                                     Leadership Message
@@ -201,7 +198,7 @@ export default function LeadershipMessagePage(
 
 
                             <motion.h1
-                                variants={fadeUp}
+                                variants={heroFadeUp}
                                 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
                             >
                                 A Message from
@@ -214,7 +211,7 @@ export default function LeadershipMessagePage(
 
 
                             <motion.div
-                                variants={fadeUp}
+                                variants={heroFadeUp}
                                 className="mt-8"
                             >
                                 <h2 className="text-2xl font-semibold sm:text-3xl">
