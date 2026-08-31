@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { CONTACT_INFO } from "@/data/contactData";
 import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import {
@@ -13,8 +13,11 @@ import {
 
 import { useEffect, useState } from 'react';
 import { FaUserGroup } from 'react-icons/fa6';
+import { useTranslations } from 'next-intl';
 
 export const EmergencyCare = () => {
+  const t = useTranslations("emergencyCarePage");
+
   // State to control the visibility of the emergency dialog
   const [showEmergencyDialog, setShowEmergencyDialog] = useState(false);
 
@@ -27,22 +30,18 @@ export const EmergencyCare = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const services = [
-    { icon: HeartIcon, title: 'Cardiac Emergencies', description: '24/7 cardiology team for heart attacks & cardiac events' },
-    { icon: BoltIcon, title: 'Accidents & Trauma', description: 'Level 1 trauma center with immediate response' },
-    { icon: ArrowBigDownDash, title: 'Stroke Management', description: 'Golden hour stroke treatment protocol' },
-    { icon: FaUserGroup, title: 'Pediatric Emergencies', description: 'Specialized pediatric emergency team' },
-    { icon: HeartIcon, title: 'Intensive Care', description: 'Immediate ICU admission when needed' },
-    { icon: TruckIcon, title: 'Ambulance Services', description: 'Advanced life support ambulances' }
+  const serviceIcons = [
+    HeartIcon,
+    BoltIcon,
+    ArrowBigDownDash,
+    FaUserGroup,
+    HeartIcon,
+    TruckIcon
   ];
 
-
-
-  const testimonial = {
-    quote: "The ER team saved my husband's life when he had a heart attack at midnight. They took him straight to the cath lab without any paperwork delay.",
-    name: "Mrs. Priya Sharma",
-    date: "May 15, 2023"
-  };
+  const servicesData = t.raw("services.items") as { title: string; description: string }[];
+  const processSteps = t.raw("process.steps") as { title: string; description: string }[];
+  const whyPoints = t.raw("whyChooseUs.points") as string[];
 
   // Emergency numbers
   const emergencyNumber = CONTACT_INFO.phoneNumbers.emergency;
@@ -55,7 +54,7 @@ export const EmergencyCare = () => {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-xl max-w-md w-full p-6 animate-in fade-in zoom-in">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-red-600">Have an emergency? Don&apos;t hesitate</h2>
+              <h2 className="text-2xl font-bold text-red-600">{t("dialog.title")}</h2>
               <button
                 onClick={() => setShowEmergencyDialog(false)}
                 className="text-gray-500 hover:text-gray-700"
@@ -70,7 +69,7 @@ export const EmergencyCare = () => {
                 className="bg-red-600 hover:bg-red-700 text-white py-4 px-6 rounded-lg text-lg font-bold flex items-center justify-center transition-all w-full"
               >
                 <PhoneIcon className="h-5 w-5 mr-2" />
-                Call Emergency: {emergencyNumber}
+                {t("dialog.callEmergency", { number: emergencyNumber })}
               </a>
 
               <a
@@ -78,12 +77,12 @@ export const EmergencyCare = () => {
                 className="bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 rounded-lg text-lg font-bold flex items-center justify-center transition-all w-full"
               >
                 <TruckIcon className="h-5 w-5 mr-2" />
-                Call Ambulance: {ambulanceNumber}
+                {t("dialog.callAmbulance", { number: ambulanceNumber })}
               </a>
             </div>
 
             <p className="text-gray-600 text-center text-sm">
-              Our team is available 24/7 to assist you in medical emergencies
+              {t("dialog.footer")}
             </p>
           </div>
         </div>
@@ -94,12 +93,12 @@ export const EmergencyCare = () => {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <PhoneIcon className="h-5 w-5 mr-2 animate-pulse" />
-            <span className="font-bold">FOR EMERGENCIES: </span>
+            <span className="font-bold">{t("stickyBar.forEmergencies")}</span>
             <a href={`tel:${emergencyNumber}`} className="ml-2 hover:underline">{emergencyNumber}</a>
           </div>
           <div className="flex items-center">
             <MapPinIcon className="h-5 w-5 mr-2" />
-            <span>Emergency Entrance: Gate 1, Synergy Super Speciality Hospital Building</span>
+            <span>{t("stickyBar.entrance")}</span>
           </div>
         </div>
       </div>
@@ -117,10 +116,10 @@ export const EmergencyCare = () => {
         <div className="absolute inset-0 bg-black/50 z-1"></div>
         <div className="relative max-w-6xl mx-auto px-4 text-white z-10 w-full">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-            Emergency Care When You Need It Most – <span className="text-red-400">24x7</span>
+            {t("hero.title")}<span className="text-red-400">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl">
-            Immediate treatment with zero waiting time for critical patients. No appointments required.
+            {t("hero.subtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
@@ -128,15 +127,16 @@ export const EmergencyCare = () => {
               className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all animate-pulse"
             >
               <PhoneIcon className="h-6 w-6 mr-2" />
-              CALL NOW: {emergencyNumber}
+              {t("hero.callNow", { number: emergencyNumber })}
             </a>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all"
-            onClick={() => {
-              window.open(CONTACT_INFO.locations[0].directMapURL, "_blank");
-          }}
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-bold flex items-center justify-center transition-all"
+              onClick={() => {
+                window.open(CONTACT_INFO.locations[0].directMapURL, "_blank");
+              }}
             >
               <MapPinIcon className="h-6 w-6 mr-2" />
-              LOCATE EMERGENCY ENTRANCE
+              {t("hero.locateEntrance")}
             </button>
           </div>
         </div>
@@ -146,16 +146,19 @@ export const EmergencyCare = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Emergency Services We Provide
+            {t("services.title")}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow border-l-4 border-red-500">
-                <service.icon className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold mb-2 text-gray-800">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
+            {servicesData.map((service, index) => {
+              const ServiceIcon = serviceIcons[index] || HeartIcon;
+              return (
+                <div key={index} className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow border-l-4 border-red-500">
+                  <ServiceIcon className="h-10 w-10 text-red-600 mb-4" />
+                  <h3 className="text-xl font-bold mb-2 text-gray-800">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -164,17 +167,12 @@ export const EmergencyCare = () => {
       <section className="py-16 px-4 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Our Emergency Care Process
+            {t("process.title")}
           </h2>
           <div className="relative">
             <div className="hidden md:block absolute left-1/2 h-full w-1 bg-blue-200 transform -translate-x-1/2"></div>
             <div className="space-y-8 md:space-y-0 md:grid grid-cols-4 gap-8">
-              {[
-                { title: 'Arrival', description: 'Direct entry through emergency gates' },
-                { title: 'Immediate Evaluation', description: 'Triage within 2 minutes of arrival' },
-                { title: 'Rapid Diagnosis', description: 'On-site CT, X-ray, and lab tests' },
-                { title: 'Treatment Begins', description: 'No delay for critical patients' }
-              ].map((step, index) => (
+              {processSteps.map((step, index) => (
                 <div key={index} className="relative bg-white p-6 rounded-lg shadow-sm text-center">
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white rounded-full h-8 w-8 flex items-center justify-center font-bold">
                     {index + 1}
@@ -192,19 +190,12 @@ export const EmergencyCare = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Why Choose Our Emergency Care
+            {t("whyChooseUs.title")}
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <ul className="space-y-6">
-                {[
-                  '24/7 availability of specialist doctors',
-                  'Fully equipped emergency rooms',
-                  'Advanced diagnostic tools available immediately',
-                  'Critical care ambulances with paramedics',
-                  'No paperwork delay for life-threatening cases',
-                  'Direct access to ICU and operation theaters'
-                ].map((item, index) => (
+                {whyPoints.map((item, index) => (
                   <li key={index} className="flex items-start">
                     <svg className="h-6 w-6 text-green-500 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -232,15 +223,15 @@ export const EmergencyCare = () => {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-sm">
           <blockquote className="text-xl italic text-gray-700 mb-6">
-          &quot;{testimonial.quote}&quot;
+            &quot;{t("testimonial.quote")}&quot;
           </blockquote>
           <div className="flex items-center">
             <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold mr-4">
-              {testimonial.name.charAt(0)}
+              {t("testimonial.name").charAt(0)}
             </div>
             <div>
-              <p className="font-bold text-gray-800">{testimonial.name}</p>
-              <p className="text-gray-500">{testimonial.date}</p>
+              <p className="font-bold text-gray-800">{t("testimonial.name")}</p>
+              <p className="text-gray-500">{t("testimonial.date")}</p>
             </div>
           </div>
         </div>
@@ -249,29 +240,32 @@ export const EmergencyCare = () => {
       {/* Emergency Contact Footer */}
       <section className="bg-red-600 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Need Emergency Care Right Now?</h2>
+          <h2 className="text-3xl font-bold mb-6">{t("bottomCta.title")}</h2>
           <div className="flex flex-col md:flex-row justify-center gap-6 mb-8">
             <a
               href={`tel:${emergencyNumber}`}
               className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-xl font-bold flex items-center justify-center transition-all"
             >
               <PhoneIcon className="h-6 w-6 mr-2" />
-              CALL EMERGENCY: {emergencyNumber}
+              {t("bottomCta.callEmergency", { number: emergencyNumber })}
             </a>
-            <button className="bg-transparent border-2 border-white hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-bold flex items-center justify-center transition-all"
-            onClick={() => {
+            <button
+              className="bg-transparent border-2 border-white hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-bold flex items-center justify-center transition-all"
+              onClick={() => {
                 window.open(CONTACT_INFO.locations[0].directMapURL, "_blank");
-            }}
+              }}
             >
               <MapPinIcon className="h-6 w-6 mr-2" />
-              GET DIRECTIONS
+              {t("bottomCta.getDirections")}
             </button>
           </div>
           <p className="text-red-100">
-            Emergency Department open 24 hours, 7 days a week, 365 days a year
+            {t("bottomCta.footer")}
           </p>
         </div>
       </section>
     </div>
   );
 };
+
+export default EmergencyCare;

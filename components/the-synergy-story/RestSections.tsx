@@ -11,113 +11,6 @@ type TimelineItem = {
     points?: string[];
 };
 
-const qualityAccolades = [
-    {
-        date: "September 2025",
-        title: "QCI Empanelment",
-        description:
-            "Successfully achieved Quality Council of India (QCI) Empanelment, reflecting the hospital's commitment to standardized, quality-driven, and patient-centric healthcare services.",
-    },
-    {
-        date: "May 2026",
-        title: "NABH Accreditation",
-        description:
-            "Successfully received NABH (National Accreditation Board for Hospitals & Healthcare Providers) Accreditation, one of India's highest quality certifications for healthcare institutions.",
-    },
-];
-
-const synergyTimeline: TimelineItem[] = [
-    {
-        date: "July 2023",
-        title: "Foundation of Excellence",
-        description:
-            "Synergy Super Speciality Hospital & Cancer Institute was established as a 100-bedded tertiary care hospital in Gorakhpur with the vision of providing comprehensive, affordable, and advanced healthcare services under one roof.",
-        points: [
-            "Commenced operations with multidisciplinary specialties, critical care services, advanced operation theatres, diagnostics, and emergency care.",
-        ],
-    },
-    {
-        date: "October 2023",
-        title: "Expansion of Super Speciality Services",
-        description:
-            "To strengthen comprehensive patient care, three new super speciality departments were introduced.",
-        points: [
-            "Urology & Andrology",
-            "Orthopaedics & Joint Replacement",
-            "Plastic & Reconstructive Surgery",
-        ],
-    },
-    {
-        date: "February 2024",
-        title: "Launch of First Peripheral OPD",
-        description:
-            "Established the first Peripheral OPD Centre in Ayodhya, extending specialist consultation and cancer care closer to patients residing outside Gorakhpur.",
-        points: [
-            "Marked the beginning of Synergy's regional healthcare outreach program.",
-        ],
-    },
-    {
-        date: "September 2025",
-        title: "QCI Empanelment",
-        description:
-            "Successfully achieved Quality Council of India (QCI) Empanelment, reflecting the hospital's commitment to standardized, quality-driven, and patient-centric healthcare services.",
-    },
-    {
-        date: "February 2026",
-        title: "Commissioning of Advanced Radiation Oncology Centre",
-        description:
-            "Started the State-of-the-Art Radiation Therapy Centre, offering advanced radiation treatment for cancer patients.",
-        points: [
-            "Enabled complete cancer care — from diagnosis to surgery, chemotherapy, and radiation — under one roof.",
-        ],
-    },
-    {
-        date: "May 2026",
-        title: "NABH Accreditation",
-        description:
-            "Successfully received NABH (National Accreditation Board for Hospitals & Healthcare Providers) Accreditation, one of India's highest quality certifications for healthcare institutions.",
-        points: [
-            "Reaffirmed Synergy's commitment to patient safety, clinical excellence, infection control, and international quality standards.",
-        ],
-    },
-    {
-        date: "May 2026",
-        title: "Dedicated Pediatric Oncology Unit",
-        description:
-            "Inaugurated a Specialized Pediatric Oncology Unit, providing comprehensive diagnosis, chemotherapy, supportive care, and holistic treatment for children battling cancer in a child-friendly environment.",
-    },
-    {
-        date: "June 2026",
-        title: "Advanced Trauma & Emergency Centre",
-        description:
-            "Launched a 24×7 Advanced Trauma Centre equipped with dedicated trauma specialists, modular operation theatres, emergency critical care, and rapid response services for accident and emergency patients.",
-    },
-    {
-        date: "2026 — Present",
-        title: "Regional Healthcare Network Expansion",
-        description:
-            "Expanded from 1 Peripheral OPD Centre to 6 Peripheral OPDs across six districts, bringing specialist consultation, cancer screening, follow-up care, and diagnostic services closer to underserved communities.",
-    },
-];
-
-const centreOfExcellence = [
-    "100+ Bedded Super Speciality Hospital",
-    "Comprehensive Cancer Care",
-    "Advanced Radiation Oncology",
-    "Medical, Surgical & Pediatric Oncology",
-    "24x7 Trauma & Emergency Centre",
-    "13-Bedded ICU & Critical Care Services",
-    "Advanced Modular Operation Theatres",
-    "Peripheral OPD Network Across Six Districts",
-    "NABH Accredited Hospital",
-    "QCI Empanelled Healthcare Institution",
-    "Highly Experienced Consultants & Multidisciplinary Care",
-    "Patient-Centric, Ethical & Evidence-Based Healthcare",
-];
-
-const futureVision =
-    "Continuing to expand advanced healthcare infrastructure, academic programs, and innovative treatment technologies, Synergy aims to become India's most trusted destination for comprehensive super speciality and cancer care, ensuring that quality healthcare is accessible, affordable, and available to every patient regardless of geography or financial status.";
-
 export const RestSections = () => {
     const awardsRef = useRef(null);
     const achievementsRef = useRef(null);
@@ -129,9 +22,13 @@ export const RestSections = () => {
     const isDayAtSynergyInView = useInView(dayAtSynergyRef, { once: true, margin: "-50px" });
     const isDailyVisionInView = useInView(dailyVisionRef, { once: true, margin: "-50px" });
 
-    const { dailySchedule, cards } = useDailySchedule()
+    const { dailySchedule, cards } = useDailySchedule();
 
-    const t = useTranslations('TheSynergyStory.RestSections')
+    const t = useTranslations('TheSynergyStory.RestSections');
+    const qualityAccolades: { date: string; title: string; description: string }[] = t.raw('accolades.items');
+    const synergyTimeline: TimelineItem[] = t.raw('timeline.items');
+    const centreOfExcellence: string[] = t.raw('centreOfExcellence.items');
+    const futureVision: string = t('futureVision.description');
     return (
         <div className="space-y-8 md:space-y-12">
             {/* Quality & Accolades Section */}
@@ -157,17 +54,15 @@ export const RestSections = () => {
                         className="mb-10"
                     >
                         <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#29498f]">
-                            Recognition & Quality
+                            {t('accolades.badge')}
                         </p>
 
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            Quality & Accolades
+                            {t('accolades.title')}
                         </h2>
 
                         <p className="mt-4 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base">
-                            Milestones that reflect Synergy&apos;s commitment to
-                            standardized, quality-driven, and patient-centric
-                            healthcare.
+                            {t('accolades.description')}
                         </p>
                     </motion.div>
 
@@ -256,18 +151,15 @@ export const RestSections = () => {
                         className="mx-auto max-w-3xl text-center"
                     >
                         <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#29498f]">
-                            2023 — 2026
+                            {t('timeline.badge')}
                         </p>
 
                         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-                            Our Journey of Excellence
+                            {t('timeline.title')}
                         </h2>
 
                         <p className="mt-5 text-sm leading-7 text-gray-600 sm:text-base">
-                            From the foundation of a tertiary care hospital to
-                            a growing regional healthcare network, every milestone
-                            reflects Synergy&apos;s commitment to accessible,
-                            advanced and comprehensive healthcare.
+                            {t('timeline.description')}
                         </p>
                     </motion.div>
 
@@ -430,20 +322,15 @@ export const RestSections = () => {
 
                                 <div className="relative">
                                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-200">
-                                        A Centre of Excellence
+                                        {t('centreOfExcellence.badge')}
                                     </p>
 
-                                    <h3 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-                                        Growing with purpose.
-                                        <br />
-                                        Caring with excellence.
+                                    <h3 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl whitespace-pre-line">
+                                        {t('centreOfExcellence.title')}
                                     </h3>
 
                                     <p className="mt-6 text-sm leading-7 text-blue-100/80">
-                                        Synergy Super Speciality Hospital &
-                                        Cancer Institute has evolved into one
-                                        of Eastern Uttar Pradesh&apos;s leading
-                                        tertiary care institutions.
+                                        {t('centreOfExcellence.description')}
                                     </p>
                                 </div>
 
@@ -499,7 +386,7 @@ export const RestSections = () => {
                         className="mt-8 rounded-2xl border border-[#dce5f4] bg-[#f7f9fc] p-7 sm:p-10"
                     >
                         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#29498f]">
-                            Vision for the Future
+                            {t('futureVision.badge')}
                         </p>
 
                         <p className="mt-4 max-w-5xl text-sm leading-7 text-gray-600 sm:text-base">

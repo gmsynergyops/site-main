@@ -1,12 +1,14 @@
-"use client"
+"use client";
 // pages/MedicalRecords.tsx
 import PageLayout from '@/components/global/PageLayout';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useInView } from 'react-intersection-observer';
 import { CONTACT_INFO } from '@/data/contactData';
+import { useTranslations } from 'next-intl';
 
 const MedicalRecords = () => {
+  const t = useTranslations("medicalRecordsPage");
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -14,24 +16,24 @@ const MedicalRecords = () => {
 
   const services = [
     {
-      title: "Records Request",
-      description: "Request official copies of your medical records and discharge summaries for personal use or health providers.",
+      title: t("services.records.title"),
+      description: t("services.records.description"),
       icon: "📄",
     },
     {
-      title: "Certificates & Verification",
-      description: "Obtain verified medical certificates, birth/death records, and institutional documentation directly from MRD.",
+      title: t("services.certificates.title"),
+      description: t("services.certificates.description"),
       icon: "📜",
     },
     {
-      title: "Release Authorization",
-      description: "Authorize the official release of your medical information to designated family members or insurance providers.",
+      title: t("services.authorization.title"),
+      description: t("services.authorization.description"),
       icon: "✍️",
     },
   ];
 
   return (
-    <PageLayout title="Medical Records">
+    <PageLayout title={t("title")}>
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}
@@ -45,9 +47,9 @@ const MedicalRecords = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-white p-6 rounded-xl shadow-md border border-indigo-100 mb-8"
         >
-          <h2 className="text-2xl font-bold text-indigo-800 mb-4">Secure Medical Records</h2>
+          <h2 className="text-2xl font-bold text-indigo-800 mb-4">{t("secure.title")}</h2>
           <p className="text-gray-600">
-            Your health information is kept strictly confidential and safe. Our Medical Records Department (MRD) provides verified access, copies, and record transfers in compliance with healthcare regulations.
+            {t("secure.description")}
           </p>
         </motion.div>
 
@@ -75,24 +77,24 @@ const MedicalRecords = () => {
         >
           <div className="relative z-10">
             <h3 className="text-2xl font-bold mb-3 flex items-center gap-2 text-white">
-              <span>📋</span> Medical Records Request Desk (MRD)
+              <span>📋</span> {t("desk.title")}
             </h3>
             <p className="text-indigo-100 mb-6 max-w-3xl leading-relaxed">
-              Medical records, discharge summaries, and certificates can be requested directly at our Medical Records Department counter. Please present valid government photo identification and hospital UHID/Registration details.
+              {t("desk.description")}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               <div className="bg-white/10 backdrop-blur-xs p-4 rounded-lg border border-white/10">
-                <div className="font-semibold text-muted text-sm mb-1">Required Identification</div>
-                <div className="text-xs text-gray-200">Patient Photo ID & UHID Card / Discharge Slip</div>
+                <div className="font-semibold text-muted text-sm mb-1">{t("desk.idTitle")}</div>
+                <div className="text-xs text-gray-200">{t("desk.idDesc")}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-xs p-4 rounded-lg border border-white/10">
-                <div className="font-semibold text-muted text-sm mb-1">Processing Time</div>
-                <div className="text-xs text-gray-200">24 to 48 working hours following verification</div>
+                <div className="font-semibold text-muted text-sm mb-1">{t("desk.timeTitle")}</div>
+                <div className="text-xs text-gray-200">{t("desk.timeDesc")}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-xs p-4 rounded-lg border border-white/10">
-                <div className="font-semibold text-muted text-sm mb-1">Third-Party Requests</div>
-                <div className="text-xs text-gray-200">Signed Consent Letter & Representative Photo ID</div>
+                <div className="font-semibold text-muted text-sm mb-1">{t("desk.thirdPartyTitle")}</div>
+                <div className="text-xs text-gray-200">{t("desk.thirdPartyDesc")}</div>
               </div>
             </div>
 
@@ -101,13 +103,13 @@ const MedicalRecords = () => {
                 href="/contact"
                 className="bg-synergy-pink text-white px-6 py-3 rounded-lg font-medium hover:bg-fuchsia-600 transition-colors text-center shadow-md inline-flex items-center justify-center gap-2"
               >
-                <span>📍</span> Visit MRD Desk / Directions
+                <span>📍</span> {t("desk.directionsButton")}
               </Link>
               <a
                 href={`tel:${CONTACT_INFO.phoneNumbers.admissionDesk}`}
                 className="bg-white text-indigo-900 px-6 py-3 rounded-lg font-medium hover:bg-indigo-50 transition-colors text-center shadow-md inline-flex items-center justify-center gap-2"
               >
-                <span>📞</span> Call MRD Helpdesk
+                <span>📞</span> {t("desk.callButton")}
               </a>
             </div>
           </div>
@@ -118,4 +120,3 @@ const MedicalRecords = () => {
 };
 
 export default MedicalRecords;
-

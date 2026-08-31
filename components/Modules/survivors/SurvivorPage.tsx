@@ -6,7 +6,7 @@ import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-synergy-blue mt-1 mr-2 shrink-0">

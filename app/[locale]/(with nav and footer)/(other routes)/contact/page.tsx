@@ -1,16 +1,8 @@
 import { CONTACT_INFO, SOCIAL_LINKS, ContactLocation as Location, SocialLink } from "@/data/contactData";
+import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { FaWhatsapp } from "react-icons/fa6";
 import { MdLocationOn, MdOutlineAlternateEmail, MdPhone } from "react-icons/md";
-
-/**
- * Fonts (add once, e.g. in app/layout.tsx or a global <link>):
- * Fraunces (display, weights 500/600) — carries the warmth/gravitas
- * Inter (body, weights 400/500/600) — clinical clarity, high legibility
- * IBM Plex Mono (labels/data, weight 500) — phone numbers, eyebrows
- *
- * <link rel="preconnect" href="https://fonts.googleapis.com" />
- * <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
- */
 
 const HOSPITAL_NAME = CONTACT_INFO.hospitalName;
 const email = CONTACT_INFO.email;
@@ -20,6 +12,18 @@ const phone3 = CONTACT_INFO.phoneNumbers.admissionDesk;
 const whatsappUrl = CONTACT_INFO.whatsapp.url;
 const locations: Location[] = CONTACT_INFO.locations;
 const socialLinks: SocialLink[] = SOCIAL_LINKS;
+
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: "ContactPage.metadata" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 /** Signature element: a quiet EKG pulse line used as a section divider — a hospital's own visual vocabulary, not a generic rule. */
 const PulseDivider = () => (
@@ -43,7 +47,12 @@ const PulseDivider = () => (
   </div>
 );
 
-const ContactPage = () => {
+export default async function ContactPage(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: "ContactPage" });
+
   return (
     <main
       className="min-h-screen bg-[#F6F8F6]"
@@ -56,7 +65,7 @@ const ContactPage = () => {
             className="inline-block text-xs tracking-[0.18em] uppercase text-synergy-blue/70 mb-5"
             style={{ fontFamily: "'IBM Plex Mono', monospace" }}
           >
-            Contact Us
+            {t("hero.tag")}
           </span>
 
           <h1
@@ -66,12 +75,11 @@ const ContactPage = () => {
               fontWeight: 600,
             }}
           >
-            We&apos;re here whenever you need us.
+            {t("hero.title")}
           </h1>
 
           <p className="text-synergy-blue/80 text-base sm:text-lg max-w-2xl mb-8">
-            Reach out for appointments, enquiries, emergency assistance or
-            directions to any of our centres in Gorakhpur.
+            {t("hero.subtitle")}
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -80,7 +88,7 @@ const ContactPage = () => {
               className="inline-flex items-center gap-2 rounded-full bg-synergy-blue px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
             >
               <MdPhone size={16} />
-              Call Hospital
+              {t("hero.callHospital")}
             </a>
 
             <a
@@ -90,7 +98,7 @@ const ContactPage = () => {
               className="inline-flex items-center gap-2 rounded-full border border-[#25d366] px-5 py-3 text-sm font-medium text-[#25d366] transition hover:bg-synergy-pink/10"
             >
               <FaWhatsapp size={16} />
-              WhatsApp
+              {t("hero.whatsapp")}
             </a>
 
             <a
@@ -98,7 +106,7 @@ const ContactPage = () => {
               className="inline-flex items-center gap-2 rounded-full border border-[#E2E1E8] px-5 py-3 text-sm font-medium text-synergy-blue transition hover:border-synergy-blue"
             >
               <MdOutlineAlternateEmail size={16} />
-              Email Us
+              {t("hero.emailUs")}
             </a>
           </div>
         </div>
@@ -115,26 +123,26 @@ const ContactPage = () => {
             fontWeight: 600,
           }}
         >
-          Contact Information
+          {t("quickContact.title")}
         </h2>
 
         <div className="grid sm:grid-cols-3 gap-4">
           {[
             {
               icon: MdPhone,
-              title: "Reception",
+              title: t("quickContact.reception"),
               values: [phone3],
               hrefs: [`tel:${phone3}`],
             },
             {
               icon: MdPhone,
-              title: "Appointments",
+              title: t("quickContact.appointments"),
               values: [phone1, phone2],
               hrefs: [`tel:${phone1}`, `tel:${phone2}`],
             },
             {
               icon: MdOutlineAlternateEmail,
-              title: "Email",
+              title: t("quickContact.email"),
               values: [email],
               hrefs: [`mailto:${email}`],
             },
@@ -215,17 +223,25 @@ const ContactPage = () => {
             fontWeight: 600,
           }}
         >
-          Visit Our Centres
+          {t("locations.title")}
         </h2>
 
         <p className="text-synergy-blue/80 max-w-2xl mb-8">
-          Whether you&apos;re visiting our main hospital or radiation centre,
-          you&apos;ll receive the same compassionate care and expert guidance.
+          {t("locations.subtitle")}
         </p>
 
         <div className="grid lg:grid-cols-2 gap-6">
           {locations.map((loc, index) => {
             const isOdd = index % 2 !== 0;
+            const locTag = t.has(`locations.items.${loc.id}.tag`)
+              ? t(`locations.items.${loc.id}.tag`)
+              : loc.tag;
+            const locLabel = t.has(`locations.items.${loc.id}.label`)
+              ? t(`locations.items.${loc.id}.label`)
+              : loc.label;
+            const locAddress = t.has(`locations.items.${loc.id}.address`)
+              ? t(`locations.items.${loc.id}.address`)
+              : loc.address;
 
             return (
               <div
@@ -262,7 +278,7 @@ const ContactPage = () => {
                           fontFamily: "'IBM Plex Mono', monospace",
                         }}
                       >
-                        {loc.tag}
+                        {locTag}
                       </p>
 
                       <h3
@@ -273,11 +289,11 @@ const ContactPage = () => {
                           fontFamily: "'Fraunces', serif",
                         }}
                       >
-                        {loc.label}
+                        {locLabel}
                       </h3>
 
                       <p className="text-sm text-synergy-blue/80 leading-relaxed">
-                        {loc.address}
+                        {locAddress}
                       </p>
                     </div>
                   </div>
@@ -305,7 +321,7 @@ const ContactPage = () => {
                       isOdd ? "text-synergy-blue" : "text-synergy-pink"
                     }`}
                   >
-                    Open in Google Maps
+                    {t("locations.openInMaps")}
                   </span>
 
                   <a
@@ -318,7 +334,7 @@ const ContactPage = () => {
                         : "bg-synergy-pink text-white hover:opacity-90"
                     }`}
                   >
-                    Get Directions →
+                    {t("locations.getDirections")}
                   </a>
                 </div>
               </div>
@@ -338,17 +354,22 @@ const ContactPage = () => {
             fontWeight: 600,
           }}
         >
-          Stay Connected
+          {t("social.title")}
         </h2>
 
         <p className="text-synergy-blue/80 max-w-2xl mb-8">
-          Follow our latest updates, patient stories and health awareness
-          initiatives, or reach out directly through your preferred platform.
+          {t("social.subtitle")}
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4">
           {socialLinks.map(({ name, url, icon: Icon, description, color }, index) => {
             const isOdd = index % 2 !== 0;
+            const socialName = t.has(`social.items.${name}.name`)
+              ? t(`social.items.${name}.name`)
+              : name;
+            const socialDesc = t.has(`social.items.${name}.description`)
+              ? t(`social.items.${name}.description`)
+              : description;
 
             return (
               <a
@@ -363,13 +384,13 @@ const ContactPage = () => {
                 <span
                   className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition`}
                   style={{
-                      backgroundColor: `${color}20`
-                    }}
+                    backgroundColor: `${color}20`,
+                  }}
                 >
                   <Icon
                     size={20}
                     style={{
-                      color: color
+                      color: color,
                     }}
                   />
                 </span>
@@ -380,11 +401,11 @@ const ContactPage = () => {
                       isOdd ? "text-synergy-blue" : "text-synergy-pink"
                     }`}
                   >
-                    {name}
+                    {socialName}
                   </h3>
 
                   <p className="text-sm text-synergy-blue/80 leading-relaxed">
-                    {description}
+                    {socialDesc}
                   </p>
                 </div>
               </a>
@@ -404,7 +425,7 @@ const ContactPage = () => {
                 fontFamily: "'IBM Plex Mono', monospace",
               }}
             >
-              Need Immediate Assistance?
+              {t("cta.tag")}
             </p>
 
             <h3
@@ -414,12 +435,11 @@ const ContactPage = () => {
                 fontWeight: 600,
               }}
             >
-              We&apos;re only a phone call away.
+              {t("cta.title")}
             </h3>
 
             <p className="text-synergy-blue/80 max-w-xl mx-auto mb-8">
-              Whether it&apos;s booking an appointment, asking a question or finding
-              the right specialist, our team is ready to help.
+              {t("cta.subtitle")}
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -427,7 +447,7 @@ const ContactPage = () => {
                 href={`tel:${phone1}`}
                 className="px-6 py-3 rounded-full bg-synergy-blue text-white font-medium hover:opacity-90 transition"
               >
-                Call Hospital
+                {t("cta.callHospital")}
               </a>
 
               <a
@@ -436,7 +456,7 @@ const ContactPage = () => {
                 rel="noreferrer"
                 className="px-6 py-3 rounded-full border border-synergy-pink text-synergy-pink font-medium hover:bg-synergy-pink/10 transition"
               >
-                WhatsApp Us
+                {t("cta.whatsappUs")}
               </a>
             </div>
           </div>
@@ -454,11 +474,11 @@ const ContactPage = () => {
                 fontFamily: "'Fraunces', serif",
               }}
             >
-              {HOSPITAL_NAME}
+              {t.has("footer.hospitalName") ? t("footer.hospitalName") : HOSPITAL_NAME}
             </h4>
 
             <p className="text-sm text-synergy-blue/70">
-              Gorakhpur, Uttar Pradesh · 273001
+              {t("footer.location")}
             </p>
           </div>
 
@@ -483,6 +503,4 @@ const ContactPage = () => {
       </footer>
     </main>
   );
-};
-
-export default ContactPage;
+}

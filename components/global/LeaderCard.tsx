@@ -11,11 +11,12 @@ import {
 import { cn, imageVariants } from "@/lib/utils"
 import { LeaderCardProps } from '@/types'
 import { motion, useInView } from "framer-motion"
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import React, { useRef } from 'react'
 // import { DownloadImageButton } from '../the-synergy-story/DownloadImageButton'
 import { Button } from '../ui/button'
 import { ImageWithFallback } from "./ImageWithFallback"
+import { useTranslations } from 'next-intl'
 
 export const LeaderCard: React.FC<LeaderCardProps> = ({
     image,
@@ -26,6 +27,7 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
     // onDownload,
 }) => {
     const router = useRouter()
+    const t = useTranslations('global')
 
     const cardRef = useRef(null)
     const isInView = useInView(cardRef, { once: true, margin: "-50px" })
@@ -105,7 +107,7 @@ export const LeaderCard: React.FC<LeaderCardProps> = ({
                 className="text-xs sm:text-sm px-3 py-1.5"
                 onClick={() => onReadMore && router.push(onReadMore)}
             >
-                Read more...
+                {t('readMore')}
             </Button>
         </motion.div>
         {/* <motion.div

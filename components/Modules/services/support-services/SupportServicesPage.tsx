@@ -1,13 +1,15 @@
 "use client"
 import { motion, Variants } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useInView } from "react-intersection-observer";
-// Import your images (replace with actual paths)
 import { ImageWithFallback } from "@/components/global/ImageWithFallback";
-import { supportServices } from "@/data";
-
+import { useSupportServices } from "@/data";
+import { useTranslations } from "next-intl";
 
 const SupportServicesPage = () => {
+    const supportServices = useSupportServices();
+    const t = useTranslations("supportServicesPage");
+
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -44,8 +46,6 @@ const SupportServicesPage = () => {
         }
     };
 
-
-
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -61,10 +61,10 @@ const SupportServicesPage = () => {
                 className="text-center mb-16"
             >
                 <h1 className="text-4xl font-extrabold text-primary font-display sm:text-5xl sm:tracking-tight lg:text-6xl">
-                    DISCOVER SYNERGY
+                    {t('title')}
                 </h1>
                 <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-600 sm:mt-4">
-                    MEDICAL SERVICES
+                    {t('subtitle')}
                 </p>
                 <motion.div
                     initial={{ scaleX: 0 }}
@@ -83,12 +83,12 @@ const SupportServicesPage = () => {
             >
                 <div className="absolute inset-0 bg-linear-to-br from-blue-100 to-teal-100 opacity-20 rounded-xl" />
                 <div className="relative z-10">
-                    <h2 className="text-2xl font-bold text-primary font-display mb-4">About Synergy Super-Specialty Hospital and Cancer Institute</h2>
+                    <h2 className="text-2xl font-bold text-primary font-display mb-4">{t('aboutTitle')}</h2>
                     <p className="text-gray-600 text-lg mb-4">
-                        Synergy Super-Specialty Hospital and Cancer Institute is a premier healthcare facility dedicated to providing comprehensive medical care with a focus on cancer treatment and survivorship. Our state-of-the-art infrastructure and team of highly skilled professionals ensure world-class healthcare services.
+                        {t('aboutParagraph1')}
                     </p>
                     <p className="text-gray-600 text-lg">
-                        With patient-centered care at our core, we integrate advanced technology with compassionate service across all our support departments to deliver holistic treatment and rehabilitation.
+                        {t('aboutParagraph2')}
                     </p>
                 </div>
             </motion.div>
@@ -133,7 +133,7 @@ const SupportServicesPage = () => {
                                 href={service.link}
                                 className="inline-flex items-center px-5 py-2.5 rounded-lg font-medium text-white bg-linear-to-r from-indigo-500 to-fuchsia-500 group-hover:from-indigo-400 group-hover:to-fuchsia-400 transition-all duration-300 shadow-md group-hover:shadow-lg"
                             >
-                                View All
+                                {t('viewAll')}
                                 <svg className="ml-2 -mr-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                                 </svg>

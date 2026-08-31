@@ -1,15 +1,17 @@
 "use client"
 import { useMenuItems } from '@/data';
 import { CONTACT_INFO } from '@/data/contactData';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useState } from 'react';
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa6';
 import { SiGooglemaps } from "react-icons/si";
 import { FooterFormContainer } from './FooterFormContainer';
+import { useTranslations } from 'next-intl';
 
 export const Footer = () => {
     const [expandedItems, setExpandedItems] = useState<Record<string, Record<string, number>>>({});
     const menuItems = useMenuItems();
+    const t = useTranslations('footer');
 
     const toggleExpand = (menuLabel: string, pageName: string, currentLimit: number, totalItems: number) => {
         setExpandedItems(prev => ({
@@ -107,7 +109,7 @@ export const Footer = () => {
                                                     onClick={() => toggleExpand(menu.label, page.name, currentLimit, uniqueLinks.length)}
                                                     className="text-xs font-semibold text-synergy-blue hover:text-blue-800 transition-colors cursor-pointer mt-3"
                                                 >
-                                                    + View {uniqueLinks.length - currentLimit} more
+                                                    + {t('viewMore')} ({uniqueLinks.length - currentLimit})
                                                 </button>
                                             )}
                                         </div>
@@ -155,14 +157,14 @@ export const Footer = () => {
                     {/* Copyright - Center on mobile */}
                     <div className="order-1 md:order-2 w-full md:w-auto lg:absolute lg:left-1/2 lg:-translate-x-1/2">
                         <p className="text-center text-sm font-medium text-slate-500">
-                            Synergy Super Speciality Hospital & Cancer Institute © 2026 All Rights Reserved
+                            {t('copyright')}
                         </p>
                     </div>
 
                     {/* Developer Credit - Right on desktop, below on mobile */}
                     <div className="text-center md:text-right order-3 w-full md:w-auto">
                         <p className="text-xs font-medium text-slate-600">
-                            Developed & Designed By <span className="text-slate-700">Viacam Productions</span>
+                            {t('developedBy')} <span className="text-slate-700">{t('developer')}</span>
                         </p>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import { useDepartmentData } from '@/data/departmentData';
 import { DepartmentData } from '@/types';
 import { motion, Variants } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 // Animation variants (unchanged)

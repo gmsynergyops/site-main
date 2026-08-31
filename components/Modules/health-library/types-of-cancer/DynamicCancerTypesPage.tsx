@@ -19,10 +19,10 @@ export const DynamicCancerTypesPage = () => {
     if (!cancerTypeData) {
         console.error("Cancer type not found");
         return (
-            <div>
-                Data Not Found
+            <div className="py-24 text-center text-gray-500 text-lg">
+                {t('ui.dataNotFound')}
             </div>
-        )
+        );
     }
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

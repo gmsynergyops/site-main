@@ -130,7 +130,7 @@ export default function NewsSlider() {
                     <Play className="text-white size-7 ml-1" fill="white" />
                   </div>
                   <p className="text-white/70 text-xs font-medium tracking-wider uppercase">
-                    Facebook Reel
+                    {t('facebookReel')}
                   </p>
                 </button>
               )}

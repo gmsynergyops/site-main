@@ -3,7 +3,7 @@ import { FloatingBarWrapper } from "@/components/global/FloatingBarWrapper";
 import { SpecialitiesSection } from "@/components/homepage/SpecialitiesSection";
 import { useGeneralQuestions } from '@/data';
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import HomepageVideo from "./homepage-video";
 
 // Lazy-load below-the-fold sections to reduce initial JS bundle

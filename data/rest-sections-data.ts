@@ -31,27 +31,27 @@ import { useTranslations } from "next-intl";
 
     // Milestones data
 export const useMilestones = () => {
-    
+    const t = useTranslations("TheSynergyStory.RestSections.MilestonesSection.MilestonesData");
     const milestones = [
         {
             year: "2019",
-            title: "Expanded to 500 Beds",
-            description: "Doubled our capacity to serve more patients with state-of-the-art facilities."
+            title: t('1.title'),
+            description: t('1.description')
         },
         {
             year: "2018",
-            title: "Launched Nuclear Medicine Department",
-            description: "Introduced advanced PET-CT scanning and radioisotope therapies."
+            title: t('2.title'),
+            description: t('2.description')
         },
         {
             year: "2017",
-            title:"10,000 Successful Cancer Surgeries",
-            description: "Achieved this landmark while maintaining 98% patient satisfaction."
+            title: t('3.title'),
+            description: t('3.description')
         },
         {
             year: "2016",
-            title: "NABH Accreditation",
-            description: "Received highest national accreditation for hospital quality standards."
+            title: t('4.title'),
+            description: t('4.description')
         }
     ];
 

@@ -14,8 +14,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
-import { useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { FaCloudUploadAlt, FaFileAlt, FaTimes } from "react-icons/fa"
+import { useTranslations } from "next-intl"
 
 const MAX_RESUME_SIZE_MB = 5;
 const ACCEPTED_RESUME_TYPES = [
@@ -24,48 +25,58 @@ const ACCEPTED_RESUME_TYPES = [
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ];
 
-const formSchema = z.object({
-    name: z.string().min(3, "Name must be at least 3 characters").max(80, "Name is too long"),
-    sex: z.enum(["male", "female", "other"], {
-        message: "Please select an option",
-    }),
-    department: z.string().min(1, "Please select a department"),
-    number: z.string()
-        .min(10, "Number must be at least 10 digits")
-        .max(13, "Number is too long")
-        .regex(/^[0-9]+$/, "Must be a valid number"),
-    email: z.string().email("Enter a valid email address"),
-    resume: z
-        .custom<FileList>()
-        .refine((files) => files?.length === 1, "Resume is required")
-        .refine(
-            (files) => files?.[0]?.size <= MAX_RESUME_SIZE_MB * 1024 * 1024,
-            `File must be under ${MAX_RESUME_SIZE_MB}MB`
-        )
-        .refine(
-            (files) => ACCEPTED_RESUME_TYPES.includes(files?.[0]?.type),
-            "Only PDF or Word documents are accepted"
-        ),
-});
-
-const departments = [
-    { value: "doctors", label: "Doctors" },
-    { value: "operations", label: "Operations" },
-    { value: "reception", label: "Reception" },
-    { value: "nursing", label: "Nursing" },
-    { value: "maintenance", label: "Maintenance" },
-    { value: "marketing", label: "Marketing" },
-    { value: "information Technology", label: "I.T." },
-    { value: "tpa", label: "TPA" },
-    { value: "tele-caller", label: "TeleCaller" },
-    { value: "other", label: "Other" },
-];
+type FormValues = {
+    name: string;
+    sex: "male" | "female" | "other";
+    department: string;
+    number: string;
+    email: string;
+    resume: FileList;
+};
 
 export default function CareerForm() {
+    const t = useTranslations("CareerForm");
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const form = useForm<z.infer<typeof formSchema>>({
+    const formSchema = useMemo(() => z.object({
+        name: z.string().min(3, t("validation.nameMin")).max(80, t("validation.nameMax")),
+        sex: z.enum(["male", "female", "other"], {
+            message: t("validation.sexRequired"),
+        }),
+        department: z.string().min(1, t("validation.deptRequired")),
+        number: z.string()
+            .min(10, t("validation.phoneMin"))
+            .max(13, t("validation.phoneMax"))
+            .regex(/^[0-9]+$/, t("validation.phoneInvalid")),
+        email: z.string().email(t("validation.emailInvalid")),
+        resume: z
+            .custom<FileList>()
+            .refine((files) => files?.length === 1, t("validation.resumeRequired"))
+            .refine(
+                (files) => files?.[0]?.size <= MAX_RESUME_SIZE_MB * 1024 * 1024,
+                t("validation.resumeSize")
+            )
+            .refine(
+                (files) => ACCEPTED_RESUME_TYPES.includes(files?.[0]?.type),
+                t("validation.resumeType")
+            ),
+    }), [t]);
+
+    const departments = useMemo(() => [
+        { value: "doctors", label: t("departments.doctors") },
+        { value: "operations", label: t("departments.operations") },
+        { value: "reception", label: t("departments.reception") },
+        { value: "nursing", label: t("departments.nursing") },
+        { value: "maintenance", label: t("departments.maintenance") },
+        { value: "marketing", label: t("departments.marketing") },
+        { value: "information Technology", label: t("departments.it") },
+        { value: "tpa", label: t("departments.tpa") },
+        { value: "tele-caller", label: t("departments.teleCaller") },
+        { value: "other", label: t("departments.other") },
+    ], [t]);
+
+    const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
@@ -77,7 +88,7 @@ export default function CareerForm() {
         }
     });
 
-    const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const onSubmit = async (data: FormValues) => {
         try {
             const formData = new FormData();
             formData.append("name", data.name);
@@ -87,8 +98,6 @@ export default function CareerForm() {
             formData.append("email", data.email);
             formData.append("resume", data.resume[0]);
 
-            // Hits our own API route (Nodemailer + Gmail) instead of Formspree,
-            // so the resume goes out as a real email attachment on any plan.
             const res = await fetch("/api/career-form", {
                 method: "POST",
                 body: formData,
@@ -100,13 +109,13 @@ export default function CareerForm() {
                 throw new Error(result?.error || "Submission failed");
             }
 
-            toast.success("Application submitted successfully!", {
-                description: "We'll be in touch if there's a match.",
+            toast.success(t("toast.success"), {
+                description: t("toast.successDesc"),
             });
             form.reset();
             if (fileInputRef.current) fileInputRef.current.value = "";
         } catch (error) {
-            toast.error(`Failed to submit the form. Please try again. ${error} `);
+            toast.error(`${t("toast.error")} ${error}`);
         }
     };
 
@@ -124,12 +133,12 @@ export default function CareerForm() {
                         render={({ field, fieldState }) => (
                             <div data-invalid={fieldState.invalid} className="w-full">
                                 <label htmlFor="name" className="block text-xs md:text-sm font-medium mb-1">
-                                    Full Name
+                                    {t("fullName")}
                                 </label>
                                 <Input
                                     {...field}
                                     id="name"
-                                    placeholder="Enter your full name"
+                                    placeholder={t("namePlaceholder")}
                                     className="w-full text-gray-800 placeholder:text-neutral-500 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                     type="text"
                                     aria-invalid={fieldState.invalid}
@@ -148,7 +157,7 @@ export default function CareerForm() {
                         render={({ field, fieldState }) => (
                             <div data-invalid={fieldState.invalid} className="w-full">
                                 <label htmlFor="sex" className="block text-xs md:text-sm font-medium mb-1">
-                                    Sex
+                                    {t("sex")}
                                 </label>
                                 <Select onValueChange={field.onChange} value={field.value}>
                                     <SelectTrigger
@@ -156,12 +165,12 @@ export default function CareerForm() {
                                         className="w-full text-gray-800 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                         aria-invalid={fieldState.invalid}
                                     >
-                                        <SelectValue placeholder="Select" />
+                                        <SelectValue placeholder={t("sexPlaceholder")} />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="male">Male</SelectItem>
-                                        <SelectItem value="female">Female</SelectItem>
-                                        <SelectItem value="other">Other</SelectItem>
+                                        <SelectItem value="male">{t("sexOptions.male")}</SelectItem>
+                                        <SelectItem value="female">{t("sexOptions.female")}</SelectItem>
+                                        <SelectItem value="other">{t("sexOptions.other")}</SelectItem>
                                     </SelectContent>
                                 </Select>
                                 {fieldState.invalid && (
@@ -178,12 +187,12 @@ export default function CareerForm() {
                         render={({ field, fieldState }) => (
                             <div data-invalid={fieldState.invalid} className="w-full">
                                 <label htmlFor="number" className="block text-xs md:text-sm font-medium mb-1">
-                                    Phone Number
+                                    {t("phone")}
                                 </label>
                                 <Input
                                     {...field}
                                     id="number"
-                                    placeholder="Enter 10-digit phone number"
+                                    placeholder={t("phonePlaceholder")}
                                     className="w-full text-gray-800 placeholder:text-neutral-500 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                     type="number"
                                     aria-invalid={fieldState.invalid}
@@ -202,12 +211,12 @@ export default function CareerForm() {
                         render={({ field, fieldState }) => (
                             <div data-invalid={fieldState.invalid} className="w-full">
                                 <label htmlFor="email" className="block text-xs md:text-sm font-medium mb-1">
-                                    Email
+                                    {t("email")}
                                 </label>
                                 <Input
                                     {...field}
                                     id="email"
-                                    placeholder="Enter your email address"
+                                    placeholder={t("emailPlaceholder")}
                                     className="w-full text-gray-800 placeholder:text-neutral-500 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                     type="email"
                                     aria-invalid={fieldState.invalid}
@@ -226,7 +235,7 @@ export default function CareerForm() {
                         render={({ field, fieldState }) => (
                             <div data-invalid={fieldState.invalid} className="w-full">
                                 <label htmlFor="department" className="block text-xs md:text-sm font-medium mb-1">
-                                    Department
+                                    {t("department")}
                                 </label>
                                 <Select onValueChange={field.onChange} value={field.value}>
                                     <SelectTrigger
@@ -234,7 +243,7 @@ export default function CareerForm() {
                                         className="w-full text-gray-800 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                         aria-invalid={fieldState.invalid}
                                     >
-                                        <SelectValue placeholder="Select a department" />
+                                        <SelectValue placeholder={t("deptPlaceholder")} />
                                     </SelectTrigger>
                                     <SelectContent>
                                         {departments.map((dept) => (
@@ -269,13 +278,13 @@ export default function CareerForm() {
                             return (
                                 <div data-invalid={fieldState.invalid} className="w-full h-full flex flex-col">
                                     <label htmlFor="resume" className="block text-xs md:text-sm font-medium mb-1">
-                                        Upload Resume
+                                        {t("uploadResume")}
                                     </label>
 
                                     <div
                                         onClick={() => fileInputRef.current?.click()}
                                         onDragOver={(e) => {
-                                            e.preventDefault();
+                                             e.preventDefault();
                                             setIsDragging(true);
                                         }}
                                         onDragLeave={() => setIsDragging(false)}
@@ -315,17 +324,17 @@ export default function CareerForm() {
                                                     }}
                                                     className="inline-flex items-center gap-1 text-xs text-red-500 hover:underline mt-1"
                                                 >
-                                                    <FaTimes size={10} /> Remove
+                                                    <FaTimes size={10} /> {t("remove")}
                                                 </button>
                                             </>
                                         ) : (
                                             <>
                                                 <FaCloudUploadAlt size={26} className="text-primary/70" />
                                                 <p className="text-xs md:text-sm font-medium text-gray-800">
-                                                    Drag & drop your resume, or click to browse
+                                                    {t("dragDrop")}
                                                 </p>
                                                 <p className="text-[11px] text-neutral-500">
-                                                    PDF or Word, up to {MAX_RESUME_SIZE_MB}MB
+                                                    {t("fileHint")}
                                                 </p>
                                             </>
                                         )}
@@ -348,7 +357,7 @@ export default function CareerForm() {
                     size="default"
                     disabled={form.formState.isSubmitting}
                 >
-                    {form.formState.isSubmitting ? "Submitting..." : "Submit Application"}
+                    {form.formState.isSubmitting ? t("submitting") : t("submit")}
                 </Button>
             </div>
         </form>

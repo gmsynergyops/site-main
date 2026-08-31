@@ -1,105 +1,200 @@
 import React from 'react';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { CONTACT_INFO } from '@/data/contactData';
 
-const PrivacyPolicy = () => {
-  return (
-    <div className="max-w-7xl relative left-1/2 -translate-x-1/2 " style={{ padding: '20px', lineHeight: '1.6' }} >
-      <h1>Privacy Policy</h1>
-      <p><strong>Published On:</strong> February 18, 2025</p>
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: 'PrivacyPolicy.metadata' });
 
-      <section>
-        <p>
-          {CONTACT_INFO.hospitalName} (&quot;SYNERGY&quot;) is committed to respecting the privacy of every person who shares information with SYNERGY. Your privacy is important to us, and we strive to take reasonable care and protection of the information we receive from you, the User. In this regard, we adhere to the applicable governing laws in India.
-        </p>
-        <p>
-          This Privacy Policy (“Privacy Policy”) applies to the collection, storage, processing, disclosure and transfer of your Personal Information (defined below) when you use our website operated by SYNERGY.
-        </p>
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
+
+export default async function PrivacyPolicy(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+  const t = await getTranslations({ locale, namespace: 'PrivacyPolicy' });
+  const renderEmailLink = (chunks: React.ReactNode) => (
+    <a
+      href={`mailto:${CONTACT_INFO.email}`}
+      className="text-synergy-blue hover:underline font-medium"
+    >
+      {chunks}
+    </a>
+  );
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-gray-800 font-sans">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-synergy-blue mb-3">
+        {t('title')}
+      </h1>
+      <p className="text-sm text-gray-500 mb-8 border-b border-gray-200 pb-4">
+        <strong className="text-gray-700">{t('publishedOn')}</strong> {t('publishedDate')}
+      </p>
+
+      <section className="space-y-4 text-base leading-relaxed text-gray-700 mb-10">
+        <p>{t('introP1', { hospitalName: CONTACT_INFO.hospitalName })}</p>
+        <p>{t('introP2')}</p>
       </section>
 
-      <h2>1. Access</h2>
-      <p>
-        We collect your Personal Information directly from you, from third parties, and automatically through our Website. This includes device type, login times, IP address, and other details (see Clause 5).
-        You can write to <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a> to access or update your information.
-      </p>
+      <div className="space-y-8">
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.access.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t.rich('sections.access.p1', {
+              email: CONTACT_INFO.email,
+              emailLink: renderEmailLink,
+            })}
+          </p>
+        </section>
 
-      <h2>2. Consent</h2>
-      <p>
-        By using the Website or services, you consent to the collection, use, and transfer of your information in accordance with this policy. You confirm that you are voluntarily sharing this information.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.consent.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.consent.p1')}
+          </p>
+        </section>
 
-      <h2>3. Control Over Your Personal Information</h2>
-      <p>
-        You may withdraw your consent at any time by emailing <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>. Upon withdrawal, SYNERGY may not be able to provide services.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.control.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t.rich('sections.control.p1', {
+              email: CONTACT_INFO.email,
+              emailLink: renderEmailLink,
+            })}
+          </p>
+        </section>
 
-      <h2>4. Changes to the Privacy Policy</h2>
-      <p>
-        We may update this Privacy Policy from time to time. The last update date will be shown at the top of this page.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.changes.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.changes.p1')}
+          </p>
+        </section>
 
-      <h2>5. Personal Information Collected</h2>
-      <ul>
-        <li>Name, birth date/age, gender, address, contact details</li>
-        <li>Health and medical records</li>
-        <li>Financial information and payment history</li>
-        <li>Usage patterns and system information</li>
-        <li>Cookies, IP address, browser type, and related technical data</li>
-      </ul>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.collected.title')}
+          </h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-700 pl-2">
+            {(t.raw('sections.collected.items') as string[]).map((item, idx) => (
+              <li key={idx} className="leading-relaxed">{item}</li>
+            ))}
+          </ul>
+        </section>
 
-      <h2>6. How We Collect Personal Information</h2>
-      <ul>
-        <li>Registration forms</li>
-        <li>Interactions with healthcare professionals</li>
-        <li>Website usage and third-party integrations</li>
-        <li>Cookies (see Clause 9)</li>
-      </ul>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.howWeCollect.title')}
+          </h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-700 pl-2">
+            {(t.raw('sections.howWeCollect.items') as string[]).map((item, idx) => (
+              <li key={idx} className="leading-relaxed">{item}</li>
+            ))}
+          </ul>
+        </section>
 
-      <h2>7. Use of Personal Information</h2>
-      <p>
-        We use your Personal Information to provide services, conduct research, improve functionality, communicate with you, promote services, and for legal obligations.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.use.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.use.p1')}
+          </p>
+        </section>
 
-      <h2>8. Sharing and Transferring of Personal Information</h2>
-      <p>
-        Your data may be shared across borders with cloud providers, affiliates, service providers, and banks. We ensure that all third parties handle data per this Policy.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.sharing.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.sharing.p1')}
+          </p>
+        </section>
 
-      <h2>9. Use of Cookies</h2>
-      <p>
-        We use cookies to enhance user experience. You can manage cookie settings via your browser. We are not responsible for third-party cookies or sites.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.cookies.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.cookies.p1')}
+          </p>
+        </section>
 
-      <h2>10. Security</h2>
-      <p>
-        We use security practices like role-based access, MFA, and encryption. However, the internet is not 100% secure. We are not liable for breaches beyond our control.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.security.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.security.p1')}
+          </p>
+        </section>
 
-      <h2>11. Third Party References and Links</h2>
-      <p>
-        Links to third-party sites do not imply endorsement. Please read their privacy policies independently.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.thirdParty.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.thirdParty.p1')}
+          </p>
+        </section>
 
-      <h2>12. Rectification/Correction of Personal Information</h2>
-      <p>
-        To correct or update your data, email us at <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>. We will process your request promptly.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.rectification.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t.rich('sections.rectification.p1', {
+              email: CONTACT_INFO.email,
+              emailLink: renderEmailLink,
+            })}
+          </p>
+        </section>
 
-      <h2>13. Compliance with Laws</h2>
-      <p>
-        Do not use the Website if this Privacy Policy conflicts with your country’s laws.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.compliance.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.compliance.p1')}
+          </p>
+        </section>
 
-      <h2>14. Term of Storage of Personal Information</h2>
-      <p>
-        We store your information for a minimum of three years from the last interaction or longer if required by law.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.storage.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t('sections.storage.p1')}
+          </p>
+        </section>
 
-      <h2>15. Grievance Officer</h2>
-      <p>
-        If you have any concerns, please contact our Grievance Officer at: <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>.
-      </p>
+        <section>
+          <h2 className="text-xl sm:text-2xl font-display font-semibold text-gray-900 mb-3">
+            {t('sections.grievance.title')}
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            {t.rich('sections.grievance.p1', {
+              email: CONTACT_INFO.email,
+              emailLink: renderEmailLink,
+            })}
+          </p>
+        </section>
+      </div>
     </div>
   );
-};
-
-export default PrivacyPolicy;
+}

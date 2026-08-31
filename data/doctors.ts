@@ -1,4 +1,20 @@
 import { Doctor } from "@/types";
+import { useTranslations } from "next-intl";
+
+export const useDoctors = (): Doctor[] => {
+  const t = useTranslations("doctorsData");
+
+  return doctors.map((doc) => {
+    const key = String(doc.id);
+    return {
+      ...doc,
+      name: t.has(`${key}.name`) ? t(`${key}.name`) : doc.name,
+      qualification: t.has(`${key}.qualification`) ? t(`${key}.qualification`) : doc.qualification,
+      department: t.has(`${key}.department`) ? t(`${key}.department`) : doc.department,
+      experience: t.has(`${key}.experience`) ? t(`${key}.experience`) : doc.experience,
+    };
+  });
+};
 
 // Sample doctor data
 export const doctors: Doctor[] = [

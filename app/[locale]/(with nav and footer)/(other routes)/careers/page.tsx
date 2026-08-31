@@ -1,44 +1,22 @@
 import CareerForm from '@/components/forms/CareerForm'
+import { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import React from 'react'
 import { FaHeartPulse, FaGraduationCap, FaHandsHoldingChild, FaHospitalUser } from "react-icons/fa6"
 
-/**
- * Fonts (add once, e.g. in app/layout.tsx):
- * Fraunces (display, weights 500/600), Inter (body, 400/500/600), IBM Plex Mono (labels, 500)
- *
- * <link rel="preconnect" href="https://fonts.googleapis.com" />
- * <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
- */
+export async function generateMetadata(props: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await props.params;
+    const t = await getTranslations({ locale, namespace: "CareersPage.metadata" });
 
-const HOSPITAL_NAME = "Synergy Superspeciality Hospital & Cancer Institute";
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
-const values = [
-    {
-        icon: FaHeartPulse,
-        title: "Purpose-driven work",
-        description: "Every role here — clinical or not — shows up in a patient's outcome.",
-    },
-    {
-        icon: FaGraduationCap,
-        title: "Room to grow",
-        description: "Structured training, certifications, and internal mobility across departments.",
-    },
-    {
-        icon: FaHospitalUser,
-        title: "Modern facilities",
-        description: "Two well-equipped centres, current protocols, and a team that keeps learning.",
-    },
-    {
-        icon: FaHandsHoldingChild,
-        title: "A team that looks out for you",
-        description: "Fair scheduling, respectful leadership, and colleagues who cover for each other.",
-    },
-];
-
-const departments = [
-    "Operations", "Reception", "Nursing", "Maintenance",
-    "Marketing", "I.T.", "TPA", "TeleCaller", "Other",
-];
+const valueIcons = [FaHeartPulse, FaGraduationCap, FaHospitalUser, FaHandsHoldingChild];
 
 const PulseDivider = () => (
     <div className="w-full flex justify-center py-2" aria-hidden="true">
@@ -55,7 +33,14 @@ const PulseDivider = () => (
     </div>
 );
 
-const CareersPage = () => {
+const CareersPage = async (props: {
+    params: Promise<{ locale: string }>;
+}) => {
+    const { locale } = await props.params;
+    const t = await getTranslations({ locale, namespace: "CareersPage" });
+    const valueItems: Array<{ title: string; description: string }> = t.raw("values.items");
+    const departments: string[] = t.raw("departments.list");
+
     return (
         <main className="min-h-screen bg-[#F6F8F6]" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>
 
@@ -66,24 +51,22 @@ const CareersPage = () => {
                         className="inline-block text-xs tracking-[0.18em] uppercase text-synergy-blue/70 mb-5"
                         style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                     >
-                        Careers
+                        {t("hero.tag")}
                     </span>
                     <h1
                         className="text-4xl sm:text-5xl leading-[1.1] text-synergy-blue mb-5 max-w-2xl"
                         style={{ fontFamily: "'Fraunces', serif", fontWeight: 600 }}
                     >
-                        Build a career that shows up in someone&apos;s recovery.
+                        {t("hero.title")}
                     </h1>
                     <p className="text-synergy-blue/80 text-base sm:text-lg max-w-xl mb-9">
-                        {HOSPITAL_NAME} is hiring across clinical and non-clinical
-                        roles at both our Gorakhpur centres. Tell us a little about
-                        yourself and we&apos;ll take it from there.
+                        {t("hero.subtitle")}
                     </p>
                     <a
                         href="#apply"
                         className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-synergy-blue/95 text-white text-sm font-medium hover:bg-[#163F33] transition-colors"
                     >
-                        Apply now ↓
+                        {t("hero.applyNow")}
                     </a>
                 </div>
             </section>
@@ -96,10 +79,11 @@ const CareersPage = () => {
                     className="text-2xl sm:text-3xl text-synergy-blue mb-8"
                     style={{ fontFamily: "'Fraunces', serif", fontWeight: 600 }}
                 >
-                    Why work here
+                    {t("values.title")}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                    {values.map(({ icon: Icon, title, description }, index) => {
+                    {valueItems.map(({ title, description }, index) => {
+                        const Icon = valueIcons[index % valueIcons.length];
                         const isOdd = index % 2 !== 0;
 
                         return (
@@ -157,7 +141,7 @@ const CareersPage = () => {
                     className="text-xs uppercase tracking-wide text-synergy-blue/85 mb-4"
                     style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                 >
-                    We&apos;re hiring across
+                    {t("departments.title")}
                 </p>
                 <div className="flex flex-wrap gap-2">
                     {departments.map((dept) => (
@@ -179,10 +163,10 @@ const CareersPage = () => {
                     className="text-2xl sm:text-3xl text-synergy-blue mb-2"
                     style={{ fontFamily: "'Fraunces', serif", fontWeight: 600 }}
                 >
-                    Apply now
+                    {t("formSection.title")}
                 </h2>
                 <p className="text-synergy-blue/80 mb-8">
-                    Fill in your details and attach your resume — it takes about two minutes.
+                    {t("formSection.subtitle")}
                 </p>
 
                 <div className="rounded-2xl bg-white border border-[#E1E8E3] p-6 sm:p-8">
@@ -193,8 +177,8 @@ const CareersPage = () => {
             {/* Footer strip */}
             <footer className="border-t border-[#e2e1e8] py-8">
                 <div className="max-w-5xl mx-auto px-6 text-xs text-synergy-blue/85 flex flex-col sm:flex-row justify-between gap-2">
-                    <span>{HOSPITAL_NAME}</span>
-                    <span>Gorakhpur, Uttar Pradesh · 273001</span>
+                    <span>{t("hospitalName")}</span>
+                    <span>{t("footer.location")}</span>
                 </div>
             </footer>
         </main>

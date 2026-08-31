@@ -1,15 +1,17 @@
 // pages/AdmissionDischarge.tsx
-"use client"
+"use client";
 
 import PageLayout from '@/components/global/PageLayout';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useInView } from 'react-intersection-observer';
 import { CONTACT_INFO } from '@/data/contactData';
+import { useTranslations } from 'next-intl';
 
 const AdmissionDischarge = () => {
+  const t = useTranslations("admissionDischargePage");
   const [sectionRef, sectionInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -17,24 +19,24 @@ const AdmissionDischarge = () => {
 
   const features = [
     {
-      title: "Admission Process",
-      description: "Streamlined admission procedures for patients with our digital forms and verification system.",
+      title: t("features.admission.title"),
+      description: t("features.admission.description"),
       icon: "🏥",
     },
     {
-      title: "Discharge Planning",
-      description: "Comprehensive discharge summaries and follow-up care coordination.",
+      title: t("features.discharge.title"),
+      description: t("features.discharge.description"),
       icon: "📋",
     },
     {
-      title: "Bed Management",
-      description: "Real-time bed availability tracking and allocation system.",
+      title: t("features.bed.title"),
+      description: t("features.bed.description"),
       icon: "🛏️",
     },
   ];
 
   return (
-    <PageLayout title="Admission & Discharge">
+    <PageLayout title={t("title")}>
       <motion.div
         ref={sectionRef}
         initial={{ opacity: 0, y: 20 }}
@@ -63,10 +65,10 @@ const AdmissionDischarge = () => {
         transition={{ duration: 0.6, delay: 0.8 }}
         className="mt-16 bg-linear-to-r from-synergy-pink to-fuchsia-500 p-8 rounded-xl text-white"
       >
-        <h2 className="text-2xl font-bold mb-4">24/7 Admission Support</h2>
-        <p className="mb-4">Our team is available round the clock to assist with admissions and discharges.</p>
+        <h2 className="text-2xl font-bold mb-4">{t("support.title")}</h2>
+        <p className="mb-4">{t("support.description")}</p>
         <Link href={`tel:${CONTACT_INFO.phoneNumbers.admissionDesk}`} className={cn("bg-white text-indigo-800 px-6 py-2 rounded-lg font-medium hover:bg-indigo-50 transition-colors", buttonVariants({variant: "default", size:"default"}))}>
-          Contact Admission Desk
+          {t("support.button")}
         </Link>
       </motion.div>
     </PageLayout>

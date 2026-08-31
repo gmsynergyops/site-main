@@ -26,7 +26,7 @@ import {
   Textarea
 } from "@/components/ui/textarea"
 import { useDepartmentData } from "@/data/departmentData"
-import { doctors } from "@/data/doctors"
+import { useDoctors } from "@/data/doctors"
 import { timeSlots } from "@/data/timeSlot"
 import {
   cn
@@ -88,6 +88,7 @@ export default function BookAppointmentForm() {
     defaultValue: "",
   }) || ""
   const departmentData = useDepartmentData()
+  const doctors = useDoctors()
 
   // Medical spelling normalizer
   const normalize = (str: string) => {

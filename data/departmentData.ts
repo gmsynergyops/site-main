@@ -16,50 +16,7 @@ export const useDepartmentData = () => {
       isFeatured: true,
       heroSubtitle: t("MedicalOncology.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-blue-50 via-white to-sky-50", // Unique Light Blue
-      overview: {
-        title: "Our Medical Oncology Approach",
-        description: [
-          "Medical Oncology deals with cancer treatment using medicines.",
-          "Our doctors treat cancer with therapies like chemotherapy, immunotherapy, and targeted treatment, depending on the patient’s condition.",
-        ],
-        additionalSections: [
-          {
-            title: "We treat:",
-            items: [
-              "Breast cancer",
-              "Lung cancer",
-              "Blood cancer",
-              "Gastrointestinal cancers",
-              "Other solid tumors",
-            ],
-          },
-          {
-            title: "How we help:",
-            items: [
-              "Personalized cancer treatment plans",
-              "Day-care chemotherapy",
-              "Side-effect management",
-              "Regular monitoring and follow-up",
-            ],
-          },
-          {
-            title: "Why patients trust us:",
-            items: [
-              "Experienced cancer specialists",
-              "Treatment decided by Tumour Board",
-              "Supportive care throughout treatment",
-            ],
-          },
-          {
-            title: "When to consult:",
-            items: [
-              "Cancer diagnosis",
-              "During or after surgery",
-              "If cancer has spread or returned",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("MedicalOncology.overview"),
       treatments: {
         title: t("MedicalOncology.treatments.title"),
         items: [
@@ -202,39 +159,7 @@ export const useDepartmentData = () => {
       isFeatured: true,
       heroSubtitle: t("SurgicalOncology.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-slate-100 via-white to-zinc-50", // Unique Slate
-      overview: {
-        title: "Our Surgical Oncology Approach",
-        description: [
-          "Surgical Oncology focuses on removing cancer through surgery.",
-          "Our surgeons perform safe and advanced cancer surgeries with a focus on recovery and quality of life.",
-        ],
-        additionalSections: [
-          {
-            title: "We handle:",
-            items: [
-              "Tumor removal",
-              "Organ-specific cancer surgeries",
-              "Minimally invasive procedures",
-            ],
-          },
-          {
-            title: "How we help:",
-            items: [
-              "Accurate diagnosis before surgery",
-              "Modern operation theatres",
-              "Post-surgery recovery care",
-            ],
-          },
-          {
-            title: "Why choose us:",
-            items: [
-              "Organ-specific cancer surgeons",
-              "Multidisciplinary approach",
-              "Less pain, faster recovery",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("SurgicalOncology.overview"),
       treatments: {
         title: t("SurgicalOncology.treatments.title"),
         items: [
@@ -399,28 +324,7 @@ export const useDepartmentData = () => {
 
       themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-slate-50",
 
-      overview: {
-        title: t("RadiationOncology.overview.title"),
-
-        description: [
-          t("RadiationOncology.overview.description.0"),
-          t("RadiationOncology.overview.description.1"),
-        ],
-
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("RadiationOncology.overview.whyChooseUs.0"),
-              t("RadiationOncology.overview.whyChooseUs.1"),
-              t("RadiationOncology.overview.whyChooseUs.2"),
-              t("RadiationOncology.overview.whyChooseUs.3"),
-              t("RadiationOncology.overview.whyChooseUs.4"),
-              t("RadiationOncology.overview.whyChooseUs.5"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("RadiationOncology.overview"),
 
       treatments: {
         title: t("RadiationOncology.treatments.title"),
@@ -612,32 +516,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Gynecology.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-rose-50 via-white to-pink-50", // Unique Pink
-      overview: {
-        title: "Our Gynecology & Obstetrics Approach",
-        description: [
-          "We care for women at every stage of life.",
-          "From pregnancy to complex gynecological problems, our doctors provide safe and respectful care.",
-        ],
-        additionalSections: [
-          {
-            title: "Services include:",
-            items: [
-              "Pregnancy and delivery care",
-              "Menstrual problems",
-              "PCOS and hormonal issues",
-              "Gynecological surgeries",
-            ],
-          },
-          {
-            title: "Why women trust us:",
-            items: [
-              "Experienced female doctors available",
-              "Safe delivery practices",
-              "Privacy and comfort",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Gynecology.overview"),
       treatments: {
         title: t("Gynecology.treatments.title"),
         items: [
@@ -774,30 +653,7 @@ export const useDepartmentData = () => {
       isFeatured: false,
       heroSubtitle: t("Neurology.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-violet-50", // Unique Indigo
-      overview: {
-        title: "Our Neurology Approach",
-        description: ["Neurology deals with brain, nerve, and spine problems."],
-        additionalSections: [
-          {
-            title: "We treat:",
-            items: [
-              "Headache and migraine",
-              "Stroke",
-              "Epilepsy",
-              "Nerve weakness",
-              "Memory problems",
-            ],
-          },
-          {
-            title: "How we help:",
-            items: [
-              "Detailed brain and nerve evaluation",
-              "Medication-based treatment",
-              "Long-term neurological care",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Neurology.overview"),
       treatments: {
         title: t("Neurology.treatments.title"),
         items: [
@@ -930,31 +786,7 @@ export const useDepartmentData = () => {
       isFeatured: false,
       heroSubtitle: t("Neurosurgery.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-violet-50 via-white to-fuchsia-50", // Unique Violet
-      overview: {
-        title: "Our Neurosurgery Approach",
-        description: [
-          "Neurosurgery treats brain and spine conditions that need surgery.",
-        ],
-        additionalSections: [
-          {
-            title: "We manage:",
-            items: [
-              "Brain tumors",
-              "Spine problems",
-              "Head injuries",
-              "Nerve compression",
-            ],
-          },
-          {
-            title: "Why our neurosurgery care stands out:",
-            items: [
-              "Advanced surgical techniques",
-              "ICU and critical care backup",
-              "Experienced neurosurgeons",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Neurosurgery.overview"),
       treatments: {
         title: t("Neurosurgery.treatments.title"),
         items: [
@@ -1093,31 +925,7 @@ export const useDepartmentData = () => {
       isFeatured: false,
       heroSubtitle: t("Gastroenterology.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-amber-50 via-white to-orange-50", // Unique Amber
-      overview: {
-        title: "Our Gastroenterology Approach",
-        description: [
-          "Gastroenterology focuses on stomach, liver, and digestive system problems.",
-        ],
-        additionalSections: [
-          {
-            title: "We treat:",
-            items: [
-              "Acidity and gas",
-              "Liver disease",
-              "Ulcers",
-              "Digestive infections",
-            ],
-          },
-          {
-            title: "How we help:",
-            items: [
-              "Endoscopy and diagnosis",
-              "Medication-based treatment",
-              "Diet and lifestyle guidance",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Gastroenterology.overview"),
       treatments: {
         title: t("Gastroenterology.treatments.title"),
         items: [
@@ -1247,30 +1055,7 @@ export const useDepartmentData = () => {
       isFeatured: false,
       heroSubtitle: t("Nephrology.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-cyan-50 via-white to-teal-50", // Unique Cyan/Teal
-      overview: {
-        title: "Our Nephrology Approach",
-        description: [
-          "Nephrology deals with kidney health and kidney diseases.",
-        ],
-        additionalSections: [
-          {
-            title: "Services include:",
-            items: [
-              "Kidney disease treatment",
-              "Dialysis care",
-              "Blood pressure related kidney issues",
-            ],
-          },
-          {
-            title: "Why choose us:",
-            items: [
-              "Modern dialysis facilities",
-              "Regular monitoring",
-              "Patient education and support",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Nephrology.overview"),
       treatments: {
         title: t("Nephrology.treatments.title"),
         items: [
@@ -1396,31 +1181,7 @@ export const useDepartmentData = () => {
       isFeatured: false,
       heroSubtitle: t("Urology.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-sky-50 via-white to-blue-50", // Unique Sky Blue
-      overview: {
-        title: "Our Urology Approach",
-        description: [
-          "Urology treats urinary and male reproductive system problems.",
-        ],
-        additionalSections: [
-          {
-            title: "We handle:",
-            items: [
-              "Kidney stones",
-              "Prostate problems",
-              "Urinary infections",
-              "Male health issues",
-            ],
-          },
-          {
-            title: "How we help:",
-            items: [
-              "Minimally invasive procedures",
-              "Advanced diagnostics",
-              "Confidential care",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Urology.overview"),
       treatments: {
         title: t("Urology.treatments.title"),
         items: [
@@ -1551,24 +1312,7 @@ export const useDepartmentData = () => {
       isFeatured: false,
       heroSubtitle: t("Orthopedics.heroSubtitle"),
       themeBgClass: "bg-linear-to-br from-emerald-50 via-white to-green-50", // Unique Emerald
-      overview: {
-        title: "Our Orthopedics Approach",
-        description: ["Orthopedics focuses on bones, joints, and movement."],
-        additionalSections: [
-          {
-            title: "We treat:",
-            items: ["Joint pain", "Fractures", "Arthritis", "Sports injuries"],
-          },
-          {
-            title: "Services include:",
-            items: [
-              "Joint replacement",
-              "Trauma care",
-              "Physiotherapy support",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Orthopedics.overview"),
       treatments: {
         title: t("Orthopedics.treatments.title"),
         items: [
@@ -1705,28 +1449,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Anesthesia.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-teal-50 via-white to-emerald-50", // Unique Teal
-      overview: {
-        title: "Our Anesthesia Approach",
-        description: ["Anesthesia ensures pain-free and safe surgery."],
-        additionalSections: [
-          {
-            title: "Our role includes:",
-            items: [
-              "Pre-surgery evaluation",
-              "Pain control during surgery",
-              "Post-surgery pain management",
-            ],
-          },
-          {
-            title: "Why it matters:",
-            items: [
-              "Patient safety",
-              "Smooth recovery",
-              "Continuous monitoring",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Anesthesia.overview"),
       treatments: {
         title: t("Anesthesia.treatments.title"),
         items: [
@@ -1854,21 +1577,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("GeneralSurgery.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-zinc-50 via-white to-slate-50", // Unique Zinc
-      overview: {
-        title: "Our General Surgery Approach",
-        description: ["General Surgery handles common surgical conditions."],
-        additionalSections: [
-          {
-            title: "We treat:",
-            items: [
-              "Hernia",
-              "Appendix",
-              "Gallbladder problems",
-              "Minor and major surgeries",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("GeneralSurgery.overview"),
       treatments: {
         title: t("GeneralSurgery.treatments.title"),
         items: [
@@ -2002,24 +1711,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Pediatrics.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-yellow-50 via-white to-amber-50", // Unique Yellow/Amber
-      overview: {
-        title: "Our Pediatrics Approach",
-        description: ["Pediatrics provides complete healthcare for children."],
-        additionalSections: [
-          {
-            title: "We care for:",
-            items: [
-              "Newborns",
-              "Childhood illnesses",
-              "Growth and development",
-            ],
-          },
-          {
-            title: "Why parents trust us:",
-            items: ["Child-friendly environment", "Gentle care approach"],
-          },
-        ],
-      },
+      overview: t.raw("Pediatrics.overview"),
       treatments: {
         title: t("Pediatrics.treatments.title"),
         items: [
@@ -2142,22 +1834,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("HeadNeck.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-fuchsia-50 via-white to-pink-50", // Unique Fuchsia
-      overview: {
-        title: "Our Head & Neck Approach",
-        description: [
-          "Head & Neck services treat conditions of the face, throat, and neck.",
-        ],
-        additionalSections: [
-          {
-            title: "We manage:",
-            items: [
-              "Thyroid problems",
-              "Oral tumors",
-              "ENT-related conditions",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("HeadNeck.overview"),
       treatments: {
         title: t("HeadNeck.treatments.title"),
         items: [
@@ -2303,29 +1980,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("EmergencyCriticalCare.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-red-50 via-white to-orange-50", // Unique Red/Orange
-      overview: {
-        title: "Our Emergency & Critical Care Approach",
-        description: ["24x7 emergency care for life-threatening conditions."],
-        additionalSections: [
-          {
-            title: "We handle:",
-            items: [
-              "Accidents",
-              "Heart attacks",
-              "Stroke",
-              "Critical illnesses",
-            ],
-          },
-          {
-            title: "Why it matters:",
-            items: [
-              "Immediate response",
-              "Advanced ICU support",
-              "Trained emergency team",
-            ],
-          },
-        ],
-      },
+      overview: t.raw("EmergencyCriticalCare.overview"),
       treatments: {
         title: t("EmergencyCriticalCare.treatments.title"),
         items: [
@@ -2462,24 +2117,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("DiagnosticImaging.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-gray-100 via-white to-gray-50", // Unique Gray
-      overview: {
-        title: t("DiagnosticImaging.overview.title"),
-        description: [
-          t("DiagnosticImaging.overview.description.0"),
-          t("DiagnosticImaging.overview.description.1"),
-        ],
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("DiagnosticImaging.overview.whyChooseUs.0"),
-              t("DiagnosticImaging.overview.whyChooseUs.1"),
-              t("DiagnosticImaging.overview.whyChooseUs.2"),
-              t("DiagnosticImaging.overview.whyChooseUs.3"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("DiagnosticImaging.overview"),
       treatments: {
         title: t("DiagnosticImaging.treatments.title"),
         items: [
@@ -2537,66 +2175,62 @@ export const useDepartmentData = () => {
         ],
       },
       facilities: {
-        title: "Imaging Facilities",
-        description:
-          "Our department features state-of-the-art imaging technology for precise diagnostics.",
+        title: t("DiagnosticImaging.facilities.title"),
+        description: t("DiagnosticImaging.facilities.description"),
         features: [
-          "Digital X-Ray System",
-          "128-slice CT scanner",
-          "Digital mammography",
-          "Fluoroscopy suite",
-          "PACS digital imaging system",
+          t("DiagnosticImaging.facilities.features.0"),
+          t("DiagnosticImaging.facilities.features.1"),
+          t("DiagnosticImaging.facilities.features.2"),
+          t("DiagnosticImaging.facilities.features.3"),
+          t("DiagnosticImaging.facilities.features.4"),
         ],
         image: "/imaging-facility.webp",
       },
       research: {
-        title: "Imaging Research",
+        title: t("DiagnosticImaging.research.title"),
         items: [
           {
-            title: "AI-Assisted Diagnostics",
-            content: "Developing machine learning tools for image analysis.",
+            title: t("DiagnosticImaging.research.items.ai.title"),
+            content: t("DiagnosticImaging.research.items.ai.content"),
             icon: "cpu",
           },
           {
-            title: "Low-Dose Protocols",
-            content: "Researching radiation reduction techniques.",
+            title: t("DiagnosticImaging.research.items.lowDose.title"),
+            content: t("DiagnosticImaging.research.items.lowDose.content"),
             icon: "radiation",
           },
           {
-            title: "Functional Imaging",
-            content: "Advancing dynamic assessment of organ function.",
+            title: t("DiagnosticImaging.research.items.functional.title"),
+            content: t("DiagnosticImaging.research.items.functional.content"),
             icon: "brain",
           },
         ],
       },
       testimonials: {
-        title: "Patient Experiences",
+        title: t("DiagnosticImaging.testimonials.title"),
         items: [
           {
-            quote:
-              "The digital X-ray scan was quick and painless. The staff made me feel very comfortable throughout.",
-            author: "Anjali S.",
+            quote: t("DiagnosticImaging.testimonials.items.anjali.quote"),
+            author: t("DiagnosticImaging.testimonials.items.anjali.author"),
             image: "/fallback-image.webp",
           },
           {
-            quote:
-              "The detailed CT scan identified my condition immediately, allowing for prompt treatment.",
-            author: "Vikram P.",
+            quote: t("DiagnosticImaging.testimonials.items.vikram.quote"),
+            author: t("DiagnosticImaging.testimonials.items.vikram.author"),
             image: "/fallback-image.webp",
           },
         ],
       },
       cta: {
-        title: "Advanced Imaging Services",
-        subtitle:
-          "Schedule your diagnostic scan or walk-in for emergency imaging needs.",
+        title: t("DiagnosticImaging.cta.title"),
+        subtitle: t("DiagnosticImaging.cta.subtitle"),
         buttons: [
           {
-            text: "Schedule Imaging",
+            text: t("DiagnosticImaging.cta.buttons.schedule.text"),
             isPrimary: true,
           },
           {
-            text: "View Preparation Guides",
+            text: t("DiagnosticImaging.cta.buttons.guides.text"),
             isPrimary: false,
           },
         ],
@@ -2613,26 +2247,9 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Dialysis.heroSubtitle"),
       isFeatured: false,
       themeBgClass: "bg-linear-to-br from-cyan-50 via-white to-blue-50", // Unique Cyan/Blue
-      overview: {
-        title: t("Dialysis.overview.title"),
-        description: [
-          t("Dialysis.overview.description.0"),
-          t("Dialysis.overview.description.1"),
-        ],
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("Dialysis.overview.whyChooseUs.0"),
-              t("Dialysis.overview.whyChooseUs.1"),
-              t("Dialysis.overview.whyChooseUs.2"),
-              t("Dialysis.overview.whyChooseUs.3"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Dialysis.overview"),
       treatments: {
-        title: "Our Services",
+        title: t("Dialysis.treatments.title"),
         items: [
           {
             title: t("Dialysis.treatments.items.hemodialysis.title"),
@@ -2651,7 +2268,7 @@ export const useDepartmentData = () => {
         ],
       },
       stats: {
-        title: "Dialysis Statistics",
+        title: t("Dialysis.stats.title"),
         items: [
           {
             value: t("Dialysis.stats.items.stations.value"),
@@ -2672,78 +2289,74 @@ export const useDepartmentData = () => {
         ],
       },
       team: {
-        title: "Our Nephrology Team",
+        title: t("Dialysis.team.title"),
         members: [
           {
-            name: "Dr. Anindya Biswas",
-            role: "Nephrologist",
-            credentials: "MBBS, DNB,DrNB(NEFROLOGY), DEPARTMENT OF NEFROLOGY",
+            name: t("Dialysis.team.members.drAnindya.name"),
+            role: t("Dialysis.team.members.drAnindya.role"),
+            credentials: t("Dialysis.team.members.drAnindya.credentials"),
             image: "/doctors/dr-anindya-biswas.webp",
-            specialty: "Chronic Kidney Disease",
+            specialty: t("Dialysis.team.members.drAnindya.specialty"),
           },
         ],
       },
       facilities: {
-        title: "Dialysis Facilities",
-        description:
-          "Our unit features advanced dialysis technology in a patient-centered environment.",
+        title: t("Dialysis.facilities.title"),
+        description: t("Dialysis.facilities.description"),
         features: [
-          "High-flux dialysis machines",
-          "Ultrapure water system",
-          "Individual TV monitors",
-          "Comfortable recliners",
-          "Emergency response system",
+          t("Dialysis.facilities.features.0"),
+          t("Dialysis.facilities.features.1"),
+          t("Dialysis.facilities.features.2"),
+          t("Dialysis.facilities.features.3"),
+          t("Dialysis.facilities.features.4"),
         ],
         image: "/dialysis-unit.webp",
       },
       research: {
-        title: "Renal Research",
+        title: t("Dialysis.research.title"),
         items: [
           {
-            title: "Vascular Access",
-            content: "Improving fistula longevity and function.",
+            title: t("Dialysis.research.items.vascular.title"),
+            content: t("Dialysis.research.items.vascular.content"),
             icon: "heart-pulse",
           },
           {
-            title: "Dialysis Adequacy",
-            content: "Optimizing treatment protocols.",
+            title: t("Dialysis.research.items.adequacy.title"),
+            content: t("Dialysis.research.items.adequacy.content"),
             icon: "vial",
           },
           {
-            title: "Anemia Management",
-            content: "Reducing transfusion requirements.",
+            title: t("Dialysis.research.items.anemia.title"),
+            content: t("Dialysis.research.items.anemia.content"),
             icon: "droplet",
           },
         ],
       },
       testimonials: {
-        title: "Patient Experiences",
+        title: t("Dialysis.testimonials.title"),
         items: [
           {
-            quote:
-              "The dialysis staff feels like family. They know exactly how to make my treatments comfortable.",
-            author: "Mahesh K.",
+            quote: t("Dialysis.testimonials.items.mahesh.quote"),
+            author: t("Dialysis.testimonials.items.mahesh.author"),
             image: "/fallback-image.webp",
           },
           {
-            quote:
-              "After my kidney failure, their expert care gave me back my quality of life.",
-            author: "Priya R.",
+            quote: t("Dialysis.testimonials.items.priya.quote"),
+            author: t("Dialysis.testimonials.items.priya.author"),
             image: "/fallback-image.webp",
           },
         ],
       },
       cta: {
-        title: "Renal Care Services",
-        subtitle:
-          "Schedule dialysis treatments or consult with our nephrology team.",
+        title: t("Dialysis.cta.title"),
+        subtitle: t("Dialysis.cta.subtitle"),
         buttons: [
           {
-            text: "Book Dialysis",
+            text: t("Dialysis.cta.buttons.book.text"),
             isPrimary: true,
           },
           {
-            text: "Learn About Options",
+            text: t("Dialysis.cta.buttons.options.text"),
             isPrimary: false,
           },
         ],
@@ -2760,24 +2373,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Radiology.heroSubtitle"),
       isFeatured: false,
       themeBgClass: "bg-linear-to-br from-slate-100 via-white to-gray-50", // Unique Slate/Gray
-      overview: {
-        title: t("Radiology.overview.title"),
-        description: [
-          t("Radiology.overview.description.0"),
-          t("Radiology.overview.description.1"),
-        ],
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("Radiology.overview.whyChooseUs.0"),
-              t("Radiology.overview.whyChooseUs.1"),
-              t("Radiology.overview.whyChooseUs.2"),
-              t("Radiology.overview.whyChooseUs.3"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Radiology.overview"),
       treatments: {
         title: t("Radiology.treatments.title"),
         items: [
@@ -2798,23 +2394,23 @@ export const useDepartmentData = () => {
         ],
       },
       stats: {
-        title: "Radiology Statistics",
+        title: t("Radiology.stats.title"),
         items: [
           {
-            value: "<2 hrs",
-            label: "Stat Report Turnaround",
+            value: t("Radiology.stats.items.statTurnaround.value"),
+            label: t("Radiology.stats.items.statTurnaround.label"),
           },
           {
-            value: "15+",
-            label: "Radiology Subspecialties",
+            value: t("Radiology.stats.items.subspecialties.value"),
+            label: t("Radiology.stats.items.subspecialties.label"),
           },
           {
-            value: "99%",
-            label: "Procedure Success Rate",
+            value: t("Radiology.stats.items.success.value"),
+            label: t("Radiology.stats.items.success.label"),
           },
           {
-            value: "24/7",
-            label: "Emergency Coverage",
+            value: t("Radiology.stats.items.coverage.value"),
+            label: t("Radiology.stats.items.coverage.label"),
           },
         ],
       },
@@ -2843,53 +2439,50 @@ export const useDepartmentData = () => {
         image: "/radiology-lab.webp",
       },
       research: {
-        title: "Radiology Research",
+        title: t("Radiology.research.title"),
         items: [
           {
-            title: "Image-Guided Therapy",
-            content: "Developing new minimally invasive treatments.",
+            title: t("Radiology.research.items.imageGuided.title"),
+            content: t("Radiology.research.items.imageGuided.content"),
             icon: "syringe",
           },
           {
-            title: "Contrast Optimization",
-            content: "Reducing contrast media requirements.",
+            title: t("Radiology.research.items.contrast.title"),
+            content: t("Radiology.research.items.contrast.content"),
             icon: "vial",
           },
           {
-            title: "AI in Radiology",
-            content: "Implementing machine learning for image analysis.",
+            title: t("Radiology.research.items.ai.title"),
+            content: t("Radiology.research.items.ai.content"),
             icon: "cpu",
           },
         ],
       },
       testimonials: {
-        title: "Patient Experiences",
+        title: t("Radiology.testimonials.title"),
         items: [
           {
-            quote:
-              "The CT-guided biopsy was quick and painless, with precise results that guided my treatment.",
-            author: "Rahul D.",
+            quote: t("Radiology.testimonials.items.rahul.quote"),
+            author: t("Radiology.testimonials.items.rahul.author"),
             image: "/fallback-image.webp",
           },
           {
-            quote:
-              "Their interventional radiology procedure solved my problem without major surgery.",
-            author: "Geeta M.",
+            quote: t("Radiology.testimonials.items.geeta.quote"),
+            author: t("Radiology.testimonials.items.geeta.author"),
             image: "/fallback-image.webp",
           },
         ],
       },
       cta: {
-        title: "Advanced Radiology Services",
-        subtitle:
-          "Schedule your imaging study or consult with our radiologists.",
+        title: t("Radiology.cta.title"),
+        subtitle: t("Radiology.cta.subtitle"),
         buttons: [
           {
-            text: "Book Imaging",
+            text: t("Radiology.cta.buttons.bookImaging.text"),
             isPrimary: true,
           },
           {
-            text: "Learn About Procedures",
+            text: t("Radiology.cta.buttons.learn.text"),
             isPrimary: false,
           },
         ],
@@ -2906,26 +2499,9 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Pathology.heroSubtitle"),
       isFeatured: false,
       themeBgClass: "bg-linear-to-br from-purple-50 via-white to-fuchsia-50", // Unique Purple
-      overview: {
-        title: t("Pathology.overview.title"),
-        description: [
-          t("Pathology.overview.description.0"),
-          t("Pathology.overview.description.1"),
-        ],
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("Pathology.overview.whyChooseUs.0"),
-              t("Pathology.overview.whyChooseUs.1"),
-              t("Pathology.overview.whyChooseUs.2"),
-              t("Pathology.overview.whyChooseUs.3"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Pathology.overview"),
       treatments: {
-        title: "Our Services",
+        title: t("Pathology.treatments.title"),
         items: [
           {
             title: t("Pathology.treatments.items.histopathology.title"),
@@ -2946,7 +2522,7 @@ export const useDepartmentData = () => {
         ],
       },
       stats: {
-        title: "Pathology Statistics",
+        title: t("Pathology.stats.title"),
         items: [
           {
             value: t("Pathology.stats.items.routine.value"),
@@ -2967,7 +2543,7 @@ export const useDepartmentData = () => {
         ],
       },
       team: {
-        title: "Our Pathology Team",
+        title: t("Pathology.team.title"),
         members: [
           {
             name: t("Pathology.team.members.drGargi.name"),
@@ -2991,52 +2567,50 @@ export const useDepartmentData = () => {
         image: "/pathology-lab.webp",
       },
       research: {
-        title: "Pathology Research",
+        title: t("Pathology.research.title"),
         items: [
           {
-            title: "Cancer Biomarkers",
-            content: "Identifying new diagnostic markers.",
+            title: t("Pathology.research.items.biomarkers.title"),
+            content: t("Pathology.research.items.biomarkers.content"),
             icon: "dna",
           },
           {
-            title: "Digital Pathology",
-            content: "Implementing AI for slide analysis.",
+            title: t("Pathology.research.items.digital.title"),
+            content: t("Pathology.research.items.digital.content"),
             icon: "cpu",
           },
           {
-            title: "Liquid Biopsies",
-            content: "Developing blood-based diagnostics.",
+            title: t("Pathology.research.items.liquid.title"),
+            content: t("Pathology.research.items.liquid.content"),
             icon: "vial",
           },
         ],
       },
       testimonials: {
-        title: "Patient Experiences",
+        title: t("Pathology.testimonials.title"),
         items: [
           {
-            quote:
-              "The detailed pathology report gave my oncologist exactly the information needed for my treatment plan.",
-            author: "Arun T.",
+            quote: t("Pathology.testimonials.items.arun.quote"),
+            author: t("Pathology.testimonials.items.arun.author"),
             image: "/fallback-image.webp",
           },
           {
-            quote:
-              "Quick and accurate test results helped diagnose my rare condition promptly.",
-            author: "Meena K.",
+            quote: t("Pathology.testimonials.items.meena.quote"),
+            author: t("Pathology.testimonials.items.meena.author"),
             image: "/fallback-image.webp",
           },
         ],
       },
       cta: {
-        title: "Precision Diagnostics",
-        subtitle: "Contact us for pathology services or test result inquiries.",
+        title: t("Pathology.cta.title"),
+        subtitle: t("Pathology.cta.subtitle"),
         buttons: [
           {
-            text: "Request Testing",
+            text: t("Pathology.cta.buttons.request.text"),
             isPrimary: true,
           },
           {
-            text: "Access Results",
+            text: t("Pathology.cta.buttons.results.text"),
             isPrimary: false,
           },
         ],
@@ -3049,29 +2623,11 @@ export const useDepartmentData = () => {
       slug: "microbiology",
       heroImage: "/microbiology-hero.webp",
       bannerImage: "/department/microbiology-banner.png",
-      heroTitle: "Advanced Microbiology Services",
-      heroSubtitle:
-        "Comprehensive infectious disease diagnostics in Gorakhpur.",
+      heroTitle: t("Microbiology.heroTitle"),
+      heroSubtitle: t("Microbiology.heroSubtitle"),
       isFeatured: false,
       themeBgClass: "bg-linear-to-br from-lime-50 via-white to-green-50", // Unique Lime/Green
-      overview: {
-        title: t("Microbiology.overview.title"),
-        description: [
-          t("Microbiology.overview.description.0"),
-          t("Microbiology.overview.description.1"),
-        ],
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("Microbiology.overview.whyChooseUs.0"),
-              t("Microbiology.overview.whyChooseUs.1"),
-              t("Microbiology.overview.whyChooseUs.2"),
-              t("Microbiology.overview.whyChooseUs.3"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Microbiology.overview"),
       treatments: {
         title: t("Microbiology.treatments.title"),
         items: [
@@ -3139,53 +2695,50 @@ export const useDepartmentData = () => {
         image: "/microbiology-lab.webp",
       },
       research: {
-        title: "Microbiology Research",
+        title: t("Microbiology.research.title"),
         items: [
           {
-            title: "Antibiotic Resistance",
-            content: "Tracking emerging resistance patterns.",
+            title: t("Microbiology.research.items.resistance.title"),
+            content: t("Microbiology.research.items.resistance.content"),
             icon: "bacteria",
           },
           {
-            title: "Rapid Diagnostics",
-            content: "Developing faster identification methods.",
+            title: t("Microbiology.research.items.rapid.title"),
+            content: t("Microbiology.research.items.rapid.content"),
             icon: "flask",
           },
           {
-            title: "Hospital Epidemiology",
-            content: "Studying infection transmission patterns.",
+            title: t("Microbiology.research.items.epi.title"),
+            content: t("Microbiology.research.items.epi.content"),
             icon: "chart-line",
           },
         ],
       },
       testimonials: {
-        title: "Patient Experiences",
+        title: t("Microbiology.testimonials.title"),
         items: [
           {
-            quote:
-              "The microbiology team identified the exact bacteria causing my infection and which antibiotics would work best.",
-            author: "Sanjay M.",
+            quote: t("Microbiology.testimonials.items.sanjay.quote"),
+            author: t("Microbiology.testimonials.items.sanjay.author"),
             image: "/fallback-image.webp",
           },
           {
-            quote:
-              "Their rapid COVID-19 testing helped protect my elderly parents when I developed symptoms.",
-            author: "Neha S.",
+            quote: t("Microbiology.testimonials.items.neha.quote"),
+            author: t("Microbiology.testimonials.items.neha.author"),
             image: "/fallback-image.webp",
           },
         ],
       },
       cta: {
-        title: "Infection Diagnostics",
-        subtitle:
-          "Contact us for microbiology testing or infection control consultation.",
+        title: t("Microbiology.cta.title"),
+        subtitle: t("Microbiology.cta.subtitle"),
         buttons: [
           {
-            text: "Request Testing",
+            text: t("Microbiology.cta.buttons.request.text"),
             isPrimary: true,
           },
           {
-            text: "View Test Menu",
+            text: t("Microbiology.cta.buttons.menu.text"),
             isPrimary: false,
           },
         ],
@@ -3202,24 +2755,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("Biochemistry.heroSubtitle"),
       isFeatured: false,
       themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-blue-50", // Unique Indigo/Blue
-      overview: {
-        title: t("Biochemistry.overview.title"),
-        description: [
-          t("Biochemistry.overview.description.0"),
-          t("Biochemistry.overview.description.1"),
-        ],
-        additionalSections: [
-          {
-            title: "Why Choose Us",
-            items: [
-              t("Biochemistry.overview.whyChooseUs.0"),
-              t("Biochemistry.overview.whyChooseUs.1"),
-              t("Biochemistry.overview.whyChooseUs.2"),
-              t("Biochemistry.overview.whyChooseUs.3"),
-            ],
-          },
-        ],
-      },
+      overview: t.raw("Biochemistry.overview"),
       treatments: {
         title: t("Biochemistry.treatments.title"),
         items: [
@@ -3353,26 +2889,7 @@ export const useDepartmentData = () => {
       heroSubtitle: t("PainAndPalliativeCare.heroSubtitle"),
       isFeatured: true,
       themeBgClass: "bg-linear-to-br from-purple-50 via-white to-indigo-50", // Unique Purple/Indigo
-      overview: {
-        title: "Our Pain & Palliative Care Approach",
-        description: [
-          "Pain & Palliative Care focuses on comfort and quality of life.",
-        ],
-        additionalSections: [
-          {
-            title: "We help patients with:",
-            items: [
-              "Chronic pain",
-              "Cancer-related pain",
-              "Emotional and family support",
-            ],
-          },
-          {
-            title: "Our approach:",
-            items: ["Pain control", "Emotional care", "Dignified support"],
-          },
-        ],
-      },
+      overview: t.raw("PainAndPalliativeCare.overview"),
       treatments: {
         title: t("PainAndPalliativeCare.treatments.title"),
         items: [

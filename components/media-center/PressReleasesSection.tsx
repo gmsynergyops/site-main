@@ -5,7 +5,7 @@ import { pressReleases } from '@/data'
 import { motion } from 'framer-motion'
 import { ArrowRight, Calendar, Download, Newspaper, Share2, Video } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation';
 import { useState } from 'react'
 import ShareButton from '../global/ShareButton'
 

@@ -1,44 +1,25 @@
-'use client'
+'use client';
 
-import { ImageWithFallback } from '@/components/global/ImageWithFallback'
-import { Card, CardContent } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { Apple, Dumbbell, GlassWater, MoonStar, Salad } from 'lucide-react'
-import React from 'react'
-
-const preventionTips: {
-  title: string
-  description: string
-  icon: React.ReactNode
-}[] = [
-    {
-        icon: <Salad className="text-green-600" />,
-        title: 'Eat Plant-Based Meals',
-        description: 'Incorporate more vegetables, fruits, legumes, and whole grains to support your immune system and reduce cancer risk.',
-      },
-      {
-        icon: <GlassWater className="text-blue-500" />,
-        title: 'Stay Hydrated',
-        description: 'Drink plenty of water throughout the day to support digestion, detoxification, and cellular health.',
-      },
-      {
-        icon: <Apple className="text-red-500" />,
-        title: 'Avoid Processed Foods',
-        description: 'Limit intake of processed meats, sugary drinks, and refined grains to reduce inflammation and maintain healthy weight.',
-      },
-      {
-        icon: <Dumbbell className="text-purple-600" />,
-        title: 'Exercise Regularly',
-        description: 'Engage in physical activity like walking, yoga, or strength training for at least 30 minutes most days of the week.',
-      },
-      {
-        icon: <MoonStar className="text-indigo-600" />,
-        title: 'Prioritize Sleep',
-        description: 'Aim for 7–9 hours of quality sleep to enhance immune function and reduce stress.',
-      },
-]
+import { ImageWithFallback } from '@/components/global/ImageWithFallback';
+import { Card, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { Apple, Dumbbell, GlassWater, MoonStar, Salad } from 'lucide-react';
+import React from 'react';
+import { useTranslations } from 'next-intl';
 
 export const NutritionAndWellness = () => {
+  const t = useTranslations("nutritionAndWellnessPage");
+
+  const icons = [
+    <Salad key="salad" className="text-green-600" />,
+    <GlassWater key="water" className="text-blue-500" />,
+    <Apple key="apple" className="text-red-500" />,
+    <Dumbbell key="exercise" className="text-purple-600" />,
+    <MoonStar key="sleep" className="text-indigo-600" />,
+  ];
+
+  const rawTips = t.raw("tipsSection.tips") as { title: string; description: string }[];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -46,7 +27,7 @@ export const NutritionAndWellness = () => {
         <ImageWithFallback
           fallbackSrc="/fallback-image.webp"
           src="/images/cancer-prevention.webp"
-          alt="A doctor advising a patient on cancer prevention"
+          alt={t("hero.title")}
           fill
           priority
           className="object-cover"
@@ -54,10 +35,10 @@ export const NutritionAndWellness = () => {
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-4">
           <div className="text-white space-y-4">
             <h1 className="text-4xl sm:text-5xl font-bold">
-              Prevent Cancer Before It Starts
+              {t("hero.title")}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
-              Small lifestyle changes today can make a world of difference tomorrow.
+              {t("hero.subtitle")}
             </p>
           </div>
         </div>
@@ -66,9 +47,9 @@ export const NutritionAndWellness = () => {
       <main className="px-6 py-16 max-w-6xl mx-auto space-y-16">
         {/* Intro */}
         <section className="space-y-6 text-center">
-          <h2 className="text-3xl font-semibold">Why Cancer Prevention Matters</h2>
+          <h2 className="text-3xl font-semibold">{t("intro.title")}</h2>
           <p className="text-gray-700 max-w-3xl mx-auto text-lg">
-            Prevention is the most powerful tool we have against cancer. From lifestyle choices to regular screenings, there are many ways to lower your risk and protect your long-term health.
+            {t("intro.description")}
           </p>
         </section>
 
@@ -76,20 +57,20 @@ export const NutritionAndWellness = () => {
 
         {/* Tips Grid */}
         <section className="space-y-8">
-          <h3 className="text-2xl font-semibold text-center">7 Ways to Reduce Your Risk</h3>
+          <h3 className="text-2xl font-semibold text-center">{t("tipsSection.title")}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {preventionTips.map((tip, index) => (
+            {rawTips.map((tip, index) => (
               <Card
                 key={index}
                 className="hover:shadow-xl transition-shadow border border-muted rounded-xl bg-gray-100 py-0"
               >
                 <CardContent className="p-6 space-y-4">
-                <div className="flex gap-4 items-center">
-                  <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
-                    {tip.icon}
+                  <div className="flex gap-4 items-center">
+                    <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center">
+                      {icons[index] || <Salad className="text-green-600" />}
+                    </div>
+                    <h4 className="text-lg font-semibold">{tip.title}</h4>
                   </div>
-                  <h4 className="text-lg font-semibold">{tip.title}</h4>
-                </div>
                   <p className="text-sm text-gray-700">{tip.description}</p>
                 </CardContent>
               </Card>
@@ -98,5 +79,7 @@ export const NutritionAndWellness = () => {
         </section>
       </main>
     </div>
-  )
-}
+  );
+};
+
+export default NutritionAndWellness;

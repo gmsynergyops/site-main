@@ -2,15 +2,19 @@
 import React, { useState, useRef, useMemo, Suspense } from 'react'
 import { useInView, motion, AnimatePresence } from 'framer-motion'
 import { FaSearch, FaUserMd, FaFilter, FaCalendarAlt, FaClock, FaHospital, FaArrowRight } from 'react-icons/fa'
-import { doctors } from '@/data/doctors'
+import { useDoctors } from '@/data/doctors'
 import { ImageWithFallback } from '@/components/global/ImageWithFallback'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
+import { useSearchParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 function DoctorsPageContent() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: "-100px" })
     const router = useRouter()
     const searchParams = useSearchParams()
+    const doctors = useDoctors()
+    const t = useTranslations('DoctorsPage')
 
     const handleBookAppointment = (doctor: typeof doctors[number]) => {
         const params = new URLSearchParams({
@@ -143,10 +147,10 @@ function DoctorsPageContent() {
                     transition={{ duration: 0.8 }}
                 >
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-heading mb-2">
-                        Find Your Doctor
+                        {t('title')}
                     </h1>
                     <p className="text-lg  text-gray-700 mb-8 max-w-4xl">
-                        Connect with our team of expert physicians dedicated to your health and wellbeing.
+                        {t('subtitle')}
                     </p>
 
                     {/* Search and Filter Bar */}
@@ -158,7 +162,7 @@ function DoctorsPageContent() {
                                 </div>
                                 <input
                                     type="text"
-                                    placeholder="Search doctors by name, department, or qualification..."
+                                    placeholder={t('searchPlaceholder')}
                                     className="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-synergy-pink focus:border-synergy-pink"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -169,7 +173,7 @@ function DoctorsPageContent() {
                                 className="px-6 py-3 bg-linear-to-tl from-synergy-pink to-fuchsia-300 from-40% shadow-blob text-white rounded-lg  flex items-center justify-center"
                             >
                                 <FaFilter className="mr-2" />
-                                Filters
+                                {t('filters')}
                             </button>
                         </div>
 
@@ -185,54 +189,54 @@ function DoctorsPageContent() {
                                 >
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 bg-blue-50 rounded-lg mb-6">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Department</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('department')}</label>
                                             <select
                                                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                                 value={selectedDepartment}
                                                 onChange={(e) => setSelectedDepartment(e.target.value)}
                                             >
-                                                <option value="">All Departments</option>
+                                                <option value="">{t('allDepartments')}</option>
                                                 {departments.map(dept => (
                                                     <option key={dept} value={dept}>{dept}</option>
                                                 ))}
                                             </select>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Specialty</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('specialty')}</label>
                                             <select
                                                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                                 value={selectedSpecialty}
                                                 onChange={(e) => setSelectedSpecialty(e.target.value)}
                                             >
-                                                <option value="">All Specialties</option>
+                                                <option value="">{t('allSpecialties')}</option>
                                                 {specialties.map(spec => (
                                                     <option key={spec} value={spec}>{spec}</option>
                                                 ))}
                                             </select>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Day Available</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('dayAvailable')}</label>
                                             <select
                                                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                                 value={selectedDay}
                                                 onChange={(e) => setSelectedDay(e.target.value)}
                                             >
-                                                <option value="">Any Day</option>
+                                                <option value="">{t('anyDay')}</option>
                                                 {days.map(day => (
-                                                    <option key={day} value={day}>{day}</option>
+                                                    <option key={day} value={day}>{t.has(`days.${day}`) ? t(`days.${day}`) : day}</option>
                                                 ))}
                                             </select>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Time Range</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">{t('timeRange')}</label>
                                             <select
                                                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                                 value={timeRange}
                                                 onChange={(e) => setTimeRange(e.target.value)}
                                             >
-                                                <option value="">Any Time</option>
-                                                <option value="morning">Morning (AM)</option>
-                                                <option value="afternoon">Afternoon (PM)</option>
+                                                <option value="">{t('anyTime')}</option>
+                                                <option value="morning">{t('morning')}</option>
+                                                <option value="afternoon">{t('afternoon')}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -274,7 +278,7 @@ function DoctorsPageContent() {
 
                                         {doctor.isSenior && (
                                             <div className="absolute top-4 right-4 bg-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                                Senior Doctor
+                                                {t('seniorDoctor')}
                                             </div>
                                         )}
                                     </div>
@@ -301,20 +305,20 @@ function DoctorsPageContent() {
 
                                         <div className="flex items-center text-gray-600 mb-4">
                                             <FaUserMd className="mr-2 text-gray-400" />
-                                            <span>{doctor.experience} experience</span>
+                                            <span>{doctor.experience} {t('experience')}</span>
                                         </div>
 
                                         {/* Availability */}
                                         <div className="border-t border-gray-200 pt-4 mb-6">
                                             <h4 className="text-sm font-medium text-gray-700 mb-3 flex items-center">
                                                 <FaCalendarAlt className="mr-2 text-blue-500" />
-                                                Availability
+                                                {t('availability')}
                                             </h4>
                                             <ul className="space-y-2">
                                                 {doctor.availability.map((avail, i) => (
                                                     <li key={i} className="flex items-center text-sm text-gray-600">
                                                         <FaClock className="mr-2 text-gray-400" />
-                                                        <span className="font-medium">{avail.day}:</span>
+                                                        <span className="font-medium">{t.has(`days.${avail.day}`) ? t(`days.${avail.day}`) : avail.day}:</span>
                                                         <span className="ml-1">{avail.time}</span>
                                                     </li>
                                                 ))}
@@ -328,7 +332,7 @@ function DoctorsPageContent() {
                                                 onClick={() => handleBookAppointment(doctor)}
                                                 className="w-full flex items-center justify-center px-4 py-2 bg-linear-to-tl from-synergy-pink to-fuchsia-300 from-40% shadow-blob text-white rounded-lg transition-colors"
                                             >
-                                                Book Appointment
+                                                {t('bookAppointment')}
                                                 <FaArrowRight className="ml-2" />
                                             </button>
                                         </div>
@@ -345,8 +349,8 @@ function DoctorsPageContent() {
                             <div className="text-gray-400 text-6xl mb-4">
                                 <FaUserMd />
                             </div>
-                            <h3 className="text-xl font-medium text-gray-700 mb-2">No doctors found</h3>
-                            <p className="text-gray-500">Try adjusting your search filters</p>
+                            <h3 className="text-xl font-medium text-gray-700 mb-2">{t('noDoctorsFound')}</h3>
+                            <p className="text-gray-500">{t('adjustFilters')}</p>
                         </motion.div>
                     )}
                 </motion.div>

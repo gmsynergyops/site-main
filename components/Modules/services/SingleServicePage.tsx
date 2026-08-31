@@ -88,7 +88,7 @@ export default function DepartmentPage() {
   // Get dynamic background class or fallback to default
   const dynamicBgClass = department.themeBgClass || "bg-linear-to-br from-blue-50/50 via-white to-blue-50/80";
 
-  const framed = department.name === "Surgical Oncology" || department.name === "Medical Oncology" || department.name === "Gynae Oncology | Gynecology & Obstetrics" || department.name === "Urology"|| department.name === "General Surgery"
+  const framed = department.id === "surgical-oncology" || department.id === "medical-oncology" || department.id === "gynecology" || department.id === "urology" || department.id === "general-surgery";
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 

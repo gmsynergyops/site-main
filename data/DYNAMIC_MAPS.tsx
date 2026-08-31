@@ -29,6 +29,7 @@ import BloodBank from "@/components/Modules/services/support-services/BloodBank"
 import { Dietary } from "@/components/Modules/services/support-services/Dietary"
 import { Pharmacy } from "@/components/Modules/services/support-services/Pharmacy"
 import { Security } from "@/components/Modules/services/support-services/Security"
+import { Physiotherapy } from "@/components/Modules/services/support-services/Physiotherapy"
 import SupportServicesPage from "@/components/Modules/services/support-services/SupportServicesPage"
 
 // ---- NAYE PAGES KE IMPORTS ----
@@ -64,6 +65,7 @@ export const ServicesMap: Record<string, JSX.Element> = {
     "dietary": <Dietary />,
     "security": <Security />,
     "ambulance": <Ambulance />,
+    "physiotherapy": <Physiotherapy />,
     "diagnostic-imaging": <DepartmentPage />,
     "dialysis": <DepartmentPage />,
     "radiology": <DepartmentPage />,

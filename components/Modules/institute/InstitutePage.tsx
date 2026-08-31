@@ -6,7 +6,8 @@ import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 text-synergy-blue mt-1 mr-2 shrink-0">
@@ -32,6 +33,7 @@ const newYorkTypography = {
 };
 
 export default function InstitutePage() {
+  const t = useTranslations('InstitutePage');
   const pathname = usePathname();
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [contentRef, contentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -43,8 +45,8 @@ export default function InstitutePage() {
   if (!pageData) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">Page Not Found</h1>
-        <p className="text-lg text-gray-600">The requested institute page does not exist.</p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-6">{t('notFound.title')}</h1>
+        <p className="text-lg text-gray-600">{t('notFound.description')}</p>
       </div>
     );
   }
@@ -104,20 +106,20 @@ export default function InstitutePage() {
       <motion.section initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants} className="bg-blue-900 text-white py-16 md:py-20 rounded-3xl shadow-xl">
         <div className="max-w-4xl mx-auto text-center px-4">
           <motion.h2 variants={itemVariants} className={`${newYorkTypography.h1} mb-6 border-none text-white`}>
-            Stay Connected
+            {t('cta.title')}
           </motion.h2>
           <motion.p variants={itemVariants} className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-            If you would like to stay informed about upcoming programs and initiatives of the Synergy Institute for Cancer Education, you can connect with our team.
+            {t('cta.description')}
           </motion.p>
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
               <Link href="#">
                 <button className="px-8 py-3.5 w-full sm:w-auto rounded-full font-serif font-bold shadow-md bg-white text-blue-900 hover:bg-gray-100 transition-colors cursor-not-allowed opacity-90">
-                  Know More (Launching Soon)
+                  {t('cta.knowMore')}
                 </button>
               </Link>
               <Link href="/contact">
                 <button className="px-8 py-3.5 w-full sm:w-auto rounded-full font-serif font-bold shadow-md border-2 border-white text-white hover:bg-white/10 transition-colors">
-                  Contact Us for Updates
+                  {t('cta.contactUs')}
                 </button>
               </Link>
           </motion.div>

@@ -3,54 +3,57 @@
 import { ImageWithFallback } from "@/components/global/ImageWithFallback";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
-
-const diagnosticServices = [
-    {
-        id: "diagnostic-imaging",
-        title: "Diagnostic Imaging",
-        description: "Advanced imaging technologies including CT scans, X-rays, digital mammography, and ultrasounds for accurate diagnosis.",
-        image: "/images/diagnostics/imaging.jpg",
-    },
-    {
-        id: "dialysis",
-        title: "Dialysis Unit",
-        description: "State-of-the-art hemodialysis and peritoneal dialysis services for renal care patients.",
-        image: "/images/diagnostics/dialysis.jpg",
-    },
-    {
-        id: "radiology",
-        title: "Radiology",
-        description: "Comprehensive radiological services including interventional radiology and fluoroscopy.",
-        image: "/images/diagnostics/radiology.jpg",
-    },
-    {
-        id: "pathology",
-        title: "Pathology",
-        description: "Full-range pathological testing including histopathology, cytopathology, and advanced tissue diagnostics.",
-        image: "/images/diagnostics/pathology.jpg",
-    },
-    {
-        id: "microbiology",
-        title: "Microbiology",
-        description: "Specialized microbial culture, sensitivity testing, and infectious disease diagnostics to ensure precise treatments.",
-        image: "/images/diagnostics/microbiology.jpg",
-    },
-    {
-        id: "biochemistry",
-        title: "Clinical Biochemistry",
-        description: "Advanced biochemical analysis supporting early detection and monitoring of metabolic and endocrine disorders.",
-        image: "/images/diagnostics/biochemistry.jpg",
-    },
-];
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from "next-intl";
 
 export default function DiagnosticServices() {
+    const t = useTranslations("diagnosticServicesPage");
+
+    const diagnosticServices = [
+        {
+            id: "diagnostic-imaging",
+            title: t("services.diagnosticImaging.title"),
+            description: t("services.diagnosticImaging.description"),
+            image: "/images/diagnostics/imaging.jpg",
+        },
+        {
+            id: "dialysis",
+            title: t("services.dialysis.title"),
+            description: t("services.dialysis.description"),
+            image: "/images/diagnostics/dialysis.jpg",
+        },
+        {
+            id: "radiology",
+            title: t("services.radiology.title"),
+            description: t("services.radiology.description"),
+            image: "/images/diagnostics/radiology.jpg",
+        },
+        {
+            id: "pathology",
+            title: t("services.pathology.title"),
+            description: t("services.pathology.description"),
+            image: "/images/diagnostics/pathology.jpg",
+        },
+        {
+            id: "microbiology",
+            title: t("services.microbiology.title"),
+            description: t("services.microbiology.description"),
+            image: "/images/diagnostics/microbiology.jpg",
+        },
+        {
+            id: "biochemistry",
+            title: t("services.biochemistry.title"),
+            description: t("services.biochemistry.description"),
+            image: "/images/diagnostics/biochemistry.jpg",
+        },
+    ];
+
     return (
         <div className="container mx-auto px-4 py-12">
             <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">Diagnostic Services</h1>
+                <h1 className="text-4xl font-bold text-gray-900 mb-4 font-display">{t("title")}</h1>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Comprehensive diagnostic solutions with cutting-edge technology and expert analysis for accurate health assessments.
+                    {t("subtitle")}
                 </p>
             </div>
 
@@ -60,26 +63,26 @@ export default function DiagnosticServices() {
                         key={service.id}
                         className="flex flex-col h-full hover:shadow-lg transition-shadow duration-300 px-4"
                     >
-                        <div className="relative w-full h-48 bg-blue-300 ">
+                        <div className="relative w-full h-48 bg-blue-300 rounded-t-lg overflow-hidden">
                             <ImageWithFallback
                                 fallbackSrc="/fallback-image.webp"
                                 src={service.image}
                                 alt={service.title}
                                 fill
-                                className="object-cover  "
+                                className="object-cover"
                             />
                         </div>
                         <div className="flex flex-col flex-1 justify-between">
                             <CardHeader className="pb-2">
-                                <CardTitle className="text-2xl">{service.title}</CardTitle>
+                                <CardTitle className="text-2xl font-display">{service.title}</CardTitle>
                             </CardHeader>
                             <CardContent className="flex flex-col flex-1 justify-between">
                                 <p className="text-gray-600 mb-6 text-sm md:text-base leading-relaxed flex-1">
                                     {service.description}
                                 </p>
-                                <Link href={`/services/${service.id}`} passHref>
+                                <Link href={`/services/${service.id}`}>
                                     <Button variant="default" className="w-full mt-auto">
-                                        Learn More
+                                        {t("learnMore")}
                                     </Button>
                                 </Link>
                             </CardContent>
@@ -89,13 +92,13 @@ export default function DiagnosticServices() {
             </div>
 
             <div className="mt-16 bg-blue-50 rounded-xl p-8 text-center">
-                <h2 className="text-2xl font-semibold mb-4">Need Help Choosing a Diagnostic Service?</h2>
+                <h2 className="text-2xl font-semibold mb-4 font-display">{t("cta.title")}</h2>
                 <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                    Our care coordinators can guide you to the right diagnostic tests based on your symptoms and medical history.
+                    {t("cta.description")}
                 </p>
                 <Link href="/contact">
                     <Button variant="default" size="xl">
-                        Contact Diagnostic Services
+                        {t("cta.button")}
                     </Button>
                 </Link>
             </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import FaqAccordion from '@/components/homepage/FaqAccordion';
 import { useGeneralQuestions } from '@/data';
 import {
@@ -11,23 +13,29 @@ import {
     Stethoscope,
     UserCheck
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export const OutPatientClinic = () => {
+    const t = useTranslations("outPatientClinicPage");
     const generalQuestions = useGeneralQuestions();
-    const clinics = [
-        { icon: HeartPulse, name: 'Cardiology', description: 'Comprehensive heart care including preventive cardiology and advanced diagnostics' },
-        { icon: Brain, name: 'Neurology', description: 'Specialized care for brain and nervous system disorders' },
-        { icon: Bone, name: 'Orthopedics', description: 'Treatment for musculoskeletal issues, sports injuries and joint care' },
-        { icon: Baby, name: 'Pediatrics', description: 'Child-friendly environment with specialized pediatric care' },
-        { icon: Eye, name: 'Ophthalmology', description: 'Complete eye care from routine exams to advanced treatments' },
-        { icon: Stethoscope, name: 'General Medicine', description: 'Primary care for adults with comprehensive health evaluations' }
+
+    const clinicIcons = [
+        HeartPulse,
+        Brain,
+        Bone,
+        Baby,
+        Eye,
+        Stethoscope
     ];
 
-    const features = [
-        { icon: Clock, title: 'Minimal Waiting', description: 'Efficient scheduling system reduces your waiting time' },
-        { icon: UserCheck, title: 'Expert Doctors', description: 'Consult with highly qualified specialists' },
-        { icon: Activity, title: 'Comprehensive Diagnostics', description: 'On-site lab and imaging services available' }
+    const featureIcons = [
+        Clock,
+        UserCheck,
+        Activity
     ];
+
+    const clinics = t.raw("clinics.items") as { name: string; description: string }[];
+    const features = t.raw("features.items") as { title: string; description: string }[];
 
     return (
         <div className="font-sans text-gray-700">
@@ -40,10 +48,10 @@ export const OutPatientClinic = () => {
                 >
                     <div className="relative max-w-6xl mx-auto px-4 text-white z-10 text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
-                            Outpatient Clinics
+                            {t("hero.title")}
                         </h1>
                         <p className="text-xl md:text-2xl mb-8 drop-shadow-lg max-w-2xl mx-auto">
-                            Expert Care, Personalized Attention
+                            {t("hero.subtitle")}
                         </p>
                     </div>
                 </div>
@@ -53,13 +61,7 @@ export const OutPatientClinic = () => {
             <section className="py-16 px-4 bg-white">
                 <div className="max-w-4xl mx-auto">
                     <div className="prose-lg text-gray-600 text-center">
-                        <p>
-                            Our outpatient clinics provide specialized medical care in a comfortable, convenient setting.
-                            With over 15 specialty clinics staffed by experienced physicians, we offer comprehensive
-                            evaluations, diagnostic services, and treatment plans tailored to your needs. Designed for
-                            patients who don&apos;t require overnight hospitalization, our clinics combine expert medical
-                            care with compassionate attention to help you achieve and maintain optimal health.
-                        </p>
+                        <p>{t("intro")}</p>
                     </div>
                 </div>
             </section>
@@ -68,19 +70,22 @@ export const OutPatientClinic = () => {
             <section className="py-16 px-4 bg-gray-50">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">
-                        Our Specialty Clinics
+                        {t("clinics.title")}
                     </h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {clinics.map((clinic, index) => (
-                            <div
-                                key={index}
-                                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border-l-4 border-blue-500"
-                            >
-                                <clinic.icon className="h-10 w-10 text-blue-600 mb-4" />
-                                <h3 className="text-xl font-semibold mb-2 text-gray-800">{clinic.name}</h3>
-                                <p className="text-gray-600">{clinic.description}</p>
-                            </div>
-                        ))}
+                        {clinics.map((clinic, index) => {
+                            const ClinicIcon = clinicIcons[index] || HeartPulse;
+                            return (
+                                <div
+                                    key={index}
+                                    className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border-l-4 border-blue-500"
+                                >
+                                    <ClinicIcon className="h-10 w-10 text-blue-600 mb-4" />
+                                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{clinic.name}</h3>
+                                    <p className="text-gray-600">{clinic.description}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -88,12 +93,12 @@ export const OutPatientClinic = () => {
             {/* Appointment CTA */}
             <section className="py-16 px-4 bg-blue-600 text-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-semibold mb-6">Book Your Appointment Today</h2>
+                    <h2 className="text-3xl font-semibold mb-6">{t("cta.title")}</h2>
                     <p className="text-xl mb-8 max-w-2xl mx-auto">
-                        Schedule your visit with our specialists through our convenient booking system
+                        {t("cta.subtitle")}
                     </p>
                     <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-xl font-semibold transition-all">
-                        Book Now
+                        {t("cta.button")}
                     </button>
                 </div>
             </section>
@@ -102,18 +107,21 @@ export const OutPatientClinic = () => {
             <section className="py-16 px-4 bg-white">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">
-                        Why Choose Our Outpatient Care
+                        {t("features.title")}
                     </h2>
                     <div className="grid md:grid-cols-3 gap-8">
-                        {features.map((feature, index) => (
-                            <div key={index} className="text-center p-6">
-                                <div className="bg-blue-50 h-16 w-16 mx-auto rounded-full flex items-center justify-center mb-4">
-                                    <feature.icon className="h-8 w-8 text-blue-600" />
+                        {features.map((feature, index) => {
+                            const FeatIcon = featureIcons[index] || Clock;
+                            return (
+                                <div key={index} className="text-center p-6">
+                                    <div className="bg-blue-50 h-16 w-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                                        <FeatIcon className="h-8 w-8 text-blue-600" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                                    <p className="text-gray-600">{feature.description}</p>
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                                <p className="text-gray-600">{feature.description}</p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -122,7 +130,7 @@ export const OutPatientClinic = () => {
             <section className="py-16 px-4 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">
-                        Frequently Asked Questions
+                        {t("faqs.title")}
                     </h2>
                     <FaqAccordion items={generalQuestions} />
                 </div>
@@ -130,3 +138,5 @@ export const OutPatientClinic = () => {
         </div>
     );
 };
+
+export default OutPatientClinic;

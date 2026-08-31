@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaFlask, FaHeartbeat, FaProcedures, FaUserMd, FaXRay } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
+import { useTranslations } from 'next-intl';
 
 interface Package {
   id: string;
@@ -17,76 +18,32 @@ interface Package {
 }
 
 const HealthChecks = () => {
+  const t = useTranslations("healthChecksPage");
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
   const { ref: headerRef, inView: headerInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: packagesRef, inView: packagesInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const packages: Package[] = [
-    {
-      id: 'basic',
-      title: 'Basic Health Check',
-      description: 'Essential tests for routine health monitoring',
-      price: '₹900',
-      features: [
-        'Complete Blood Count (CBC)',
-        'Lipid Profile',
-        'Liver Function Test',
-        'Kidney Function Test',
-        'Urine Analysis',
-        'Doctor Consultation'
-      ],
-      image: '/images/health-check-1.jpg'
-    },
-    {
-      id: 'advanced',
-      title: 'Advanced Screening',
-      description: 'Comprehensive health assessment for early detection',
-      price: '₹2000',
-      features: [
-        'Includes Basic Package',
-        'Thyroid Function Test',
-        'Diabetes Screening',
-        'Cardiac Risk Markers',
-        'Chest X-Ray',
-        'ECG',
-        'Full Doctor Report'
-      ],
-      recommended: true,
-      image: '/images/health-check-2.jpg'
-    },
-    {
-      id: 'executive',
-      title: 'Executive Full Body',
-      description: 'Complete diagnostic package for thorough evaluation',
-      price: '₹4000',
-      features: [
-        'Includes Advanced Package',
-        'Cancer Markers',
-        'Bone Density Test',
-        'Abdominal Ultrasound',
-        'Stress Test',
-        'Nutritionist Consultation',
-        'Personalized Health Plan'
-      ],
-      image: '/images/health-check-3.jpg'
-    },
-    {
-      id: 'senior',
-      title: 'Senior Wellness',
-      description: 'Specialized screening for age-related health concerns',
-      price: '₹3000',
-      features: [
-        'Includes Advanced Package',
-        'Arthritis Screening',
-        'Cognitive Assessment',
-        'Bone Mineral Density',
-        'Vision and Hearing Tests',
-        'Geriatric Consultation'
-      ],
-      image: '/images/health-check-4.jpg'
-    }
-  ];
+  const rawPackages = t.raw("packages") as {
+    id: string;
+    title: string;
+    description: string;
+    price: string;
+    features: string[];
+  }[];
+
+  const packageImages: Record<string, string> = {
+    basic: '/images/health-check-1.jpg',
+    advanced: '/images/health-check-2.jpg',
+    executive: '/images/health-check-3.jpg',
+    senior: '/images/health-check-4.jpg'
+  };
+
+  const packages: Package[] = rawPackages.map((pkg) => ({
+    ...pkg,
+    image: packageImages[pkg.id] || '/images/health-check-1.jpg',
+    recommended: pkg.id === 'advanced'
+  }));
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -102,7 +59,7 @@ const HealthChecks = () => {
   };
 
   const getIcon = (packageId: string) => {
-    switch(packageId) {
+    switch (packageId) {
       case 'basic': return <FaHeartbeat className="text-blue-500" />;
       case 'advanced': return <FaFlask className="text-green-500" />;
       case 'executive': return <FaUserMd className="text-purple-500" />;
@@ -124,10 +81,10 @@ const HealthChecks = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
-            Health Check Packages
+            {t("header.title")}
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Comprehensive health screenings tailored to your needs
+            {t("header.subtitle")}
           </p>
         </motion.div>
 
@@ -150,13 +107,13 @@ const HealthChecks = () => {
             >
               {pkg.recommended && (
                 <div className="absolute top-0 right-0 bg-blue-500 text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
-                  RECOMMENDED
+                  {t("recommended")}
                 </div>
               )}
 
               <div className="h-48 relative">
                 <ImageWithFallback
-                fallbackSrc='/fallback-image.webp'
+                  fallbackSrc='/fallback-image.webp'
                   src={pkg.image}
                   alt={pkg.title}
                   fill
@@ -184,7 +141,7 @@ const HealthChecks = () => {
                         : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
                     }`}
                   >
-                    {selectedPackage === pkg.id ? 'Selected' : 'Select'}
+                    {selectedPackage === pkg.id ? t("selected") : t("select")}
                   </button>
                 </div>
 
@@ -210,14 +167,14 @@ const HealthChecks = () => {
           transition={{ delay: 0.5 }}
           className="bg-blue-600 rounded-xl p-8 text-center text-white"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to prioritize your health?</h2>
-          <p className="mb-6 max-w-2xl mx-auto">Book your health check package today and receive a comprehensive report within 48 hours.</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("cta.title")}</h2>
+          <p className="mb-6 max-w-2xl mx-auto">{t("cta.subtitle")}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-md">
-              Book Now
+              {t("cta.bookNow")}
             </button>
             <button className="px-6 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
-              Speak to Our Consultant
+              {t("cta.consultant")}
             </button>
           </div>
         </motion.div>

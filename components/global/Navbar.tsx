@@ -12,8 +12,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { ArrowRight, MenuIcon, Search } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import React, { useEffect, useState } from "react";
 import { GiSiren } from "react-icons/gi";
 import { Button } from "../ui/button";
@@ -85,15 +84,12 @@ export function Navbar() {
         };
     }, []);
 
-    const result: boolean = isHovered || isScrolled || (pathname !== "/en" && pathname !== "/hi");
+    const result: boolean = isHovered || isScrolled || pathname !== "/";
     const switchLocale = (locale: string) => {
-        // Get the current path without the locale prefix
-        const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '')
-        // Construct the new path with the selected locale
-        const newPath = `/${locale}${pathWithoutLocale}`
-        router.push(newPath)
-        router.refresh()
-    }
+        document.cookie = `NEXT_LOCALE=${locale};path=/;max-age=31536000;SameSite=Lax`;
+        router.replace(pathname, { locale });
+        router.refresh();
+    };
     return (
         <div className={cn(
             "h-16 xl:h-20 fixed w-full top-0 z-50 transition-all duration-300 m-0 p-0 space-y-0",
@@ -113,17 +109,19 @@ export function Navbar() {
             >
                 <div className="flex items-center justify-start gap-4 w-1/4 px-2">
                     <NavigationMenuLink
-                        href="/"
+                        asChild
                         className="h-16 py-2 xl:p-0! rounded-none m-0! hover:bg-transparent"
                     >
-                        <Image
-                            src="/LOGO.svg"
-                            alt={t('logo')}
-                            height={40}
-                            width={100}
-                            className="h-full w-auto object-cover"
-                            priority
-                        />
+                        <Link href="/">
+                            <Image
+                                src="/LOGO.svg"
+                                alt={t('logo')}
+                                height={40}
+                                width={100}
+                                className="h-full w-auto object-cover"
+                                priority
+                            />
+                        </Link>
                     </NavigationMenuLink>
                     <Image
                         src="/nabh-logo.png"
@@ -230,7 +228,7 @@ export function Navbar() {
                                                         variants={itemVariants}
                                                         className="w-1/4 p-4 space-y-4  overflow-y-auto max-h-[478px]"
                                                     >
-                                                        <h4 className="font-semibold text-gray-700">Quick Links</h4>
+                                                        <h4 className="font-semibold text-gray-700">{t('quickLinks')}</h4>
                                                         {quickLinks.map((qLink) => {
                                                             const isPeripheralOPD = qLink.label === "Our Peripheral OPDs";
                                                             return isPeripheralOPD ? (
@@ -283,7 +281,7 @@ export function Navbar() {
                                                                 className="bg-indigo-100 text-black px-4 py-2 rounded-full hover:shadow-blob w-full justify-between hover:no-underline"
                                                                 title="Get in touch with us"
                                                                 onClick={() => {
-                                                                    router.push("#footer")
+                                                                    document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
                                                                 }}
                                                             >
                                                                 {t('contactUs')} <span>→</span>
@@ -306,7 +304,7 @@ export function Navbar() {
                 </NavigationMenuList>
                 <div className="w-1/4 flex items-center justify-end gap-4">
                     {/* Language Switch */}
-                    <LanguageSwitch switchLocale={switchLocale} />
+                    <LanguageSwitch switchLocale={switchLocale} result={result} />
 
                     {/* Emergency Button */}
                     <Link
@@ -318,11 +316,11 @@ export function Navbar() {
                         )}
                     >
                         <GiSiren
-                            className={`size-7 transition-colors duration-200 group-hover:text-white ${result ? "text-red-500" : "text-white"
+                            className={`size-7 transition-colors duration-200 ${result ? "text-red-500" : "text-white"
                                 }`}
                         />
                         <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-red-600 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            Emergency Care
+                            {t('emergencyCare')}
                         </span>
                     </Link>
 
@@ -336,11 +334,11 @@ export function Navbar() {
                         )}
                     >
                         <Search
-                            className={`size-4 transition-colors duration-200 group-hover:text-white ${result ? "text-synergy-blue" : "text-white"
+                            className={`size-4 transition-colors duration-200 ${result ? "text-synergy-blue" : "text-white"
                                 }`}
                         />
                         <span className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-synergy-blue px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            Search
+                            {t('search')}
                         </span>
                     </Link>
                 </div>
@@ -389,7 +387,7 @@ export function Navbar() {
                                     <SheetContent className="w-full max-w-screen h-full">
                                         <SheetHeader>
                                             <SheetTitle className="text-heading sr-only">
-                                                Synergy Super Speciality Hospital & Cancer Institute
+                                                {t('hospitalName')}
                                             </SheetTitle>
                                             <SheetDescription className="text-gray-700 sr-only">Menu</SheetDescription>
                                         </SheetHeader>
@@ -510,7 +508,7 @@ export function Navbar() {
                                             transition={{ delay: 0.3 }}
                                             className="w-full max-w-lg p-2 space-y-4 min-h-max absolute bottom-0 right-0"
                                         >
-                                            <h4 className="font-semibold text-gray-700">Quick Links</h4>
+                                            <h4 className="font-semibold text-gray-700">{t('quickLinks')}</h4>
                                             {quickLinks.map((item, i) => (
                                                 <motion.div
                                                     key={i}

@@ -59,9 +59,9 @@ export const useMenuItems = () => {
                     ],
                 },
                 {
-                    name: "Contact Us",
+                    name: t('sections.contactUs.name'),
                     links: [
-                        {label: "Synergy Contacts", href: "/contact"}
+                        { label: t('sections.contactUs.links.synergyContacts'), href: "/contact" }
                     ]
                 }
             ],
@@ -116,11 +116,11 @@ export const useMenuItems = () => {
                 {
                     name: t('sections.specializedServices.name'),
                     links: [
-                        { label: t('sections.specializedServices.links.icu'), href: "/services/specialized-services#icu" },
-                        // { label: t('sections.specializedServices.links.nicu'), href: "/services/specialized-services#nicu" },
-                        { label: t('sections.specializedServices.links.ot'), href: "/services/specialized-services#ot" },
-                        // { label: t('sections.specializedServices.links.endoscopy'), href: "/services/specialized-services#endoscopy" },
-                        { label: t('sections.specializedServices.links.physiotherapy'), href: "/services/specialized-services#physiotherapy" },
+                        { label: t('sections.specializedServices.links.icu'), href: "/services/specialized-services?tab=icu" },
+                        // { label: t('sections.specializedServices.links.nicu'), href: "/services/specialized-services?tab=nicu" },
+                        { label: t('sections.specializedServices.links.ot'), href: "/services/specialized-services?tab=ot" },
+                        // { label: t('sections.specializedServices.links.endoscopy'), href: "/services/specialized-services?tab=endoscopy" },
+                        { label: t('sections.specializedServices.links.physiotherapy'), href: "/services/specialized-services?tab=physiotherapy" },
                         { label: t('sections.specializedServices.links.viewAll'), href: "/services/specialized-services" }
                     ]
                 },
@@ -261,12 +261,12 @@ export const useMenuItems = () => {
             ]
         },
         {
-            label: "Careers",
+            label: t('careers'),
             pages: [
                 {
-                    name: "Careers",
+                    name: t('sections.careers.name'),
                     links: [
-                        {label: "Join Synergy", href:"/careers"}
+                        { label: t('sections.careers.links.joinSynergy'), href: "/careers" }
                     ]
                 }
             ]
@@ -712,26 +712,67 @@ export const ContactUsMessage = encodeURIComponent("Hello, I would like to know 
 export const phoneNumber = CONTACT_INFO.phoneNumbers.emergency;
 
 // Support services data with images
+export const useSupportServices = () => {
+    const t = useTranslations('supportServicesList');
+    return [
+        {
+            id: 1,
+            title: t('pharmacy.title'),
+            description: t('pharmacy.description'),
+            link: "/services/pharmacy",
+            image: "/images/pharmacy.webp",
+        },
+        {
+            id: 2,
+            title: t('bloodBank.title'),
+            description: t('bloodBank.description'),
+            link: "/services/blood-bank",
+            image: "/images/blood-bank.webp",
+        },
+        {
+            id: 3,
+            title: t('dietary.title'),
+            description: t('dietary.description'),
+            link: "/services/dietary",
+            image: "/images/dietary-services.webp",
+        },
+        {
+            id: 6,
+            title: t('security.title'),
+            description: t('security.description'),
+            link: "/services/security",
+            image: "/images/security-services.webp",
+        },
+        {
+            id: 7,
+            title: t('ambulance.title'),
+            description: t('ambulance.description'),
+            link: "/services/ambulance",
+            image: "/images/ambulance-services.webp",
+        }
+    ];
+};
+
 export const supportServices = [
     {
         id: 1,
         title: "Pharmacy",
         description: "24/7 pharmacy services providing all prescribed medications with expert pharmaceutical guidance and medication counseling.",
-        link: "/pharmacy",
+        link: "/services/pharmacy",
         image: "/images/pharmacy.webp",
     },
     {
         id: 2,
         title: "Blood Bank",
         description: "Fully equipped blood bank with component separation facility ensuring safe blood transfusion services and donor programs.",
-        link: "/blood-bank",
+        link: "/services/blood-bank",
         image: "/images/blood-bank.webp",
     },
     {
         id: 3,
         title: "Dietary Services",
         description: "Therapeutic meal planning and nutritional support tailored to patient needs by certified dietitians and nutrition specialists.",
-        link: "/dietary-services",
+        link: "/services/dietary",
         image: "/images/dietary-services.webp",
     },
 
@@ -739,14 +780,14 @@ export const supportServices = [
         id: 6,
         title: "Security Services",
         description: "24/7 campus security with surveillance systems, access control, and emergency response teams for patient safety.",
-        link: "/security-services",
+        link: "/services/security",
         image: "/images/security-services.webp",
     },
     {
         id: 7,
         title: "Ambulance Services",
         description: "Advanced life support ambulances with trained EMT staff for emergency transport and inter-facility transfers.",
-        link: "/ambulance-services",
+        link: "/services/ambulance",
         image: "/images/ambulance-services.webp",
     }
 ];

@@ -10,6 +10,7 @@ import {
     Sparkles,
 } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import { useTranslations } from "next-intl";
 
 export type LeadershipData = {
     name: string;
@@ -85,6 +86,8 @@ export default function LeadershipMessagePage(
         closing,
         organization,
     } = props;
+
+    const t = useTranslations("LeadershipMessagePage");
 
     const [messageRef, messageInView] = useInView({
         triggerOnce: true,
@@ -193,7 +196,7 @@ export default function LeadershipMessagePage(
                             <motion.div variants={heroFadeUp}>
                                 <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-200">
                                     <span className="h-px w-8 bg-blue-200" />
-                                    Leadership Message
+                                    {t('badge')}
                                 </span>
                             </motion.div>
 
@@ -202,7 +205,7 @@ export default function LeadershipMessagePage(
                                 variants={heroFadeUp}
                                 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
                             >
-                                A Message from
+                                {t('messageFrom')}
                                 <br />
 
                                 <span className="text-blue-200">
@@ -231,7 +234,7 @@ export default function LeadershipMessagePage(
                                 className="mt-7 max-w-2xl border-l border-white/20 pl-5"
                             >
                                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-200">
-                                    Qualifications
+                                    {t('qualifications')}
                                 </p>
 
                                 <p className="mt-2 text-sm leading-6 text-blue-100/80">
@@ -273,7 +276,7 @@ export default function LeadershipMessagePage(
                         }}
                         className="mt-12 hidden items-center justify-center gap-2 text-xs uppercase tracking-[0.18em] text-blue-200/70 lg:flex"
                     >
-                        <span>Read the message</span>
+                        <span>{t('readTheMessage')}</span>
                         <ArrowDown className="h-4 w-4" />
                     </motion.div>
 
@@ -305,7 +308,7 @@ export default function LeadershipMessagePage(
                             variants={fadeUp}
                             className="text-xs font-bold uppercase tracking-[0.2em] text-[#29498f]"
                         >
-                            From the Leadership
+                            {t('fromTheLeadership')}
                         </motion.p>
 
                         <motion.div
@@ -315,9 +318,7 @@ export default function LeadershipMessagePage(
                             <Quote className="mt-1 h-8 w-8 shrink-0 text-[#29498f]/30" />
 
                             <p className="max-w-3xl text-2xl font-semibold leading-tight text-[#152238] sm:text-3xl">
-                                Healthcare is about more than treatment.
-                                It is about trust, dignity, hope and
-                                transforming lives.
+                                {t('quote')}
                             </p>
                         </motion.div>
                     </motion.div>
@@ -444,13 +445,11 @@ export default function LeadershipMessagePage(
                             </span>
 
                             <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-[#29498f]">
-                                Looking Ahead
+                                {t('lookingAhead')}
                             </p>
 
-                            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#152238] sm:text-4xl">
-                                Our commitment
-                                <br />
-                                continues.
+                            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#152238] sm:text-4xl whitespace-pre-line">
+                                {t('commitmentHeading')}
                             </h2>
 
                             <div className="mt-6 h-px w-16 bg-[#29498f]" />

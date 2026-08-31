@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation';
 import { ImageWithFallback } from './ImageWithFallback'
 import { useTranslations } from 'next-intl';
 import { CONTACT_INFO } from '@/data/contactData';

@@ -1,6 +1,15 @@
 import { SupportServiceProps } from "@/types"
-import { FaXRay } from "react-icons/fa6"
+import {
+  FaXRay,
+  FaPills,
+  FaHandHoldingDroplet,
+  FaUtensils,
+  FaShieldHalved,
+  FaTruckMedical,
+  FaPersonWalking,
+} from "react-icons/fa6"
 import { CONTACT_INFO } from "@/data/contactData"
+import { useTranslations } from "next-intl"
 
 export const diagnosticImagingData : SupportServiceProps= {
     heroImage: "/department/diagnostic-imaging-banner.png",
@@ -270,6 +279,89 @@ export const diagnosticImagingData : SupportServiceProps= {
       ]
     }
   }
+
+  export const usePharmacyData = (): SupportServiceProps => {
+    const t = useTranslations("supportServicesData.pharmacy");
+
+    return {
+      heroImage: "/department/pharmacy-banner.png",
+      title: t("title"),
+      description: t("description"),
+      services: [
+        {
+          id: "opd",
+          title: t("services.opd.title"),
+          description: t("services.opd.description"),
+          icon: FaPills,
+          details: t("services.opd.details"),
+          commonUses: t.raw("services.opd.commonUses"),
+        },
+        {
+          id: "clinical",
+          title: t("services.clinical.title"),
+          description: t("services.clinical.description"),
+          icon: FaPills,
+          details: t("services.clinical.details"),
+          commonUses: t.raw("services.clinical.commonUses"),
+        },
+      ],
+      preparationTips: t.raw("preparationTips"),
+      whyChoose: {
+        title: t("whyChoose.title"),
+        items: [
+          {
+            badge: "1",
+            title: t("whyChoose.items.availability.title"),
+            description: t("whyChoose.items.availability.description"),
+          },
+          {
+            badge: "2",
+            title: t("whyChoose.items.accuracy.title"),
+            description: t("whyChoose.items.accuracy.description"),
+          },
+          {
+            badge: "3",
+            title: t("whyChoose.items.counsel.title"),
+            description: t("whyChoose.items.counsel.description"),
+          },
+        ],
+      },
+      faqs: [
+        {
+          question: t("faqs.delivery.question"),
+          answer: t("faqs.delivery.answer"),
+        },
+        {
+          question: t("faqs.generics.question"),
+          answer: t("faqs.generics.answer"),
+        },
+      ],
+      cta: {
+        title: t("cta.title"),
+        description: t("cta.description"),
+        buttons: [
+          {
+            text: `${t("cta.emergencyMeds")}: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
+            variant: "default",
+            href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+            onClick: () => {
+              if (typeof window !== "undefined")
+                window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}`;
+            },
+          },
+          {
+            text: t("cta.requestCallback"),
+            variant: "outline",
+            href: "/contact",
+            onClick: () => {
+              if (typeof window !== "undefined")
+                window.location.href = "/contact";
+            },
+          },
+        ],
+      },
+    };
+  };
 
   export const physiotherapyData : SupportServiceProps= {
     heroImage: "/physio-hero.jpg",
@@ -746,3 +838,418 @@ export const diagnosticImagingData : SupportServiceProps= {
     ]
   }
 }
+
+export const useBloodBankData = (): SupportServiceProps => {
+  const t = useTranslations("supportServicesData.bloodBank");
+
+  return {
+    heroImage: "/department/blood-bank-banner.png",
+    title: t("title"),
+    description: t("description"),
+    services: [
+      {
+        id: "donation",
+        title: t("services.donation.title"),
+        description: t("services.donation.description"),
+        icon: FaHandHoldingDroplet,
+        details: t("services.donation.details"),
+        commonUses: t.raw("services.donation.commonUses"),
+      },
+      {
+        id: "storage",
+        title: t("services.storage.title"),
+        description: t("services.storage.description"),
+        icon: FaHandHoldingDroplet,
+        details: t("services.storage.details"),
+        commonUses: t.raw("services.storage.commonUses"),
+      },
+    ],
+    preparationTips: t.raw("preparationTips"),
+    whyChoose: {
+      title: t("whyChoose.title"),
+      items: [
+        {
+          badge: "1",
+          title: t("whyChoose.items.safeProcessing.title"),
+          description: t("whyChoose.items.safeProcessing.description"),
+        },
+        {
+          badge: "2",
+          title: t("whyChoose.items.availability.title"),
+          description: t("whyChoose.items.availability.description"),
+        },
+        {
+          badge: "3",
+          title: t("whyChoose.items.quickTurnaround.title"),
+          description: t("whyChoose.items.quickTurnaround.description"),
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: t("faqs.frequency.question"),
+        answer: t("faqs.frequency.answer"),
+      },
+      {
+        question: t("faqs.safety.question"),
+        answer: t("faqs.safety.answer"),
+      },
+    ],
+    cta: {
+      title: t("cta.title"),
+      description: t("cta.description"),
+      buttons: [
+        {
+          text: `${t("cta.emergencyMeds")}: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
+          variant: "default",
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}`;
+          },
+        },
+        {
+          text: t("cta.requestCallback"),
+          variant: "outline",
+          href: "/contact",
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = "/contact";
+          },
+        },
+      ],
+    },
+  };
+};
+
+export const useDietaryData = (): SupportServiceProps => {
+  const t = useTranslations("supportServicesData.dietary");
+
+  return {
+    heroImage: "/department/dietary-banner.png",
+    title: t("title"),
+    description: t("description"),
+    services: [
+      {
+        id: "meal-planning",
+        title: t("services.mealPlanning.title"),
+        description: t("services.mealPlanning.description"),
+        icon: FaUtensils,
+        details: t("services.mealPlanning.details"),
+        commonUses: t.raw("services.mealPlanning.commonUses"),
+      },
+      {
+        id: "therapeutic-diets",
+        title: t("services.therapeuticDiets.title"),
+        description: t("services.therapeuticDiets.description"),
+        icon: FaUtensils,
+        details: t("services.therapeuticDiets.details"),
+        commonUses: t.raw("services.therapeuticDiets.commonUses"),
+      },
+    ],
+    preparationTips: t.raw("preparationTips"),
+    whyChoose: {
+      title: t("whyChoose.title"),
+      items: [
+        {
+          badge: "1",
+          title: t("whyChoose.items.certifiedDietitians.title"),
+          description: t("whyChoose.items.certifiedDietitians.description"),
+        },
+        {
+          badge: "2",
+          title: t("whyChoose.items.freshIngredients.title"),
+          description: t("whyChoose.items.freshIngredients.description"),
+        },
+        {
+          badge: "3",
+          title: t("whyChoose.items.customizedPlans.title"),
+          description: t("whyChoose.items.customizedPlans.description"),
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: t("faqs.familyMeals.question"),
+        answer: t("faqs.familyMeals.answer"),
+      },
+      {
+        question: t("faqs.specialNeeds.question"),
+        answer: t("faqs.specialNeeds.answer"),
+      },
+    ],
+    cta: {
+      title: t("cta.title"),
+      description: t("cta.description"),
+      buttons: [
+        {
+          text: `${t("cta.emergencyMeds")}: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
+          variant: "default",
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}`;
+          },
+        },
+        {
+          text: t("cta.requestCallback"),
+          variant: "outline",
+          href: "/contact",
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = "/contact";
+          },
+        },
+      ],
+    },
+  };
+};
+
+export const useSecurityData = (): SupportServiceProps => {
+  const t = useTranslations("supportServicesData.security");
+
+  return {
+    heroImage: "/department/security-banner.png",
+    title: t("title"),
+    description: t("description"),
+    services: [
+      {
+        id: "patrols",
+        title: t("services.patrols.title"),
+        description: t("services.patrols.description"),
+        icon: FaShieldHalved,
+        details: t("services.patrols.details"),
+        commonUses: t.raw("services.patrols.commonUses"),
+      },
+      {
+        id: "access-control",
+        title: t("services.accessControl.title"),
+        description: t("services.accessControl.description"),
+        icon: FaShieldHalved,
+        details: t("services.accessControl.details"),
+        commonUses: t.raw("services.accessControl.commonUses"),
+      },
+    ],
+    preparationTips: t.raw("preparationTips"),
+    whyChoose: {
+      title: t("whyChoose.title"),
+      items: [
+        {
+          badge: "1",
+          title: t("whyChoose.items.trainedOfficers.title"),
+          description: t("whyChoose.items.trainedOfficers.description"),
+        },
+        {
+          badge: "2",
+          title: t("whyChoose.items.rapidResponse.title"),
+          description: t("whyChoose.items.rapidResponse.description"),
+        },
+        {
+          badge: "3",
+          title: t("whyChoose.items.comprehensiveCoverage.title"),
+          description: t("whyChoose.items.comprehensiveCoverage.description"),
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: t("faqs.reportConcern.question"),
+        answer: t("faqs.reportConcern.answer"),
+      },
+      {
+        question: t("faqs.weaponsAllowed.question"),
+        answer: t("faqs.weaponsAllowed.answer"),
+      },
+    ],
+    cta: {
+      title: t("cta.title"),
+      description: t("cta.description"),
+      buttons: [
+        {
+          text: `${t("cta.emergencyMeds")}: ${CONTACT_INFO.phoneNumbers.emergencyFormatted}`,
+          variant: "default",
+          href: `tel:${CONTACT_INFO.phoneNumbers.emergency}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.emergency}`;
+          },
+        },
+        {
+          text: `${t("cta.requestCallback")}: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
+          variant: "outline",
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}`;
+          },
+        },
+      ],
+    },
+  };
+};
+
+export const useAmbulanceData = (): SupportServiceProps => {
+  const t = useTranslations("supportServicesData.ambulance");
+
+  return {
+    heroImage: "/department/ambulance-service-banner.png",
+    title: t("title"),
+    description: t("description"),
+    services: [
+      {
+        id: "als",
+        title: t("services.als.title"),
+        description: t("services.als.description"),
+        icon: FaTruckMedical,
+        details: t("services.als.details"),
+        commonUses: t.raw("services.als.commonUses"),
+      },
+      {
+        id: "bls",
+        title: t("services.bls.title"),
+        description: t("services.bls.description"),
+        icon: FaTruckMedical,
+        details: t("services.bls.details"),
+        commonUses: t.raw("services.bls.commonUses"),
+      },
+    ],
+    preparationTips: t.raw("preparationTips"),
+    whyChoose: {
+      title: t("whyChoose.title"),
+      items: [
+        {
+          badge: "1",
+          title: t("whyChoose.items.quickResponse.title"),
+          description: t("whyChoose.items.quickResponse.description"),
+        },
+        {
+          badge: "2",
+          title: t("whyChoose.items.advancedEquipment.title"),
+          description: t("whyChoose.items.advancedEquipment.description"),
+        },
+        {
+          badge: "3",
+          title: t("whyChoose.items.trainedStaff.title"),
+          description: t("whyChoose.items.trainedStaff.description"),
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: t("faqs.emergencyNumber.question"),
+        answer: t("faqs.emergencyNumber.answer"),
+      },
+      {
+        question: t("faqs.interHospital.question"),
+        answer: t("faqs.interHospital.answer"),
+      },
+    ],
+    cta: {
+      title: t("cta.title"),
+      description: t("cta.description"),
+      buttons: [
+        {
+          text: `${t("cta.emergencyMeds")}: ${CONTACT_INFO.phoneNumbers.emergencyFormatted}`,
+          variant: "default",
+          href: `tel:${CONTACT_INFO.phoneNumbers.emergency}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.emergency}`;
+          },
+        },
+        {
+          text: `${t("cta.requestCallback")}: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
+          variant: "outline",
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}`;
+          },
+        },
+      ],
+    },
+  };
+};
+
+export const usePhysiotherapyData = (): SupportServiceProps => {
+  const t = useTranslations("supportServicesData.physiotherapy");
+
+  return {
+    heroImage: "/physio-hero.jpg",
+    title: t("title"),
+    description: t("description"),
+    services: [
+      {
+        id: "ortho",
+        title: t("services.ortho.title"),
+        description: t("services.ortho.description"),
+        icon: FaPersonWalking,
+        details: t("services.ortho.details"),
+        commonUses: t.raw("services.ortho.commonUses"),
+      },
+      {
+        id: "neuro",
+        title: t("services.neuro.title"),
+        description: t("services.neuro.description"),
+        icon: FaPersonWalking,
+        details: t("services.neuro.details"),
+        commonUses: t.raw("services.neuro.commonUses"),
+      },
+    ],
+    preparationTips: t.raw("preparationTips"),
+    whyChoose: {
+      title: t("whyChoose.title"),
+      items: [
+        {
+          badge: "1",
+          title: t("whyChoose.items.personalizedPlans.title"),
+          description: t("whyChoose.items.personalizedPlans.description"),
+        },
+        {
+          badge: "2",
+          title: t("whyChoose.items.modernEquipment.title"),
+          description: t("whyChoose.items.modernEquipment.description"),
+        },
+        {
+          badge: "3",
+          title: t("whyChoose.items.experiencedTherapists.title"),
+          description: t("whyChoose.items.experiencedTherapists.description"),
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: t("faqs.sessionLength.question"),
+        answer: t("faqs.sessionLength.answer"),
+      },
+      {
+        question: t("faqs.referral.question"),
+        answer: t("faqs.referral.answer"),
+      },
+    ],
+    cta: {
+      title: t("cta.title"),
+      description: t("cta.description"),
+      buttons: [
+        {
+          text: `${t("cta.emergencyMeds")}: ${CONTACT_INFO.phoneNumbers.primaryFormatted}`,
+          variant: "default",
+          href: `tel:${CONTACT_INFO.phoneNumbers.primary}`,
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = `tel:${CONTACT_INFO.phoneNumbers.primary}`;
+          },
+        },
+        {
+          text: t("cta.requestCallback"),
+          variant: "outline",
+          href: "/contact",
+          onClick: () => {
+            if (typeof window !== "undefined")
+              window.location.href = "/contact";
+          },
+        },
+      ],
+    },
+  };
+};

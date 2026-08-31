@@ -7,17 +7,21 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
-
-const formSchema = z.object({
-    name: z.string().min(3, "Name must be at least 3 characters").max(80, "Name is too long"),
-    number: z.string()
-        .min(10, "Number must be at least 10 digits")
-        .max(13, "Number is too long")
-        .regex(/^[0-9]+$/, "Must be a valid number")
-});
+import { useEffect, useMemo } from "react"
+import { useTranslations } from "next-intl"
 
 export default function RequestCallBackForm() {
+    const t = useTranslations("footer.requestCallback");
     const [state, handleFormspreeSubmit] = useFormspreeForm("mwpoaewv");
+
+    const formSchema = useMemo(() => z.object({
+        name: z.string().min(3, t("validation.nameMin")).max(80, t("validation.nameMax")),
+        number: z.string()
+            .min(10, t("validation.phoneMin"))
+            .max(13, t("validation.phoneMax"))
+            .regex(/^[0-9]+$/, t("validation.phoneInvalid"))
+    }), [t]);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -26,17 +30,20 @@ export default function RequestCallBackForm() {
         }
     });
 
+    useEffect(() => {
+        if (state.succeeded) {
+            toast.success(t("toast.success"), {
+                description: t("toast.successDesc"),
+            });
+            form.reset();
+        }
+    }, [state.succeeded, t, form]);
+
     const onSubmit = async (data: z.infer<typeof formSchema>) => {
         try {
             await handleFormspreeSubmit(data);
-            if(state.succeeded){
-                toast.success("Callback request submitted successfully!", {
-                    description: "We'll contact you shortly.",
-                });
-                form.reset();
-            }
         } catch (error) {
-            toast.error(`Failed to submit the form. Please try again. ${error} `);
+            toast.error(`${t("toast.error")} ${error}`);
         }
     };
 
@@ -53,12 +60,12 @@ export default function RequestCallBackForm() {
                     render={({ field, fieldState }) => (
                         <div data-invalid={fieldState.invalid}>
                             <label htmlFor="name" className="block text-xs md:text-sm font-medium mb-1">
-                                Full Name
+                                {t("fullName")}
                             </label>
                             <Input
                                 {...field}
                                 id="name"
-                                placeholder="Enter your full name"
+                                placeholder={t("namePlaceholder")}
                                 className="text-gray-800 placeholder:text-neutral-500 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                 type="text"
                                 aria-invalid={fieldState.invalid}
@@ -77,12 +84,12 @@ export default function RequestCallBackForm() {
                     render={({ field, fieldState }) => (
                         <div data-invalid={fieldState.invalid}>
                             <label htmlFor="number" className="block text-xs md:text-sm font-medium mb-1">
-                                Phone Number
+                                {t("phone")}
                             </label>
                             <Input
                                 {...field}
                                 id="number"
-                                placeholder="Enter 10-digit phone number"
+                                placeholder={t("phonePlaceholder")}
                                 className="text-gray-800 placeholder:text-neutral-500 font-medium h-10 md:h-11 text-xs md:text-sm border-primary"
                                 type="number"
                                 aria-invalid={fieldState.invalid}
@@ -102,7 +109,7 @@ export default function RequestCallBackForm() {
                     size="default"
                     disabled={state.submitting}
                 >
-                    {state.submitting ? "Submitting..." : "Request Callback"}
+                    {state.submitting ? t("submitting") : t("submit")}
                 </Button>
             </div>
         </form>

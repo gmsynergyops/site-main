@@ -68,9 +68,9 @@ export const OurLeaders = () => {
                             >
                                 <LeaderCard
                                     image={leader.image || "/fallback-image.webp"}
-                                    name={leader.name || "Leader Name"}
-                                    role={leader.role || "Senior Doctor"}
-                                    description={leader.description || "No description provided"}
+                                    name={leader.name || t('defaultName')}
+                                    role={leader.role || t('defaultRole')}
+                                    description={leader.description || t('defaultDescription')}
                                     onReadMore={leader.onReadMore}
                                 />
                             </motion.div>

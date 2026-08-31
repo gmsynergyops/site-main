@@ -1,7 +1,7 @@
 'use client';
 
 import { CalendarCheck, Hospital, MapPin, Search as SearchIcon, Star, Stethoscope, Syringe } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { useState } from 'react';
 import { GiFirstAidKit } from 'react-icons/gi';

@@ -14,6 +14,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 type SharePlatform = 'facebook' | 'twitter' | 'linkedin' | 'email' | 'sms' | 'whatsapp' | 'copy';
 
@@ -25,20 +26,22 @@ interface ShareButtonProps {
 }
 
 const ShareButton = ({
-  shareText = "Check out this article!",
+  shareText,
   shareUrl = typeof window !== 'undefined' ? window.location.href : '',
   className = '',
   children
 }: ShareButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('shareButton');
+  const textContent = shareText || t('defaultShareText');
 
   const shareOnPlatform = (platform: SharePlatform) => {
     const url = encodeURIComponent(shareUrl);
-    const text = encodeURIComponent(shareText);
+    const text = encodeURIComponent(textContent);
 
     if (platform === 'copy') {
       navigator.clipboard.writeText(shareUrl);
-      toast.success('Link copied to clipboard!');
+      toast.success(t('linkCopied'));
       setIsOpen(false);
       return;
     }
@@ -57,13 +60,13 @@ const ShareButton = ({
   };
 
   const platformIcons = [
-    { platform: 'facebook', icon: <FaFacebookF className="text-blue-600" />, label: 'Facebook' },
-    { platform: 'twitter', icon: <FaXTwitter className="text-black" />, label: 'X' },
-    { platform: 'linkedin', icon: <FaLinkedinIn className="text-blue-700" />, label: 'LinkedIn' },
-    { platform: 'whatsapp', icon: <FaWhatsapp className="text-green-500" />, label: 'WhatsApp' },
-    { platform: 'email', icon: <FaEnvelope className="text-red-400" />, label: 'Email' },
-    { platform: 'sms', icon: <FaSms className="text-blue-400" />, label: 'SMS' },
-    { platform: 'copy', icon: <FaLink className="text-gray-600" />, label: 'Copy Link' }
+    { platform: 'facebook', icon: <FaFacebookF className="text-blue-600" />, label: t('platforms.facebook') },
+    { platform: 'twitter', icon: <FaXTwitter className="text-black" />, label: t('platforms.twitter') },
+    { platform: 'linkedin', icon: <FaLinkedinIn className="text-blue-700" />, label: t('platforms.linkedin') },
+    { platform: 'whatsapp', icon: <FaWhatsapp className="text-green-500" />, label: t('platforms.whatsapp') },
+    { platform: 'email', icon: <FaEnvelope className="text-red-400" />, label: t('platforms.email') },
+    { platform: 'sms', icon: <FaSms className="text-blue-400" />, label: t('platforms.sms') },
+    { platform: 'copy', icon: <FaLink className="text-gray-600" />, label: t('platforms.copyLink') }
   ];
 
   return (

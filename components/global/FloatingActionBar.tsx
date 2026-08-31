@@ -15,7 +15,7 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { CONTACT_INFO } from "@/data/contactData";
 
 
@@ -43,13 +43,13 @@ const router = useRouter()
 
     // Process items to use the open function for "Book Appointment" buttons
     const processedItems = items.map(item => {
-        if (item.label === "Book Appointment") {
+        if (item.icon?.includes("online-appointment") || item.label === "Book Appointment") {
             return {
                 ...item,
-                onClick:  () => { router.push("/book-appointment")}
+                onClick: () => { router.push("/book-appointment"); }
             };
         }
-        if (item.label === "Hospitals") {
+        if (item.icon?.includes("hospital") || item.label === "Hospitals") {
             return {
                 ...item,
                 onClick: () => {
@@ -57,7 +57,7 @@ const router = useRouter()
                 }
             };
         }
-        if (item.label === "Call Us") {
+        if (item.icon?.includes("phone") || item.label === "Call Us") {
             return {
                 ...item,
                 onClick: () => {

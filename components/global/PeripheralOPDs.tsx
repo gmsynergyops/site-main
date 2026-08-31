@@ -22,7 +22,7 @@ import { useState } from 'react';
 import { DoctorCard } from './DoctorCard';
 import { ArrowUpDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 // Helper function to get day order for sorting

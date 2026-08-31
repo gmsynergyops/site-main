@@ -19,7 +19,7 @@ import {
     PlusIcon,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect, useState } from "react";
 import { ImageWithFallback } from "../global/ImageWithFallback";
 import { Badge } from "../ui/badge";
@@ -199,13 +199,13 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                     <CardDescription className="text-neutral-600 text-xs sm:text-sm leading-normal mb-2 line-clamp-3">
                         {props.heroTitle + " " + props.heroSubtitle} ...
                         <Link href={`/services/${props.slug}`} className="ml-1 sm:ml-2 underline hover:text-primary text-xs sm:text-sm">
-                            Learn about {props.name}
+                            {t('learnAbout')} {props.name}
                         </Link>
                     </CardDescription>
                 </CardHeader>
 
                 <CardContent className="w-full p-0!">
-                    <p className="font-medium text-xs sm:text-sm mb-2">Top Specialities & Procedures</p>
+                    <p className="font-medium text-xs sm:text-sm mb-2">{t('topSpecialities')}</p>
                     <div className="flex flex-wrap gap-1 sm:gap-2 py-1">
                         {props.treatments.items
                             .slice(0, showAll ? props.treatments.items.length : 3)
@@ -230,7 +230,7 @@ const SliderCard = ({ props, t }: { props: DepartmentData, t: (key: string) => s
                                 ) : (
                                     <PlusIcon className="size-2 sm:size-3 mr-1" />
                                 )}
-                                {showAll ? "Less" : `${props.treatments.items.length - 3} more`}
+                                {showAll ? t('less') : `${props.treatments.items.length - 3} ${t('more')}`}
                             </Badge>
                         )}
                     </div>

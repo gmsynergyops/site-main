@@ -2,7 +2,7 @@
 
 import { useGalleryItems } from "@/data/mediaData";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import Marquee from 'react-fast-marquee';
 import { MdArrowOutward } from "react-icons/md";
 import { Button } from '../ui/button';

@@ -2,11 +2,12 @@
 
 import { usePathname } from "next/navigation";
 import { useCentersData } from "@/data/centersData";
+import { useTranslations } from "next-intl";
 import { ImageWithFallback } from "@/components/global/ImageWithFallback";
 import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { Link } from '@/i18n/navigation';
 import {
   MdArrowForward,
   MdDirections,
@@ -66,6 +67,7 @@ const newYorkTypography = {
 
 export default function CentersPage() {
   const pathname = usePathname();
+  const t = useTranslations("CentersPage");
 
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
@@ -94,22 +96,22 @@ export default function CentersPage() {
       <main className="min-h-[70vh] flex items-center justify-center px-6">
         <div className="max-w-xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.2em] font-mono text-synergy-blue/50 mb-4">
-            Centres
+            {t("ourCentres")}
           </p>
 
           <h1 className="text-4xl font-display font-bold text-gray-900 mb-5">
-            Page Not Found
+            {t("pageNotFound")}
           </h1>
 
           <p className="text-lg text-gray-600 mb-8">
-            The requested centre page does not exist.
+            {t("centreNotFoundDesc")}
           </p>
 
           <Link
             href="/centers/network"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-synergy-blue text-white font-medium hover:opacity-90 transition"
           >
-            View Our Centres
+            {t("viewOurCentres")}
             <MdArrowForward size={18} />
           </Link>
         </div>
@@ -206,7 +208,7 @@ export default function CentersPage() {
           >
             <span className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-mono text-synergy-blue/50 mb-4">
               <span className="w-8 h-px bg-synergy-pink" />
-              Our Centres
+              {t("ourCentres")}
               <span className="w-8 h-px bg-synergy-pink" />
             </span>
 
@@ -217,12 +219,11 @@ export default function CentersPage() {
                 fontWeight: 600,
               }}
             >
-              Care, where it matters.
+              {t("careWhereItMatters")}
             </h2>
 
             <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Synergy currently operates two centres in Gorakhpur, helping
-              patients access specialised cancer care closer to home.
+              {t("centresIntro")}
             </p>
           </motion.div>
 
@@ -297,7 +298,7 @@ export default function CentersPage() {
 
                           <div>
                             <p className="text-xs uppercase tracking-[0.15em] font-mono text-gray-400 mb-1">
-                              Address
+                              {t("address")}
                             </p>
 
                             <p className="text-sm md:text-base text-gray-700 leading-relaxed">
@@ -320,7 +321,7 @@ export default function CentersPage() {
                           )}
                         >
                           <MdDirections size={18} />
-                          Get Directions
+                          {t("getDirections")}
                         </a>
 
                         <a
@@ -328,7 +329,7 @@ export default function CentersPage() {
                           className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-synergy-blue bg-white border border-black/10 hover:border-synergy-blue transition"
                         >
                           <MdPhone size={17} />
-                          Call Us
+                          {t("callUs")}
                         </a>
                       </div>
                     </div>
@@ -349,7 +350,7 @@ export default function CentersPage() {
                       <div className="absolute top-5 left-5 pointer-events-none">
                         <div className="px-4 py-2 rounded-full bg-white/90 backdrop-blur-md shadow-md border border-white">
                           <span className="text-xs font-mono uppercase tracking-wider text-synergy-blue">
-                            Centre {center.number}
+                            {t("centreBadge")} {center.number}
                           </span>
                         </div>
                       </div>
@@ -386,7 +387,7 @@ export default function CentersPage() {
             className="max-w-4xl mx-auto text-center px-4 mb-12 md:mb-16"
           >
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-synergy-blue/50">
-              Find Your Centre
+              {t("findCenterTag")}
             </span>
 
             <h2
@@ -396,12 +397,11 @@ export default function CentersPage() {
                 fontWeight: 600,
               }}
             >
-              Which Synergy Centre Is Right For You?
+              {t("findCenterTitle")}
             </h2>
 
             <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Synergy currently operates two centres in Gorakhpur. Choose the
-              location based on the type of care or treatment you need.
+              {t("findCenterSubtitle")}
             </p>
           </motion.div>
 
@@ -422,7 +422,7 @@ export default function CentersPage() {
                   </span>
 
                   <span className="px-3 py-1.5 rounded-full bg-white text-xs uppercase tracking-wider text-synergy-blue">
-                    Main Hospital
+                    {pageData.centers?.[0]?.shortName || "Main Hospital"}
                   </span>
                 </div>
 
@@ -433,19 +433,18 @@ export default function CentersPage() {
                     fontWeight: 600,
                   }}
                 >
-                  Comprehensive Cancer Care
+                  {t("comprehensiveCareTitle")}
                 </h3>
 
                 <p className="text-gray-600 leading-relaxed mb-7">
-                  Our main hospital provides comprehensive cancer care with
-                  outpatient, inpatient and surgical services under one roof.
+                  {t("mainHospitalDesc")}
                 </p>
 
                 <div className="space-y-3 mb-8">
                   {[
-                    "OPD consultations",
-                    "IPD care",
-                    "Surgical care",
+                    t("opdConsultations"),
+                    t("ipdCare"),
+                    t("surgicalCare"),
                   ].map((item) => (
                     <div
                       key={item}
@@ -461,7 +460,7 @@ export default function CentersPage() {
                   href="/centers/network"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-synergy-blue group-hover:gap-3 transition-all"
                 >
-                  View Centre Details
+                  {t("viewCentreDetails")}
                   <MdArrowForward size={18} />
                 </Link>
               </motion.div>
@@ -478,7 +477,7 @@ export default function CentersPage() {
                   </span>
 
                   <span className="px-3 py-1.5 rounded-full bg-white text-xs uppercase tracking-wider text-synergy-pink">
-                    Radiation Centre
+                    {pageData.centers?.[1]?.shortName || "Radiation Centre"}
                   </span>
                 </div>
 
@@ -489,19 +488,18 @@ export default function CentersPage() {
                     fontWeight: 600,
                   }}
                 >
-                  Radiation & Day Care
+                  {t("radiationDayCareTitle")}
                 </h3>
 
                 <p className="text-gray-600 leading-relaxed mb-7">
-                  Our radiation centre and day-care facility extends
-                  specialised cancer care closer to patients in Gorakhpur.
+                  {t("radiationCenterDesc")}
                 </p>
 
                 <div className="space-y-3 mb-8">
                   {[
-                    "Radiation care",
-                    "Day-care services",
-                    "Specialised cancer care",
+                    t("radiationCare"),
+                    t("dayCareServices"),
+                    t("specialisedCancerCare"),
                   ].map((item) => (
                     <div
                       key={item}
@@ -517,7 +515,7 @@ export default function CentersPage() {
                   href="/centers/network"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-synergy-blue group-hover:gap-3 transition-all"
                 >
-                  View Centre Details
+                  {t("viewCentreDetails")}
                   <MdArrowForward size={18} />
                 </Link>
               </motion.div>
@@ -544,7 +542,7 @@ export default function CentersPage() {
             className="max-w-4xl mx-auto text-center px-4 mb-12 md:mb-16"
           >
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-synergy-blue/50">
-              Outstation Support
+              {t("outstationTag")}
             </span>
 
             <h2
@@ -554,13 +552,11 @@ export default function CentersPage() {
                 fontWeight: 600,
               }}
             >
-              Your Care Journey, Coordinated.
+              {t("outstationTitle")}
             </h2>
 
             <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Coming to Gorakhpur from another city or town? Our team helps
-              coordinate your visit so you can focus on your care rather than
-              the logistics.
+              {t("outstationSubtitle")}
             </p>
           </motion.div>
 
@@ -587,18 +583,18 @@ export default function CentersPage() {
                       fontWeight: 600,
                     }}
                   >
-                    Before You Travel
+                    {t("beforeYouTravel")}
                   </h3>
 
                   <p className="text-gray-600 leading-relaxed mb-5">
-                    Prepare your visit before making the journey to Gorakhpur.
+                    {t("beforeYouTravelDesc")}
                   </p>
 
                   <div className="space-y-3">
                     {[
-                      "Appointment scheduling support",
-                      "Treatment planning before travel",
-                      "Guidance on the appropriate Synergy centre",
+                      t("appointmentScheduling"),
+                      t("treatmentPlanning"),
+                      t("guidanceCenter"),
                     ].map((item) => (
                       <div
                         key={item}
@@ -630,19 +626,18 @@ export default function CentersPage() {
                       fontWeight: 600,
                     }}
                   >
-                    When You Reach Synergy
+                    {t("whenYouReach")}
                   </h3>
 
                   <p className="text-gray-600 leading-relaxed mb-5">
-                    Our team helps coordinate your visit and guide you towards
-                    the appropriate care team.
+                    {t("whenYouReachDesc")}
                   </p>
 
                   <div className="space-y-3">
                     {[
-                      "Coordination with the appropriate Synergy care team",
-                      "Consultation and treatment coordination",
-                      "Clear guidance on the next steps",
+                      t("coordinationCareTeam"),
+                      t("consultationCoordination"),
+                      t("clearGuidance"),
                     ].map((item) => (
                       <div
                         key={item}
@@ -674,19 +669,18 @@ export default function CentersPage() {
                       fontWeight: 600,
                     }}
                   >
-                    Follow-up & Continuity
+                    {t("followUpContinuity")}
                   </h3>
 
                   <p className="text-gray-600 leading-relaxed mb-5">
-                    Your care journey continues after your visit. Our team can
-                    help coordinate future visits and follow-up.
+                    {t("followUpDesc")}
                   </p>
 
                   <div className="space-y-3">
                     {[
-                      "Guidance for follow-up visits",
-                      "Coordination between local centres and the main hospital",
-                      "Support with planning future visits",
+                      t("guidanceFollowUp"),
+                      t("coordinationLocalMain"),
+                      t("supportPlanning"),
                     ].map((item) => (
                       <div
                         key={item}
@@ -710,7 +704,7 @@ export default function CentersPage() {
           >
             <div className="rounded-3xl bg-blue-50 border border-blue-100 p-7 md:p-10">
               <span className="text-xs uppercase tracking-[0.2em] font-mono text-synergy-blue/50">
-                Beyond The Hospital
+                {t("beyondHospital")}
               </span>
 
               <h3
@@ -720,21 +714,19 @@ export default function CentersPage() {
                   fontWeight: 600,
                 }}
               >
-                Community Outreach
+                {t("communityOutreach")}
               </h3>
 
               <p className="text-gray-600 leading-relaxed max-w-3xl mb-7">
-                Synergy also takes cancer awareness and early-detection
-                initiatives beyond the hospital through community outreach
-                programmes and screening activities.
+                {t("communityOutreachDesc")}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3">
                 {[
-                  "Cancer awareness",
-                  "Screening",
-                  "Early detection",
-                  "Initial consultation and referral",
+                  t("cancerScreening"),
+                  t("earlyDetection"),
+                  t("awarenessEducation"),
+                  t("initialConsultation"),
                 ].map((item) => (
                   <div
                     key={item}
@@ -839,10 +831,10 @@ export default function CentersPage() {
             className={`${newYorkTypography.h1} mb-6 text-white`}
           >
             {isOutstation
-              ? "Planning your visit to Gorakhpur?"
+              ? t("ctaOutstationTitle")
               : isFindCenter
-                ? "Still not sure where to begin?"
-                : "Not sure where to start?"}
+                ? t("ctaFindCenterTitle")
+                : t("ctaNotSureTitle")}
           </motion.h2>
 
           <motion.p
@@ -850,8 +842,8 @@ export default function CentersPage() {
             className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             {isOutstation
-              ? "Speak with our care team before you travel and let us help coordinate your visit."
-              : "Our team will help you find the right centre and guide you through the next steps."}
+              ? t("ctaOutstationDesc")
+              : t("ctaDefaultDesc")}
           </motion.p>
 
           <motion.div
@@ -862,14 +854,14 @@ export default function CentersPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-3.5 w-full sm:w-auto rounded-full font-serif font-bold shadow-md bg-white text-blue-900 hover:bg-gray-100 transition-colors"
             >
-              Talk to Our Care Team
+              {t("talkToCareTeam")}
             </Link>
 
             <Link
               href="/centers/network"
               className="inline-flex items-center justify-center px-8 py-3.5 w-full sm:w-auto rounded-full font-serif font-bold shadow-md border-2 border-white text-white hover:bg-white/10 transition-colors"
             >
-              View Our Centres
+              {t("viewOurCentres")}
             </Link>
           </motion.div>
         </div>

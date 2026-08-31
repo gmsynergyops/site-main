@@ -113,7 +113,7 @@ const AyushmaanBharatCard = () => {
                 {/* 3. FULL WIDTH TEXT PARAGRAPH */}
                 <div className="px-5 sm:px-5 md:px-5 pb-4 pt-4 bg-white">
                     <p className="text-base text-sm sm:text-sm md:text-md text-slate-600 text-justify font-medium">
-                        The Ayushmaan Bharat Card, launched under the Pradhan Mantri Jan Arogya Yojana (PM-JAY), is a revolutionary step toward providing universal health coverage in India. It offers cashless healthcare services up to ₹5 lakh per family per year for secondary and tertiary hospitalization across public and private empanelled hospitals. Targeting economically vulnerable families, the scheme ensures access to quality healthcare without financial hardship. Beneficiaries can avail treatments for a wide range of diseases, surgeries, and medical procedures. With minimal documentation, quick approvals, and a vast network of hospitals, Ayushmaan Bharat empowers millions to lead healthier, more secure lives with dignity.
+                        {t('description')}
                     </p>
                 </div>
 

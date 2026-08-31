@@ -7,17 +7,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useGeneralQuestions } from "@/data"
 import { SupportServiceProps } from "@/types"
 import type { VariantProps } from "class-variance-authority"
-import Link from "next/link"
+import { Link } from '@/i18n/navigation';
+import { useTranslations } from "next-intl"
 
 export const SupportServicePage = ({
     heroImage,
     title,
+    description,
     services,
     preparationTips,
     whyChoose,
+    faqs,
     cta
 }: SupportServiceProps) => {
     const generalQuestions = useGeneralQuestions()
+    const t = useTranslations('supportService')
 
     // const scrollToSection = (id: string) => {
     //     const element = document.getElementById(id);
@@ -38,16 +42,19 @@ export const SupportServicePage = ({
                     
                     className=" object-cover w-full h-auto aspect-5:3"
                 />
-                {/* <div className="absolute inset-0 bg-linear-to-r from-blue-900/80 to-transparent flex items-center px-8">
-                    <div className="max-w-2xl">
-                        <h1 className="text-4xl font-bold text-white mb-4">{title}</h1>
-                        <p className="text-lg text-blue-100 mb-6">{description}</p>
-                        <Button className="bg-white text-blue-900 hover:bg-blue-100">
-                            Get Started
-                        </Button>
-                    </div>
-                </div> */}
             </section>
+
+            {/* Title & Description Header */}
+            <div className="mb-12 text-center max-w-3xl mx-auto">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-900 mb-4">
+                    {title}
+                </h1>
+                {description && (
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                        {description}
+                    </p>
+                )}
+            </div>
 
             {/* Services Grid */}
             <section className="mb-16">
@@ -90,7 +97,7 @@ export const SupportServicePage = ({
             <section className="grid md:grid-cols-2 gap-12 mb-16">
                 <div>
                     <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                        Preparation Guidelines
+                        {t('preparationGuidelines')}
                     </h2>
                     <ul className="space-y-3">
                         {preparationTips.map((tip, index) => (
@@ -102,9 +109,9 @@ export const SupportServicePage = ({
                     </ul>
                 </div>
                 <div>
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">FAQs</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t('faqs')}</h2>
                     <div className="space-y-4">
-                        <FaqAccordion items={generalQuestions} />
+                        <FaqAccordion items={faqs && faqs.length > 0 ? faqs : generalQuestions} />
                     </div>
                 </div>
             </section>

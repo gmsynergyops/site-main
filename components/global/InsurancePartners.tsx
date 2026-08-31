@@ -1,6 +1,7 @@
 // components/global/InsurancePartners.tsx
 import React from 'react';
 import { ImageWithFallback } from '@/components/global/ImageWithFallback';
+import { useTranslations } from 'next-intl';
 
 const insuranceCompanies = [
         { name: 'Star Health and Allied Insurance Company', logo: "/insurance-companies/Star_Health_and_Allied_Insurance.svg.png" },
@@ -21,10 +22,12 @@ const insuranceCompanies = [
 ];
 
 const InsurancePartners = () => {
+    const t = useTranslations('insurancePartners');
+
     return (
         <section className="py-16 px-4 bg-gray-50">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">Our Insurance Partners</h2>
+                <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">{t('title')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {insuranceCompanies.map((company, index) => (
                         <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex justify-start items-center w-full gap-x-4">

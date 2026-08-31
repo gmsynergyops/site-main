@@ -2,25 +2,25 @@
 
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import {
-    Activity,
-    BedDouble,
     Check,
     HeartPulse,
-    PersonStanding,
     Phone,
-    Scissors,
     ShieldCheck,
-    Siren,
-    Syringe,
-    Users,
 } from "lucide-react";
 import Image from "next/image";
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
-import { useState, useEffect } from "react";
-import type { LucideIcon } from "lucide-react";
-import Link from "next/link";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import { Link } from '@/i18n/navigation';
 import { GiSiren } from "react-icons/gi";
 import { CONTACT_INFO } from "@/data/contactData";
+import { useTranslations } from "next-intl";
+import {
+    useSpecializedServicesData,
+    serviceKeys,
+    ServiceKey,
+    Block,
+} from "@/data/specializedServicesData";
 
 /* ------------------------------------------------------------------ */
 /*  Type pairing                                                       */
@@ -46,315 +46,6 @@ const mono = IBM_Plex_Mono({
     weight: ["400", "500"],
     variable: "--font-mono",
 });
-
-/* ------------------------------------------------------------------ */
-/*  Data                                                                */
-/*  Only ICU, OT and Physiotherapy have confirmed client copy.         */
-/*  NICU and Endoscopy are intentionally left out until real content   */
-/*  is provided — add another key to `services` when it's ready.       */
-/* ------------------------------------------------------------------ */
-
-type ServiceKey = "ICU" | "OT" | "PHYSIOTHERAPY";
-
-type StatItem = { value: string; label: string };
-type ChecklistItem = { kind: "line"; text: string } | { kind: "card"; title: string; desc: string };
-type Block = { title: string; icon: LucideIcon; type: "check" | "tag"; items: string[] };
-
-type Service = {
-    label: string;
-    shortLabel: string;
-    title: string;
-    subtitle: string;
-    description: string;
-    secondaryDescription: string;
-    icon: LucideIcon;
-    stats: StatItem[];
-    servicesTitle: string;
-    serviceItems: ChecklistItem[];
-    blocks: Block[];
-    whyTitle: string;
-    why: string[];
-    commitment?: string;
-    images: string[];
-};
-
-const line = (text: string): ChecklistItem => ({ kind: "line", text });
-
-const services: Record<ServiceKey, Service> = {
-    ICU: {
-        label: "Intensive Care Unit",
-        shortLabel: "ICU",
-        title: "Advanced Critical Care.",
-        subtitle: "Compassionate Healing.",
-        description:
-            "At Synergy Super Speciality Hospital & Cancer Institute, our Intensive Care Unit is designed to provide comprehensive, round-the-clock care for patients with life-threatening illnesses, severe injuries, and post-operative critical conditions.",
-        secondaryDescription:
-            "Our multidisciplinary critical care team combines clinical expertise with advanced monitoring technology to deliver timely, evidence-based treatment in a safe and compassionate environment.",
-        icon: HeartPulse,
-        stats: [
-            { value: "24×7", label: "Critical care" },
-            { value: "Multi", label: "Parameter monitoring" },
-            { value: "Adult", label: "Dedicated ICU" },
-        ],
-        servicesTitle: "Our ICU Services",
-        serviceItems: [
-            "24×7 Critical Care Management",
-            "Multi-Parameter Bedside Monitoring",
-            "Advanced Mechanical Ventilator Support",
-            "High Flow Nasal Oxygen (HFNO)",
-            "Non-Invasive Ventilation (BiPAP/CPAP)",
-            "Invasive Hemodynamic Monitoring",
-            "Central Venous & Arterial Line Monitoring",
-            "Emergency Resuscitation & Code Blue Response",
-            "Post-Operative Intensive Care",
-            "Sepsis & Septic Shock Management",
-            "Stroke & Neurological Critical Care",
-            "Cardiac Monitoring & Critical Cardiac Care",
-            "Trauma & Accident Critical Care",
-            "Renal Support & Dialysis Coordination",
-            "Nutritional & Rehabilitation Support",
-        ].map(line),
-        blocks: [
-            {
-                title: "Conditions We Treat",
-                icon: Siren,
-                type: "tag",
-                items: [
-                    "Severe infections and sepsis",
-                    "Respiratory failure",
-                    "Cardiac emergencies",
-                    "Stroke & neurological disorders",
-                    "Multi-organ failure",
-                    "Poisoning & drug overdose",
-                    "Major trauma & road traffic accidents",
-                    "Post-operative complications",
-                    "Acute kidney injury",
-                    "Cancer-related critical illnesses",
-                    "Shock & emergency conditions",
-                ],
-            },
-            {
-                title: "ICU Facilities",
-                icon: BedDouble,
-                type: "check",
-                items: [
-                    "Dedicated Adult ICU",
-                    "Central Oxygen & Medical Gas Pipeline",
-                    "Isolation Beds for Infection Control",
-                    "Computerized Documentation",
-                    "Infusion & Syringe Pumps",
-                    "Defibrillator & Crash Cart",
-                    "Portable Ultrasound Support",
-                    "ABG (Arterial Blood Gas) Analysis",
-                    "Emergency Laboratory & Imaging Support",
-                    "24×7 Pharmacy Services",
-                    "Strict Infection Prevention Protocols",
-                ],
-            },
-        ],
-        whyTitle: "Why Choose Synergy ICU?",
-        why: [
-            "Highly Experienced Critical Care Team",
-            "24×7 Intensivist Supervision",
-            "Evidence-Based Treatment Protocols",
-            "NABH Standard Patient Safety Practices",
-            "Advanced Life Support Equipment",
-            "Multidisciplinary Consultant Support",
-            "Compassionate Nursing Care",
-            "Rapid Emergency Response System",
-            "Patient & Family-Centered Care",
-        ],
-        commitment:
-            "At Synergy, every second matters. Our ICU is committed to delivering timely interventions, continuous monitoring, and compassionate care to improve survival and support faster recovery for critically ill patients.",
-        images: ["/specializations/icu/1.jpeg", "/specializations/icu/2.jpeg", "/specializations/icu/3.jpeg"],
-    },
-
-    OT: {
-        label: "Operation Theatres",
-        shortLabel: "OT",
-        title: "Precision Surgery.",
-        subtitle: "Advanced Technology. Uncompromising Safety.",
-        description:
-            "Our Operation Theatre Complex is designed to deliver safe, efficient, and high-quality surgical care across multiple specialties. Equipped with modern surgical technology and built to stringent infection-control standards, our OT complex supports routine, advanced, and emergency surgeries.",
-        secondaryDescription:
-            "With three dedicated Operation Theatres and a team of highly experienced surgeons, anaesthesiologists, OT technicians, and perioperative nurses, Synergy has successfully performed more than 5,000 surgeries.",
-        icon: Syringe,
-        stats: [
-            { value: "3", label: "Dedicated operation theatres" },
-            { value: "1", label: "Advanced modular OT" },
-            { value: "5,000+", label: "Successful surgeries" },
-            { value: "24×7", label: "Emergency surgical services" },
-        ],
-        servicesTitle: "Our OT Infrastructure",
-        serviceItems: [
-            {
-                kind: "card",
-                title: "Modular Operation Theatre",
-                desc: "State-of-the-art infrastructure built for advanced and complex surgeries to international standards.",
-            },
-            {
-                kind: "card",
-                title: "Major Operation Theatre",
-                desc: "Dedicated for major surgical procedures requiring comprehensive anaesthesia support and perioperative care.",
-            },
-            {
-                kind: "card",
-                title: "Minor Operation Theatre",
-                desc: "Built for minimally invasive, day-care and minor procedures — faster recovery, shorter hospital stay.",
-            },
-        ],
-        blocks: [
-            {
-                title: "Advanced OT Features",
-                icon: Activity,
-                type: "check",
-                items: [
-                    "Advanced LED Shadowless Operating Lights",
-                    "Modern Anaesthesia Workstations",
-                    "Multiparameter Patient Monitoring",
-                    "High-End Electrosurgical Units",
-                    "Advanced Surgical Instrumentation",
-                    "Central Medical Gas Pipeline System",
-                    "HEPA Filtered Air Handling System",
-                    "Positive Pressure Ventilation",
-                    "Laminar Air Flow Technology",
-                    "Sterile OT Environment",
-                    "Dedicated Pre-Operative & Recovery Areas",
-                    "Fully Equipped Emergency Crash Cart",
-                    "Uninterrupted Power Backup",
-                ],
-            },
-            {
-                title: "Our Surgical Expertise",
-                icon: Scissors,
-                type: "tag",
-                items: [
-                    "Surgical Oncology",
-                    "General Surgery",
-                    "Laparoscopic Surgery",
-                    "Gastrointestinal Surgery",
-                    "Head & Neck Surgery",
-                    "Breast Surgery",
-                    "Gynaecological Surgery",
-                    "Urological Procedures",
-                    "Orthopaedic Surgery",
-                    "Trauma & Emergency Surgery",
-                    "Plastic & Reconstructive Surgery",
-                    "Minor Day-Care Procedures",
-                ],
-            },
-            {
-                title: "Patient Safety Protocols",
-                icon: ShieldCheck,
-                type: "check",
-                items: [
-                    "WHO Surgical Safety Checklist",
-                    "NABH-Compliant OT Protocols",
-                    "Strict Sterilization & CSSD Support",
-                    "Surgical Site Infection Prevention Measures",
-                    "Time-Out & Patient Identification Protocol",
-                    "Safe Anaesthesia Practices",
-                    "Continuous Intraoperative Monitoring",
-                    "Dedicated Infection Control Team",
-                ],
-            },
-            {
-                title: "Expert Surgical Team",
-                icon: Users,
-                type: "check",
-                items: [
-                    "Experienced Consultant Surgeons",
-                    "Expert Surgical Oncologists",
-                    "Skilled Anaesthesiologists",
-                    "Trained OT Nurses",
-                    "Certified OT Technicians",
-                    "Infection Control Professionals",
-                    "Critical Care & Emergency Support Team",
-                ],
-            },
-        ],
-        whyTitle: "Why Choose Synergy Operation Theatres?",
-        why: [
-            "5,000+ Successful Surgeries",
-            "Three Dedicated Operation Theatres",
-            "Advanced Modular OT Technology",
-            "Highly Experienced Surgical Team",
-            "24×7 Emergency Surgical Services",
-            "NABH Standard Safety Protocols",
-            "Advanced Anaesthesia & Monitoring Systems",
-            "Strict Infection Prevention Measures",
-            "Comprehensive Multidisciplinary Surgical Care",
-            "Excellent Clinical Outcomes with Compassionate Care",
-        ],
-        images: ["/specializations/ot/1.jpeg", "/specializations/ot/2.jpeg", "/specializations/ot/3.jpeg"],
-    },
-
-    PHYSIOTHERAPY: {
-        label: "Physiotherapy & Rehabilitation",
-        shortLabel: "Physiotherapy",
-        title: "Restoring Mobility.",
-        subtitle: "Relieving Pain. Rebuilding Lives.",
-        description:
-            "At Synergy Super Speciality Hospital & Cancer Institute, our Physiotherapy & Rehabilitation Department is dedicated to helping patients recover faster, reduce pain, improve mobility, and regain independence.",
-        secondaryDescription:
-            "Our experienced physiotherapists provide personalized rehabilitation programs using evidence-based techniques and modern therapeutic equipment for patients of all age groups.",
-        icon: PersonStanding,
-        stats: [
-            { value: "1:1", label: "Personalized therapy" },
-            { value: "All", label: "Age groups" },
-            { value: "Evidence", label: "Based care" },
-        ],
-        servicesTitle: "Our Physiotherapy Services",
-        serviceItems: [
-            "Orthopaedic Rehabilitation",
-            "Post-Operative Physiotherapy",
-            "Neurological Rehabilitation",
-            "Sports Injury Rehabilitation",
-            "Pain Management Therapy",
-            "Spine & Back Pain Rehabilitation",
-            "Joint Replacement Rehabilitation",
-            "Stroke Rehabilitation",
-            "Cancer Rehabilitation",
-            "Geriatric Physiotherapy",
-            "Pediatric Physiotherapy",
-            "Balance & Gait Training",
-            "Exercise Therapy",
-            "Electrotherapy",
-        ].map(line),
-        blocks: [
-            {
-                title: "Rehabilitation Highlights",
-                icon: Activity,
-                type: "check",
-                items: [
-                    "Comprehensive Rehabilitation Services",
-                    "Personalized One-to-One Therapy Sessions",
-                    "Advanced Electrotherapy Equipment",
-                    "Specialized Orthopaedic & Neurological Rehabilitation",
-                    "Post-Operative Recovery Programs",
-                    "Cancer & Palliative Rehabilitation",
-                    "Experienced Physiotherapy Team",
-                    "Evidence-Based Treatment Protocols",
-                    "Focus on Faster Recovery & Improved Quality of Life",
-                ],
-            },
-        ],
-        whyTitle: "Why Choose Synergy Physiotherapy?",
-        why: [
-            "Personalized Treatment Plans",
-            "Experienced Physiotherapists",
-            "Advanced Rehabilitation Techniques",
-            "Pain Relief & Functional Recovery",
-            "Post-Surgical Rehabilitation",
-            "Stroke & Neurological Care",
-            "Cancer Rehabilitation Support",
-            "Patient-Centered, Evidence-Based Care",
-        ],
-        images: ["/specializations/physio/1.jpeg", "/specializations/physio/2.jpeg", "/specializations/physio/3.jpeg"],
-    },
-};
-
-const serviceKeys: ServiceKey[] = ["ICU", "OT", "PHYSIOTHERAPY"];
 
 /* ------------------------------------------------------------------ */
 /*  Signature element — a heartbeat / trace line used as a divider.    */
@@ -400,7 +91,7 @@ const itemVariants: Variants = {
 function InfoBlock({ block }: { block: Block }) {
     const Icon = block.icon;
     return (
-        <div className="border-b border-slate-200 p-6 sm:p-8 lg:p-10 lg:[&:nth-child(even)]:border-l lg:border-slate-200">
+        <div className="border-b border-slate-200 p-6 sm:p-8 lg:p-10 lg:even:border-l lg:border-slate-200">
             <div className="mb-6 flex items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E7F3F3] text-[#0E7C86]">
                     <Icon className="h-5 w-5" />
@@ -441,12 +132,57 @@ function InfoBlock({ block }: { block: Block }) {
 /*  Main component                                                     */
 /* ------------------------------------------------------------------ */
 
-export default function SpecializedServices() {
-    const [activeTab, setActiveTab] = useState<ServiceKey>("ICU");
+function SpecializedServicesContent() {
+    const t = useTranslations("specializedServicesPage");
+    const services = useSpecializedServicesData();
+    const searchParams = useSearchParams();
+
+    // Derive active tab directly from URL search params without triggering cascading effect renders
+    const paramTab = (() => {
+        const raw = (searchParams.get("tab") || searchParams.get("service") || "").toUpperCase();
+        if (raw === "ICU" || raw === "OT" || raw === "PHYSIOTHERAPY") {
+            return raw as ServiceKey;
+        }
+        return null;
+    })();
+
+    const [selectedTab, setSelectedTab] = useState<ServiceKey>(() => {
+        if (typeof window !== "undefined" && window.location.hash) {
+            const hash = window.location.hash.replace("#", "").toUpperCase();
+            if (hash === "ICU" || hash === "OT" || hash === "PHYSIOTHERAPY") {
+                return hash as ServiceKey;
+            }
+        }
+        return "ICU";
+    });
+
+    const activeTab = paramTab || selectedTab;
+
+    const [prevTab, setPrevTab] = useState<ServiceKey>(activeTab);
     const [activeImage, setActiveImage] = useState(0);
+
+    // Adjust state during render when tab changes (React recommended pattern)
+    if (prevTab !== activeTab) {
+        setPrevTab(activeTab);
+        setActiveImage(0);
+    }
 
     const service = services[activeTab];
     const Icon = service.icon;
+
+    // Fallback support for external hash changes (#icu, #ot, #physiotherapy)
+    useEffect(() => {
+        const handleHash = () => {
+            if (typeof window !== "undefined" && window.location.hash) {
+                const hash = window.location.hash.replace("#", "").toUpperCase();
+                if (hash === "ICU" || hash === "OT" || hash === "PHYSIOTHERAPY") {
+                    setSelectedTab(hash as ServiceKey);
+                }
+            }
+        };
+        window.addEventListener("hashchange", handleHash);
+        return () => window.removeEventListener("hashchange", handleHash);
+    }, []);
 
     useEffect(() => {
         if (service.images.length <= 1) return;
@@ -456,9 +192,21 @@ export default function SpecializedServices() {
         return () => clearInterval(interval);
     }, [activeTab, service.images.length]);
 
+    const handleTabSelect = (key: ServiceKey) => {
+        setSelectedTab(key);
+        setActiveImage(0);
+        if (typeof window !== "undefined") {
+            const url = new URL(window.location.href);
+            url.searchParams.set("tab", key.toLowerCase());
+            url.searchParams.delete("service");
+            url.hash = "";
+            window.history.replaceState(null, "", url.pathname + url.search);
+        }
+    };
+
     return (
         <section id="specialized-services" className={`${body.className} relative overflow-hidden bg-[#F6F8FA] py-16 sm:py-20 lg:py-24`}>
-            <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-350 px-4 sm:px-6 lg:px-8">
 
                 {/* HEADER */}
                 <motion.div
@@ -470,16 +218,16 @@ export default function SpecializedServices() {
                 >
                     <span className={`${mono.className} mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#0E7C86]`}>
                         <span className="h-px w-7 bg-[#0E7C86]" />
-                        Specialized Care
+                        {t("header.eyebrow")}
                         <span className="h-px w-7 bg-[#0E7C86]" />
                     </span>
 
                     <h2 className={`${display.className} text-3xl font-bold tracking-tight text-[#10233A] sm:text-4xl lg:text-5xl`}>
-                        Specialized Services
+                        {t("header.title")}
                     </h2>
 
                     <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
-                        Advanced clinical care, modern infrastructure and experienced medical teams focused on better patient outcomes.
+                        {t("header.subtitle")}
                     </p>
                 </motion.div>
 
@@ -494,10 +242,7 @@ export default function SpecializedServices() {
                                 <button
                                     key={key}
                                     type="button"
-                                    onClick={() => {
-                                        setActiveTab(key);
-                                        setActiveImage(0);
-                                    }}
+                                    onClick={() => handleTabSelect(key)}
                                     className={`relative flex shrink-0 items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition-all sm:px-6 ${active ? "bg-[#10233A] text-white shadow-md" : "text-slate-600 hover:bg-slate-50"
                                         }`}
                                 >
@@ -523,7 +268,7 @@ export default function SpecializedServices() {
                             <div className="grid lg:grid-cols-[1fr_1fr]">
 
                                 {/* IMAGE */}
-                                <div className="relative min-h-[420px] overflow-hidden lg:min-h-[560px]">
+                                <div className="relative min-h-105 overflow-hidden lg:min-h-140">
                                     {service.images.map((image, index) => (
                                         <motion.div
                                             key={image}
@@ -595,7 +340,7 @@ export default function SpecializedServices() {
                                         <div className="mt-7 flex flex-wrap gap-3">
                                             <Link href={`/book-appointment?department=${encodeURIComponent(service.shortLabel || service.title)}`}>
                                                 <button className="rounded-lg bg-[#D6336C] px-5 py-2.5 text-sm font-medium text-white shadow-md transition-colors hover:bg-[#bb2a5c]">
-                                                    Book an Appointment
+                                                    {t("buttons.bookAppointment")}
                                                 </button>
                                             </Link>
                                             <a
@@ -603,7 +348,7 @@ export default function SpecializedServices() {
                                                 className="flex items-center gap-2 rounded-lg border border-white/25 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
                                             >
                                                 <Phone className="h-3.5 w-3.5" />
-                                                Emergency Hotline
+                                                {t("buttons.emergencyHotline")}
                                             </a>
                                         </div>
 
@@ -625,7 +370,7 @@ export default function SpecializedServices() {
                             {/* SERVICE LIST */}
                             <div className="border-t border-slate-200 px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
                                 <div className="mb-7">
-                                    <p className={`${mono.className} text-xs font-semibold uppercase tracking-[0.2em] text-[#0E7C86]`}>What We Offer</p>
+                                    <p className={`${mono.className} text-xs font-semibold uppercase tracking-[0.2em] text-[#0E7C86]`}>{t("sections.whatWeOffer")}</p>
                                     <h4 className={`${display.className} mt-2 text-2xl font-bold text-[#10233A]`}>{service.servicesTitle}</h4>
                                 </div>
 
@@ -673,7 +418,7 @@ export default function SpecializedServices() {
 
                             {/* WHY CHOOSE */}
                             <div className="border-t border-slate-200 bg-linear-to-br from-[#0F2438] to-synergy-blue px-6 py-10 sm:px-10 lg:px-14 lg:py-12">
-                                <p className={`${mono.className} text-xs font-semibold uppercase tracking-[0.2em] text-[#7FD1C6]`}>The Synergy Difference</p>
+                                <p className={`${mono.className} text-xs font-semibold uppercase tracking-[0.2em] text-[#7FD1C6]`}>{t("sections.synergyDifference")}</p>
                                 <h4 className={`${display.className} mt-2 mb-7 text-2xl font-bold text-white`}>{service.whyTitle}</h4>
 
                                 <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -696,7 +441,7 @@ export default function SpecializedServices() {
                                             </div>
                                             <div>
                                                 <p className={`${mono.className} text-xs font-semibold uppercase tracking-[0.18em] text-[#0E7C86]`}>
-                                                    Our Commitment
+                                                    {t("sections.ourCommitment")}
                                                 </p>
                                                 <p className="mt-3 text-sm leading-7 text-[#10233A]">{service.commitment}</p>
                                             </div>
@@ -723,11 +468,13 @@ export default function SpecializedServices() {
                             />
                         </div>
                         <div className="ml-3">
-                            <h3 className="text-sm font-medium text-red-800">Emergency Services Available 24/7</h3>
+                            <h3 className="text-sm font-medium text-red-800">{t("emergencyBanner.title")}</h3>
                             <div className="mt-2 text-sm text-red-700">
                                 <p>
-                                    For emergency cases in any of these specialized units, please call our emergency hotline at{" "}
-                                    <strong>{CONTACT_INFO.phoneNumbers.emergencyFormatted}</strong> or proceed directly to our emergency department.
+                                    {t.rich("emergencyBanner.description", {
+                                        phone: CONTACT_INFO.phoneNumbers.emergencyFormatted,
+                                        phoneLink: (chunks) => <strong>{chunks}</strong>,
+                                    })}
                                 </p>
                             </div>
                         </div>
@@ -735,5 +482,13 @@ export default function SpecializedServices() {
                 </motion.div>
             </div>
         </section>
+    );
+}
+
+export default function SpecializedServices() {
+    return (
+        <Suspense fallback={null}>
+            <SpecializedServicesContent />
+        </Suspense>
     );
 }

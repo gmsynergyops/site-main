@@ -45,7 +45,7 @@ export const CONTACT_INFO = {
   },
   socialUrls: {
     instagram: "https://www.instagram.com/synergycancergkp/",
-    youtube: "https://www.youtube.com/@SynergyCancerHospital",
+    youtube: "https://www.youtube.com/@Synergycancer1",
     facebook: "https://www.facebook.com/synergysuperspecialityhospital",
     googleMaps: "https://maps.app.goo.gl/MXM5snovbSDPidJy5",
   },
