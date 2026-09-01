@@ -37,7 +37,7 @@ export const CONTACT_INFO = {
     ambulance: "+917234006597",
     ambulanceFormatted: "+91-7234006597",
     admissionDesk: "+917234001617",
-    admissionDeskFormatted: "+91 7234001617",
+    admissionDeskFormatted: "+91 7234001610",
   },
   whatsapp: {
     number: "917234006595",

@@ -2971,6 +2971,12 @@
             "team": {
                 "title": "Our Pediatric Team",
                 "members": {
+                     "drVineeta": {
+                        "name": "Dr. Vineeta Singh",
+                        "role": "Associate Consultant",
+                        "credentials": "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMC BBCI, GUWAHATI",
+                        "specialty": "Pediatric & Pediatric-Oncology"
+                    },
                     "drApShahi": {
                         "name": "Dr. AP Shahi",
                         "role": "Pediatrician & Neonatologist",

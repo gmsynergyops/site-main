@@ -438,7 +438,7 @@ export const useDepartmentData = () => {
           t("RadiationOncology.facilities.features.9"),
         ],
 
-        image: "/department/radiation-oncology-facilities.webp",
+        image: "/department/sub/radiation-oncology.png",
       },
 
       research: {
@@ -590,7 +590,7 @@ export const useDepartmentData = () => {
           t("Gynecology.facilities.features.3"),
           t("Gynecology.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/gynecology.png",
       },
       research: {
         title: t("Gynecology.research.title"),
@@ -1706,7 +1706,7 @@ export const useDepartmentData = () => {
       name: t("Pediatrics.name"),
       slug: "pediatrics",
       heroImage: "/department/pediatrics.jpeg",
-      bannerImage: "/department/pediatric-banner.jpeg",
+      bannerImage: "/department/pediatric-banner.png",
       heroTitle: t("Pediatrics.heroTitle"),
       heroSubtitle: t("Pediatrics.heroSubtitle"),
       isFeatured: true,
@@ -1755,13 +1755,22 @@ export const useDepartmentData = () => {
       team: {
         title: t("Pediatrics.team.title"),
         members: [
-          {
+              {
             name: t("Pediatrics.team.members.drApShahi.name"),
             role: t("Pediatrics.team.members.drApShahi.role"),
             credentials: t("Pediatrics.team.members.drApShahi.credentials"),
             image: "/doctors/dr-ap-shahi.webp",
             specialty: t("Pediatrics.team.members.drApShahi.specialty"),
           },
+          {
+            name: t("Pediatrics.team.members.drVineeta.name"),
+            role: t("Pediatrics.team.members.drVineeta.role"),
+            credentials: t(
+              "Pediatrics.team.members.drVineeta.credentials"
+            ),
+            image: "/doctors/dr-vineeta-singh.webp",
+            specialty: t("Pediatrics.team.members.drVineeta.specialty"),
+          }
         ],
       },
       facilities: {
@@ -2672,15 +2681,7 @@ export const useDepartmentData = () => {
       },
       team: {
         title: t("Microbiology.team.title"),
-        members: [
-          {
-            name: t("Microbiology.team.members.drAnil.name"),
-            role: t("Microbiology.team.members.drAnil.role"),
-            credentials: t("Microbiology.team.members.drAnil.credentials"),
-            image: "/doctors/dr-anil-kumar.webp",
-            specialty: t("Microbiology.team.members.drAnil.specialty"),
-          },
-        ],
+        members: [],
       },
       facilities: {
         title: t("Microbiology.facilities.title"),
@@ -2805,13 +2806,13 @@ export const useDepartmentData = () => {
       team: {
         title: t("Biochemistry.team.title"),
         members: [
-          {
-            name: t("Biochemistry.team.members.drPriya.name"),
-            role: t("Biochemistry.team.members.drPriya.role"),
-            credentials: t("Biochemistry.team.members.drPriya.credentials"),
-            image: "/doctors/dr-priya-singh.webp",
-            specialty: t("Biochemistry.team.members.drPriya.specialty"),
-          },
+          // {
+          //   name: t("Biochemistry.team.members.drPriya.name"),
+          //   role: t("Biochemistry.team.members.drPriya.role"),
+          //   credentials: t("Biochemistry.team.members.drPriya.credentials"),
+          //   image: "/doctors/dr-priya-singh.webp",
+          //   specialty: t("Biochemistry.team.members.drPriya.specialty"),
+          // },
         ],
       },
       facilities: {

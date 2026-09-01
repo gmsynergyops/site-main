@@ -260,51 +260,53 @@ export default function DepartmentPage() {
       </motion.section>
 
       {/* Team Section */}
-      <motion.section
-        ref={teamRef}
-        initial="hidden"
-        animate={teamInView ? "visible" : "hidden"}
-        variants={containerVariants}
-        className="mb-20"
-      >
-        <motion.h2 variants={itemVariants} className={`${newYorkTypography.h2} text-gray-900 mb-12`}>
-          {department.team.title}
-        </motion.h2>
-        <motion.div variants={containerVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {department.team.members.map((member: any, index: number) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100"
-            >
+      {department.team?.members && department.team.members.length > 0 && (
+        <motion.section
+          ref={teamRef}
+          initial="hidden"
+          animate={teamInView ? "visible" : "hidden"}
+          variants={containerVariants}
+          className="mb-20"
+        >
+          <motion.h2 variants={itemVariants} className={`${newYorkTypography.h2} text-gray-900 mb-12`}>
+            {department.team.title}
+          </motion.h2>
+          <motion.div variants={containerVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {department.team.members.map((member: any, index: number) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 * index }}
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+                className="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100"
               >
-                <div className="relative h-64">
-                  <ImageWithFallback
-                    fallbackSrc="/fallback-image.webp"
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-semibold mb-1 text-gray-900">{member.name}</h3>
-                  <p className="text-blue-600 text-sm mb-2 font-medium">{member.role}</p>
-                  <p className="text-gray-500 text-xs mb-3 leading-relaxed">{member.credentials}</p>
-                  <div className="text-xs bg-blue-50 text-blue-800 px-3 py-1.5 rounded-full inline-block font-medium">
-                    {member.specialty}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.1 * index }}
+                >
+                  <div className="relative h-64">
+                    <ImageWithFallback
+                      fallbackSrc="/fallback-image.webp"
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover object-top"
+                    />
                   </div>
-                </div>
+                  <div className="p-6">
+                    <h3 className="font-serif text-xl font-semibold mb-1 text-gray-900">{member.name}</h3>
+                    <p className="text-blue-600 text-sm mb-2 font-medium">{member.role}</p>
+                    <p className="text-gray-500 text-xs mb-3 leading-relaxed">{member.credentials}</p>
+                    <div className="text-xs bg-blue-50 text-blue-800 px-3 py-1.5 rounded-full inline-block font-medium">
+                      {member.specialty}
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.section>
+            ))}
+          </motion.div>
+        </motion.section>
+      )}
 
       {/* Facilities Section */}
       <motion.section
