@@ -2971,7 +2971,7 @@
             "team": {
                 "title": "Our Pediatric Team",
                 "members": {
-                     "drVineeta": {
+                    "drVineeta": {
                         "name": "Dr. Vineeta Singh",
                         "role": "Associate Consultant",
                         "credentials": "MBBS , MD (Pediatrics) Fellowship Pediatric hematology and oncology , IMS BHU, TMC BBCI, GUWAHATI",
@@ -9183,8 +9183,6 @@
             "name": "Preventive Oncology",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-teal-50 via-white to-emerald-50",
             "sections": [
                 {
                     "title": "Because early detection saves lives",
@@ -9230,8 +9228,6 @@
             "name": "Surgical Oncology",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-blue-50 via-white to-indigo-50",
             "sections": [
                 {
                     "title": "Safe and precise cancer surgery",
@@ -9269,8 +9265,6 @@
             "name": "Medical Oncology",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-violet-50 via-white to-purple-50",
             "sections": [
                 {
                     "title": "Cancer treatment through medicines",
@@ -9316,8 +9310,6 @@
             "name": "Radiation Oncology",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-orange-50 via-white to-amber-50",
             "sections": [
                 {
                     "title": "Accurate treatment with advanced technology",
@@ -9355,8 +9347,6 @@
             "name": "Multidisciplinary Tumour Board",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-sky-50 via-white to-blue-50",
             "sections": [
                 {
                     "title": "One patient. Multiple experts. One decision.",
@@ -9399,8 +9389,6 @@
             "name": "Advanced Technology",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-slate-50 via-white to-gray-100",
             "sections": [
                 {
                     "title": "Built for safety, precision, and comfort",
@@ -9451,8 +9439,6 @@
             "name": "Patient-Centric Care",
             "heroTitle": "Advanced Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
-            "bannerImage": "/fallback-image.webp",
-            "themeBgClass": "bg-linear-to-br from-rose-50 via-white to-pink-50",
             "sections": [
                 {
                     "title": "We treat people, not just reports",

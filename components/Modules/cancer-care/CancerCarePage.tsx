@@ -51,22 +51,47 @@ export default function CancerCarePage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
       {/* Hero Section */}
-      <motion.section ref={heroRef} initial="hidden" animate={heroInView ? "visible" : "hidden"} variants={containerVariants} className="mb-20">
-        <motion.div variants={itemVariants} className="relative h-100 md:h-125 rounded-2xl overflow-hidden shadow-xl">
-          <ImageWithFallback fallbackSrc="/fallback-image.webp" src={pageData.bannerImage} alt={pageData.name} fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+      <motion.section ref={heroRef} initial="hidden" animate={heroInView ? "visible" : "hidden"} variants={containerVariants} className="mb-16 md:mb-20">
+        <motion.div variants={itemVariants} className="relative h-[440px] sm:h-[500px] md:h-[560px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200/50">
+          <ImageWithFallback
+            fallbackSrc="/fallback-image.webp"
+            src={pageData.bannerImage}
+            alt={pageData.name}
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          
+          {/* Curved radial gradient scrim: wraps organically around text at bottom-left without darkening the central/upper image */}
+          <div className="absolute inset-0 [background:radial-gradient(ellipse_85%_55%_at_bottom_left,rgba(2,6,23,0.82)_0%,rgba(2,6,23,0.35)_50%,transparent_100%)] pointer-events-none" />
+          {/* Subtle low grounded fade (only touches the bottom 25% to keep image vibrant and bright) */}
+          <div className="absolute bottom-0 inset-x-0 h-28 bg-linear-to-t from-slate-950/70 via-slate-950/20 to-transparent pointer-events-none" />
 
-          <motion.div className="absolute bottom-2.5 sm:bottom-5 left-0 right-0 w-full px-4 flex justify-center z-10">
-            <div className="w-full max-w-4xl p-6 md:p-10 rounded-2xl bg-white/2 backdrop-blur-xl border-[1.5px] border-white/50 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_8px_32px_0_rgba(0,0,0,0.2)] text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-              <motion.h1 variants={itemVariants} className={`${newYorkTypography.h1} text-white mb-3 md:mb-4 [text-shadow:0_0_20px_rgba(255,255,255,0.8),0_0_5px_rgba(255,255,255,1)] relative z-10 leading-tight`}>
+          {/* Clean modern hero typography & metadata positioned comfortably in the bottom zone */}
+          <div className="absolute bottom-0 inset-x-0 p-6 sm:p-10 md:p-12 z-10">
+            <div className="max-w-4xl">
+              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-medium tracking-wide mb-3 sm:mb-4 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-synergy-pink animate-pulse" />
+                <span>Cancer Care</span>
+                <span className="text-white/40">•</span>
+                <span className="text-white/90">{pageData.name}</span>
+              </motion.div>
+
+              <motion.h1
+                variants={itemVariants}
+                className="text-2xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight mb-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+              >
                 {pageData.heroTitle}
               </motion.h1>
-              <motion.p variants={itemVariants} className="text-sm sm:text-base md:text-xl text-white font-serif max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(255,255,255,0.6)] font-medium relative z-10 line-clamp-3 sm:line-clamp-none">
+
+              <motion.p
+                variants={itemVariants}
+                className="text-sm sm:text-base md:text-lg text-slate-200/90 font-sans leading-relaxed max-w-3xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]"
+              >
                 {pageData.heroSubtitle}
               </motion.p>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </motion.section>
 
