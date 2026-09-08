@@ -5,48 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from "next-intl";
+import { useDepartmentData } from "@/data/departmentData";
 
 export default function DiagnosticServices() {
     const t = useTranslations("diagnosticServicesPage");
-
-    const diagnosticServices = [
-        {
-            id: "diagnostic-imaging",
-            title: t("services.diagnosticImaging.title"),
-            description: t("services.diagnosticImaging.description"),
-            image: "/images/diagnostics/imaging.jpg",
-        },
-        {
-            id: "dialysis",
-            title: t("services.dialysis.title"),
-            description: t("services.dialysis.description"),
-            image: "/images/diagnostics/dialysis.jpg",
-        },
-        {
-            id: "radiology",
-            title: t("services.radiology.title"),
-            description: t("services.radiology.description"),
-            image: "/images/diagnostics/radiology.jpg",
-        },
-        {
-            id: "pathology",
-            title: t("services.pathology.title"),
-            description: t("services.pathology.description"),
-            image: "/images/diagnostics/pathology.jpg",
-        },
-        {
-            id: "microbiology",
-            title: t("services.microbiology.title"),
-            description: t("services.microbiology.description"),
-            image: "/images/diagnostics/microbiology.jpg",
-        },
-        {
-            id: "biochemistry",
-            title: t("services.biochemistry.title"),
-            description: t("services.biochemistry.description"),
-            image: "/images/diagnostics/biochemistry.jpg",
-        },
-    ];
+    const departmentData = useDepartmentData();
+    const diagnosticServices = departmentData.slice(15, 21);
 
     return (
         <div className="container mx-auto px-4 py-12">
@@ -63,24 +27,24 @@ export default function DiagnosticServices() {
                         key={service.id}
                         className="flex flex-col h-full hover:shadow-lg transition-shadow duration-300 px-4"
                     >
-                        <div className="relative w-full h-48 bg-blue-300 rounded-t-lg overflow-hidden">
+                        <div className="relative w-full h-48 rounded-t-lg overflow-hidden">
                             <ImageWithFallback
                                 fallbackSrc="/fallback-image.webp"
-                                src={service.image}
-                                alt={service.title}
+                                src={service.bannerImage}
+                                alt={service.name}
                                 fill
-                                className="object-cover"
+                                className="object-contain"
                             />
                         </div>
                         <div className="flex flex-col flex-1 justify-between">
                             <CardHeader className="pb-2">
-                                <CardTitle className="text-2xl font-display">{service.title}</CardTitle>
+                                <CardTitle className="text-2xl font-display">{service.name}</CardTitle>
                             </CardHeader>
                             <CardContent className="flex flex-col flex-1 justify-between">
                                 <p className="text-gray-600 mb-6 text-sm md:text-base leading-relaxed flex-1">
-                                    {service.description}
+                                    {service.heroSubtitle}
                                 </p>
-                                <Link href={`/services/${service.id}`}>
+                                <Link href={`/services/${service.slug}`}>
                                     <Button variant="default" className="w-full mt-auto">
                                         {t("learnMore")}
                                     </Button>

@@ -35,11 +35,32 @@ export interface CentersData {
   sections: CenterSection[];
 }
 
-export const useCentersData = () => {
+export const CENTERS_METADATA: Record<string, { bannerImage: string; themeBgClass?: string }> = {
+  "network": {
+    bannerImage: "/fallback-image.webp",
+    themeBgClass: "bg-linear-to-br from-blue-50 via-white to-sky-50",
+  },
+  "outstation-support": {
+    bannerImage: "/fallback-image.webp",
+    themeBgClass: "bg-linear-to-br from-teal-50 via-white to-emerald-50",
+  },
+  "find-center": {
+    bannerImage: "/fallback-image.webp",
+    themeBgClass: "bg-linear-to-br from-indigo-50 via-white to-violet-50",
+  },
+};
+
+export const useCentersData = (): CentersData[] => {
   const t = useTranslations();
 
-  const centersData: CentersData[] =
-    t.raw("CentersDataMegaArray");
+  const centersData: CentersData[] = t.raw("CentersDataMegaArray") || [];
 
-  return centersData;
+  return centersData.map((item) => {
+    const meta = CENTERS_METADATA[item.slug] || { bannerImage: "/fallback-image.webp" };
+    return {
+      ...item,
+      bannerImage: meta.bannerImage,
+      themeBgClass: item.themeBgClass || meta.themeBgClass || "",
+    };
+  });
 };

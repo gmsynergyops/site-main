@@ -34,7 +34,7 @@ export const SecondOpinion = () => {
                     <div className="md:w-1/2 flex justify-end">
                         <ImageWithFallback
                             fallbackSrc='/fallback-image.webp'
-                            src="/doctor-consultation.jpg"
+                            src="/second-opinion.png"
                             alt="Doctor consultation"
                             width={400}
                             height={320}

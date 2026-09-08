@@ -2193,7 +2193,7 @@ export const useDepartmentData = () => {
           t("DiagnosticImaging.facilities.features.3"),
           t("DiagnosticImaging.facilities.features.4"),
         ],
-        image: "/imaging-facility.webp",
+        image: "/department/sub/diagnostic-imaging.png",
       },
       research: {
         title: t("DiagnosticImaging.research.title"),
@@ -2319,7 +2319,7 @@ export const useDepartmentData = () => {
           t("Dialysis.facilities.features.3"),
           t("Dialysis.facilities.features.4"),
         ],
-        image: "/dialysis-unit.webp",
+        image: "/department/sub/dialysis-unit.png",
       },
       research: {
         title: t("Dialysis.research.title"),
@@ -2445,7 +2445,7 @@ export const useDepartmentData = () => {
           t("Radiology.facilities.features.3"),
           t("Radiology.facilities.features.4"),
         ],
-        image: "/radiology-lab.webp",
+        image: "/department/sub/radiology.png",
       },
       research: {
         title: t("Radiology.research.title"),
@@ -2573,7 +2573,7 @@ export const useDepartmentData = () => {
           t("Pathology.facilities.features.3"),
           t("Pathology.facilities.features.4"),
         ],
-        image: "/pathology-lab.webp",
+        image: "/department/sub/pathology.png",
       },
       research: {
         title: t("Pathology.research.title"),
@@ -2693,7 +2693,7 @@ export const useDepartmentData = () => {
           t("Microbiology.facilities.features.3"),
           t("Microbiology.facilities.features.4"),
         ],
-        image: "/microbiology-lab.webp",
+        image: "/department/sub/microbiology.png",
       },
       research: {
         title: t("Microbiology.research.title"),
@@ -2825,7 +2825,7 @@ export const useDepartmentData = () => {
           t("Biochemistry.facilities.features.3"),
           t("Biochemistry.facilities.features.4"),
         ],
-        image: "/biochemistry-lab.webp",
+        image: "/department/sub/biochemistry.png", 
       },
       research: {
         title: t("Biochemistry.research.title"),

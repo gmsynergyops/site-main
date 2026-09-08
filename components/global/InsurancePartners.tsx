@@ -4,21 +4,23 @@ import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import { useTranslations } from 'next-intl';
 
 const insuranceCompanies = [
-        { name: 'Star Health and Allied Insurance Company', logo: "/insurance-companies/Star_Health_and_Allied_Insurance.svg.png" },
-        { name: 'Aditya Birla Health Insurance Company', logo: "/insurance-companies/Aditya_Birla_Health_Insurance.svg.png" },
-        { name: 'Ericsion TPA', logo: "/insurance-companies/ericson.webp" },
-        { name: 'Heritage TPA', logo: "/insurance-companies/Heritage_Health_insurance.svg.png" },
-        { name: 'Chola Mandalam General Insurance Company', logo: "/insurance-companies/Chola_MS_Insurance_Company.png" },
-        { name: 'Universal Sompo General Insurance Company', logo: "/insurance-companies/USGI.png" },
-        { name: 'Paramount Health Care', logo: "/insurance-companies/PHS.png" },
-        { name: 'Genins TPA', logo: "/insurance-companies/Genins_TPA.png" },
-        { name: 'ICICI Lombard Insurance', logo: "/insurance-companies/ICICI-Lombard_Insurance.png" },
-        { name: 'FHPL', logo: "/insurance-companies/FHPL.png" },
-        { name: 'SBI General Insurance', logo: "/insurance-companies/SBI_General_Insurance.webp" },
-        { name: 'Tata AIG', logo: "/insurance-companies/TATA_AIG_logo.png" },
-        { name: 'Link-K TPA', logo: "/insurance-companies/Link-K_TPA.png" },
-        { name: 'Park Mediclaim TPA', logo: "/insurance-companies/Park_Mediclaim_TPA.png" },
-        { name: 'Health Assist TPA', logo: "/insurance-companies/Health_Assist_TPA.png" },
+    { name: 'ICICI Lombard General Insurance', logo: "/insurance-companies/ICICI-Lombard_Insurance.png" },
+    { name: 'HDFC ERGO General Insurance', logo: "/insurance-companies/HDFC-Ergo.png" },
+    { name: 'Aditya Birla Health Insurance', logo: "/insurance-companies/Aditya_Birla_Health_Insurance.svg.png" },
+    { name: 'Genins TPA Pvt Ltd', logo: "/insurance-companies/Genins_TPA.png" },
+    { name: 'Family Health Plan TPA (FHPL TPA)', logo: "/insurance-companies/FHPL.png" },
+    { name: 'Link-K TPA Pvt Ltd', logo: "/insurance-companies/Link-K_TPA.png" },
+    { name: 'Park Mediclaim TPA Pvt Ltd', logo: "/insurance-companies/Park_Mediclaim_TPA.png" },
+    { name: 'SBI General Insurance Company', logo: "/insurance-companies/SBI_General_Insurance.webp" },
+    { name: 'Chola Mandalam General Insurance', logo: "/insurance-companies/Chola_MS_Insurance_Company.png" },
+    { name: 'Star Health & Allied Insurance Company', logo: "/insurance-companies/Star_Health_and_Allied_Insurance.svg.png" },
+    { name: 'Heritage TPA Pvt Ltd', logo: "/insurance-companies/Heritage_Health_Insurance.svg.png" },
+    { name: 'Paramount TPA Pvt Ltd', logo: "/insurance-companies/PHS.png" },
+    { name: 'Ericson TPA Pvt Ltd', logo: "/insurance-companies/ericson.webp" },
+    { name: 'Universal Sompo General Insurance TPA', logo: "/insurance-companies/USGI.png" },
+    { name: 'Niva Bupa Health Insurance', logo: "/insurance-companies/Niva_Bupa_Health_Insurance.png" },
+    { name: 'Health Assist TPA Pvt Ltd (Safeway TPA)', logo: "/insurance-companies/Health_Assist_TPA.png" },
+    { name: 'Galaxy General Insurance', logo: "/insurance-companies/Galaxy_Health_Insurance.webp" },
 ];
 
 const InsurancePartners = () => {

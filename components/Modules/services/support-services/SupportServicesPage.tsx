@@ -118,13 +118,9 @@ const SupportServicesPage = () => {
                                     src={service.image}
                                     fill
                                     alt={service.title}
-                                    className="size-full object-cover"
+                                    className="size-full object-contain"
                                 />
                             </motion.div>
-                            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
-                            <h3 className="absolute bottom-4 left-4 text-2xl font-bold text-fuchsia-50 font-display">
-                                {service.title}
-                            </h3>
                         </div>
 
                         <div className="p-6">

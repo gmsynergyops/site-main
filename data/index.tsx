@@ -1,7 +1,7 @@
 import { MenuItemProps, OPD, PressRelease, TestimonialItem } from "@/types";
 import { useTranslations } from 'next-intl';
 
-export const MAIN_URL = "/videos/homepage-main/m1v.webm"
+export const MAIN_URL = "/videos/homepage-main/m1v.mp4"
 export const MOBILE_MAIN_URL = "/videos/homepage-main/m2v.mp4"
 
 export const useMenuItems = () => {
@@ -675,13 +675,35 @@ export const useLeaders = () => {
     ];
 };
 
+export const OPD_DOCTOR_IMAGES: Record<number, (string | null)[]> = {
+    1: ["/doctors/dr-alok-tiwari.webp", "/doctors/dr-saurabh-mishra.webp"],
+    2: ["/doctors/dr-vishal-mishra.png"],
+    3: ["/doctors/dr-tarik-anwar.png", "/doctors/dr-vishal-mishra.png"],
+    4: ["/doctors/dr-vishal-mishra.png"],
+    5: ["/doctors/dr-saurabh-mishra.webp", null],
+    6: ["/doctors/dr-tarik-anwar.png"],
+    7: [null],
+    8: ["/doctors/dr-anjali-jain.webp"],
+    9: ["/doctors/dr-tarik-anwar.png"],
+    10: ["/doctors/dr-tarik-anwar.png"],
+};
+
 export const useOPD_Data = () => {
     const t = useTranslations();
 
-    const opdData: OPD[] = t.raw("opdData");
+    const opdData: OPD[] = t.raw("opdData") || [];
 
-    return opdData;
-}
+    return opdData.map((opd) => {
+        const images = OPD_DOCTOR_IMAGES[opd.id] || [];
+        return {
+            ...opd,
+            doctors: (opd.doctors || []).map((doc, idx) => ({
+                ...doc,
+                imageUrl: images[idx] || undefined,
+            })),
+        };
+    });
+};
 
 
 export const pressReleases: PressRelease[] = [
@@ -720,35 +742,35 @@ export const useSupportServices = () => {
             title: t('pharmacy.title'),
             description: t('pharmacy.description'),
             link: "/services/pharmacy",
-            image: "/images/pharmacy.webp",
+            image: "/department/pharmacy-banner.png",
         },
         {
             id: 2,
             title: t('bloodBank.title'),
             description: t('bloodBank.description'),
             link: "/services/blood-bank",
-            image: "/images/blood-bank.webp",
+            image: "/department/blood-bank-banner.png",
         },
         {
             id: 3,
             title: t('dietary.title'),
             description: t('dietary.description'),
             link: "/services/dietary",
-            image: "/images/dietary-services.webp",
+            image: "/department/dietary-banner.png",
         },
         {
             id: 6,
             title: t('security.title'),
             description: t('security.description'),
             link: "/services/security",
-            image: "/images/security-services.webp",
+            image: "/department/security-banner.png",
         },
         {
             id: 7,
             title: t('ambulance.title'),
             description: t('ambulance.description'),
             link: "/services/ambulance",
-            image: "/images/ambulance-services.webp",
+            image: "/department/ambulance-service-banner.png",
         }
     ];
 };
@@ -759,21 +781,21 @@ export const supportServices = [
         title: "Pharmacy",
         description: "24/7 pharmacy services providing all prescribed medications with expert pharmaceutical guidance and medication counseling.",
         link: "/services/pharmacy",
-        image: "/images/pharmacy.webp",
+        image: "/department/pharmacy-banner.png",
     },
     {
         id: 2,
         title: "Blood Bank",
         description: "Fully equipped blood bank with component separation facility ensuring safe blood transfusion services and donor programs.",
         link: "/services/blood-bank",
-        image: "/images/blood-bank.webp",
+        image: "/department/blood-bank-banner.png",
     },
     {
         id: 3,
         title: "Dietary Services",
         description: "Therapeutic meal planning and nutritional support tailored to patient needs by certified dietitians and nutrition specialists.",
         link: "/services/dietary",
-        image: "/images/dietary-services.webp",
+        image: "/department/dietary-banner.png",
     },
 
     {
@@ -781,13 +803,13 @@ export const supportServices = [
         title: "Security Services",
         description: "24/7 campus security with surveillance systems, access control, and emergency response teams for patient safety.",
         link: "/services/security",
-        image: "/images/security-services.webp",
+        image: "/department/security-banner.png",
     },
     {
         id: 7,
         title: "Ambulance Services",
         description: "Advanced life support ambulances with trained EMT staff for emergency transport and inter-facility transfers.",
         link: "/services/ambulance",
-        image: "/images/ambulance-services.webp",
+        image: "/department/ambulance-service-banner.png",
     }
 ];

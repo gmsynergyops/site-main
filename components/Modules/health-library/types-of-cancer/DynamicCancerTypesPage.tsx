@@ -136,7 +136,7 @@ export const DynamicCancerTypesPage = () => {
                                 </p>
                                 {
                                     treatment.Image &&
-                                    <div className="relative h-48 rounded overflow-hidden">
+                                    <div className="relative w-full aspect-3/2 rounded overflow-hidden">
                                     <ImageWithFallback
                                         src={treatment.Image}
                                         fallbackSrc="/fallback-image.webp"
