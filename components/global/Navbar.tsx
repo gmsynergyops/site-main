@@ -375,7 +375,7 @@ export function Navbar() {
 
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2 items-center justify-end">
                     {/* Language Switch */}
-                    <LanguageSwitch switchLocale={switchLocale} />
+                    <LanguageSwitch switchLocale={switchLocale} result={result} />
 
                     {/* Single Sheet – no nested Sheets */}
                     <Sheet open={outerOpen} onOpenChange={(open) => {
