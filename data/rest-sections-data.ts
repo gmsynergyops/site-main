@@ -71,7 +71,7 @@ export const useDailySchedule = () => {
 
     const dailySchedule = [
         {
-            time: "6:00 AM",
+            time: "11:00 AM",
             activity: t('1.activity'),
             description: t('1.description')
         },

@@ -28,7 +28,7 @@ export const OurMission = () => {
                     <div className="relative w-full aspect-video">
                         <ImageWithFallback
                             fallbackSrc="/fallback-image.webp"
-                            src="/mission-horizontal.webp"
+                            src="/mission-hor977izontal.webp"
                             alt={t('imageAlt')}
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"

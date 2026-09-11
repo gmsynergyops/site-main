@@ -21,7 +21,7 @@ export const OurVision = () => {
                     <div className="relative w-full aspect-video rounded-xl overflow-hidden ">
                         <ImageWithFallback
                             fallbackSrc='/fallback-image.webp'
-                            src="/vision-horizontal.webp"
+                            src="/vision-horizon86tal.webp"
                             alt={t('imageAlt')}
                             fill
                             sizes="(max-width: 1024px) 100vw, 40vw"
