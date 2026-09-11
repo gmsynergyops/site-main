@@ -1,35 +1,35 @@
 import { useTranslations } from "next-intl";
 
-    // Awards data
-  export const useAwards =() => {
+// Awards data
+export const useAwards = () => {
     const t = useTranslations("TheSynergyStory.RestSections.AwardsSection.AwardsData")
     const awards = [
         {
             year: "2023",
-            title:  t('1.title'),
+            title: t('1.title'),
             description: t('1.description')
         },
         {
             year: "2022",
-            title:  t('2.title'),
+            title: t('2.title'),
             description: t('2.description')
         },
         {
             year: "2021",
-            title:  t('3.title'),
+            title: t('3.title'),
             description: t('3.description')
         },
         {
             year: "2020",
-            title:  t('4.title'),
+            title: t('4.title'),
             description: t('4.description')
         }
     ];
 
     return awards
-  }
+}
 
-    // Milestones data
+// Milestones data
 export const useMilestones = () => {
     const t = useTranslations("TheSynergyStory.RestSections.MilestonesSection.MilestonesData");
     const milestones = [
@@ -58,7 +58,7 @@ export const useMilestones = () => {
     return milestones;
 }
 
-    // Day at Synergy timeline
+// Day at Synergy timeline
 export const useDailySchedule = () => {
     const t = useTranslations("TheSynergyStory.RestSections.DayAtSynergySection.DailyScheduleData")
     const c = useTranslations("TheSynergyStory.RestSections.DayAtSynergySection.DailyScheduleCards")
@@ -71,36 +71,35 @@ export const useDailySchedule = () => {
 
     const dailySchedule = [
         {
-            time: "11:00 AM",
-            activity: t('1.activity'),
-            description: t('1.description')
-        },
-        {
-            time: "8:00 AM",
-            activity: t('2.activity'),
-            description: t('2.description')
-        },
-        {
-            time: "10:00 AM",
+            time: "9:00 AM – 9:30 AM",
             activity: t('3.activity'),
             description: t('3.description')
         },
         {
-            time: "1:00 PM",
+            time: "9:30 AM – 10:30 AM",
+            activity: t('1.activity'),
+            description: t('1.description')
+        },
+        {
+            time: "11:00 AM – 12:00 PM",
             activity: t('4.activity'),
             description: t('4.description')
         },
         {
-            time: "3:00 PM",
+            time: "4:00 PM – 5:00 PM",
+            activity: t('2.activity'),
+            description: t('2.description')
+        },
+        {
+            time: "5:00 PM – 5:30 PM",
             activity: t('5.activity'),
             description: t('5.description')
         },
         {
-            time: "6:00 PM",
+            time: "6:00 PM – 7:00 PM",
             activity: t('6.activity'),
             description: t('6.description')
         }
     ];
-
     return { dailySchedule, cards };
 }
