@@ -126,34 +126,37 @@ export default function DepartmentPage() {
             priority
           />
 
-          {/* GLASS BOX ADJUSTED FOR MOBILE */}
-          {framed ?
+          {/* ELEGANT BOTTOM GRADIENT OVERLAY WITH INLINE TEXT */}
+          {framed ? (
             <>
-              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              {/* Subtle gradient overlay only at bottom - preserves most of image */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+              {/* Bottom-left aligned content with minimal container */}
               <motion.div
                 variants={fadeIn}
-                className="absolute bottom-2.5 sm:bottom-3.75 left-0 right-0 w-full px-2 sm:px-4 flex justify-center z-10"
+                className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 lg:p-10 z-10"
               >
-                <div className="w-full max-w-4xl p-4 sm:p-6 md:p-10 rounded-2xl bg-white/1 backdrop-blur-sm border-[1.5px] border-white/20 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_8px_32px_0_rgba(0,0,0,0.2)] text-center relative overflow-hidden mx-2 sm:mx-0">
-
-                  <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-
+                <div className="max-w-4xl mx-auto">
+                  {/* Title with elegant text shadow - no heavy container */}
                   <motion.h1
                     variants={scaleUp}
-                    className={`${newYorkTypography.h1} text-white mb-1.5 sm:mb-3 md:mb-4 [text-shadow:0_0_5px_rgba(0,0,0,1.0),0_0_5px_rgba(255,255,255,0.9)] relative z-10 leading-tight`}
+                    className={`${newYorkTypography.h1} text-white mb-2 md:mb-3 drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)] leading-tight`}
                   >
                     {department.heroTitle}
                   </motion.h1>
+
+                  {/* Subtitle - clean and readable */}
                   <motion.p
                     variants={scaleUp}
-                    className="text-sm sm:text-base md:text-xl text-white font-serif max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(255,255,255,0.8)] font-medium relative z-10 leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-none"
+                    className="text-base sm:text-lg md:text-xl text-white/90 font-serif max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)] font-medium leading-relaxed line-clamp-3 sm:line-clamp-none"
                   >
                     {department.heroSubtitle}
                   </motion.p>
                 </div>
               </motion.div>
-            </> : null
-          }
+            </>
+          ) : null}
         </motion.div>
       </motion.section>
 
