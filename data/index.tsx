@@ -1,5 +1,6 @@
 import { MenuItemProps, OPD, PressRelease, TestimonialItem } from "@/types";
 import { useTranslations } from 'next-intl';
+import { CONTACT_INFO } from './contactData';
 
 export const MAIN_URL = "/videos/homepage-main/m1v.mp4"
 export const MOBILE_MAIN_URL = "/videos/homepage-main/m2v.mp4"
@@ -458,10 +459,10 @@ export const useActions = () => {
             className: "bg-pink-50 hover:bg-pink-100 transtion-all duration-300 ease-in-out"
         },
         {
-            icon: "/icons/search-interface-symbol.png",
-            label: t('search.label'),
-            onClick: () => { },
-            className: "bg-yellow-50 hover:bg-yellow-100 transtion-all duration-300 ease-in-out"
+            icon: "/WhatsApp.svg",
+            label: t('whatsapp.label'),
+            onClick: () => { window.open(CONTACT_INFO.whatsapp.url, "_blank"); },
+            className: "bg-green-50 hover:bg-green-100 transtion-all duration-300 ease-in-out"
         },
     ];
 };
@@ -727,8 +728,6 @@ export const pressReleases: PressRelease[] = [
     }
 ]
 
-import { CONTACT_INFO } from './contactData';
-export { CONTACT_INFO } from './contactData';
 
 export const ContactUsMessage = encodeURIComponent("Hello, I would like to know more about your services.");
 export const phoneNumber = CONTACT_INFO.phoneNumbers.emergency;

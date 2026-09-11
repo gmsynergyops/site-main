@@ -102,17 +102,27 @@ export default function DepartmentPage() {
       >
         <motion.div
           variants={itemVariants}
-          className="relative h-100 md:h-125 rounded-2xl overflow-hidden shadow-xl"
+          className="relative w-full rounded-2xl overflow-hidden shadow-xl"
         >
+          {/* Desktop banner */}
           <ImageWithFallback
             fallbackSrc="/fallback-image.webp"
             src={department.bannerImage}
             alt={`${department.name} Department`}
-            fill
-            className={cn(
-              framed?
-                "object-cover" : "object-contain"
-            )}
+            width={1200}
+            height={500}
+            className="hidden md:block object-cover w-full h-auto aspect-5:3"
+            priority
+          />
+
+          {/* Mobile banner - uses mobile-specific image if available, otherwise desktop */}
+          <ImageWithFallback
+            fallbackSrc="/fallback-image.webp"
+            src={department.bannerImageMobile || department.bannerImage}
+            alt={`${department.name} Department`}
+            width={1200}
+            height={500}
+            className="block md:hidden object-cover w-full h-auto aspect-5:3"
             priority
           />
 

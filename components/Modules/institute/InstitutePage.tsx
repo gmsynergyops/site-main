@@ -56,8 +56,29 @@ export default function InstitutePage() {
       
       {/* Hero Section */}
       <motion.section ref={heroRef} initial="hidden" animate={heroInView ? "visible" : "hidden"} variants={containerVariants} className="mb-20">
-        <motion.div variants={itemVariants} className="relative h-100 md:h-125 rounded-2xl overflow-hidden shadow-xl">
-          <ImageWithFallback fallbackSrc="/fallback-image.webp" src={pageData.bannerImage} alt={pageData.name} fill className="object-cover" priority />
+        <motion.div variants={itemVariants} className="relative w-full rounded-2xl overflow-hidden shadow-xl">
+          {/* Desktop banner */}
+          <ImageWithFallback
+            fallbackSrc="/fallback-image.webp"
+            src={pageData.bannerImage}
+            alt={pageData.name}
+            width={1200}
+            height={500}
+            className="hidden md:block object-cover w-full h-auto aspect-5:3"
+            priority
+          />
+
+          {/* Mobile banner */}
+          <ImageWithFallback
+            fallbackSrc="/fallback-image.webp"
+            src={pageData.bannerImageMobile || pageData.bannerImage}
+            alt={pageData.name}
+            width={1200}
+            height={500}
+            className="block md:hidden object-cover w-full h-auto aspect-5:3"
+            priority
+          />
+
           <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
           
           <motion.div className="absolute bottom-2.5 left-0 right-0 w-full px-4 flex justify-center z-10">

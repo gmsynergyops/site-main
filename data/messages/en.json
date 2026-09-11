@@ -380,6 +380,9 @@
         },
         "search": {
             "label": "Search"
+        },
+        "whatsapp": {
+            "label": "WhatsApp"
         }
     },
     "excellence": {
@@ -4289,6 +4292,7 @@
         "quickLinks": "Quick Links",
         "emergencyCare": "Emergency Care",
         "search": "Search",
+        "whatsapp": "Chat on WhatsApp",
         "hospitalName": "Synergy Super Speciality Hospital & Cancer Institute",
         "readMore": "Read more..."
     },

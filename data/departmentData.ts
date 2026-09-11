@@ -1,6 +1,18 @@
 import { DepartmentData } from "@/types";
 import { useTranslations } from "next-intl";
 
+/**
+ * Department Data Hook
+ *
+ * To add mobile-specific banner images:
+ * 1. Add your mobile banner image to /public/department/ (e.g., medical-oncology-banner-mobile.jpeg)
+ * 2. Add the bannerImageMobile property to the department object:
+ *    bannerImageMobile: "/department/medical-oncology-banner-mobile.jpeg"
+ *
+ * Mobile images will use object-cover and are optimized for portrait/square aspect ratios.
+ * If bannerImageMobile is not provided, the desktop bannerImage will be used on mobile.
+ */
+
 export const useDepartmentData = () => {
   const t = useTranslations("DepartmentDataMegaArray");
 
@@ -12,6 +24,7 @@ export const useDepartmentData = () => {
       slug: "medical-oncology",
       heroImage: "/department/medical-oncology.jpeg",
       bannerImage: "/department/medical-oncology-banner.jpeg",
+      // bannerImageMobile: "/department/medical-oncology-banner-mobile.jpeg", // Add your mobile banner here
       heroTitle: t("MedicalOncology.heroTitle"),
       isFeatured: true,
       heroSubtitle: t("MedicalOncology.heroSubtitle"),

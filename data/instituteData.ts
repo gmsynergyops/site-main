@@ -12,6 +12,7 @@ export interface InstituteData {
   heroTitle: string;
   heroSubtitle: string;
   bannerImage: string;
+  bannerImageMobile?: string; // Optional mobile-specific banner
   themeBgClass: string;
   sections: InstituteSection[];
 }

@@ -14,6 +14,7 @@ export interface SurvivorData {
   heroTitle: string;
   heroSubtitle: string;
   bannerImage: string;
+  bannerImageMobile?: string; // Optional mobile-specific banner
   themeBgClass: string;
   sections: SurvivorSection[];
 }

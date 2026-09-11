@@ -65,6 +65,14 @@ const router = useRouter()
                 }
             };
         }
+        if (item.icon?.includes("WhatsApp") || item.label === "WhatsApp" || item.label === "व्हाट्सएप") {
+            return {
+                ...item,
+                onClick: () => {
+                    window.open(CONTACT_INFO.whatsapp.url, "_blank");
+                }
+            };
+        }
 
         return item;
     });

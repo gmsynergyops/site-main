@@ -117,6 +117,7 @@ export interface DepartmentData {
     slug: string;
     heroImage: string;
     bannerImage: string;
+    bannerImageMobile?: string; // Optional mobile-specific banner
     heroTitle: string;
     heroSubtitle: string;
     isFeatured: boolean;
