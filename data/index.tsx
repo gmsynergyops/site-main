@@ -78,6 +78,7 @@ export const useMenuItems = () => {
                         { label: t('sections.specialties.links.radiationOncology'), href: "/services/radiation-oncology" },
                         { label: t('sections.specialties.links.gynecology'), href: "/services/gynecology" },
                         { label: t('sections.specialties.links.pediatrics'), href: "/services/pediatrics" },
+                        { label: t('sections.specialties.links.cardiology'), href: "/services/cardiology" },
                         { label: t('sections.specialties.links.urology'), href: "/services/urology" },
                         { label: t('sections.specialties.links.neurology'), href: "/services/neurology" },
                         { label: t('sections.specialties.links.neurosurgery'), href: "/services/neurosurgery" },

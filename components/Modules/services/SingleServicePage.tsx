@@ -284,7 +284,7 @@ export default function DepartmentPage() {
           <motion.h2 variants={itemVariants} className={`${newYorkTypography.h2} text-gray-900 mb-12`}>
             {department.team.title}
           </motion.h2>
-          <motion.div variants={containerVariants} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div variants={containerVariants} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {department.team.members.map((member: any, index: number) => (
               <motion.div
                 key={index}
@@ -297,7 +297,7 @@ export default function DepartmentPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.1 * index }}
                 >
-                  <div className="relative h-64">
+                  <div className="relative w-full aspect-3/2">
                     <ImageWithFallback
                       fallbackSrc="/fallback-image.webp"
                       src={member.image}

@@ -51,6 +51,7 @@ export const ServicesMap: Record<string, JSX.Element> = {
     "neurology": <DepartmentPage />,
     "neurosurgery": <DepartmentPage />,
     "gastroenterology": <DepartmentPage />,
+    "cardiology": <DepartmentPage />,
     "nephrology": <DepartmentPage />,
     "urology": <DepartmentPage />,
     "orthopedics": <DepartmentPage />,

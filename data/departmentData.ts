@@ -985,6 +985,15 @@ export const useDepartmentData = () => {
         title: t("Gastroenterology.team.title"),
         members: [
           {
+            name: t("Gastroenterology.team.members.drSaurabh.name"),
+            role: t("Gastroenterology.team.members.drSaurabh.role"),
+            credentials: t(
+              "Gastroenterology.team.members.drSaurabh.credentials"
+            ),
+            image: "/doctors/fallback-male-doctor.png",
+            specialty: t("Gastroenterology.team.members.drSaurabh.specialty"),
+          },
+          {
             name: t("Gastroenterology.team.members.drUpendra.name"),
             role: t("Gastroenterology.team.members.drUpendra.role"),
             credentials: t(
@@ -1052,6 +1061,138 @@ export const useDepartmentData = () => {
           },
           {
             text: t("Gastroenterology.cta.buttons.learnProcedures.text"),
+            isPrimary: false,
+          },
+        ],
+      },
+    },
+    {
+      id: "cardiology",
+      index: 21,
+      name: t("Cardiology.name"),
+      slug: "cardiology",
+      heroImage: "/department/cardiology.webp",
+      bannerImage: "/department/cardiology-banner.png",
+      heroTitle: t("Cardiology.heroTitle"),
+      isFeatured: true,
+      heroSubtitle: t("Cardiology.heroSubtitle"),
+      themeBgClass: "bg-linear-to-br from-red-50 via-white to-rose-50", // Unique Red/Rose
+      overview: t.raw("Cardiology.overview"),
+      treatments: {
+        title: t("Cardiology.treatments.title"),
+        items: [
+          {
+            title: t("Cardiology.treatments.items.angioplasty.title"),
+            description: t(
+              "Cardiology.treatments.items.angioplasty.description"
+            ),
+          },
+          {
+            title: t("Cardiology.treatments.items.heartFailure.title"),
+            description: t(
+              "Cardiology.treatments.items.heartFailure.description"
+            ),
+          },
+          {
+            title: t("Cardiology.treatments.items.electrophysiology.title"),
+            description: t(
+              "Cardiology.treatments.items.electrophysiology.description"
+            ),
+          },
+        ],
+      },
+      stats: {
+        title: t("Cardiology.stats.title"),
+        items: [
+          {
+            value: t("Cardiology.stats.items.procedures.value"),
+            label: t("Cardiology.stats.items.procedures.label"),
+          },
+          {
+            value: t("Cardiology.stats.items.successRate.value"),
+            label: t("Cardiology.stats.items.successRate.label"),
+          },
+          {
+            value: t("Cardiology.stats.items.emergency.value"),
+            label: t("Cardiology.stats.items.emergency.label"),
+          },
+          {
+            value: t("Cardiology.stats.items.cathLab.value"),
+            label: t("Cardiology.stats.items.cathLab.label"),
+          },
+        ],
+      },
+      team: {
+        title: t("Cardiology.team.title"),
+        members: [
+          {
+            name: t("Cardiology.team.members.drShubham.name"),
+            role: t("Cardiology.team.members.drShubham.role"),
+            credentials: t(
+              "Cardiology.team.members.drShubham.credentials"
+            ),
+            image: "/doctors/dr-shubham-srivastava.webp",
+            specialty: t("Cardiology.team.members.drShubham.specialty"),
+          }
+        ],
+      },
+      facilities: {
+        title: t("Cardiology.facilities.title"),
+        description: t("Cardiology.facilities.description"),
+        features: [
+          t("Cardiology.facilities.features.0"),
+          t("Cardiology.facilities.features.1"),
+          t("Cardiology.facilities.features.2"),
+          t("Cardiology.facilities.features.3"),
+          t("Cardiology.facilities.features.4"),
+        ],
+        image: "/fallback-image.webp",
+      },
+      research: {
+        title: t("Cardiology.research.title"),
+        items: [
+          {
+            title: t("Cardiology.research.items.interventional.title"),
+            content: t("Cardiology.research.items.interventional.content"),
+            icon: "heart",
+          },
+          {
+            title: t("Cardiology.research.items.heartFailure.title"),
+            content: t("Cardiology.research.items.heartFailure.content"),
+            icon: "activity",
+          },
+          {
+            title: t("Cardiology.research.items.cardiacImaging.title"),
+            content: t("Cardiology.research.items.cardiacImaging.content"),
+            icon: "monitor",
+          },
+        ],
+      },
+      testimonials: {
+        title: t("Cardiology.testimonials.title"),
+        items: [
+          {
+            quote: t("Cardiology.testimonials.items.amit.quote"),
+            author: t("Cardiology.testimonials.items.amit.author"),
+            image: "/fallback-image.webp",
+          },
+          {
+            quote: t("Cardiology.testimonials.items.sunita.quote"),
+            author: t("Cardiology.testimonials.items.sunita.author"),
+            image: "/fallback-image.webp",
+          },
+        ],
+      },
+      cta: {
+        title: t("Cardiology.cta.title"),
+        subtitle: t("Cardiology.cta.subtitle"),
+        buttons: [
+          {
+            text: t("Cardiology.cta.buttons.bookAppointment.text"),
+            isPrimary: true,
+          },
+          {
+            text: t("Cardiology.cta.buttons.learnProcedures.text"),
             isPrimary: false,
           },
         ],

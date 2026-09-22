@@ -157,6 +157,7 @@
                     "neurology": "Neurology",
                     "neurosurgery": "Neurosurgery",
                     "gastroenterology": "Gastroenterology",
+                    "cardiology": "Cardiology",
                     "nephrology": "Nephrology",
                     "orthopedics": "Orthopedics",
                     "anesthesia": "Anesthesia",
@@ -2161,6 +2162,12 @@
             "team": {
                 "title": "Our Gastroenterology Team",
                 "members": {
+                    "drSaurabh": {
+                        "name": "Dr. Saurabh Kumar Mishra",
+                        "role": "Gastroenterologist",
+                        "credentials": "M.B.B.S , MD, DM-(GASTROENTEROLOGY)",
+                        "specialty": "Advanced Endoscopy"
+                    },
                     "drUpendra": {
                         "name": "Dr. Upendra Gupta",
                         "role": "Gastroenterologist",
@@ -2219,6 +2226,139 @@
                     },
                     "learnProcedures": {
                         "text": "Learn About Procedures"
+                    }
+                }
+            }
+        },
+        "Cardiology": {
+            "name": "Cardiology",
+            "heroTitle": "Advanced Cardiac Care & Heart Center",
+            "heroSubtitle": "Comprehensive diagnosis, interventional cardiology, and heart disease management.",
+            "overview": {
+                "title": "Our Cardiology Approach",
+                "description": [
+                    "Cardiology focuses on complete heart health, coronary artery disease, arrhythmias, and cardiac emergencies."
+                ],
+                "additionalSections": [
+                    {
+                        "title": "We treat:",
+                        "items": [
+                            "Coronary Artery Disease & Heart Attacks",
+                            "Heart Failure & Cardiomyopathy",
+                            "Arrhythmias & Rhythm Disorders",
+                            "Hypertension & Lipid Disorders"
+                        ]
+                    },
+                    {
+                        "title": "How we help:",
+                        "items": [
+                            "24/7 Primary Angioplasty & Cath Lab",
+                            "Echocardiography, TMT, and Holter Monitoring",
+                            "Pacemaker & Device Implantation",
+                            "Preventive Heart Care & Cardiac Rehabilitation"
+                        ]
+                    }
+                ]
+            },
+            "treatments": {
+                "title": "Cardiology Treatments & Procedures",
+                "items": {
+                    "angioplasty": {
+                        "title": "Coronary Angiography & Angioplasty",
+                        "description": "Advanced radial angiography and drug-eluting stent placement for blocked heart arteries."
+                    },
+                    "heartFailure": {
+                        "title": "Heart Failure Management",
+                        "description": "Comprehensive medical therapy, CRT/ICD device therapies, and advanced heart care programs."
+                    },
+                    "electrophysiology": {
+                        "title": "Electrophysiology & Pacemakers",
+                        "description": "Diagnosis and management of abnormal heart rhythms, single/dual chamber pacemaker implantations."
+                    }
+                }
+            },
+            "stats": {
+                "title": "Cardiology By The Numbers",
+                "items": {
+                    "procedures": {
+                        "value": "10,000+",
+                        "label": "Cardiac Procedures Performed"
+                    },
+                    "successRate": {
+                        "value": "99.2%",
+                        "label": "Angioplasty Success Rate"
+                    },
+                    "emergency": {
+                        "value": "24/7",
+                        "label": "Emergency Cardiac Care & Cath Lab"
+                    },
+                    "cathLab": {
+                        "value": "Flat Panel",
+                        "label": "Advanced Digital Cath Lab"
+                    }
+                }
+            },
+            "team": {
+                "title": "Our Cardiology Team",
+                "members": {
+                    "drShubham": {
+                        "name": "Dr. Shubham Srivastava",
+                        "role": "Senior Consultant Cardiologist",
+                        "credentials": "M.B.B.S, MD, DM (Cardiology)",
+                        "specialty": "Interventional Cardiology"
+                    }
+                }
+            },
+            "facilities": {
+                "title": "Cardiac Care Facilities",
+                "description": "Equipped with ultra-modern Cath Lab, Coronary Care Unit (CCU), and non-invasive cardiac labs.",
+                "features": [
+                    "State-of-the-art Flat Panel Cath Lab",
+                    "Dedicated Intensive Coronary Care Unit (ICCU)",
+                    "3D Echocardiography & Stress Test (TMT)",
+                    "24-hour Holter Monitoring & Ambulatory BP",
+                    "24/7 Rapid Response Cardiac Ambulance"
+                ]
+            },
+            "research": {
+                "title": "Cardiac Research & Innovation",
+                "items": {
+                    "interventional": {
+                        "title": "Complex Angioplasty",
+                        "content": "Pioneering techniques in complex bifurcation and chronic total occlusion stenting."
+                    },
+                    "heartFailure": {
+                        "title": "Heart Failure Care",
+                        "content": "Evaluating modern guideline-directed medical therapies and device interventions."
+                    },
+                    "cardiacImaging": {
+                        "title": "Advanced Cardiac Imaging",
+                        "content": "High-resolution non-invasive imaging for early detection of subclinical heart disease."
+                    }
+                }
+            },
+            "testimonials": {
+                "title": "Patient Stories",
+                "items": {
+                    "amit": {
+                        "quote": "The cardiology team acted swiftly during my emergency angioplasty. Their prompt care saved my life.",
+                        "author": "Amit Verma"
+                    },
+                    "sunita": {
+                        "quote": "Exceptional post-operative care and regular follow-ups helped me recover quickly and regain normal life.",
+                        "author": "Sunita Sharma"
+                    }
+                }
+            },
+            "cta": {
+                "title": "Book Your Heart Health Checkup",
+                "subtitle": "Consult with our experienced cardiologists for comprehensive heart care.",
+                "buttons": {
+                    "bookAppointment": {
+                        "text": "Book Appointment"
+                    },
+                    "learnProcedures": {
+                        "text": "Explore Cardiac Treatments"
                     }
                 }
             }
@@ -9661,6 +9801,18 @@
             "qualification": "M.B.B.S, MD Radiology, Neuroimaging Specialist",
             "department": "Diagnostic Imaging & Radiology",
             "experience": "12+ years"
+        },
+        "23": {
+            "name": "Dr. Saurabh Kumar Mishra",
+            "qualification": "M.B.B.S, MD, DM (Gastroenterology)",
+            "department": "Gastroenterology",
+            "experience": "10+ years Clinical"
+        },
+        "24": {
+            "name": "Dr. Shubham Srivastava",
+            "qualification": "M.B.B.S, MD, DM (Cardiology)",
+            "department": "Cardiology",
+            "experience": "4+ years"
         }
     },
     "CentersPage": {
