@@ -1,19 +1,32 @@
-"use client"
+"use client";
+
+import { useState, useMemo } from 'react';
 import { ImageWithFallback } from '@/components/global/ImageWithFallback';
 import { useDepartmentData } from '@/data/departmentData';
 import { DepartmentData } from '@/types';
 import { motion, Variants } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import { 
+  ArrowRight, 
+  Sparkles, 
+  ShieldCheck, 
+  Stethoscope, 
+  Activity, 
+  Clock, 
+  Search, 
+  CheckCircle2,
+  Calendar
+} from 'lucide-react';
 
-// Animation variants (unchanged)
+// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 };
@@ -24,7 +37,7 @@ const itemVariants: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: [0.25, 0.1, 0.25, 1],
     },
   },
@@ -32,205 +45,319 @@ const itemVariants: Variants = {
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8 } },
+  visible: { opacity: 1, transition: { duration: 0.6 } },
 };
 
 export default function ServicesPage() {
-    const departmentData = useDepartmentData()
-    
+  const departmentData = useDepartmentData();
+  const t = useTranslations('global');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'featured'>('all');
+
+  const filteredDepartments = useMemo(() => {
+    return departmentData.filter((dept) => {
+      const matchesSearch = 
+        dept.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        dept.heroTitle?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        dept.treatments?.items?.some((t) => t.title.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      if (activeFilter === 'featured') {
+        return matchesSearch && dept.isFeatured;
+      }
+      return matchesSearch;
+    });
+  }, [departmentData, searchQuery, activeFilter]);
+
+  const featuredCount = useMemo(() => departmentData.filter(d => d.isFeatured).length, [departmentData]);
+
   return (
     <motion.main
-      className="min-h-screen bg-gray-50"
+      className="min-h-screen bg-slate-50/60"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      {/* Enhanced Hospital Introduction Section */}
-      <motion.section
-        className="py-16 px-4 bg-white"
-        variants={fadeIn}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.h1
-                className="text-4xl font-display font-light text-gray-900 mb-6 leading-tight"
-                variants={itemVariants}
-              >
-                Exceptional Care at <span className="font-medium">Synergy Hospital</span>
-              </motion.h1>
+      {/* Hero / Header Section (No placeholder image, modern medical layout) */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-slate-50/60 border-b border-neutral-200/70 pt-12 sm:pt-16 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
+        {/* Subtle decorative glow */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 -left-20 w-80 h-80 bg-indigo-200/20 rounded-full blur-3xl pointer-events-none" />
 
-              <motion.p
-                className="text-lg text-gray-600 mb-6 font-sans font-light leading-relaxed"
-                variants={itemVariants}
-              >
-                Where compassionate healthcare meets cutting-edge medical innovation.
-              </motion.p>
+        <div className="max-w-6xl mx-auto relative z-10 text-center">
+          {/* Eyebrow Badge */}
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-blue-100 shadow-xs text-synergy-blue text-xs sm:text-sm font-semibold mb-6">
+            <Sparkles className="size-4 text-synergy-blue" />
+            <span>Centres of Clinical Excellence</span>
+          </motion.div>
 
-              <motion.div
-                className="space-y-4 mb-8"
-                variants={containerVariants}
-              >
-                {[
-                  "Board-certified specialists in every field",
-                  "State-of-the-art diagnostic technology",
-                  "Patient-centered treatment plans",
-                  "Multidisciplinary approach to complex cases"
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-start"
-                    variants={itemVariants}
-                  >
-                    <svg className="w-5 h-5 text-blue-500 mt-0.5 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700 font-sans font-light">{item}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <button className="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-sans font-normal transition-colors">
-                  Schedule a Consultation
-                </button>
-              </motion.div>
-            </div>
-
-            <motion.div
-              className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-lg"
-              variants={itemVariants}
-            >
-              <ImageWithFallback
-                fallbackSrc='/fallback-image.webp'
-                fill
-                src="/fallback-image.webp"
-                alt="Synergy Hospital Facility"
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black/30 via-black/10 to-transparent" />
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Improved Departments Grid Section */}
-      <motion.section
-        className="py-12 px-4"
-        variants={fadeIn}
-      >
-        <div className="max-w-6xl mx-auto">
-          <motion.h2
-            className="text-3xl font-semibold text-gray-900 mb-8"
+          {/* Heading */}
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-900 tracking-tight leading-tight max-w-4xl mx-auto mb-6"
             variants={itemVariants}
           >
-            Our Medical Departments
-          </motion.h2>
+            Exceptional Care & Specialized Medical Departments at{' '}
+            <span className="text-synergy-blue">Synergy Hospital</span>
+          </motion.h1>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
+          {/* Subtitle */}
+          <motion.p
+            className="text-base sm:text-lg text-gray-600 font-sans max-w-3xl mx-auto mb-10 leading-relaxed"
+            variants={itemVariants}
           >
-            {departmentData.map((department) => (
-              <DepartmentCard key={department.id} {...department} />
-            ))}
+            Delivering advanced clinical care with state-of-the-art medical technology, board-certified super-specialists, and compassionate patient-centered healthcare.
+          </motion.p>
+
+          {/* Key Pillars / Stats Bar */}
+          <motion.div 
+            variants={containerVariants}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto mb-10 text-left"
+          >
+            <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-xs p-4 rounded-xl border border-neutral-200/80 shadow-xs flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-blue-50 text-synergy-blue shrink-0">
+                <ShieldCheck className="size-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 text-sm sm:text-base">20+ Specialties</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Comprehensive super-speciality departments</p>
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-xs p-4 rounded-xl border border-neutral-200/80 shadow-xs flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-indigo-50 text-indigo-700 shrink-0">
+                <Stethoscope className="size-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 text-sm sm:text-base">Expert Doctors</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Dedicated surgeons & senior clinicians</p>
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-xs p-4 rounded-xl border border-neutral-200/80 shadow-xs flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-sky-50 text-sky-700 shrink-0">
+                <Activity className="size-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 text-sm sm:text-base">Advanced Tech</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Modern modular OTs, MRI & Dialysis</p>
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="bg-white/80 backdrop-blur-xs p-4 rounded-xl border border-neutral-200/80 shadow-xs flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-rose-50 text-rose-700 shrink-0">
+                <Clock className="size-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 text-sm sm:text-base">24/7 Emergency</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Round-the-clock trauma & critical care</p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* CTA Actions */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#departments-grid"
+              className="inline-flex items-center gap-2 bg-synergy-blue hover:bg-synergy-blue/90 text-white font-medium text-sm sm:text-base px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
+            >
+              <span>Explore Departments</span>
+              <ArrowRight className="size-4" />
+            </a>
+            <Link
+              href="/doctors/all"
+              className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 font-medium text-sm sm:text-base px-6 py-3 rounded-xl shadow-xs transition-all"
+            >
+              <Calendar className="size-4 text-synergy-blue" />
+              <span>{t('findAvailableDoctors') || 'Find Available Doctors'}</span>
+            </Link>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
+
+      {/* Departments Grid Section */}
+      <section id="departments-grid" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-[100rem] mx-auto">
+        {/* Section Header & Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
+          <div>
+            <div className="flex items-center gap-2 text-synergy-blue text-xs sm:text-sm font-semibold mb-1">
+              <CheckCircle2 className="size-4" />
+              <span>Comprehensive Healthcare</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+              Our Medical & Surgical Departments
+            </h2>
+            <p className="text-sm text-gray-600 mt-1">
+              Browse through all our clinical specialties and advanced healthcare divisions.
+            </p>
+          </div>
+
+          {/* Search & Filter bar */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            {/* Filter Tabs */}
+            <div className="inline-flex p-1 bg-neutral-200/70 rounded-xl">
+              <button
+                onClick={() => setActiveFilter('all')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
+                  activeFilter === 'all'
+                    ? 'bg-white text-gray-900 shadow-xs'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                All ({departmentData.length})
+              </button>
+              <button
+                onClick={() => setActiveFilter('featured')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all flex items-center gap-1 ${
+                  activeFilter === 'featured'
+                    ? 'bg-white text-gray-900 shadow-xs'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                <Sparkles className="size-3 text-synergy-blue" />
+                <span>Featured ({featuredCount})</span>
+              </button>
+            </div>
+
+            {/* Search Input */}
+            <div className="relative min-w-[240px] sm:min-w-[280px]">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search department or specialty..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-9 pr-4 py-2 bg-white border border-neutral-300 rounded-xl text-xs sm:text-sm text-gray-900 placeholder:text-gray-400 focus:outline-hidden focus:ring-2 focus:ring-synergy-blue/30 focus:border-synergy-blue transition-all"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Department Grid */}
+        {filteredDepartments.length > 0 ? (
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            variants={containerVariants}
+          >
+            {filteredDepartments.map((department) => (
+              <DepartmentCard key={department.id} department={department} />
+            ))}
+          </motion.div>
+        ) : (
+          <div className="bg-white rounded-2xl border border-neutral-200/80 p-12 text-center max-w-lg mx-auto my-8">
+            <Search className="size-10 text-gray-400 mx-auto mb-3" />
+            <h3 className="text-lg font-bold text-gray-900 mb-1">No departments found</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              We couldn&apos;t find any department matching &quot;{searchQuery}&quot;.
+            </p>
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setActiveFilter('all');
+              }}
+              className="px-4 py-2 bg-synergy-blue text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-synergy-blue/90 transition-colors"
+            >
+              Reset Search & Filters
+            </button>
+          </div>
+        )}
+      </section>
     </motion.main>
   );
 }
 
-// Improved DepartmentCard component with consistent sizing
-function DepartmentCard(department: DepartmentData) {
+// Enhanced DepartmentCard component
+function DepartmentCard({ department }: { department: DepartmentData }) {
   const t = useTranslations('global');
+  const imageSrc = department.heroImage || department.bannerImage;
+
+  // Format overview text
+  const overviewText = Array.isArray(department.overview?.description)
+    ? department.overview.description.join(' ')
+    : department.overview?.description || department.heroSubtitle || '';
+
   return (
     <motion.div
       variants={itemVariants}
-      className="h-full" // Ensure all cards take full height of their container
+      className="h-full"
     >
       <Link
         href={`/services/${department.slug}`}
-        className="group  h-full rounded-lg bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 flex flex-col"
+        className="group relative flex flex-col h-full bg-white rounded-2xl border border-neutral-200/80 hover:border-synergy-blue/50 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
       >
-        {/* Image or Icon */}
-        <div className="mb-4 shrink-0">
-          {department.heroImage ? (
-            <motion.div
-              className="w-full h-40 relative rounded-lg overflow-hidden"
-              whileHover={{ scale: 1.02 }}
-            >
+        {/* Department Image Container */}
+        <div className="relative w-full aspect-4/3 sm:aspect-square overflow-hidden bg-neutral-100 shrink-0">
+          {imageSrc ? (
+            <>
               <ImageWithFallback
-                fallbackSrc='/fallback-image.webp'
+                fallbackSrc="/fallback-image.webp"
                 fill
-                src={department.heroImage}
+                src={imageSrc}
                 alt={department.name}
-                className="object-cover"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
               />
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            </>
           ) : (
-            <div className="w-full h-40 bg-gray-100 rounded-lg flex items-center justify-center">
-              <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
+            <div className="w-full h-full bg-slate-100 flex items-center justify-center">
+              <Activity className="size-12 text-slate-400" />
             </div>
           )}
+
+          {/* Featured Badge */}
+          {department.isFeatured && (
+            <span className="absolute top-3 left-3 bg-synergy-blue text-white text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-md flex items-center gap-1 z-10">
+              <Sparkles className="size-3" />
+              <span>Featured</span>
+            </span>
+          )}
+
+          {/* Department Index Pill */}
+          <span className="absolute top-3 right-3 bg-black/45 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded-full font-medium z-10">
+            #{String(department.index + 1).padStart(2, '0')}
+          </span>
         </div>
 
-        {/* Content area with consistent height */}
-        <div className="flex flex-col grow">
-          {/* Header with name and featured tag */}
-          <div className="mb-2 flex items-start justify-between">
-            <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary line-clamp-2">
-              {department.name}
-            </h3>
-            {department.isFeatured && (
-              <span className="text-xs font-semibold text-white bg-pink-600 px-2 py-0.5 rounded ml-2 shrink-0">
-                Featured
-              </span>
+        {/* Content Body */}
+        <div className="p-5 flex flex-col grow justify-between">
+          <div>
+            {/* Header with Department Name */}
+            <div className="mb-2">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-synergy-blue transition-colors line-clamp-1">
+                {department.name}
+              </h3>
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed line-clamp-2 mb-4 min-h-[36px]">
+              {overviewText}
+            </p>
+
+            {/* Key Treatments / Services Badges */}
+            {department.treatments?.items && department.treatments.items.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {department.treatments.items.slice(0, 3).map((item, index) => (
+                  <span
+                    className="text-[11px] bg-slate-50 text-slate-700 border border-slate-200/80 px-2 py-0.5 rounded-md font-medium"
+                    key={index}
+                  >
+                    {item.title.length > 22 ? `${item.title.substring(0, 22)}...` : item.title}
+                  </span>
+                ))}
+                {department.treatments.items.length > 3 && (
+                  <span className="text-[11px] bg-blue-50/80 text-synergy-blue border border-blue-100 px-1.5 py-0.5 rounded-md font-semibold">
+                    +{department.treatments.items.length - 3} more
+                  </span>
+                )}
+              </div>
             )}
           </div>
 
-          {/* Description with fixed height */}
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4 min-h-15">
-            {department.overview.description}
-          </p>
-
-          {/* Tags with scroll if too many */}
-          {department.treatments.items?.length > 0 && (
-            <div className="mt-auto">
-              <div className="flex flex-wrap gap-1 mb-3 max-h-20 overflow-y-auto py-1">
-                {department.treatments.items.slice(0, 6).map((item, index) => (
-                  <span
-                    className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded"
-                    key={index}
-                  >
-                    {item.title.length > 20 ? `${item.title.substring(0, 20)}...` : item.title}
-                  </span>
-                ))}
-              </div>
+          {/* Footer Action Button */}
+          <div className="pt-2 border-t border-neutral-100 mt-2">
+            <div className="w-full py-2 px-3 bg-slate-50 group-hover:bg-synergy-blue text-slate-700 group-hover:text-white rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition-all duration-300">
+              <span>{t('learnMore') || 'Explore Department'}</span>
+              <ArrowRight className="size-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
-          )}
-        </div>
-
-        {/* Footer with consistent positioning */}
-        <div className="mt-4 flex flex-col gap-6  items-start justify-between">
-          {department.facilities.features && (
-            <span className="text-xs text-gray-500">
-              {department.facilities.features} services
-            </span>
-          )}
-          <div className="flex items-center text-white bg-linear-to-tl from-synergy-blue to-indigo-300 from-40% shadow-blob  py-1 px-2 rounded-sm group-hover:text-slate-50">
-            <span className="text-sm font-medium">{t('learnMore')}</span>
-            <svg
-              className="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
           </div>
         </div>
       </Link>
