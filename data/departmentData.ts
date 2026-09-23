@@ -239,6 +239,13 @@ export const useDepartmentData = () => {
             specialty: t("SurgicalOncology.team.members.drAnwer.specialty"),
           },
           {
+            name: t("SurgicalOncology.team.members.drAMishra.name"),
+            role: t("SurgicalOncology.team.members.drAMishra.role"),
+            credentials: t("SurgicalOncology.team.members.drAMishra.credentials"),
+            image: "/doctors/fallback-male-doctor.png",
+            specialty: t("SurgicalOncology.team.members.drAMishra.specialty"),
+          },
+          {
             name: t("SurgicalOncology.team.members.drVishal.name"),
             role: t("SurgicalOncology.team.members.drVishal.role"),
             credentials: t(
@@ -993,6 +1000,15 @@ export const useDepartmentData = () => {
             image: "/doctors/fallback-male-doctor.png",
             specialty: t("Gastroenterology.team.members.drSaurabh.specialty"),
           },
+              {
+            name: t("Gastroenterology.team.members.drAfreen.name"),
+            role: t("Gastroenterology.team.members.drAfreen.role"),
+            credentials: t(
+              "Gastroenterology.team.members.drAfreen.credentials"
+            ),
+            image: "/doctors/dr-afreen-ali.png",
+            specialty: t("Gastroenterology.team.members.drAfreen.specialty"),
+          },
           {
             name: t("Gastroenterology.team.members.drUpendra.name"),
             role: t("Gastroenterology.team.members.drUpendra.role"),
@@ -1002,7 +1018,7 @@ export const useDepartmentData = () => {
             image: "/doctors/dr-upendra-gupta.webp",
             specialty: t("Gastroenterology.team.members.drUpendra.specialty"),
           },
-        ],
+      ],
       },
       facilities: {
         title: t("Gastroenterology.facilities.title"),

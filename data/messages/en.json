@@ -1333,6 +1333,12 @@
                         "role": "Associate Consultant",
                         "credentials": "MDS, Ex registrar in HCG Cancer Centre, Ahmedabad, Ex-fellow Rohilkhand Cancer Institute, Bareilly, Associate Consultant in Head & Neck Oncology in Synergy Super Speciality Hospital & Cancer Institute",
                         "specialty": "Head & Neck Surgical Oncology"
+                    },
+                    "drAMishra": {
+                        "name": "Dr. A. Mishra",
+                        "role": "Consultant",
+                        "credentials": "MBBS, MS, MCH, Surgical Oncologist",
+                        "specialty": "Surgical Oncology"
                     }
                 }
             },
@@ -2173,6 +2179,12 @@
                         "role": "Gastroenterologist",
                         "credentials": "M.B.B.S , MD, DM-(GASTROENTEROLOGY)",
                         "specialty": "Advanced Endoscopy"
+                    },
+                    "drAfreen": {
+                        "name": "Dr. Afreen Ali",
+                        "role": "Gastroenterologist",
+                        "credentials": "FNB (Minimal Access Surgery & Oncosurgery), MS (General Surgery), MBBS, FIAGES, FALS (Hernia), MCLS, Training in Abdominal Wall Reconstruction & Anal Sphincter Repair",
+                        "specialty": "Laparoscopic colorectal procedures including LAR, uLAR & Right Hemicolectomy"
                     }
                 }
             },
@@ -9813,6 +9825,18 @@
             "qualification": "MBBS (AIIMS), MD Medicine (KGMU), DM Cardiology (SGPGI)",
             "department": "Cardiology",
             "experience": "4+ years"
+        },
+        "25": {
+            "name": "Dr. A. Mishra",
+            "qualification": "MBBS, MS, MCH, Surgical Oncologist",
+            "department": "Surgical Oncology",
+            "experience": "5+ years"
+        },
+        "26": {
+            "name": "Dr. Afreen Ali",
+            "qualification": "FNB (Minimal Access Surgery & Oncosurgery), MS (General Surgery), MBBS, FIAGES, FALS (Hernia), MCLS, Training in Abdominal Wall Reconstruction & Anal Sphincter Repair",
+            "department": "Gastroenterology",
+            "experience": "9+ years"
         }
     },
     "CentersPage": {
