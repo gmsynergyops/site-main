@@ -138,7 +138,7 @@ export const useSpecializedServicesData = (): Record<ServiceKey, Service> => {
             ],
             whyTitle: t("services.OT.whyTitle"),
             why: t.raw("services.OT.why") as string[],
-            images: ["/specializations/ot/1.jpeg", "/specializations/ot/2.jpeg", "/specializations/ot/3.jpeg"],
+            images: ["/specializations/ot/1.png", "/specializations/ot/2.png", "/specializations/ot/3.png"],
         },
         PHYSIOTHERAPY: {
             label: t("services.PHYSIOTHERAPY.label"),

@@ -32,10 +32,10 @@ export const InPatientFacilities = () => {
     ];
 
     const roomImages = [
-        '/economy-ward.jpg',
-        '/semi-private.jpg',
-        '/private-room.jpg',
-        '/deluxe-room.jpg'
+        '/room-types/general.png',
+        '/room-types/semi-private.png',
+        '/room-types/private.png',
+        '/room-types/deluxe.png'
     ];
 
     const facilities = t.raw("facilities.items") as { title: string; description: string }[];
@@ -94,14 +94,14 @@ export const InPatientFacilities = () => {
 
             {/* Room Types */}
             <section className="py-16 px-4 bg-white">
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                     <h2 className="text-3xl font-semibold text-center mb-12 text-gray-800">
                         {t("rooms.title")}
                     </h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid md:grid-cols-2 gap-6">
                         {roomTypes.map((room, index) => (
                             <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                                <div className="h-48 bg-gray-200 overflow-hidden">
+                                <div className="w-full  bg-gray-200 overflow-hidden">
                                     <ImageWithFallback
                                         fallbackSrc='/fallback-image.webp'
                                         width={720}
@@ -110,20 +110,6 @@ export const InPatientFacilities = () => {
                                         alt={room.name}
                                         className="w-full h-full object-cover"
                                     />
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{room.name}</h3>
-                                    <p className="text-gray-600 mb-4">{room.description}</p>
-                                    <ul className="space-y-2">
-                                        {room.features.map((feature, i) => (
-                                            <li key={i} className="flex items-start">
-                                                <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                                <span className="text-gray-600">{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
                                 </div>
                             </div>
                         ))}

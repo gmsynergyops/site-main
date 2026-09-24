@@ -880,7 +880,7 @@ export const useDepartmentData = () => {
           t("Neurosurgery.facilities.features.3"),
           t("Neurosurgery.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/neurosurgery.png",
       },
       research: {
         title: t("Neurosurgery.research.title"),
@@ -1030,7 +1030,7 @@ export const useDepartmentData = () => {
           t("Gastroenterology.facilities.features.3"),
           t("Gastroenterology.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/gastroenterology.png",
       },
       research: {
         title: t("Gastroenterology.research.title"),
@@ -1288,7 +1288,7 @@ export const useDepartmentData = () => {
           t("Nephrology.facilities.features.3"),
           t("Nephrology.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/nephrology.png",
       },
       research: {
         title: t("Nephrology.research.title"),
@@ -1477,7 +1477,7 @@ export const useDepartmentData = () => {
       name: t("Orthopedics.name"),
       slug: "orthopedics",
       heroImage: "/department/orthopedics-hero.png",
-      bannerImage: "/department/orthology-banner.webp",
+      bannerImage: "/department/orthology-banner.png",
       heroTitle: t("Orthopedics.heroTitle"),
       isFeatured: false,
       heroSubtitle: t("Orthopedics.heroSubtitle"),
@@ -1814,7 +1814,7 @@ export const useDepartmentData = () => {
           t("GeneralSurgery.facilities.features.3"),
           t("GeneralSurgery.facilities.features.4"),
         ],
-        image: "/specializations/ot/1.jpeg",
+        image: "/specializations/ot/1.png",
       },
       research: {
         title: t("GeneralSurgery.research.title"),
@@ -2093,7 +2093,7 @@ export const useDepartmentData = () => {
           "Multidisciplinary clinic space",
           "Speech and swallowing therapy",
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/head-neck.png",
       },
       research: {
         title: "Research & Innovation",
@@ -2230,7 +2230,7 @@ export const useDepartmentData = () => {
           t("EmergencyCriticalCare.facilities.features.3"),
           t("EmergencyCriticalCare.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/emergency.png",
       },
       research: {
         title: "Emergency Medicine Research",
@@ -2348,7 +2348,7 @@ export const useDepartmentData = () => {
             credentials: t(
               "DiagnosticImaging.team.members.drRitesh.credentials"
             ),
-            image: "/doctors/dr-ritesh-nayak.webp",
+            image: "/doctors/fallback-male-doctor.png",
             specialty: t("DiagnosticImaging.team.members.drRitesh.specialty"),
           },
         ],
@@ -2600,7 +2600,7 @@ export const useDepartmentData = () => {
             name: t("Radiology.team.members.drRitesh.name"),
             role: t("Radiology.team.members.drRitesh.role"),
             credentials: t("Radiology.team.members.drRitesh.credentials"),
-            image: "/doctors/dr-ritesh-nayak.webp",
+            image: "/doctors/fallback-male-doctor.png",
             specialty: t("Radiology.team.members.drRitesh.specialty"),
           },
         ],
@@ -2728,7 +2728,7 @@ export const useDepartmentData = () => {
             name: t("Pathology.team.members.drGargi.name"),
             role: t("Pathology.team.members.drGargi.role"),
             credentials: t("Pathology.team.members.drGargi.credentials"),
-            image: "/doctors/dr-gargi-tignath.webp",
+            image: "/doctors/fallback-female-doctor.png",
             specialty: t("Pathology.team.members.drGargi.specialty"),
           },
         ],
@@ -3155,7 +3155,7 @@ export const useDepartmentData = () => {
           t("PainAndPalliativeCare.facilities.features.3"),
           t("PainAndPalliativeCare.facilities.features.4"),
         ],
-        image: "/fallback-image.webp",
+        image: "/department/sub/pain-palliative.png",
       },
       research: {
         title: t("PainAndPalliativeCare.research.title"),
