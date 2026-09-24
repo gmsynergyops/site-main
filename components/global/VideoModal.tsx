@@ -79,7 +79,10 @@ export function VideoModal({
                 ) : null}
             </DialogTrigger>
 
-            <DialogContent className="rounded-2xl p-0 overflow-hidden min-w-[90vw] max-w-5xl w-full">
+            <DialogContent
+                data-lenis-prevent
+                className="rounded-2xl p-0 overflow-hidden min-w-[90vw] max-w-5xl w-full"
+            >
                 <DialogTitle className="sr-only">Video Preview</DialogTitle>
                 <div className="aspect-video w-full relative bg-black">
                     <video

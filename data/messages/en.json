@@ -1032,8 +1032,9 @@
     },
     "mediaCenter": {
         "synergyInTheNews": {
+            "badge": "Broadcast & Media Highlights",
             "title": "Synergy in the News",
-            "description": " Stay updated with our latest achievements, breakthroughs, and contributions to healthcare innovation.",
+            "description": "Stay updated with our latest achievements, breakthroughs, and contributions to healthcare innovation.",
             "awardWinningCare": {
                 "title": "Award-Winning Care",
                 "description": "Recognized nationally for excellence"
@@ -1042,36 +1043,66 @@
                 "title": "Media Features",
                 "description": "Featured in leading healthcare publications"
             },
-            "viewAllMedia": "View All Media Coverage"
+            "viewAllMedia": "View All Media Coverage",
+            "watchFullCoverage": "Watch Full Video",
+            "allCoverageTitle": "All Media & Television Coverage",
+            "allCoverageBadge": "Media & Broadcast Archive",
+            "allCoverageDesc": "Browse our complete archive of newsroom broadcasts, clinical breakthroughs, doctor interviews, and health features covered by national and regional media.",
+            "searchPlaceholder": "Search coverage by headline, channel, or topic...",
+            "allTags": "All Tags",
+            "noCoverageFound": "No coverage found",
+            "noCoverageDesc": "Try adjusting your search or category filter.",
+            "resetFilters": "Reset Filters"
         },
         "PressReleases": {
+            "badge": "Official Statements & Newsroom",
+            "title": "Press Releases",
+            "description": "Stay updated with official hospital announcements, research publications, new facility launches, and community milestones.",
             "filterButtons": {
-                "All": "All",
+                "All": "All Releases",
                 "Innovation": "Innovation",
                 "Awards": "Awards",
                 "Research": "Research",
-                "Partnership": "Partnership"
+                "Partnership": "Partnership",
+                "Community": "Community"
             },
-            "title": "Press Releases",
-            "items": {
-                "aiDiagnosticCenter": {
-                    "title": "Synergy Hospital Launches AI-Driven Diagnostic Center",
-                    "summary": "Groundbreaking AI integration revolutionizes patient diagnostics with 95% accuracy",
-                    "content": "Full article content with HTML formatting..."
-                },
-                "topCancerCare": {
-                    "title": "Synergy Recognized as Top Hospital for Cancer Care",
-                    "summary": "National healthcare award for excellence in oncology treatment",
-                    "content": "Full content..."
-                }
-            },
-            "featuredRelease": "Featured Release",
-            "featuredTitle": "Annual Medical Innovation Report 2024",
+            "featuredRelease": "Featured Press Release",
+            "readFullRelease": "Read Full Release",
             "downloadReport": "Download Report",
-            "readSummary": "Read Summary",
             "share": "Share",
-            "watchVideo": "Preview Video",
-            "readMore": "Read More"
+            "readMore": "Read More",
+            "recentChronology": "Recent Chronology",
+            "mediaInquiriesTitle": "Media & Press Inquiries",
+            "mediaInquiriesDesc": "For press kits, official interviews with our specialists, or media accreditation, connect with our communications office.",
+            "backToMediaCenter": "Back to Media Center",
+            "officialPressRelease": "Official Press Release",
+            "executiveSummary": "Executive Summary & Strategic Highlights",
+            "categorizedTags": "Categorized Tags",
+            "morePressReleases": "More Press Releases & Statements"
+        },
+        "mediaGallery": {
+            "badge": "Visual Hospital Tour",
+            "title": "Media & Photo Gallery",
+            "description": "Explore our collection of photographs and videos showcasing high-tech linear accelerators, modular operation theatres, community screening camps, and doctor initiatives.",
+            "categories": {
+                "All": "All",
+                "Facilities & Infrastructure": "Facilities & Infrastructure",
+                "Advanced Medical Tech": "Advanced Medical Tech",
+                "Events & Camps": "Events & Camps",
+                "Doctors & Surgeries": "Doctors & Surgeries",
+                "Community Outreach": "Community Outreach"
+            },
+            "viewFullGallery": "View Full Media Gallery",
+            "allAssets": "Assets",
+            "photos": "Photos",
+            "videos": "Videos",
+            "searchPlaceholder": "Search gallery by department, tech, or event...",
+            "noMediaFound": "No media items match your criteria",
+            "noMediaDesc": "Try resetting search or category filters.",
+            "resetAllFilters": "Reset All Filters",
+            "fullGalleryBadge": "Visual Hospital Archives & Facilities",
+            "fullGalleryTitle": "Synergy Hospital Media Gallery",
+            "fullGalleryDesc": "Explore high-resolution visual tours of our advanced modular OTs, radiotherapy suites, critical care infrastructure, community outreach camps, and surgical teams."
         }
     },
     "DepartmentDataMegaArray": {

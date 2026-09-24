@@ -90,6 +90,7 @@ export const useMenuItems = () => {
                         { label: t('sections.specialties.links.headNeck'), href: "/services/head-and-neck" },
                         { label: t('sections.specialties.links.emergency'), href: "/services/emergency-and-critical-care" },
                         { label: t('sections.specialties.links.palliativeCare'), href: "/services/pain-and-palliative-care" },
+                        { label: t('sections.specialties.links.viewAll'), href: "/services/all" },
                     ]
                 },
                 {
