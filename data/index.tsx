@@ -249,6 +249,13 @@ export const useMenuItems = () => {
                         { label: t('sections.storiesOfHope.links.victoryStories'), href: "/survivors/victory-stories" },
                     ],
                 },
+                {
+                    name: t('sections.supportPrograms.name'),
+                    links: [
+                        { label: t('sections.supportPrograms.links.counseling'), href: "/survivors/counseling" },
+                        { label: t('sections.supportPrograms.links.rehab'), href: "/survivors/rehab" },
+                    ],
+                },
             ],
         },
         {

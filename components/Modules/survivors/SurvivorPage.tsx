@@ -58,47 +58,44 @@ export default function SurvivorPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       
-      <motion.section ref={heroRef} initial="hidden" animate={heroInView ? "visible" : "hidden"} variants={containerVariants} className="mb-20">
-        <motion.div variants={itemVariants} className="relative w-full rounded-2xl overflow-hidden shadow-xl">
-          {/* Desktop banner */}
+      {/* Hero Banner Section */}
+      <motion.section ref={heroRef} initial="hidden" animate={heroInView ? "visible" : "hidden"} variants={containerVariants} className="mb-12 md:mb-16">
+        <motion.div variants={itemVariants} className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1] min-h-[220px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/50">
           <ImageWithFallback
             fallbackSrc="/fallback-image.webp"
             src={pageData.bannerImage}
             alt={pageData.name}
-            width={1200}
-            height={500}
-            className="hidden md:block object-cover w-full h-auto aspect-5:3"
+            fill
+            className="object-cover object-center"
             priority
           />
 
-          {/* Mobile banner */}
-          <ImageWithFallback
-            fallbackSrc="/fallback-image.webp"
-            src={pageData.bannerImageMobile || pageData.bannerImage}
-            alt={pageData.name}
-            width={1200}
-            height={500}
-            className="block md:hidden object-cover w-full h-auto aspect-5:3"
-            priority
-          />
-
-          <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          {/* Radial scrim gradient and bottom fade */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-transparent pointer-events-none" />
           
-          <motion.div className="absolute bottom-2.5 left-0 right-0 w-full px-4 flex justify-center z-10">
-            <div className="w-full max-w-4xl p-6 md:p-10 rounded-2xl bg-white/2 backdrop-blur-xl border-[1.5px] border-white/50 shadow-[inset_0_0_20px_rgba(255,255,255,0.05),0_8px_32px_0_rgba(0,0,0,0.2)] text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-              <motion.h1 variants={itemVariants} className={`${newYorkTypography.h1} text-white mb-3 md:mb-4 [text-shadow:0_0_20px_rgba(255,255,255,0.8),0_0_5px_rgba(255,255,255,1)] relative z-10`}>
+          <div className="absolute bottom-0 inset-x-0 p-5 sm:p-8 md:p-10 z-10">
+            <div className="max-w-3xl">
+              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium tracking-wide mb-2 sm:mb-3 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-rose-400 animate-pulse" />
+                <span>Cancer Survivors</span>
+                <span className="text-white/40">•</span>
+                <span className="text-white/90">{pageData.name}</span>
+              </motion.div>
+
+              <motion.h1 variants={itemVariants} className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white mb-2 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
                 {pageData.heroTitle}
               </motion.h1>
-              <motion.p variants={itemVariants} className="text-lg md:text-xl text-white font-serif max-w-3xl mx-auto [text-shadow:0_0_15px_rgba(255,255,255,0.6)] font-medium relative z-10">
+
+              <motion.p variants={itemVariants} className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-100 font-sans leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
                 {pageData.heroSubtitle}
               </motion.p>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </motion.section>
 
-      <motion.section ref={contentRef} initial="hidden" animate={contentInView ? "visible" : "hidden"} variants={containerVariants} className={cn("mb-20 p-6 md:p-12 rounded-3xl shadow-sm border border-black/5", pageData.themeBgClass)}>
+      {/* Main Content */}
+      <motion.section ref={contentRef} initial="hidden" animate={contentInView ? "visible" : "hidden"} variants={containerVariants} className={cn("mb-16 md:mb-20 p-6 md:p-12 rounded-3xl shadow-sm border border-black/5", pageData.themeBgClass)}>
         <div className="max-w-4xl mx-auto space-y-16">
           {pageData.sections.map((section, index) => (
             <motion.div key={index} variants={itemVariants} className="space-y-6">

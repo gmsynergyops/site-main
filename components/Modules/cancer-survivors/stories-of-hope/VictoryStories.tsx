@@ -260,22 +260,43 @@ export const VictoryStories = () => {
     }, [filter, searchTerm, selectedCategory]);
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-16 sm:py-24">
-            <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                    Success Stories
-                </h2>
-                <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                    Real stories from real patients who found hope, healing, and a new start at Synergy Hospital
-                </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            {/* Hero Banner Section */}
+            <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1] min-h-[220px] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-slate-200/50 mb-10 sm:mb-14">
+                <ImageWithFallback
+                    fallbackSrc="/fallback-image.webp"
+                    src="/health-library/banner/cancer-wellness.png"
+                    alt="Cancer Victory Stories"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/40 to-transparent pointer-events-none" />
+                
+                <div className="absolute bottom-0 inset-x-0 p-5 sm:p-8 md:p-10 z-10">
+                    <div className="max-w-3xl">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium tracking-wide mb-2 sm:mb-3 shadow-sm">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <span>Stories of Hope</span>
+                            <span className="text-white/40">•</span>
+                            <span className="text-white/90">Victory Stories</span>
+                        </div>
+                        <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white mb-2 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+                            Real Stories of Courage &amp; Recovery
+                        </h1>
+                        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-100 font-sans leading-relaxed max-w-2xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+                            Inspiring journeys of patients who defeated cancer with grit, state-of-the-art medical care, and continuous support at Synergy Hospital.
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            {/* Filters */}
+            {/* Filters & Search */}
             <div className="mb-8 flex flex-col lg:flex-row gap-4 items-center justify-between">
-                <div className="flex flex-wrap gap-2 sm:gap-4 justify-center lg:justify-start w-full lg:w-auto">
+                <div className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start w-full lg:w-auto">
                     <button
                         onClick={() => setFilter("all")}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-xs ${
                             filter === "all"
                                 ? "bg-blue-600 text-white shadow-md"
                                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -285,23 +306,23 @@ export const VictoryStories = () => {
                     </button>
                     <button
                         onClick={() => setFilter("testimonial")}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-xs ${
                             filter === "testimonial"
                                 ? "bg-blue-600 text-white shadow-md"
                                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                     >
-                        Testimonials
+                        Written Stories
                     </button>
                     <button
                         onClick={() => setFilter("video")}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-xs ${
                             filter === "video"
                                 ? "bg-blue-600 text-white shadow-md"
                                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                     >
-                        Videos
+                        Video Journeys
                     </button>
                 </div>
 

@@ -25,25 +25,15 @@ export const CancerPrevention = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh]">
+      <section className="relative w-full aspect-[3/1]">
         <ImageWithFallback
           fallbackSrc="/fallback-image.webp"
-          src="/images/cancer-prevention.webp"
+          src="/health-library/banner/cancer-prevention.png"
           alt={t("hero.title")}
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-center px-4">
-          <div className="text-white space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-bold">
-              {t("hero.title")}
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
-              {t("hero.subtitle")}
-            </p>
-          </div>
-        </div>
       </section>
 
       <main className="px-6 py-16 max-w-6xl mx-auto space-y-16">
