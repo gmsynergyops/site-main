@@ -74,7 +74,7 @@ export const useMenuItems = () => {
                     name: t('sections.specialties.name'),
                     links: [
                         { label: t('sections.specialties.links.surgicalOncology'), href: "/services/surgical-oncology" },
-                        { label: t('sections.specialties.links.medicalOncology'), href: "/services/medical-oncology" },
+                        { label: t('sections.specialties.links.medicalOncology'), href: "/services/medical-oncology-and-hemato-oncology" },
                         { label: t('sections.specialties.links.radiationOncology'), href: "/services/radiation-oncology" },
                         { label: t('sections.specialties.links.gynecology'), href: "/services/gynecology" },
                         { label: t('sections.specialties.links.pediatrics'), href: "/services/pediatrics" },
@@ -223,7 +223,7 @@ export const useMenuItems = () => {
                     links: [
                         { label: t('sections.cancerCareComplete.links.preventiveOncology'), href: "/cancer-care/preventive-oncology" },
                         { label: t('sections.cancerCareComplete.links.surgicalOncology'), href: "/cancer-care/surgical-oncology" },
-                        { label: t('sections.cancerCareComplete.links.medicalOncology'), href: "/cancer-care/medical-oncology" },
+                        { label: t('sections.cancerCareComplete.links.medicalOncology'), href: "/cancer-care/medical-oncology-and-hemato-oncology" },
                         { label: t('sections.cancerCareComplete.links.radiationOncology'), href: "/cancer-care/radiation-oncology" },
                     ]
                 },

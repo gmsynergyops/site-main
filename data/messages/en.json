@@ -149,7 +149,7 @@
                 "name": "Our Specialties",
                 "links": {
                     "surgicalOncology": "Surgical Oncology",
-                    "medicalOncology": "Medical Oncology",
+                    "medicalOncology": "Medical Oncology & Hemato-Oncology",
                     "radiationOncology": "Radiation Oncology",
                     "pediatrics": "Pediatrics Oncology",
                     "gynecology": "Gynae Oncology",
@@ -288,7 +288,7 @@
                 "links": {
                     "preventiveOncology": "Preventive Oncology",
                     "surgicalOncology": "Surgical Oncology",
-                    "medicalOncology": "Medical Oncology",
+                    "medicalOncology": "Medical Oncology & Hemato-Oncology",
                     "radiationOncology": "Radiation Oncology"
                 }
             },
@@ -1107,49 +1107,52 @@
     },
     "DepartmentDataMegaArray": {
         "MedicalOncology": {
-            "name": "Medical Oncology",
-            "heroTitle": "Comprehensive Cancer Treatment & Care",
-            "heroSubtitle": "'Advanced medical oncology services with personalized treatment plans in Gorakhpur.'",
+            "name": "Medical Oncology & Hemato-Oncology",
+            "heroTitle": "Comprehensive Medical & Hemato-Oncology Care",
+            "heroSubtitle": "'Advanced medical oncology, clinical hematology, and bone marrow transplant services with personalized care in Gorakhpur.'",
             "overview": {
-                "title": "Our Medical Oncology Approach",
+                "title": "Our Medical & Hemato-Oncology Approach",
                 "description": [
-                    "Medical Oncology deals with cancer treatment using medicines.",
-                    "Our doctors treat cancer with therapies like chemotherapy, immunotherapy, and targeted treatment, depending on the patient’s condition."
+                    "Medical Oncology and Hemato-Oncology deals with comprehensive cancer and blood disorder treatment using modern medicines, targeted therapies, and specialized cellular procedures.",
+                    "Our expert oncologists and hematologists provide cutting-edge chemotherapy, immunotherapy, targeted therapy, and advanced Bone Marrow Transplant (BMT) protocols tailored to each patient."
                 ],
                 "additionalSections": [
                     {
                         "title": "We treat:",
                         "items": [
-                            "Breast cancer",
-                            "Lung cancer",
-                            "Blood cancer",
-                            "Gastrointestinal cancers",
-                            "Other solid tumors"
+                            "Solid Tumors (Breast, Lung, GI, Head & Neck, etc.)",
+                            "Blood Cancers (Leukemia, Lymphoma, Multiple Myeloma)",
+                            "Benign Blood Disorders (Aplastic Anemia, Thalassemia, Sickle Cell Disease)",
+                            "Bleeding & Clotting Disorders",
+                            "Bone Marrow & Stem Cell Failure Syndromes"
                         ]
                     },
                     {
                         "title": "How we help:",
                         "items": [
-                            "Personalized cancer treatment plans",
-                            "Day-care chemotherapy",
-                            "Side-effect management",
-                            "Regular monitoring and follow-up"
+                            "Personalized cancer & hematology treatment plans",
+                            "Day-care chemotherapy & targeted infusion suites",
+                            "Bone Marrow Transplant (BMT) consultation & protocols",
+                            "Comprehensive side-effect management & supportive care",
+                            "Regular monitoring and long-term follow-up"
                         ]
                     },
                     {
                         "title": "Why patients trust us:",
                         "items": [
-                            "Experienced cancer specialists",
-                            "Treatment decided by Tumour Board",
-                            "Supportive care throughout treatment"
+                            "Experienced medical oncologists and hematologists",
+                            "Multidisciplinary Tumour Board consensus",
+                            "Dedicated infection-controlled day-care and inpatient units",
+                            "Compassionate and patient-centric nursing care"
                         ]
                     },
                     {
                         "title": "When to consult:",
                         "items": [
-                            "Cancer diagnosis",
-                            "During or after surgery",
-                            "If cancer has spread or returned"
+                            "New diagnosis of cancer or blood disorder",
+                            "Abnormal complete blood count (CBC) or severe unexplained anemia",
+                            "Enlarged lymph nodes, persistent fever, or unexplained weight loss",
+                            "Pre-surgery, post-surgery, or recurrent cancer evaluation"
                         ]
                     }
                 ]
@@ -1159,15 +1162,27 @@
                 "items": {
                     "chemotherapy": {
                         "title": "Chemotherapy",
-                        "description": "Advanced chemotherapy protocols tailored to your specific cancer type and stage, administered with precision and care."
+                        "description": "Advanced chemotherapy protocols tailored to your specific cancer type and stage, administered with precision and supportive care."
                     },
                     "immunotherapy": {
                         "title": "Immunotherapy",
-                        "description": "Innovative treatments that harness your immune system to fight cancer, offering new hope for many patients."
+                        "description": "Innovative treatments that empower your body's immune system to identify and destroy cancer cells effectively."
                     },
                     "targetedTherapy": {
                         "title": "Targeted Therapy",
-                        "description": "Precision medicines designed to attack specific cancer cells while sparing healthy tissue."
+                        "description": "Precision medications engineered to block specific molecules needed for cancer cell growth and survival, sparing healthy cells."
+                    },
+                    "clinicalHematology": {
+                        "title": "Clinical Hematology",
+                        "description": "Comprehensive diagnosis and advanced management of non-malignant blood disorders such as severe anemia, thalassemia, sickle cell disease, hemophilia, and bleeding/clotting disorders."
+                    },
+                    "hematoOncology": {
+                        "title": "Hemato-Oncology",
+                        "description": "Specialized evidence-based treatment regimens for blood-related malignancies including acute and chronic leukemias, Hodgkin's & Non-Hodgkin's lymphomas, and multiple myeloma."
+                    },
+                    "boneMarrowTransplant": {
+                        "title": "Bone Marrow Transplant (BMT)",
+                        "description": "State-of-the-art Autologous and Allogeneic stem cell transplantation programs designed for blood cancers, bone marrow failure, and genetic blood disorders."
                     }
                 }
             },
@@ -9318,16 +9333,16 @@
             ]
         },
         {
-            "slug": "medical-oncology",
-            "name": "Medical Oncology",
-            "heroTitle": "Advanced Cancer Care. All Under One Roof.",
+            "slug": "medical-oncology-and-hemato-oncology",
+            "name": "Medical Oncology & Hemato-Oncology",
+            "heroTitle": "Advanced Medical, Hematology & Cancer Care. All Under One Roof.",
             "heroSubtitle": "At Synergy, cancer care is not just about treatment. It is about understanding the patient, planning the right approach, and providing complete support from diagnosis to recovery.",
             "sections": [
                 {
-                    "title": "Cancer treatment through medicines",
+                    "title": "Comprehensive cancer & blood disorder care",
                     "description": [
-                        "Medical oncology uses medicines to treat cancer and control its spread.",
-                        "We also focus strongly on managing side effects and improving quality of life during treatment."
+                        "Medical oncology and hemato-oncology uses medicines, targeted treatments, and specialized cellular therapies to treat cancer and blood disorders.",
+                        "We also focus strongly on managing side effects, infection control, and improving quality of life during treatment."
                     ]
                 },
                 {
@@ -9336,7 +9351,10 @@
                         "Chemotherapy",
                         "Immunotherapy",
                         "Targeted therapy",
-                        "Hormonal therapy"
+                        "Hormonal therapy",
+                        "Clinical Hematology",
+                        "Hemato-Oncology",
+                        "Bone Marrow Transplant (BMT) / Stem Cell Transplant"
                     ]
                 },
                 {

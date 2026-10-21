@@ -195,37 +195,50 @@ export function Navbar() {
                                                     {/* CENTER: Links */}
                                                     <motion.div
                                                         variants={itemVariants}
-                                                        className="w-5/8 border-x border-gray-300 p-4 min-h-full overflow-auto"
+                                                        className="w-5/8 border-x border-gray-300 p-6 min-h-full overflow-auto"
                                                     >
-                                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                                            {Array.from({
-                                                                length: Math.ceil(item.pages[activePageIndex]?.links.length / 12),
-                                                            }).map((_, colIndex) => {
-                                                                const start = colIndex * 12;
-                                                                const columnLinks = item.pages[activePageIndex]?.links.slice(
-                                                                    start,
-                                                                    start + 12
-                                                                );
+                                                        {(() => {
+                                                            const totalLinks = item.pages[activePageIndex]?.links.length || 0;
+                                                            const numCols = Math.ceil(totalLinks / 12);
+                                                            return (
+                                                                <div className={cn(
+                                                                    "grid gap-y-3",
+                                                                    numCols <= 1
+                                                                        ? "grid-cols-1"
+                                                                        : numCols === 2
+                                                                            ? "grid-cols-1 sm:grid-cols-2 gap-x-12"
+                                                                            : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8"
+                                                                )}>
+                                                                    {Array.from({
+                                                                        length: numCols,
+                                                                    }).map((_, colIndex) => {
+                                                                        const start = colIndex * 12;
+                                                                        const columnLinks = item.pages[activePageIndex]?.links.slice(
+                                                                            start,
+                                                                            start + 12
+                                                                        );
 
-                                                                return (
-                                                                    <motion.div
-                                                                        key={colIndex}
-                                                                        variants={itemVariants}
-                                                                        className="flex flex-col gap-2"
-                                                                    >
-                                                                        {columnLinks.map((link) => (
-                                                                            <Link
-                                                                                key={link.label}
-                                                                                href={link.href}
-                                                                                className="hover:underline font-normal w-max block text-sm transition-colors"
+                                                                        return (
+                                                                            <motion.div
+                                                                                key={colIndex}
+                                                                                variants={itemVariants}
+                                                                                className="flex flex-col gap-2.5 min-w-0"
                                                                             >
-                                                                                {link.label}
-                                                                            </Link>
-                                                                        ))}
-                                                                    </motion.div>
-                                                                );
-                                                            })}
-                                                        </div>
+                                                                                {columnLinks.map((link) => (
+                                                                                    <Link
+                                                                                        key={link.label}
+                                                                                        href={link.href}
+                                                                                        className="hover:underline font-normal block text-sm transition-colors hover:text-indigo-600 leading-snug break-words"
+                                                                                    >
+                                                                                        {link.label}
+                                                                                    </Link>
+                                                                                ))}
+                                                                            </motion.div>
+                                                                        );
+                                                                    })}
+                                                                </div>
+                                                            );
+                                                        })()}
                                                     </motion.div>
 
                                                     {/* RIGHT: Quick Links */}

@@ -35,6 +35,10 @@ export const CANCER_CARE_METADATA: Record<string, CancerCareVisualMeta> = {
     bannerImage: "/cancer-care/medical-oncology.png",
     themeBgClass: "bg-linear-to-br from-violet-50 via-white to-purple-50",
   },
+  "medical-oncology-and-hemato-oncology": {
+    bannerImage: "/cancer-care/medical-oncology.png",
+    themeBgClass: "bg-linear-to-br from-violet-50 via-white to-purple-50",
+  },
   "radiation-oncology": {
     bannerImage: "/cancer-care/radiation-oncology.png",
     themeBgClass: "bg-linear-to-br from-orange-50 via-white to-amber-50",

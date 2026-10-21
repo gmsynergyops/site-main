@@ -18,10 +18,10 @@ export const useDepartmentData = () => {
 
   const departmentData: DepartmentData[] = [
     {
-      id: "medical-oncology",
+      id: "medical-oncology-and-hemato-oncology",
       index: 0,
       name: t("MedicalOncology.name"),
-      slug: "medical-oncology",
+      slug: "medical-oncology-and-hemato-oncology",
       heroImage: "/department/medical-oncology-hero.png",
       bannerImage: "/department/medical-oncology-banner.jpeg",
       // bannerImageMobile: "/department/medical-oncology-banner-mobile.jpeg", // Add your mobile banner here
@@ -49,6 +49,24 @@ export const useDepartmentData = () => {
             title: t("MedicalOncology.treatments.items.targetedTherapy.title"),
             description: t(
               "MedicalOncology.treatments.items.targetedTherapy.description"
+            ),
+          },
+          {
+            title: t("MedicalOncology.treatments.items.clinicalHematology.title"),
+            description: t(
+              "MedicalOncology.treatments.items.clinicalHematology.description"
+            ),
+          },
+          {
+            title: t("MedicalOncology.treatments.items.hematoOncology.title"),
+            description: t(
+              "MedicalOncology.treatments.items.hematoOncology.description"
+            ),
+          },
+          {
+            title: t("MedicalOncology.treatments.items.boneMarrowTransplant.title"),
+            description: t(
+              "MedicalOncology.treatments.items.boneMarrowTransplant.description"
             ),
           },
         ],

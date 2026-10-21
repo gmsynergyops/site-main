@@ -74,7 +74,7 @@ export default function DepartmentPage() {
   const departmentData = useDepartmentData()
 
   // Find matching department data
-  const department = departmentData.find(dept => dept.slug === slug) as any;
+  const department = departmentData.find(dept => dept.slug === slug || (slug === "medical-oncology" && dept.slug === "medical-oncology-and-hemato-oncology") || (slug === "medical-oncology-and-hemato-oncology" && dept.slug === "medical-oncology")) as any;
 
   if (!department) {
     return (
@@ -88,7 +88,7 @@ export default function DepartmentPage() {
   // Get dynamic background class or fallback to default
   const dynamicBgClass = department.themeBgClass || "bg-linear-to-br from-blue-50/50 via-white to-blue-50/80";
 
-  const framed = department.id === "surgical-oncology" || department.id === "medical-oncology" || department.id === "gynecology" || department.id === "urology" || department.id === "general-surgery";
+  const framed = department.id === "surgical-oncology" || department.id === "medical-oncology" || department.id === "medical-oncology-and-hemato-oncology" || department.id === "gynecology" || department.id === "urology" || department.id === "general-surgery";
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 

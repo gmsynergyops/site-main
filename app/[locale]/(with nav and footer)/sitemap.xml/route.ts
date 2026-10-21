@@ -14,6 +14,7 @@ export async function GET() {
     '/leadership/Dr-Anjali-Jain',
     '/leadership/Dr-Saurabh-Mishra',
     '/services/medical-oncology',
+    '/services/medical-oncology-and-hemato-oncology',
     '/services/surgical-oncology',
     '/services/radiation-oncology',
     '/services/hemato-oncology',

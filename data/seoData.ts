@@ -61,9 +61,15 @@ export const seoData: Record<
 
   services: {
     "medical-oncology": {
-      title: "Medical Oncology Services",
-      description: "Personalized cancer treatment using advanced chemotherapy and immunotherapy approaches.",
-      keywords: ["Medical Oncology", "Chemotherapy", "Immunotherapy", "Cancer Treatment"],
+      title: "Medical Oncology & Hemato-Oncology Services | Synergy Hospital",
+      description: "Advanced medical oncology, clinical hematology, hemato-oncology, and bone marrow transplant (BMT) services with personalized cancer care in Gorakhpur.",
+      keywords: ["Medical Oncology", "Hemato-Oncology", "Clinical Hematology", "Bone Marrow Transplant", "BMT", "Chemotherapy", "Immunotherapy", "Cancer Treatment Gorakhpur"],
+      ogImage: "/images/services/medical-oncology.jpg",
+    },
+    "medical-oncology-and-hemato-oncology": {
+      title: "Medical Oncology & Hemato-Oncology Services | Synergy Hospital",
+      description: "Advanced medical oncology, clinical hematology, hemato-oncology, and bone marrow transplant (BMT) services with personalized cancer care in Gorakhpur.",
+      keywords: ["Medical Oncology", "Hemato-Oncology", "Clinical Hematology", "Bone Marrow Transplant", "BMT", "Chemotherapy", "Immunotherapy", "Cancer Treatment Gorakhpur"],
       ogImage: "/images/services/medical-oncology.jpg",
     },
     "radiation-oncology": {
@@ -709,9 +715,15 @@ export const seoData: Record<
       ogImage: "/images/cancer-care/surgical.jpg",
     },
     "medical-oncology": {
-      title: "Medical Oncology & Chemotherapy | Synergy",
-      description: "Comprehensive medical oncology treatments including chemotherapy, immunotherapy, and targeted therapies.",
-      keywords: ["Medical Oncology", "Chemotherapy", "Immunotherapy", "Targeted Therapy"],
+      title: "Medical Oncology & Hemato-Oncology Care | Synergy Hospital",
+      description: "Comprehensive medical oncology, hematology, and bone marrow transplant protocols including chemotherapy, immunotherapy, and targeted therapies.",
+      keywords: ["Medical Oncology", "Hemato-Oncology", "Clinical Hematology", "Bone Marrow Transplant", "BMT", "Chemotherapy", "Targeted Therapy"],
+      ogImage: "/images/cancer-care/medical.jpg",
+    },
+    "medical-oncology-and-hemato-oncology": {
+      title: "Medical Oncology & Hemato-Oncology Care | Synergy Hospital",
+      description: "Comprehensive medical oncology, hematology, and bone marrow transplant protocols including chemotherapy, immunotherapy, and targeted therapies.",
+      keywords: ["Medical Oncology", "Hemato-Oncology", "Clinical Hematology", "Bone Marrow Transplant", "BMT", "Chemotherapy", "Targeted Therapy"],
       ogImage: "/images/cancer-care/medical.jpg",
     },
     "radiation-oncology": {
